@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "note": "Optional hit-rate table. Leave empty until you have real backtests — the UI will not invent accuracy percentages.",
+    "asOf": null
+  },
+  "stations": {}
+}

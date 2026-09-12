@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "source": "Empirical ASOS residual (forecast − observation)",
+    "sample": "~731 days",
+    "asOf": "provided-table-2026-09",
+    "definition": "bias = forecast − obs; corrected ≈ raw − bias. Annual means, not seasonal. Editable file — not a guarantee."
+  },
+  "stations": {
+    "EHAM": {
+      "icon_seamless": { "biasC": -0.14 },
+      "ukmo_seamless": { "biasC": -0.32 },
+      "knmi_seamless": {
+        "biasC": 0.86,
+        "warn": "hot",
+        "note": "HOT — warn if used alone"
+      }
+    },
+    "LFPB": {
+      "icon_seamless": { "biasC": -0.14 },
+      "meteofrance_seamless": { "biasC": -0.11 },
+      "ukmo_seamless": { "biasC": -0.37 },
+      "ecmwf_ifs025": {
+        "biasC": -0.99,
+        "warn": "avoid-solo",
+        "note": "Avoid as a solo forecast"
+      }
+    },
+    "EDDM": {
+      "icon_seamless": {
+        "biasC": -0.47,
+        "warn": "cold",
+        "note": "Cold — consider +0.3 to +0.5°C mental/auto correction on seamless"
+      },
+      "meteofrance_seamless": { "biasC": 0.4 }
+    },
+    "EGLC": {},
+    "LTAC": {
+      "gem_seamless": { "biasC": -0.41 },
+      "meteofrance_seamless": { "biasC": -0.16 },
+      "icon_seamless": { "biasC": -0.67 }
+    },
+    "LIMC": {
+      "icon_seamless": { "biasC": -0.39 },
+      "knmi_seamless": { "biasC": -0.52 },
+      "meteofrance_seamless": { "biasC": 0.32 },
+      "ecmwf_ifs025": {
+        "biasC": -1.1,
+        "warn": "avoid-solo",
+        "note": "Strong cold bias — avoid as solo"
+      }
+    },
+    "EFHK": {
+      "knmi_seamless": { "biasC": -0.13 },
+      "icon_seamless": { "biasC": -0.52 },
+      "ecmwf_ifs025": {
+        "biasC": -1.14,
+        "warn": "avoid-solo",
+        "note": "Strong cold bias — avoid as solo"
+      }
+    },
+    "EPWA": {
+      "icon_seamless": { "biasC": -0.38 },
+      "knmi_seamless": { "biasC": -0.06 },
+      "gem_seamless": { "biasC": -0.54 },
+      "ecmwf_ifs025": {
+        "biasC": -0.81,
+        "warn": "avoid-solo",
+        "note": "Cold bias — avoid as solo"
+      }
+    },
+    "KHOU": {
+      "gfs_seamless": {
+        "biasC": -0.322,
+        "biasF": -0.58,
+        "warn": "cold",
+        "note": "Annual seamless ≈ −0.58°F (cold). HRRR bias unavailable — seamless used as proxy."
+      },
+      "gfs_hrrr": {
+        "biasC": -0.322,
+        "biasF": -0.58,
+        "proxy": true,
+        "note": "HRRR bias unavailable — applying gfs_seamless annual proxy (−0.58°F)."
+      }
+    },
+    "KDAL": {
+      "gfs_seamless": {
+        "biasC": 0.022,
+        "biasF": 0.04,
+        "note": "Annual seamless ≈ +0.04°F (neutral)."
+      },
+      "gfs_hrrr": {
+        "biasC": 0.022,
+        "biasF": 0.04,
+        "proxy": true,
+        "note": "HRRR bias unavailable — applying gfs_seamless annual proxy (+0.04°F)."
+      }
+    },
+    "KMIA": {
+      "gfs_seamless": {
+        "biasC": -0.5,
+        "biasF": -0.9,
+        "warn": "cold",
+        "note": "Annual seamless ≈ −0.90°F (cold). HRRR bias unavailable — seamless used as proxy."
+      },
+      "gfs_hrrr": {
+        "biasC": -0.5,
+        "biasF": -0.9,
+        "proxy": true,
+        "note": "HRRR bias unavailable — applying gfs_seamless annual proxy (−0.90°F)."
+      },
+      "gem_seamless": {
+        "biasC": -0.128,
+        "biasF": -0.23,
+        "note": "Annual GEM ≈ −0.23°F."
+      }
+    },
+    "KAUS": {
+      "gem_seamless": {
+        "biasC": -0.394,
+        "biasF": -0.71,
+        "note": "Annual GEM ≈ −0.71°F. Low exact hit-rates — require consensus."
+      },
+      "gfs_seamless": {
+        "biasC": -0.889,
+        "biasF": -1.6,
+        "warn": "cold",
+        "note": "Annual GFS ≈ −1.60°F (cold). Low exact hit-rates — require consensus."
+      },
+      "gfs_hrrr": {
+        "biasC": -0.394,
+        "biasF": -0.71,
+        "proxy": true,
+        "note": "HRRR bias unavailable — GEM seamless proxy (−0.71°F). Require consensus."
+      }
+    },
+    "KLGA": {
+      "gfs_seamless": {
+        "biasC": -0.044,
+        "biasF": -0.08,
+        "note": "Annual seamless ≈ −0.08°F. Strongest US Polymarket evidence for HRRR."
+      },
+      "gfs_hrrr": {
+        "biasC": -0.044,
+        "biasF": -0.08,
+        "proxy": true,
+        "note": "HRRR bias unavailable — applying gfs_seamless annual proxy (−0.08°F)."
+      }
+    },
+    "KSEA": {
+      "gem_seamless": {
+        "biasC": 0.039,
+        "biasF": 0.07,
+        "note": "Annual GEM ≈ +0.07°F. ASOS prefers GEM."
+      },
+      "gfs_seamless": {
+        "biasC": -0.806,
+        "biasF": -1.45,
+        "warn": "cold",
+        "note": "Annual GFS ≈ −1.45°F. WU prefers GFS — flag GEM vs GFS disagreement."
+      },
+      "gem_hrdps_continental": {
+        "biasC": 0.039,
+        "biasF": 0.07,
+        "proxy": true,
+        "note": "HRDPS bias unavailable — applying gem_seamless annual proxy (+0.07°F)."
+      }
+    }
+  }
+}
