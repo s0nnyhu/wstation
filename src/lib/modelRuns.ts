@@ -33,6 +33,8 @@ const HARMONIE_EU: Box = { west: -10, east: 32, south: 36, north: 71 };
 const HRRR: Box = { west: -134, east: -60, south: 21, north: 53 };
 const HRDPS: Box = { west: -141, east: -42, south: 37, north: 71 };
 const RDPS: Box = { west: -150, east: -40, south: 30, north: 80 };
+/** JMA MSM 5 km nest — Japan and the nearby East China Sea. */
+const JMA_MSM: Box = { west: 120.0, east: 150.0, south: 22.4, north: 47.6 };
 
 function inBox(p: LatLon, b: Box): boolean {
   return (
@@ -92,6 +94,17 @@ export function datasetForModel(modelId: string, loc: LatLon): ModelDataset {
       return { dataset: "knmi_harmonie_arome_europe", nest: "HARMONIE EU" };
     case "ecmwf_ifs025":
       return { dataset: "ecmwf_ifs025", nest: null };
+    case "ecmwf_aifs025_single":
+      return { dataset: "ecmwf_aifs025_single", nest: null };
+    case "cma_grapes_global":
+      return { dataset: "cma_grapes_global", nest: null };
+    case "jma_msm":
+      return { dataset: "jma_msm", nest: null };
+    case "jma_gsm":
+      return { dataset: "jma_gsm", nest: null };
+    case "jma_seamless":
+      if (inBox(loc, JMA_MSM)) return { dataset: "jma_msm", nest: "JMA MSM" };
+      return { dataset: "jma_gsm", nest: "JMA GSM" };
     case "gfs_hrrr":
       return { dataset: "ncep_hrrr_conus", nest: null };
     case "gfs_seamless":

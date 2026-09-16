@@ -1,5 +1,6 @@
 "use client";
 
+import { REGION_LABEL } from "@/config/stations";
 import type { MarketDay, StationPayload, TempUnit } from "@/lib/types";
 import { convertTemp, formatTemp } from "@/lib/units";
 import { CopySnapshotButton } from "./CopySnapshotButton";
@@ -63,7 +64,7 @@ export function HeroPanel({
               {data.station.icao}
             </span>
             <span className="rounded-md border border-line bg-surface-2 px-1.5 py-0.5 text-[10px] uppercase tracking-[0.12em] text-mute">
-              {data.station.region === "america" ? "America" : "Europe"}
+              {REGION_LABEL[data.station.region]}
             </span>
           </div>
           <p className="mt-1 break-words text-sm text-mute">

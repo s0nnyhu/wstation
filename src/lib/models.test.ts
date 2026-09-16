@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { modelFamily, pickConsensusRows, roleForModel } from "./models";
+import { compareAllFor, modelFamily, pickConsensusRows, roleForModel } from "./models";
 import type { BiasResolution, ModelRole, ModelRow } from "./types";
 
 function bias(source: BiasResolution["source"]): BiasResolution {
@@ -33,6 +33,22 @@ function row(
   };
 }
 
+describe("compareAllFor", () => {
+  it("selects the regional compare-all set", () => {
+    expect(compareAllFor("europe")).toContain("icon_seamless");
+    expect(compareAllFor("america")).toContain("gfs_hrrr");
+    expect(compareAllFor("asia")).toEqual(
+      expect.arrayContaining([
+        "ukmo_seamless",
+        "ecmwf_aifs025_single",
+        "jma_seamless",
+        "cma_grapes_global",
+      ]),
+    );
+    expect(compareAllFor("asia")).not.toContain("gfs_hrrr");
+  });
+});
+
 describe("modelFamily", () => {
   it("groups Open-Meteo ids by issuing centre", () => {
     expect(modelFamily("gfs_seamless")).toBe("gfs");
@@ -41,6 +57,7 @@ describe("modelFamily", () => {
     expect(modelFamily("gem_hrdps_continental")).toBe("gem");
     expect(modelFamily("knmi_harmonie_arome_netherlands")).toBe("knmi");
     expect(modelFamily("ecmwf_ifs025")).toBe("ecmwf");
+    expect(modelFamily("ecmwf_aifs025_single")).toBe("ecmwf");
   });
 });
 
@@ -87,6 +104,18 @@ describe("pickConsensusRows", () => {
     expect(pickConsensusRows(rows).map((r) => r.id)).toEqual([
       "gem_seamless",
       "gfs_seamless",
+      "icon_seamless",
+    ]);
+  });
+
+  it("counts AIFS and IFS as one ECMWF vote", () => {
+    const rows = [
+      row("ecmwf_aifs025_single", "primary", 31.2),
+      row("ecmwf_ifs025", "backup", 30.8),
+      row("icon_seamless", "backup", 30.4),
+    ];
+    expect(pickConsensusRows(rows).map((r) => r.id)).toEqual([
+      "ecmwf_aifs025_single",
       "icon_seamless",
     ]);
   });

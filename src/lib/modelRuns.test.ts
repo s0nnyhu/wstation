@@ -19,10 +19,14 @@ describe("datasetForModel", () => {
     });
   });
 
-  it("uses ICON global in the US", () => {
+  it("uses ICON global in the US and East Asia", () => {
     expect(datasetForModel("icon_seamless", { lat: 29.6454, lon: -95.2789 }).nest).toBe(
       "ICON global",
     );
+    expect(datasetForModel("icon_seamless", { lat: 31.1434, lon: 121.8052 })).toEqual({
+      dataset: "dwd_icon",
+      nest: "ICON global",
+    });
   });
 
   it("uses UK 2 km only over London, not Paris", () => {
@@ -42,6 +46,26 @@ describe("datasetForModel", () => {
     });
     expect(datasetForModel("ecmwf_ifs025", { lat: 48.35, lon: 11.78 }).dataset).toBe(
       "ecmwf_ifs025",
+    );
+  });
+
+  it("uses JMA MSM at Shanghai and GSM at Shenzhen", () => {
+    expect(datasetForModel("jma_seamless", { lat: 31.1434, lon: 121.8052 })).toEqual({
+      dataset: "jma_msm",
+      nest: "JMA MSM",
+    });
+    expect(datasetForModel("jma_seamless", { lat: 22.6393, lon: 113.8107 })).toEqual({
+      dataset: "jma_gsm",
+      nest: "JMA GSM",
+    });
+  });
+
+  it("maps AIFS and CMA to their own datasets", () => {
+    expect(datasetForModel("ecmwf_aifs025_single", { lat: 22.64, lon: 113.81 }).dataset).toBe(
+      "ecmwf_aifs025_single",
+    );
+    expect(datasetForModel("cma_grapes_global", { lat: 31.14, lon: 121.81 }).dataset).toBe(
+      "cma_grapes_global",
     );
   });
 });

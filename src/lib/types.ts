@@ -4,7 +4,7 @@ export type { WeatherIconKind };
 
 export type TempUnit = "C" | "F";
 export type MarketDay = "today" | "tomorrow";
-export type Region = "europe" | "america";
+export type Region = "europe" | "america" | "asia";
 export type RegionFilter = "all" | Region;
 export type Season = "DJF" | "MAM" | "JJA" | "SON";
 export type SeasonMode = "auto" | Season;

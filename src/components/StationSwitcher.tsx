@@ -6,10 +6,11 @@ import type { Region, RegionFilter } from "@/lib/types";
 const FILTERS: { id: RegionFilter; label: string }[] = [
   { id: "all", label: "All" },
   { id: "europe", label: "Europe" },
+  { id: "asia", label: "Asia" },
   { id: "america", label: "America" },
 ];
 
-const REGION_ORDER: Region[] = ["europe", "america"];
+const REGION_ORDER: Region[] = ["europe", "asia", "america"];
 
 export function StationSwitcher({
   selected,

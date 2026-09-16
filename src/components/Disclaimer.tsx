@@ -5,8 +5,9 @@ export function Disclaimer() {
         Not financial advice. This is a research terminal for daily highest-temperature
         markets. Polymarket resolves on specific station / Weather Underground rules —
         always read the market text (ICAO, units, timezone, and observation source) before
-        trading. Biases are empirical ASOS residuals from Open-Meteo historical-forecast
-        (2024-01-01→2026-09-01): mean(forecast daily max − ASOS daily max). They are not
+        trading. Biases are empirical residuals (forecast daily max − observed daily max;
+        Europe/America: Open-Meteo historical-forecast vs IEM ASOS; Asia: Previous Runs
+        H−0 vs NOAA WRH, 2024-01-01→2026-09-01). They are not
         seasonal climate normals and not a guarantee of future error. US HRRR / HRDPS
         series may be archive-proxy identical to seamless in this dataset — do not treat
         those rows as native short-range skill. Model output is from{" "}

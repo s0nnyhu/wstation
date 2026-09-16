@@ -218,7 +218,7 @@ export function Dashboard({
               Airport high terminal
             </div>
             <div className="text-xs text-mute">
-              Polymarket daily max · Europe + America
+              Polymarket daily max · Europe + Asia + America
             </div>
           </div>
           <LocalClock

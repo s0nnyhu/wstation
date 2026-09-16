@@ -54,7 +54,7 @@ const WINDOW_END = table.window?.end ?? "2026-09-01";
 
 export const SEASONAL_BIAS_META = {
   source:
-    "Empirical ASOS bias from Open-Meteo historical-forecast (forecast_daily_max − asos_daily_max)",
+    "Empirical station bias (forecast daily max − observed daily max). Europe/America: Open-Meteo historical-forecast vs IEM ASOS. Asia: Previous Runs H−0 vs NOAA WRH/Synoptic",
   sample: `${WINDOW_START} → ${WINDOW_END}`,
   asOf: WINDOW_END,
   definition:

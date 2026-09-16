@@ -7,7 +7,7 @@ import type { MarketDay, RegionFilter } from "@/lib/types";
 export const dynamic = "force-dynamic";
 
 function parseRegion(value: string | string[] | undefined): RegionFilter {
-  if (value === "europe" || value === "america") return value;
+  if (value === "europe" || value === "america" || value === "asia") return value;
   return "all";
 }
 

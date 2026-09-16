@@ -20,8 +20,21 @@ export const COMPARE_ALL_AMERICA = [
   "ukmo_seamless",
 ] as const;
 
+export const COMPARE_ALL_ASIA = [
+  "ukmo_seamless",
+  "icon_seamless",
+  "ecmwf_ifs025",
+  "ecmwf_aifs025_single",
+  "gfs_seamless",
+  "jma_seamless",
+  "cma_grapes_global",
+  "gem_seamless",
+] as const;
+
 export function compareAllFor(region: Region): readonly string[] {
-  return region === "america" ? COMPARE_ALL_AMERICA : COMPARE_ALL_EUROPE;
+  if (region === "america") return COMPARE_ALL_AMERICA;
+  if (region === "asia") return COMPARE_ALL_ASIA;
+  return COMPARE_ALL_EUROPE;
 }
 
 export const MODEL_LABELS: Record<string, string> = {
@@ -39,8 +52,13 @@ export const MODEL_LABELS: Record<string, string> = {
   gem_seamless: "GEM Seamless",
   gem_hrdps_continental: "GEM HRDPS",
   ecmwf_ifs025: "ECMWF IFS 0.25°",
+  ecmwf_aifs025_single: "ECMWF AIFS",
   gfs_seamless: "GFS Seamless",
   gfs_hrrr: "HRRR",
+  jma_seamless: "JMA Seamless",
+  jma_msm: "JMA MSM",
+  jma_gsm: "JMA GSM",
+  cma_grapes_global: "CMA GRAPES",
 };
 
 export function modelLabel(id: string): string {

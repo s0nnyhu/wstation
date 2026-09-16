@@ -70,6 +70,28 @@ describe("getBias against data/biases.seasonal.json", () => {
     expect(r.source).toBe("none");
   });
 
+  it("loads WRH seasonal bias for ZSPD UKMO and ZGSZ AIFS", () => {
+    const shanghai = getBias({
+      icao: "ZSPD",
+      model: "ukmo_seamless",
+      dateLocal: "2026-09-12",
+    });
+    expect(shanghai.unit).toBe("C");
+    expect(shanghai.source).toBe("season");
+    expect(shanghai.season).toBe("SON");
+    expect(shanghai.n).toBeGreaterThanOrEqual(MIN_BIAS_N);
+    expect(shanghai.biasC).toBeLessThan(0);
+
+    const shenzhen = getBias({
+      icao: "ZGSZ",
+      model: "ecmwf_aifs025_single",
+      dateLocal: "2026-09-12",
+    });
+    expect(shenzhen.source).toBe("season");
+    expect(shenzhen.n).toBeGreaterThanOrEqual(MIN_BIAS_N);
+    expect(shenzhen.biasC).toBeLessThan(0);
+  });
+
   it("flags HRRR as identical to GFS seamless in this archive", () => {
     const r = getBias({ icao: "KHOU", model: "gfs_hrrr", dateLocal: "2026-09-12" });
     expect(r.identicalToSeamless).toBe(true);

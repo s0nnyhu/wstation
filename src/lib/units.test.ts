@@ -22,8 +22,9 @@ describe("fallback buckets", () => {
     expect(fallbackBuckets(78, 2)[1]).toEqual({ lo: 78, hi: 79 });
   });
 
-  it("uses 1 °C single values for European markets", () => {
+  it("uses 1 °C single values for European and Asian markets", () => {
     expect(fallbackBucketStep("europe", "C")).toBe(1);
+    expect(fallbackBucketStep("asia", "C")).toBe(1);
     expect(fallbackBuckets(23, 1)).toEqual([
       { lo: 22, hi: 22 },
       { lo: 23, hi: 23 },

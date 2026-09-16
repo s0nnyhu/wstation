@@ -40,7 +40,7 @@ export interface BucketRange {
 /**
  * Bucket width Polymarket uses when the live event is unavailable:
  * US markets are 2 °F ranges aligned on even numbers ("70-71°F"),
- * European markets are single 1 °C values.
+ * European and Asian markets are single 1 °C values.
  */
 export function fallbackBucketStep(region: Region, unit: TempUnit): number {
   return region === "america" && unit === "F" ? 2 : 1;

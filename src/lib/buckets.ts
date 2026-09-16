@@ -22,7 +22,7 @@ export interface BucketSuggestionSet {
 
 /**
  * Buckets around the resolved integer. Uses the live Polymarket event when
- * available, else the regional convention (US 2 °F even-aligned, EU 1 °C).
+ * available, else the regional convention (US 2 °F even-aligned, EU/Asia 1 °C).
  */
 export function suggestBuckets(
   data: Pick<StationPayload, "polymarket" | "station">,
