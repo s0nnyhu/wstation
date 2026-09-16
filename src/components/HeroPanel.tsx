@@ -2,6 +2,7 @@
 
 import type { MarketDay, StationPayload, TempUnit } from "@/lib/types";
 import { convertTemp, formatTemp } from "@/lib/units";
+import { CopySnapshotButton } from "./CopySnapshotButton";
 import { LocalClock } from "./LocalClock";
 import { OutLink } from "./OutLink";
 
@@ -71,6 +72,7 @@ export function HeroPanel({
             <LocalClock timezone={data.station.timezone} compact />
           </p>
           <div className="mt-2 flex flex-wrap items-center gap-2">
+            <CopySnapshotButton data={data} unit={unit} />
             {data.station.polymarketUrl && (
               <OutLink href={data.station.polymarketUrl}>Polymarket</OutLink>
             )}

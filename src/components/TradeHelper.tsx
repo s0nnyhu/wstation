@@ -2,57 +2,11 @@
 
 import type { ReactNode } from "react";
 import type { StationPayload, TempUnit } from "@/lib/types";
+import { suggestBuckets } from "@/lib/buckets";
 import {
-  bucketIndexFor,
-  convertTemp,
   fallbackBucketStep,
-  fallbackBuckets,
-  formatBucketRange,
   formatTemp,
 } from "@/lib/units";
-
-interface BucketSuggestion {
-  label: string;
-  target: boolean;
-  yesPrice: number | null;
-}
-
-/**
- * Buckets around the resolved integer. Uses the live Polymarket event when
- * available, else the regional convention (US 2 °F even-aligned, EU 1 °C).
- */
-function suggestBuckets(
-  data: StationPayload,
-  targetC: number | null,
-): { marketUnit: TempUnit; resolvedInt: number | null; live: boolean; items: BucketSuggestion[] } {
-  const pm = data.polymarket;
-  const marketUnit: TempUnit = pm.unit ?? data.station.defaultUnit;
-  if (targetC == null) return { marketUnit, resolvedInt: null, live: false, items: [] };
-  const resolvedInt = Math.round(convertTemp(targetC, marketUnit));
-
-  if (pm.ok && pm.buckets.length > 0) {
-    const idx = bucketIndexFor(pm.buckets, resolvedInt);
-    if (idx >= 0) {
-      const items = pm.buckets
-        .slice(Math.max(0, idx - 1), idx + 2)
-        .map((b) => ({ label: b.label, target: b === pm.buckets[idx], yesPrice: b.yesPrice }));
-      return { marketUnit, resolvedInt, live: true, items };
-    }
-  }
-
-  const step = fallbackBucketStep(data.station.region, marketUnit);
-  const ranges = fallbackBuckets(resolvedInt, step);
-  return {
-    marketUnit,
-    resolvedInt,
-    live: false,
-    items: ranges.map((r, i) => ({
-      label: formatBucketRange(r, marketUnit),
-      target: i === 1,
-      yesPrice: null,
-    })),
-  };
-}
 
 function hoursFromPeak(peakTime: string | undefined, timezone: string): number | null {
   if (!peakTime) return null;
