@@ -114,7 +114,12 @@ function payload(overrides: Partial<StationPayload> = {}): StationPayload {
       seasonMode: "auto",
       biasGrain: "season",
     },
-    metar: { ok: true, fetchedAt: "2026-09-16T09:00:00.000Z", stale: false },
+    metar: {
+      ok: true,
+      runningMaxC: 25.0,
+      fetchedAt: "2026-09-16T09:00:00.000Z",
+      stale: false,
+    },
     wu: {
       ok: true,
       dailyMaxC: 26,
@@ -216,11 +221,12 @@ describe("formatStationClipboard", () => {
     expect(lines[1]).toMatch(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/);
     expect(lines[2]).toBe("WU 26.0°C");
     expect(lines[3]).toBe("Husky 25.0°C");
-    expect(lines[4]).toBe("ICON Seamless (primary) 26.0°C");
-    expect(lines[5]).toBe("ICON-EU (primary) 24.7°C");
-    expect(lines[6]).toBe("Météo-France Seamless (backup) 25.9°C");
-    expect(lines[7]).toBe("H-6 27°C (26°C · 27°C)");
-    expect(lines[8]).toBe("Favorite 26°C (41¢)");
+    expect(lines[4]).toBe("METAR 25.0°C");
+    expect(lines[5]).toBe("ICON Seamless (primary) 26.0°C");
+    expect(lines[6]).toBe("ICON-EU (primary) 24.7°C");
+    expect(lines[7]).toBe("Météo-France Seamless (backup) 25.9°C");
+    expect(lines[8]).toBe("H-6 27°C (26°C · 27°C)");
+    expect(lines[9]).toBe("Favorite 26°C (41¢)");
     expect(text).not.toContain("ICON-D2");
   });
 
@@ -237,5 +243,16 @@ describe("formatStationClipboard", () => {
     expect(text).toContain("WU —");
     expect(text).toContain("Husky —");
     expect(text).toContain("Favorite —");
+  });
+
+  it("omits the METAR running high for tomorrow", () => {
+    const data = payload();
+    data.day = "tomorrow";
+    const text = formatStationClipboard(
+      data,
+      "C",
+      new Date("2026-09-16T09:58:12.000Z"),
+    );
+    expect(text).toContain("METAR —");
   });
 });

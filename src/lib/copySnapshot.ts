@@ -74,6 +74,11 @@ export function formatStationClipboard(
     formatClientNow(now),
     `WU ${formatTemp(data.wu.ok ? data.wu.dailyMaxC : null, unit, 1)}`,
     `Husky ${formatTemp(data.husky.ok ? data.husky.dailyMaxC : null, unit, 1)}`,
+    `METAR ${formatTemp(
+      data.day === "today" ? (data.metar.runningMaxC ?? null) : null,
+      unit,
+      1,
+    )}`,
     ...models,
     formatH6Line(data),
     `Favorite ${formatFavorite(favorite)}`,
