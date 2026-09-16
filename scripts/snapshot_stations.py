@@ -322,9 +322,24 @@ def metar_max_from_api(payload: dict) -> dict | None:
     }
 
 
+FORECAST_SLOTS = {"06:00", "09:00", "13:00"}
+
+
 def has_daily_obs(out_dir: Path, icao: str, date: str) -> bool:
     data = load_file(out_dir / f"{icao}.json")
     return any(row.get("date") == date and row.get("ok") for row in data.get("daily_obs") or [])
+
+
+def has_forecast_for_day(out_dir: Path, icao: str, date: str) -> bool:
+    data = load_file(out_dir / f"{icao}.json")
+    for snap in data.get("snapshots") or []:
+        if (
+            snap.get("ok")
+            and snapshot_day(snap) == date
+            and snap.get("slot") in FORECAST_SLOTS
+        ):
+            return True
+    return False
 
 
 def upsert_daily_obs(out_dir: Path, icao: str, record: dict) -> None:
@@ -339,6 +354,14 @@ def upsert_daily_obs(out_dir: Path, icao: str, record: dict) -> None:
 
 def capture_metar_one(icao: str, base_url: str, out_dir: Path, force: bool = False) -> dict:
     market_date = local_date(icao)
+    if not force and not has_forecast_for_day(out_dir, icao, market_date):
+        return {
+            "ok": True,
+            "icao": icao,
+            "date": market_date,
+            "skipped": True,
+            "reason": "no-forecast",
+        }
     if not force and has_daily_obs(out_dir, icao, market_date):
         return {"ok": True, "icao": icao, "date": market_date, "skipped": True}
     captured_at = now_utc().isoformat(timespec="seconds")
@@ -383,6 +406,8 @@ def catch_up_metar(base_url: str, out_dir: Path) -> None:
             continue
         rec = capture_metar_one(icao, base_url, out_dir)
         if rec.get("skipped"):
+            if rec.get("reason") == "no-forecast":
+                print(f"  {icao} METAR skip {rec.get('date')} (pas de capture 6h/9h/13h)", flush=True)
             continue
         if rec.get("ok"):
             print(
@@ -399,7 +424,9 @@ def capture_metar(base_url: str, out_dir: Path, force: bool = False) -> int:
     for icao in STATIONS:
         rec = capture_metar_one(icao, base_url, out_dir, force=force)
         if rec.get("skipped"):
-            print(f"  {icao} skip {rec.get('date')}", flush=True)
+            reason = rec.get("reason")
+            extra = " (pas de capture 6h/9h/13h)" if reason == "no-forecast" else ""
+            print(f"  {icao} skip {rec.get('date')}{extra}", flush=True)
             continue
         if rec.get("ok"):
             print(
@@ -572,7 +599,11 @@ def main(argv: list[str] | None = None) -> int:
             if kind == "metar" and icao:
                 rec = capture_metar_one(icao, args.base_url, out_dir)
                 if rec.get("skipped"):
-                    print(f"  {icao} METAR already stored {rec.get('date')}", flush=True)
+                    reason = rec.get("reason")
+                    if reason == "no-forecast":
+                        print(f"  {icao} METAR skip {rec.get('date')} (pas de capture 6h/9h/13h)", flush=True)
+                    else:
+                        print(f"  {icao} METAR already stored {rec.get('date')}", flush=True)
                 elif rec.get("ok"):
                     print(
                         f"  {icao} METAR {rec.get('date')} resolved={rec.get('metar_resolution_max_c')}",
