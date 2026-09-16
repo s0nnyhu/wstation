@@ -3,31 +3,11 @@
 import type { ReactNode } from "react";
 import type { StationPayload, TempUnit } from "@/lib/types";
 import { suggestBuckets } from "@/lib/buckets";
+import { hoursUntilPeak, localNowHour } from "@/lib/time";
 import {
   fallbackBucketStep,
   formatTemp,
 } from "@/lib/units";
-
-function hoursFromPeak(peakTime: string | undefined, timezone: string): number | null {
-  if (!peakTime) return null;
-  const hour = Number(peakTime.slice(11, 13));
-  const minute = Number(peakTime.slice(14, 16) || "0");
-  if (Number.isNaN(hour)) return null;
-  const nowParts = new Intl.DateTimeFormat("en-GB", {
-    timeZone: timezone,
-    hour: "2-digit",
-    minute: "2-digit",
-    hourCycle: "h23",
-  })
-    .formatToParts(new Date())
-    .reduce<Record<string, string>>((acc, part) => {
-      if (part.type !== "literal") acc[part.type] = part.value;
-      return acc;
-    }, {});
-  const nowMin = Number(nowParts.hour) * 60 + Number(nowParts.minute);
-  const peakMin = hour * 60 + minute;
-  return (peakMin - nowMin) / 60;
-}
 
 function horizon(hoursToPeak: number | null, day: "today" | "tomorrow"): "h18" | "h6" | "intraday" {
   if (day === "tomorrow") return "h18";
@@ -60,9 +40,10 @@ export function TradeHelper({
     ? (h6?.correctedMaxC ?? primary?.correctedMaxC ?? primary?.rawMaxC)
     : (h6?.rawMaxC ?? primary?.rawMaxC);
   const buckets = suggestBuckets(data, targetC ?? null);
-  const hoursToPeak = data.day === "today"
-    ? hoursFromPeak(data.forecast.peak?.time, data.station.timezone)
-    : 24 + (hoursFromPeak(data.forecast.peak?.time, data.station.timezone) ?? 15);
+  const hoursToPeak =
+    data.day === "today"
+      ? hoursUntilPeak(data.forecast.peak?.time, data.localNow)
+      : 24 + (hoursUntilPeak(data.forecast.peak?.time, data.localNow) ?? 15);
   const active = horizon(hoursToPeak, data.day);
 
   const spread = applyCorrection
@@ -70,14 +51,8 @@ export function TradeHelper({
     : data.forecast.spreadRawC;
   const running = data.metar.runningMaxC;
   const forecastMax = targetC;
-  const localHour = Number(
-    new Intl.DateTimeFormat("en-GB", {
-      timeZone: data.station.timezone,
-      hour: "2-digit",
-      hourCycle: "h23",
-    }).format(new Date()),
-  );
-  const afterMidAfternoon = Number.isFinite(localHour) && localHour >= 15;
+  const localHour = localNowHour(data.localNow);
+  const afterMidAfternoon = localHour != null && localHour >= 15;
   const locked =
     data.day === "today" &&
     running != null &&

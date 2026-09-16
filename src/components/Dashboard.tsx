@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { getStation } from "@/config/stations";
+import { parseBiasGrain, parseSeasonMode } from "@/lib/bias";
 import type {
   BiasGrain,
   MarketDay,
@@ -28,7 +29,6 @@ export function Dashboard({
   data: StationPayload;
   initialRegionFilter?: RegionFilter;
 }) {
-  const router = useRouter();
   const stationKey = `${data.station.icao}:${data.day}:${data.compareAll ? "1" : "0"}:${data.seasonMode}:${data.biasGrain}`;
   const [scope, setScope] = useState(stationKey);
   const [live, setLive] = useState<StationPayload | null>(null);
@@ -51,6 +51,67 @@ export function Dashboard({
   }
 
   const view = live ?? data;
+  const viewRef = useRef(view);
+  viewRef.current = view;
+
+  const loadStation = useCallback(
+    async (opts: {
+      icao: string;
+      day: MarketDay;
+      compareAll: boolean;
+      seasonMode: SeasonMode;
+      biasGrain: BiasGrain;
+      fresh?: boolean;
+      silent?: boolean;
+      resetUnit?: boolean;
+    }) => {
+      if (inFlight.current) return;
+      inFlight.current = true;
+      if (!opts.silent) setRefreshing(true);
+      setError(null);
+      try {
+        const qs = new URLSearchParams({
+          day: opts.day,
+          compareAll: opts.compareAll ? "1" : "0",
+          season: opts.seasonMode,
+          grain: opts.biasGrain,
+        });
+        if (opts.fresh) qs.set("fresh", "1");
+        const res = await fetch(`/api/station/${opts.icao}?${qs}`, {
+          cache: "no-store",
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error ?? `HTTP ${res.status}`);
+        const payload = json as StationPayload;
+        if (opts.resetUnit) {
+          setUnit(payload.station.defaultUnit);
+          setApplyCorrection(true);
+        }
+        setLive(payload);
+        setLastRefresh(new Date());
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Refresh failed");
+      } finally {
+        inFlight.current = false;
+        setRefreshing(false);
+      }
+    },
+    [],
+  );
+
+  function hrefFor(opts: {
+    icao: string;
+    day: MarketDay;
+    compareAll: boolean;
+    seasonMode: SeasonMode;
+    biasGrain: BiasGrain;
+  }): string {
+    const params = new URLSearchParams({ s: opts.icao, d: opts.day });
+    if (opts.compareAll) params.set("all", "1");
+    if (opts.seasonMode !== "auto") params.set("season", opts.seasonMode);
+    if (opts.biasGrain === "month") params.set("grain", "month");
+    return `/?${params.toString()}`;
+  }
 
   function go(next: {
     icao?: string;
@@ -64,42 +125,32 @@ export function Dashboard({
     const compareAll = next.compareAll ?? view.compareAll;
     const seasonMode = next.seasonMode ?? view.seasonMode;
     const biasGrain = next.biasGrain ?? view.biasGrain;
-    const params = new URLSearchParams({ s: icao, d: day });
-    if (compareAll) params.set("all", "1");
-    if (seasonMode !== "auto") params.set("season", seasonMode);
-    if (biasGrain === "month") params.set("grain", "month");
-    router.push(`/?${params.toString()}`);
+    const resetUnit = next.icao != null && next.icao !== view.station.icao;
+    window.history.pushState(null, "", hrefFor({ icao, day, compareAll, seasonMode, biasGrain }));
+    void loadStation({
+      icao,
+      day,
+      compareAll,
+      seasonMode,
+      biasGrain,
+      resetUnit,
+    });
   }
 
   const refresh = useCallback(
     async (opts: { silent?: boolean } = {}) => {
-      if (inFlight.current) return;
-      inFlight.current = true;
-      if (!opts.silent) setRefreshing(true);
-      setError(null);
-      try {
-        const qs = new URLSearchParams({
-          day: view.day,
-          compareAll: view.compareAll ? "1" : "0",
-          fresh: "1",
-          season: view.seasonMode,
-          grain: view.biasGrain,
-        });
-        const res = await fetch(`/api/station/${view.station.icao}?${qs}`, {
-          cache: "no-store",
-        });
-        const json = await res.json();
-        if (!res.ok) throw new Error(json.error ?? `HTTP ${res.status}`);
-        setLive(json as StationPayload);
-        setLastRefresh(new Date());
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Refresh failed");
-      } finally {
-        inFlight.current = false;
-        setRefreshing(false);
-      }
+      const current = viewRef.current;
+      await loadStation({
+        icao: current.station.icao,
+        day: current.day,
+        compareAll: current.compareAll,
+        seasonMode: current.seasonMode,
+        biasGrain: current.biasGrain,
+        fresh: true,
+        silent: opts.silent,
+      });
     },
-    [view.day, view.compareAll, view.seasonMode, view.biasGrain, view.station.icao],
+    [loadStation],
   );
 
   // Auto-refresh every 60 s while the tab is visible (METAR TTL is 2 min,
@@ -117,6 +168,28 @@ export function Dashboard({
       document.removeEventListener("visibilitychange", tick);
     };
   }, [autoRefresh, refresh]);
+
+  useEffect(() => {
+    function onPopState() {
+      const sp = new URLSearchParams(window.location.search);
+      const current = viewRef.current;
+      const icao = getStation(sp.get("s") ?? "")?.icao ?? current.station.icao;
+      const day: MarketDay = sp.get("d") === "tomorrow" ? "tomorrow" : "today";
+      const compareAll = sp.get("all") === "1" || sp.get("all") === "true";
+      const seasonMode = parseSeasonMode(sp.get("season"));
+      const biasGrain = parseBiasGrain(sp.get("grain"));
+      void loadStation({
+        icao,
+        day,
+        compareAll,
+        seasonMode,
+        biasGrain,
+        resetUnit: icao !== current.station.icao,
+      });
+    }
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, [loadStation]);
 
   const noBiasModels = view.forecast.models
     .filter((m) => m.bias.source === "none" && (m.role === "primary" || m.role === "short-range" || m.role === "backup"))

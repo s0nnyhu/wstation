@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { StationPayload, TempUnit } from "@/lib/types";
-import { ageLabel, localHourLabel } from "@/lib/time";
+import { ageLabel, fetchedAtMs, localHourLabel } from "@/lib/time";
 import { convertDelta, formatMetarWind, formatTemp } from "@/lib/units";
 import { HourlyIconStrip } from "./HourlyIconStrip";
 import { LocalClock } from "./LocalClock";
@@ -51,10 +51,11 @@ export function ObservationTwin({
 }) {
   const { wu, metar, station, day } = data;
   const icao = wu.stationId ?? station.icao;
-  const [now, setNow] = useState(() => Date.now());
+  const [now, setNow] = useState(() => fetchedAtMs(metar.fetchedAt) ?? 0);
   const [rawOpen, setRawOpen] = useState(false);
 
   useEffect(() => {
+    setNow(Date.now());
     const id = window.setInterval(() => setNow(Date.now()), 30_000);
     return () => window.clearInterval(id);
   }, []);

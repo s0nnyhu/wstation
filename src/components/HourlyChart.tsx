@@ -16,6 +16,7 @@ import {
 } from "recharts";
 import type { StationPayload, TempUnit } from "@/lib/types";
 import { convertTemp, formatTemp } from "@/lib/units";
+import { localNowHhMm } from "@/lib/time";
 
 const PALETTE = [
   "#3ee0c8",
@@ -30,15 +31,6 @@ const PALETTE = [
 
 function hourLabel(time: string): string {
   return time.slice(11, 16);
-}
-
-function currentHourInZone(timeZone: string): string {
-  return new Intl.DateTimeFormat("en-GB", {
-    timeZone,
-    hour: "2-digit",
-    minute: "2-digit",
-    hourCycle: "h23",
-  }).format(new Date());
 }
 
 export function HourlyChart({
@@ -78,7 +70,7 @@ export function HourlyChart({
     null,
   );
   const peakHour = primaryPeak ? hourLabel(primaryPeak.time) : null;
-  const nowHour = data.day === "today" ? currentHourInZone(data.station.timezone) : null;
+  const nowHour = data.day === "today" ? localNowHhMm(data.localNow) : null;
   const metarNow =
     data.metar.latest?.tempC != null
       ? convertTemp(data.metar.latest.tempC, unit)
