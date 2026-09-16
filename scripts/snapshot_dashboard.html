@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WStation snapshots</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #121820;
+      --line: #243040;
+      --ink: #e8eef5;
+      --mute: #8b9bb0;
+      --cyan: #5eead4;
+      --fail: #fb7185;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 14px/1.45 ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      padding: 20px 24px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    header p { margin: 4px 0 0; color: var(--mute); font-size: 12px; }
+    h1 { margin: 0; font-size: 18px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    h1 span { color: var(--cyan); }
+    main { padding: 20px 24px 48px; display: grid; gap: 28px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+    th { color: var(--mute); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+    tbody tr { cursor: pointer; }
+    tbody tr:hover { background: #18222d; }
+    tbody tr.active { background: #1c2a36; }
+    tbody tr.detail-row { cursor: default; }
+    tbody tr.detail-row:hover { background: transparent; }
+    .ok { color: var(--cyan); }
+    .fail { color: var(--fail); }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .muted { color: var(--mute); }
+    .day {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .day > h2 {
+      margin: 0;
+      padding: 16px 18px;
+      font-size: 18px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--line);
+      text-transform: capitalize;
+    }
+    .slot { border-top: 1px solid var(--line); }
+    .slot:first-of-type { border-top: 0; }
+    .slot h3 {
+      margin: 0;
+      padding: 12px 18px 4px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+    .empty { padding: 8px 18px 16px; color: var(--mute); }
+    .models { display: grid; gap: 8px; padding: 4px 8px 8px; }
+    .model-row { display: grid; grid-template-columns: 1.4fr 80px 90px 90px 70px 60px; gap: 8px; font-size: 13px; }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    @media (max-width: 900px) {
+      .model-row { grid-template-columns: 1fr 1fr; }
+      header, main { padding-left: 14px; padding-right: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>WStation <span>snapshots</span></h1>
+      <p>Un bloc par jour : relevés 6h / 9h / 13h (Paris), puis max METAR résolu à 23h heure locale</p>
+    </div>
+    <p id="meta" class="muted"></p>
+  </header>
+  <main id="board">
+    <p class="muted">Chargement…</p>
+  </main>
+  <script>
+    const SLOTS = [
+      { id: "06:00", label: "6h" },
+      { id: "09:00", label: "9h" },
+      { id: "13:00", label: "13h" },
+    ];
+    const fmt = (n) => n == null || Number.isNaN(n) ? "—" : Number(n).toFixed(1) + "°C";
+    const board = document.getElementById("board");
+
+    function formatDay(iso) {
+      const [y, m, d] = (iso || "").split("-").map(Number);
+      if (!y || !m || !d) return iso || "";
+      const text = new Intl.DateTimeFormat("fr-FR", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        timeZone: "UTC",
+      }).format(new Date(Date.UTC(y, m - 1, d)));
+      return text.charAt(0).toUpperCase() + text.slice(1);
+    }
+
+    function primary(payload) {
+      const models = payload?.models || [];
+      return models.find((m) => m.primary) || models[0] || null;
+    }
+
+    function groupDays(summaries, files) {
+      const byDay = {};
+      const cities = {};
+      const metarBy = {};
+      const icaos = summaries.map((s) => s.icao);
+      summaries.forEach((s, i) => {
+        cities[s.icao] = s.city || "";
+        metarBy[s.icao] = {};
+        ((files[i] && files[i].daily_obs) || []).forEach((obs) => {
+          if (obs.date) {
+            metarBy[s.icao][obs.date] = obs;
+            (byDay[obs.date] ||= {});
+            (byDay[obs.date][s.icao] ||= []);
+          }
+        });
+        ((files[i] && files[i].snapshots) || []).forEach((snap) => {
+          const d = (snap.payload && snap.payload.market_date) || (snap.captured_at || "").slice(0, 10) || "unknown";
+          (byDay[d] ||= {});
+          (byDay[d][s.icao] ||= []).push(snap);
+        });
+      });
+      return Object.keys(byDay).sort().reverse().map((date) => ({
+        date,
+        stations: icaos.map((icao) => ({
+          icao,
+          city: cities[icao] || "",
+          snapshots: byDay[date][icao] || [],
+          metar: (metarBy[icao] || {})[date] || null,
+        })),
+      }));
+    }
+
+    function parisRun(run) {
+      if (!run) return "";
+      let ms = run.init_at ? Date.parse(run.init_at) : NaN;
+      if (!Number.isFinite(ms) && typeof run.init_z === "string") {
+        const hour = Number(String(run.init_z).replace(/Z$/i, ""));
+        if (Number.isFinite(hour)) {
+          const now = new Date();
+          ms = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), hour, 0, 0);
+        }
+      }
+      if (!Number.isFinite(ms)) return "";
+      const label = new Intl.DateTimeFormat("fr-FR", {
+        timeZone: "Europe/Paris",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23",
+      }).format(new Date(ms));
+      return `<span title="${run.init_z || ""}">${label}</span>`;
+    }
+
+    function modelsHtml(snap) {
+      const p = snap.payload || {};
+      const models = (p.models || []).map((m) => `
+        <div class="model-row">
+          <div>${m.label || m.id}${m.primary ? " · primary" : ""}</div>
+          <div class="mono">${parisRun(m.run)}</div>
+          <div class="mono">${fmt(m.raw_max_c)} raw</div>
+          <div class="mono">${fmt(m.corrected_max_c)} corr</div>
+          <div class="mono muted">${m.bias_c == null ? "" : (m.bias_c > 0 ? "+" : "") + Number(m.bias_c).toFixed(2)}</div>
+          <div class="muted">${m.role || ""}</div>
+        </div>`).join("");
+      return `<div class="expand">
+        ${snap.error ? `<p class="fail">${snap.error}</p>` : ""}
+        <p class="muted">${snap.captured_at || ""} · consensus ${fmt(p.consensus_corrected_c)} · WU ${fmt(p.wunderground?.predicted_high_c)} · Husky ${fmt(p.husky?.daily_max_c)}${pmHref(p) ? ` · <a href="${pmHref(p)}" target="_blank" rel="noreferrer">Polymarket</a>` : ""}</p>
+        <div class="models">${models}</div>
+      </div>`;
+    }
+
+    function metarCell(metar) {
+      if (!metar || metar.metar_resolution_max_c == null) {
+        return '<td class="muted">—</td>';
+      }
+      const cls = metar.ok ? "ok" : "fail";
+      return `<td class="${cls} mono" title="max METAR résolu, 23h locale">${fmt(metar.metar_resolution_max_c)}</td>`;
+    }
+
+    function pmHref(payload) {
+      if (payload?.polymarket_url) return payload.polymarket_url;
+      if (payload?.polymarket_slug) return "https://polymarket.com/event/" + payload.polymarket_slug;
+      return null;
+    }
+
+    function pmCell(payload) {
+      const href = pmHref(payload);
+      if (!href) return '<td class="muted">—</td>';
+      return `<td><a href="${href}" target="_blank" rel="noreferrer" onclick="event.stopPropagation()">Marché</a></td>`;
+    }
+
+    function stationRows(stations, slotId, day) {
+      const rows = [];
+      (stations || []).forEach((s) => {
+        const snap = (s.snapshots || []).find((x) => x.slot === slotId);
+        if (!snap) return;
+        const p = snap.payload || {};
+        const prim = primary(p);
+        const key = `${day}:${slotId}:${s.icao}`;
+        rows.push(`<tr data-key="${key}">
+          <td><strong>${s.icao}</strong> <span class="muted">${s.city || ""}</span></td>
+          <td class="${snap.ok ? "ok" : "fail"}">${snap.ok ? "ok" : "échec"}</td>
+          <td class="mono">${fmt(prim?.raw_max_c)}</td>
+          <td class="mono ${snap.ok ? "ok" : ""}">${fmt(prim?.corrected_max_c)}</td>
+          <td class="mono">${fmt(p.consensus_corrected_c)}</td>
+          <td class="mono">${fmt(p.wunderground?.predicted_high_c)}</td>
+          ${metarCell(s.metar)}
+          ${pmCell(p)}
+          <td class="mono muted">${parisRun(prim?.run)}</td>
+        </tr>
+        <tr class="detail-row" data-for="${key}" hidden>
+          <td colspan="9">${modelsHtml(snap)}</td>
+        </tr>`);
+      });
+      if (!rows.length) {
+        return `<p class="empty">Pas encore de capture à cette heure.</p>`;
+      }
+      return `<table>
+        <thead>
+          <tr>
+            <th>Station</th>
+            <th></th>
+            <th>Raw</th>
+            <th>Corrigé</th>
+            <th>Consensus</th>
+            <th>WU</th>
+            <th>METAR 23h</th>
+            <th>Polymarket</th>
+            <th>Init Paris</th>
+          </tr>
+        </thead>
+        <tbody>${rows.join("")}</tbody>
+      </table>`;
+    }
+
+    function metarRows(stations, day) {
+      const rows = [];
+      (stations || []).forEach((s) => {
+        const metar = s.metar;
+        if (!metar) return;
+        const key = `${day}:23:00:${s.icao}`;
+        rows.push(`<tr data-key="${key}">
+          <td><strong>${s.icao}</strong> <span class="muted">${s.city || ""}</span></td>
+          <td class="${metar.ok ? "ok" : "fail"}">${metar.ok ? "ok" : "échec"}</td>
+          <td class="mono">${fmt(metar.metar_running_max_c)}</td>
+          <td class="mono ${metar.ok ? "ok" : ""}">${fmt(metar.metar_resolution_max_c)}</td>
+          <td class="muted mono">${metar.captured_at || ""}</td>
+        </tr>`);
+      });
+      if (!rows.length) {
+        return `<p class="empty">Pas encore de max METAR — relevé à 23h heure locale de la station.</p>`;
+      }
+      return `<table>
+        <thead>
+          <tr>
+            <th>Station</th>
+            <th></th>
+            <th>Max physique</th>
+            <th>Max résolu</th>
+            <th>Capturé</th>
+          </tr>
+        </thead>
+        <tbody>${rows.join("")}</tbody>
+      </table>`;
+    }
+
+    async function loadIndex() {
+      const res = await fetch("/api/stations");
+      const data = await res.json();
+      document.getElementById("meta").textContent =
+        (data.next_slot || "") + (data.now ? " · " + data.now : "");
+      let days = data.days;
+      if (!days) {
+        const files = await Promise.all(
+          (data.stations || []).map((s) => fetch("/api/stations/" + s.icao).then((r) => r.json()))
+        );
+        days = groupDays(data.stations || [], files);
+      }
+      if (!days.length) {
+        board.innerHTML = '<p class="muted">Aucune capture.</p>';
+        return;
+      }
+      const open = board.querySelector("tr.active")?.dataset.key;
+      board.innerHTML = days.map((day) => {
+        const sections = SLOTS.map((slot) => `
+          <section class="slot">
+            <h3>${slot.label}</h3>
+            ${stationRows(day.stations, slot.id, day.date)}
+          </section>`).join("");
+        const extra = (day.stations || []).some((s) =>
+          (s.snapshots || []).some((x) => !SLOTS.some((slot) => slot.id === x.slot))
+        );
+        const extraSection = extra ? `
+          <section class="slot">
+            <h3>Hors créneau</h3>
+            <p class="empty">Captures lancées à la main, hors 6h / 9h / 13h.</p>
+            ${stationRows(day.stations, "manual", day.date)}
+          </section>` : "";
+        const metarSection = `
+          <section class="slot">
+            <h3>Max METAR · 23h locale</h3>
+            ${metarRows(day.stations, day.date)}
+          </section>`;
+        return `<article class="day">
+          <h2>${formatDay(day.date)}</h2>
+          ${sections}
+          ${extraSection}
+          ${metarSection}
+        </article>`;
+      }).join("");
+      board.querySelectorAll("tr[data-key]").forEach((tr) => {
+        tr.addEventListener("click", () => {
+          const key = tr.dataset.key;
+          const detail = board.querySelector(`tr.detail-row[data-for="${key}"]`);
+          const wasHidden = detail?.hidden;
+          board.querySelectorAll("tr.detail-row").forEach((row) => { row.hidden = true; });
+          board.querySelectorAll("tr[data-key]").forEach((row) => row.classList.remove("active"));
+          if (detail && wasHidden) {
+            detail.hidden = false;
+            tr.classList.add("active");
+          }
+        });
+      });
+      if (open) board.querySelector(`tr[data-key="${open}"]`)?.click();
+    }
+
+    loadIndex().catch((e) => {
+      document.getElementById("meta").textContent = String(e);
+    });
+    setInterval(loadIndex, 60000);
+  </script>
+</body>
+</html>

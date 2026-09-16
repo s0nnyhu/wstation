@@ -1,0 +1,153 @@
+{
+  "icao": "LIMC",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "manual",
+      "captured_at": "2026-09-16T17:14:06+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-16",
+        "date_requested": "2026-09-16T15:14:06.977Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.2,
+            "raw_min_c": 19.1,
+            "corrected_max_c": 27.817,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-16T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-16T13:32:20.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26,
+            "raw_min_c": 18.3,
+            "corrected_max_c": 26,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-16T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-16T11:57:56.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.3,
+            "raw_min_c": 19,
+            "corrected_max_c": 27.943,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-16T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-16T14:36:27.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.9,
+            "raw_min_c": 18.1,
+            "corrected_max_c": 27.916999999999998,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-16T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-16T13:15:53.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 27.3,
+        "consensus_corrected_c": 27.916999999999998,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-16-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 29,
+          "predicted_high_c": 29,
+          "low_c": 19,
+          "current_temp_c": 27,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-16",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/LIMC"
+}

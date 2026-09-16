@@ -97,7 +97,22 @@ function payload(): StationPayload {
       seasonMode: "auto",
       biasGrain: "season",
     },
-    metar: { ok: true, fetchedAt: "2026-09-16T09:00:00.000Z", stale: false },
+    metar: {
+      ok: true,
+      fetchedAt: "2026-09-16T09:00:00.000Z",
+      stale: false,
+      runningMaxC: 21.7,
+      runningMaxAt: "2026-09-16T12:53:00.000Z",
+      resolutionMaxC: 22,
+      latest: {
+        tempC: 18.3,
+        tempBodyC: 18,
+        dewpointC: 10,
+        observedAt: "2026-09-16T12:53:00.000Z",
+        raw: "EDDM 161253Z 00000KT CAVOK 18/10 Q1015",
+        icon: "clear",
+      },
+    },
     wu: {
       ok: true,
       stationId: "EDDM",
@@ -234,9 +249,15 @@ describe("publicStationPayload", () => {
 
     expect(json.wunderground.daily_max_c).toBe(21.0);
     expect(json.husky.daily_max_c).toBe(21.4);
+    expect(json.metar.running_max_c).toBe(21.7);
+    expect(json.metar.resolution_max_c).toBe(22);
+    expect(json.synoptic.ok).toBe(false);
     expect(json.consensus_corrected_c).toBe(21.4);
     expect(json.polymarket_slug).toBe(
       "highest-temperature-in-munich-on-september-16-2026",
+    );
+    expect(json.polymarket_url).toBe(
+      "https://polymarket.com/event/highest-temperature-in-munich-on-september-16-2026",
     );
   });
 
@@ -252,6 +273,9 @@ describe("publicStationPayload", () => {
 
     expect(json.polymarket_slug).toBe(
       "highest-temperature-in-munich-on-september-16-2026",
+    );
+    expect(json.polymarket_url).toBe(
+      "https://polymarket.com/event/highest-temperature-in-munich-on-september-16-2026",
     );
   });
 

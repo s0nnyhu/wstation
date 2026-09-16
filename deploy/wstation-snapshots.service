@@ -1,0 +1,21 @@
+[Unit]
+Description=WStation European station snapshots + dashboard
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__USER__
+Group=__GROUP__
+WorkingDirectory=__ROOT__
+ExecStart=__PYTHON__ __ROOT__/scripts/snapshot_stations.py --loop --host 0.0.0.0 --port 5002 --out-dir __ROOT__/data
+Restart=always
+RestartSec=5
+TimeoutStopSec=15
+Environment=PYTHONUNBUFFERED=1
+# Journald keeps stdout from capture slots.
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

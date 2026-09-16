@@ -1,12 +1,14 @@
 import { assembleStation } from "./assemble";
 import { parseBiasGrain, parseSeasonMode } from "./bias";
-import { getStation, polymarketEventSlug } from "@/config/stations";
+import { getStation, polymarketEventSlug, polymarketEventUrl } from "@/config/stations";
 import type {
   BiasResolution,
   HuskyPayload,
   MarketDay,
+  MetarPayload,
   ModelRow,
   StationPayload,
+  SynopticPayload,
   TempUnit,
   WuPayload,
 } from "./types";
@@ -66,6 +68,25 @@ export interface PublicHusky {
   url: string;
 }
 
+export interface PublicMetar {
+  ok: boolean;
+  error?: string;
+  running_max_c: number | null;
+  resolution_max_c: number | null;
+  running_max_at?: string | null;
+  latest_temp_c: number | null;
+  stale: boolean;
+}
+
+export interface PublicSynoptic {
+  ok: boolean;
+  configured: boolean;
+  error?: string;
+  resolution_max: number | null;
+  unit: TempUnit;
+  stale: boolean;
+}
+
 export interface PublicStationResponse {
   icao: string;
   city: string;
@@ -84,8 +105,11 @@ export interface PublicStationResponse {
   consensus_corrected_c: number | null;
   /** Polymarket event slug for the market local date, e.g. highest-temperature-in-munich-on-september-16-2026. */
   polymarket_slug: string | null;
+  polymarket_url: string | null;
   wunderground: PublicWu;
   husky: PublicHusky;
+  metar: PublicMetar;
+  synoptic: PublicSynoptic;
 }
 
 export function parseApiDay(
@@ -155,6 +179,29 @@ function publicWu(wu: WuPayload): PublicWu {
   };
 }
 
+function publicMetar(metar: MetarPayload): PublicMetar {
+  return {
+    ok: metar.ok,
+    ...(metar.error ? { error: metar.error } : {}),
+    running_max_c: metar.ok ? (metar.runningMaxC ?? null) : null,
+    resolution_max_c: metar.ok ? (metar.resolutionMaxC ?? null) : null,
+    running_max_at: metar.ok ? (metar.runningMaxAt ?? null) : null,
+    latest_temp_c: metar.ok ? (metar.latest?.tempC ?? null) : null,
+    stale: metar.stale,
+  };
+}
+
+function publicSynoptic(synoptic: SynopticPayload): PublicSynoptic {
+  return {
+    ok: synoptic.ok,
+    configured: synoptic.configured,
+    ...(synoptic.error ? { error: synoptic.error } : {}),
+    resolution_max: synoptic.ok ? synoptic.resolutionMax : null,
+    unit: synoptic.unit,
+    stale: synoptic.stale,
+  };
+}
+
 function publicHusky(husky: HuskyPayload): PublicHusky {
   return {
     ok: husky.ok,
@@ -189,8 +236,14 @@ export function publicStationPayload(
       data.polymarket.slug ||
       polymarketEventSlug(data.station.icao, data.marketDate) ||
       null,
+    polymarket_url:
+      data.polymarket.url ||
+      polymarketEventUrl(data.station.icao, data.marketDate) ||
+      null,
     wunderground: publicWu(data.wu),
     husky: publicHusky(data.husky),
+    metar: publicMetar(data.metar),
+    synoptic: publicSynoptic(data.synoptic),
   };
 }
 

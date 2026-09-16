@@ -1,0 +1,129 @@
+{
+  "icao": "KDAL",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "manual",
+      "captured_at": "2026-09-16T17:19:02+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KDAL",
+      "payload": {
+        "icao": "KDAL",
+        "city": "Dallas",
+        "name": "Dallas Love Field",
+        "region": "america",
+        "timezone": "America/Chicago",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-16",
+        "date_requested": "2026-09-16T15:19:02.377Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 37.3,
+            "raw_min_c": 27.7,
+            "corrected_max_c": 36.86722222222222,
+            "bias_c": 0.43277777777777776,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.779,
+              "bias_c": 0.43277777777777776,
+              "n": 183,
+              "mae": 1.197
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-16T13:00:00.000Z",
+              "init_z": "13Z",
+              "available_at": "2026-09-16T14:41:18.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 37.3,
+            "raw_min_c": 27.7,
+            "corrected_max_c": 36.86722222222222,
+            "bias_c": 0.43277777777777776,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.779,
+              "bias_c": 0.43277777777777776,
+              "n": 183,
+              "mae": 1.197
+            },
+            "run": {
+              "init_at": "2026-09-16T13:00:00.000Z",
+              "init_z": "13Z",
+              "available_at": "2026-09-16T14:41:18.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 37.8,
+            "raw_min_c": 27,
+            "corrected_max_c": 37.65277777777777,
+            "bias_c": 0.14722222222222225,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.265,
+              "bias_c": 0.14722222222222225,
+              "n": 183,
+              "mae": 1.137
+            },
+            "run": {
+              "init_at": "2026-09-16T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-16T09:29:37.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 37.55,
+        "consensus_corrected_c": 37.25999999999999,
+        "polymarket_slug": "highest-temperature-in-dallas-on-september-16-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KDAL",
+          "daily_max_c": 38,
+          "predicted_high_c": 38,
+          "low_c": 28,
+          "current_temp_c": 31,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KDAL"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 37,
+          "local_date": "2026-09-16",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KDAL"
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/KDAL"
+}

@@ -1,0 +1,154 @@
+{
+  "icao": "EPWA",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "manual",
+      "captured_at": "2026-09-16T17:14:10+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EPWA",
+      "payload": {
+        "icao": "EPWA",
+        "city": "Warsaw",
+        "name": "Warsaw Chopin",
+        "region": "europe",
+        "timezone": "Europe/Warsaw",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-16",
+        "date_requested": "2026-09-16T15:14:10.541Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.7,
+            "raw_min_c": 11.7,
+            "corrected_max_c": 25.201999999999998,
+            "bias_c": -0.502,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.502,
+              "bias_c": -0.502,
+              "n": 183,
+              "mae": 0.733
+            },
+            "run": {
+              "init_at": "2026-09-16T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-16T11:57:56.000Z",
+              "nest": "ICON-EU"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.7,
+            "raw_min_c": 11.7,
+            "corrected_max_c": 25.201999999999998,
+            "bias_c": -0.502,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.502,
+              "bias_c": -0.502,
+              "n": 183,
+              "mae": 0.733
+            },
+            "run": {
+              "init_at": "2026-09-16T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-16T11:57:56.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.8,
+            "raw_min_c": 10.1,
+            "corrected_max_c": 25.039,
+            "bias_c": -0.239,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.239,
+              "bias_c": -0.239,
+              "n": 183,
+              "mae": 0.823
+            },
+            "run": {
+              "init_at": "2026-09-16T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-16T14:36:27.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.5,
+            "raw_min_c": 10.4,
+            "corrected_max_c": 24.978,
+            "bias_c": -0.478,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.478,
+              "bias_c": -0.478,
+              "n": 183,
+              "mae": 0.858
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-07-01T10:46:56.000Z",
+              "nest": "GDPS"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.7,
+        "consensus_corrected_c": 25.039,
+        "polymarket_slug": "highest-temperature-in-warsaw-on-september-16-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EPWA",
+          "daily_max_c": 26,
+          "predicted_high_c": 26,
+          "low_c": 11,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EPWA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-16",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EPWA"
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/EPWA"
+}

@@ -1,0 +1,129 @@
+{
+  "icao": "KHOU",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "manual",
+      "captured_at": "2026-09-16T17:19:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KHOU",
+      "payload": {
+        "icao": "KHOU",
+        "city": "Houston",
+        "name": "Houston Hobby",
+        "region": "america",
+        "timezone": "America/Chicago",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-16",
+        "date_requested": "2026-09-16T15:19:01.086Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 35.7,
+            "raw_min_c": 25.6,
+            "corrected_max_c": 35.875,
+            "bias_c": -0.175,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": -0.315,
+              "bias_c": -0.175,
+              "n": 183,
+              "mae": 0.884
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-16T13:00:00.000Z",
+              "init_z": "13Z",
+              "available_at": "2026-09-16T14:41:18.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 35.7,
+            "raw_min_c": 25.6,
+            "corrected_max_c": 35.875,
+            "bias_c": -0.175,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": -0.315,
+              "bias_c": -0.175,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-16T13:00:00.000Z",
+              "init_z": "13Z",
+              "available_at": "2026-09-16T14:41:18.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 35.8,
+            "raw_min_c": 25.9,
+            "corrected_max_c": 36.044444444444444,
+            "bias_c": -0.24444444444444446,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": -0.44,
+              "bias_c": -0.24444444444444446,
+              "n": 183,
+              "mae": 1.114
+            },
+            "run": {
+              "init_at": "2026-09-16T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-16T09:29:37.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 35.75,
+        "consensus_corrected_c": 35.959722222222226,
+        "polymarket_slug": "highest-temperature-in-houston-on-september-16-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KHOU",
+          "daily_max_c": 35,
+          "predicted_high_c": 35,
+          "low_c": 25,
+          "current_temp_c": 32,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KHOU"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 35,
+          "local_date": "2026-09-16",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KHOU"
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/KHOU"
+}

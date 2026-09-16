@@ -1,0 +1,127 @@
+{
+  "icao": "EGLC",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "manual",
+      "captured_at": "2026-09-16T17:14:05+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EGLC",
+      "payload": {
+        "icao": "EGLC",
+        "city": "London",
+        "name": "London City",
+        "region": "europe",
+        "timezone": "Europe/London",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-16",
+        "date_requested": "2026-09-16T15:14:05.627Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 19.4,
+            "raw_min_c": 13.8,
+            "corrected_max_c": 19.573999999999998,
+            "bias_c": -0.174,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.174,
+              "bias_c": -0.174,
+              "n": 183,
+              "mae": 0.456
+            },
+            "run": {
+              "init_at": "2026-09-16T10:00:00.000Z",
+              "init_z": "10Z",
+              "available_at": "2026-09-16T14:19:13.000Z",
+              "nest": "UK 2 km"
+            }
+          },
+          {
+            "id": "ukmo_uk_deterministic_2km",
+            "label": "UKMO UK 2km",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 19.4,
+            "raw_min_c": 13.8,
+            "corrected_max_c": 19.573999999999998,
+            "bias_c": -0.174,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.174,
+              "bias_c": -0.174,
+              "n": 183,
+              "mae": 0.456
+            },
+            "run": {
+              "init_at": "2026-09-16T10:00:00.000Z",
+              "init_z": "10Z",
+              "available_at": "2026-09-16T14:19:13.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 20.2,
+            "raw_min_c": 13,
+            "corrected_max_c": 20.483999999999998,
+            "bias_c": -0.284,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.284,
+              "bias_c": -0.284,
+              "n": 183,
+              "mae": 0.544
+            },
+            "run": {
+              "init_at": "2026-09-16T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-16T13:32:20.000Z",
+              "nest": "ICON-D2"
+            }
+          }
+        ],
+        "consensus_raw_c": 19.799999999999997,
+        "consensus_corrected_c": 20.028999999999996,
+        "polymarket_slug": "highest-temperature-in-london-on-september-16-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EGLC",
+          "daily_max_c": 21,
+          "predicted_high_c": 21,
+          "low_c": 13,
+          "current_temp_c": 21,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EGLC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 19,
+          "local_date": "2026-09-16",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EGLC"
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/EGLC"
+}

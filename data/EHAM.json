@@ -1,0 +1,128 @@
+{
+  "icao": "EHAM",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "manual",
+      "captured_at": "2026-09-16T17:14:10+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EHAM",
+      "payload": {
+        "icao": "EHAM",
+        "city": "Amsterdam",
+        "name": "Amsterdam Schiphol",
+        "region": "europe",
+        "timezone": "Europe/Amsterdam",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-16",
+        "date_requested": "2026-09-16T15:14:10.964Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.8,
+            "raw_min_c": 13.9,
+            "corrected_max_c": 18.852,
+            "bias_c": -0.052,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.052,
+              "bias_c": -0.052,
+              "n": 183,
+              "mae": 0.437
+            },
+            "run": {
+              "init_at": "2026-09-16T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-16T13:32:20.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18.6,
+            "raw_min_c": 15.3,
+            "corrected_max_c": 18.922,
+            "bias_c": -0.322,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.322,
+              "bias_c": -0.322,
+              "n": 183,
+              "mae": 0.541
+            },
+            "run": {
+              "init_at": "2026-09-16T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-16T13:18:04.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 20,
+            "raw_min_c": 15.6,
+            "corrected_max_c": 19.322,
+            "bias_c": 0.678,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.678,
+              "bias_c": 0.678,
+              "n": 183,
+              "mae": 1.022
+            },
+            "note": "KNMI can run very hot in JJA — do not use alone",
+            "run": {
+              "init_at": "2026-09-16T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-16T14:36:36.000Z",
+              "nest": "HARMONIE NL"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.8,
+        "consensus_corrected_c": 18.922,
+        "polymarket_slug": "highest-temperature-in-amsterdam-on-september-16-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EHAM",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 13,
+          "current_temp_c": 18,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EHAM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 18,
+          "local_date": "2026-09-16",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EHAM"
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/EHAM"
+}

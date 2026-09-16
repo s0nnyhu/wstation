@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import type { StationPayload, TempUnit } from "@/lib/types";
 import { ageLabel, fetchedAtMs, localHourLabel } from "@/lib/time";
+import type { StationPayload, TempUnit } from "@/lib/types";
 import { convertDelta, formatMetarWind, formatTemp } from "@/lib/units";
+import { useEffect, useState } from "react";
 import { HourlyIconStrip } from "./HourlyIconStrip";
 import { LocalClock } from "./LocalClock";
 import { OutLink } from "./OutLink";
@@ -236,9 +236,7 @@ export function ObservationTwin({
                     Today&apos;s high
                   </div>
                   <div className="mt-1 font-mono text-3xl tabular text-amber sm:text-4xl">
-                    {day === "today"
-                      ? formatTemp(metarHigh, unit, 1)
-                      : "—"}
+                    {day === "today" ? formatTemp(metarHigh, unit, 1) : "—"}
                   </div>
                   <div className="mt-0.5 text-xs text-mute">
                     {day === "tomorrow"
