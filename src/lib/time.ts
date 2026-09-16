@@ -46,3 +46,24 @@ export function fetchedAtMs(iso: string | undefined): number | null {
   const ms = Date.parse(iso);
   return Number.isFinite(ms) ? ms : null;
 }
+
+/** Format a UTC instant as a model-run label, e.g. `09Z`. */
+export function utcZLabel(iso: string | undefined | null): string {
+  if (!iso) return "—";
+  const ms = Date.parse(iso);
+  if (!Number.isFinite(ms)) return "—";
+  return `${String(new Date(ms).getUTCHours()).padStart(2, "0")}Z`;
+}
+
+/** Station-local `HH:MM` for an ISO timestamp. */
+export function zonedHhMm(iso: string | undefined | null, timeZone: string): string {
+  if (!iso) return "—";
+  const ms = Date.parse(iso);
+  if (!Number.isFinite(ms)) return "—";
+  return new Intl.DateTimeFormat("en-GB", {
+    timeZone,
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+  }).format(new Date(ms));
+}

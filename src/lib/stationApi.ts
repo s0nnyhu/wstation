@@ -37,6 +37,12 @@ export interface PublicModelRow {
   bias_c: number | null;
   bias: PublicModelBias;
   note?: string;
+  run?: {
+    init_at: string;
+    init_z: string;
+    available_at: string | null;
+    nest: string | null;
+  };
 }
 
 export interface PublicWu {
@@ -122,6 +128,16 @@ function publicModel(row: ModelRow): PublicModelRow {
     bias_c: row.bias.source === "none" ? null : row.biasC,
     bias: publicBias(row.bias),
     ...(row.note ? { note: row.note } : {}),
+    ...(row.run
+      ? {
+          run: {
+            init_at: row.run.initAt,
+            init_z: row.run.initZ,
+            available_at: row.run.availableAt,
+            nest: row.run.nest,
+          },
+        }
+      : {}),
   };
 }
 

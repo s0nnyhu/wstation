@@ -24,7 +24,7 @@ export interface ForecastFetch {
   requestUrl: string;
 }
 
-function openMeteoBase(): string {
+export function openMeteoBase(): string {
   return (
     process.env.OPEN_METEO_BASE_URL?.replace(/\/$/, "") ??
     "https://api.open-meteo.com"

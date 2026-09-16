@@ -1,6 +1,7 @@
 "use client";
 
 import type { ModelRow, StationPayload, TempUnit } from "@/lib/types";
+import { zonedHhMm } from "@/lib/time";
 import { agreementBand, convertDelta, formatTemp } from "@/lib/units";
 
 const ROLE_LABEL: Record<string, string> = {
@@ -46,6 +47,7 @@ export function ModelsTable({
             {data.biasMeta.definition} Active season {data.forecast.season}
             {data.seasonMode !== "auto" ? ` (forced ${data.seasonMode})` : " (auto from market day)"}.
             MAE is the mean absolute error of the <em>raw</em> forecast over the same sample — an upper bound on the corrected error.
+            Run is the last Open-Meteo initialisation (UTC) for the nest at this lat/lon.
           </p>
         </div>
         <div className="flex flex-wrap gap-2 text-[11px]">
@@ -71,19 +73,23 @@ export function ModelsTable({
                 1,
               )}
             </div>
+            {row.run && (
+              <div className="font-mono text-[10px] text-cyan">{row.run.initZ}</div>
+            )}
           </div>
         ))}
       </div>
 
       <p className="px-4 text-[11px] text-mute sm:hidden">Swipe the table sideways.</p>
       <div className="scroll-pad overflow-x-auto">
-        <table className="min-w-[840px] w-full text-left text-sm">
+        <table className="min-w-[920px] w-full text-left text-sm">
           <thead className="text-[11px] uppercase tracking-[0.12em] text-mute">
             <tr className="border-y border-line">
               <th className="sticky left-0 z-10 bg-surface px-4 py-2 font-medium sm:px-5">
                 Model
               </th>
               <th className="px-3 py-2 font-medium">Role</th>
+              <th className="px-3 py-2 font-medium">Run</th>
               <th className="px-3 py-2 font-medium">Raw max</th>
               <th className="px-3 py-2 font-medium">Season</th>
               <th className="px-3 py-2 font-medium">Bias applied</th>
@@ -116,6 +122,19 @@ export function ModelsTable({
                     >
                       {ROLE_LABEL[row.role]}
                     </span>
+                  </td>
+                  <td className="px-3 py-2.5 font-mono tabular">
+                    {row.run ? (
+                      <div>
+                        <div className="text-ink">{row.run.initZ}</div>
+                        <div className="mt-0.5 text-[10px] text-mute">
+                          {row.run.nest ? `${row.run.nest} · ` : ""}
+                          {zonedHhMm(row.run.initAt, data.station.timezone)} loc
+                        </div>
+                      </div>
+                    ) : (
+                      <span className="text-mute">—</span>
+                    )}
                   </td>
                   <td className="px-3 py-2.5 font-mono tabular">
                     {formatTemp(row.rawMaxC, unit, 1)}

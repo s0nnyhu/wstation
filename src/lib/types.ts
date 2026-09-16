@@ -50,6 +50,20 @@ export interface Station {
   warnings: string[];
 }
 
+/** Latest Open-Meteo model run feeding this row (from `/data/{dataset}/static/meta.json`). */
+export interface ModelRun {
+  /** UTC initialisation time (ISO). */
+  initAt: string;
+  /** e.g. "09Z". */
+  initZ: string;
+  /** When that run became available on Open-Meteo (ISO), if known. */
+  availableAt: string | null;
+  /** Open-Meteo dataset directory, e.g. `dwd_icon_d2`. */
+  dataset: string;
+  /** High-res nest name when `id` is a seamless blend, else null. */
+  nest: string | null;
+}
+
 export interface ModelRow {
   id: string;
   label: string;
@@ -63,6 +77,7 @@ export interface ModelRow {
   available: boolean;
   note?: string;
   hourlyDerived?: boolean;
+  run?: ModelRun | null;
 }
 
 export interface HourlyPoint {

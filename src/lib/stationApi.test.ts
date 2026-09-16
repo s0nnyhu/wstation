@@ -55,7 +55,17 @@ function payload(): StationPayload {
     localNow: "2026-09-16T11:00:00",
     forecast: {
       models: [
-        model({ id: "icon_seamless", role: "primary" }),
+        model({
+          id: "icon_seamless",
+          role: "primary",
+          run: {
+            initAt: "2026-09-16T09:00:00.000Z",
+            initZ: "09Z",
+            availableAt: "2026-09-16T10:26:00.000Z",
+            dataset: "dwd_icon_d2",
+            nest: "ICON-D2",
+          },
+        }),
         model({
           id: "icon_d2",
           role: "short-range",
@@ -207,6 +217,12 @@ describe("publicStationPayload", () => {
     expect(primary?.raw_max_c).toBe(22.1);
     expect(primary?.corrected_max_c).toBe(21.68);
     expect(primary?.bias_c).toBe(0.42);
+    expect(primary?.run).toEqual({
+      init_at: "2026-09-16T09:00:00.000Z",
+      init_z: "09Z",
+      available_at: "2026-09-16T10:26:00.000Z",
+      nest: "ICON-D2",
+    });
 
     const short = json.models.find((m) => m.id === "icon_d2");
     expect(short?.primary).toBe(false);

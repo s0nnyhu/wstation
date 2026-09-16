@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { hoursUntilPeak, localNowHhMm, localNowHour } from "./time";
+import { hoursUntilPeak, localNowHhMm, localNowHour, utcZLabel, zonedHhMm } from "./time";
 
 describe("hoursUntilPeak", () => {
   it("uses the payload clock, not wall time", () => {
@@ -16,5 +16,17 @@ describe("localNow clock parts", () => {
   it("reads HH:MM from assemble localNow", () => {
     expect(localNowHhMm("2026-09-16T12:03:36")).toBe("12:03");
     expect(localNowHour("2026-09-16T12:03:36")).toBe(12);
+  });
+});
+
+describe("utcZLabel / zonedHhMm", () => {
+  it("labels a UTC init hour as 09Z", () => {
+    expect(utcZLabel("2026-09-16T09:00:00.000Z")).toBe("09Z");
+    expect(utcZLabel("2026-09-16T00:00:00.000Z")).toBe("00Z");
+  });
+
+  it("converts init time into station-local HH:MM", () => {
+    expect(zonedHhMm("2026-09-16T09:00:00.000Z", "Europe/Paris")).toBe("11:00");
+    expect(zonedHhMm("2026-09-16T09:00:00.000Z", "Europe/London")).toBe("10:00");
   });
 });

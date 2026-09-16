@@ -47,7 +47,8 @@ function formatFavorite(bucket: PolymarketBucket | null): string {
 
 function formatModelLine(row: ModelRow, unit: TempUnit): string | null {
   if (row.role !== "primary" && row.role !== "backup") return null;
-  return `${row.label} (${row.role}) ${formatTemp(row.correctedMaxC, unit, 1)}`;
+  const run = row.run?.initZ ? ` ${row.run.initZ}` : "";
+  return `${row.label} (${row.role}) ${formatTemp(row.correctedMaxC, unit, 1)}${run}`;
 }
 
 function formatH6Line(data: StationPayload): string {

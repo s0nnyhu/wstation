@@ -15,8 +15,10 @@ import { fetchHuskyConsensus, huskyFailedPayload, huskyStationUrl } from "./husk
 import { fetchWuDailyMax, wuFailedPayload } from "./wu";
 import { fetchPolymarketBuckets, polymarketFailedPayload } from "./polymarket";
 import { fetchSynoptic, synopticFailedPayload } from "./synoptic";
+import { fetchModelRuns } from "./modelRuns";
 import {
   fetchOpenMeteoForecast,
+  modelsForRequest,
   numericSeries,
   seriesKey,
   stringSeries,
@@ -27,6 +29,7 @@ import type {
   HourlyPoint,
   MarketDay,
   ModelRow,
+  ModelRun,
   SeasonMode,
   StationPayload,
   StationPublic,
@@ -127,7 +130,8 @@ export async function assembleStation(
   // Secondary sources get a hard budget so a slow upstream never blocks the
   // render; forecast + METAR keep their own (bounded) retry budgets.
   const SECONDARY_BUDGET_MS = 8_000;
-  const [forecast, metar, wu, husky, polymarket, synoptic] = await Promise.all([
+  const requestedModels = modelsForRequest(station, compareAll);
+  const [forecast, metar, wu, husky, polymarket, synoptic, runs] = await Promise.all([
     fetchOpenMeteoForecast(station, compareAll, opts),
     fetchMetar(station.icao, station.timezone, marketDate, opts),
     withBudget(
@@ -161,6 +165,13 @@ export async function assembleStation(
       ).catch((error) => synopticFailedPayload(station.defaultUnit, error)),
       SECONDARY_BUDGET_MS,
       (error) => synopticFailedPayload(station.defaultUnit, error),
+    ),
+    withBudget(
+      fetchModelRuns(requestedModels, station).catch(
+        () => new Map<string, ModelRun>(),
+      ),
+      4_000,
+      () => new Map<string, ModelRun>(),
     ),
   ]);
 
@@ -205,6 +216,7 @@ export async function assembleStation(
       available: rawMaxC != null,
       note,
       hourlyDerived: fromDaily == null && fromHourly.max != null,
+      run: runs.get(id) ?? null,
     };
   });
 
