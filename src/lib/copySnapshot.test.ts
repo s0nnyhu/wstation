@@ -217,7 +217,7 @@ describe("formatStationClipboard", () => {
       new Date("2026-09-16T09:58:12.000Z"),
     );
     const lines = text.split("\n");
-    expect(lines[0]).toBe("Munich (EDDM)");
+    expect(lines[0]).toBe("Munich (EDDM) · now");
     expect(lines[1]).toMatch(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/);
     expect(lines[2]).toBe("WU 26.0°C");
     expect(lines[3]).toBe("Husky 25.0°C");
@@ -253,6 +253,7 @@ describe("formatStationClipboard", () => {
       "C",
       new Date("2026-09-16T09:58:12.000Z"),
     );
+    expect(text).toContain("Munich (EDDM) · tomorrow");
     expect(text).toContain("METAR —");
   });
 });

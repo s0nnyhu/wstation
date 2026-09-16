@@ -69,8 +69,9 @@ export function formatStationClipboard(
   const models = data.forecast.models
     .map((row) => formatModelLine(row, unit))
     .filter((line): line is string => line != null);
+  const dayLabel = data.day === "tomorrow" ? "tomorrow" : "now";
   return [
-    `${data.station.name} (${data.station.icao})`,
+    `${data.station.name} (${data.station.icao}) · ${dayLabel}`,
     formatClientNow(now),
     `WU ${formatTemp(data.wu.ok ? data.wu.dailyMaxC : null, unit, 1)}`,
     `Husky ${formatTemp(data.husky.ok ? data.husky.dailyMaxC : null, unit, 1)}`,
