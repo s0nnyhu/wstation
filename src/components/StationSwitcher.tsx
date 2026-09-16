@@ -14,14 +14,18 @@ const REGION_ORDER: Region[] = ["europe", "asia", "america"];
 
 export function StationSwitcher({
   selected,
+  loading = false,
   regionFilter,
   onFilter,
   onSelect,
+  onPrefetch,
 }: {
   selected: string;
+  loading?: boolean;
   regionFilter: RegionFilter;
   onFilter: (region: RegionFilter) => void;
   onSelect: (icao: string) => void;
+  onPrefetch?: (icao: string) => void;
 }) {
   const visible = STATIONS.filter(
     (s) => regionFilter === "all" || s.region === regionFilter,
@@ -61,16 +65,22 @@ export function StationSwitcher({
             </div>
             {group.stations.map((station) => {
               const active = station.icao === selected;
+              const pending = active && loading;
               return (
                 <button
                   key={station.icao}
                   type="button"
-                  onClick={() => onSelect(station.icao)}
+                  aria-busy={pending}
+                  onPointerEnter={() => onPrefetch?.(station.icao)}
+                  onFocus={() => onPrefetch?.(station.icao)}
+                  onClick={() => {
+                    if (station.icao !== selected) onSelect(station.icao);
+                  }}
                   className={`flex min-h-14 min-w-[6.75rem] shrink-0 snap-start flex-col items-start rounded-xl px-3 py-2 text-left transition lg:min-h-0 lg:min-w-0 ${
                     active
                       ? "border-2 border-cyan bg-cyan/15 text-ink shadow-[0_0_16px_rgba(62,224,200,0.28)]"
                       : "chip text-mute hover:border-cyan/40 hover:text-ink"
-                  }`}
+                  } ${pending ? "animate-pulse" : ""}`}
                 >
                   <div className="flex w-full items-center justify-between gap-2">
                     <span className="text-[10px] uppercase tracking-[0.12em] text-mute">
@@ -78,7 +88,7 @@ export function StationSwitcher({
                     </span>
                     {active && (
                       <span className="rounded bg-cyan px-1 py-px font-mono text-[9px] tracking-wide text-bg">
-                        NOW
+                        {pending ? "…" : "NOW"}
                       </span>
                     )}
                   </div>
