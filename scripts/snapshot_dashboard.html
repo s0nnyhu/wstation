@@ -3,103 +3,508 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WStation snapshots</title>
+  <title>WStation Forecast Lab</title>
   <style>
     :root {
-      --bg: #0b0f14;
-      --panel: #121820;
-      --line: #243040;
-      --ink: #e8eef5;
-      --mute: #8b9bb0;
+      --bg: #080c12;
+      --panel: #101720;
+      --line: #263342;
+      --ink: #f2f6fa;
+      --mute: #8d9caf;
       --cyan: #5eead4;
+      --primary: #60a5fa;
+      --consensus: #c084fc;
+      --wu: #fbbf24;
+      --metar: #34d399;
       --fail: #fb7185;
+      --card: #0c1219;
     }
     * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
     body {
       margin: 0;
       font: 14px/1.45 ui-sans-serif, system-ui, sans-serif;
       background: var(--bg);
       color: var(--ink);
+      color-scheme: dark;
     }
     header {
       display: flex;
       justify-content: space-between;
       gap: 16px;
-      align-items: baseline;
-      padding: 20px 24px 12px;
+      align-items: center;
+      padding: 22px 24px 18px;
       border-bottom: 1px solid var(--line);
+      background: rgba(8, 12, 18, 0.92);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
     }
-    header p { margin: 4px 0 0; color: var(--mute); font-size: 12px; }
-    h1 { margin: 0; font-size: 18px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    header > div { min-width: 0; }
+    header p { margin: 4px 0 0; color: var(--mute); font-size: 12px; overflow-wrap: anywhere; }
+    #meta { text-align: right; max-width: min(420px, 100%); }
+    h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
     h1 span { color: var(--cyan); }
-    main { padding: 20px 24px 48px; display: grid; gap: 28px; }
+    .shell {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 16px 24px 48px;
+    }
+    #stations { min-width: 0; }
+    .stations-label {
+      color: var(--mute);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin: 0 0 8px;
+    }
+    .station-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .station-group {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+      align-items: stretch;
+    }
+    .station-group-label {
+      display: flex;
+      align-items: center;
+      min-width: 3.25rem;
+      padding: 0 4px;
+      color: var(--mute);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .station-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 2px;
+      min-width: 6.75rem;
+      min-height: 56px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--card);
+      color: var(--mute);
+      cursor: pointer;
+      text-align: left;
+      flex-shrink: 0;
+    }
+    .station-chip:hover { border-color: rgba(94, 234, 212, 0.4); color: var(--ink); }
+    .station-chip.active {
+      border: 2px solid var(--cyan);
+      background: rgba(94, 234, 212, 0.12);
+      color: var(--ink);
+      box-shadow: 0 0 16px rgba(62, 224, 200, 0.28);
+    }
+    .station-chip .icao {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--cyan);
+    }
+    .station-chip .city { font-size: 12px; }
+    #board { min-width: 0; display: grid; gap: 28px; flex: 1; }
+    .guide {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(120deg, rgba(94, 234, 212, 0.08), rgba(96, 165, 250, 0.04));
+    }
+    .guide-copy strong { display: block; margin-bottom: 2px; font-size: 13px; }
+    .guide-copy span { color: var(--mute); font-size: 12px; }
+    .legend { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 14px; }
+    .legend-item { display: inline-flex; align-items: center; gap: 6px; color: var(--mute); font-size: 11px; white-space: nowrap; }
+    .legend-dot { width: 8px; height: 8px; border-radius: 99px; background: var(--dot); box-shadow: 0 0 10px color-mix(in srgb, var(--dot), transparent 35%); }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     table { width: 100%; border-collapse: collapse; }
-    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+    th, td { text-align: left; padding: 11px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
     th { color: var(--mute); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
     tbody tr { cursor: pointer; }
-    tbody tr:hover { background: #18222d; }
+    tbody tr:hover { background: #17222d; }
     tbody tr.active { background: #1c2a36; }
     tbody tr.detail-row { cursor: default; }
     tbody tr.detail-row:hover { background: transparent; }
+    tbody tr[hidden] { display: none !important; }
     .ok { color: var(--cyan); }
     .fail { color: var(--fail); }
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
     .muted { color: var(--mute); }
+    .station-name { display: flex; align-items: center; gap: 7px; }
+    .station-name::before { content: "›"; color: var(--mute); font-size: 18px; line-height: 1; transition: transform 0.16s ease; }
+    tr.active .station-name::before { transform: rotate(90deg); color: var(--cyan); }
+    .forecast-cell { border-left: 2px solid color-mix(in srgb, var(--source), transparent 55%); }
+    .forecast-value { display: flex; align-items: center; gap: 7px; }
+    .raw-temp { color: var(--mute); font-size: 11px; }
+    .forecast-arrow { color: var(--mute); font-size: 10px; }
+    .temp { color: var(--ink); font-weight: 650; }
+    .delta {
+      min-width: 3.4em;
+      padding: 2px 6px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--mute);
+      background: rgba(255,255,255,0.025);
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .delta.good { color: #86efac; border-color: rgba(52, 211, 153, 0.35); background: rgba(52, 211, 153, 0.09); }
+    .delta.warn { color: #fde68a; border-color: rgba(251, 191, 36, 0.35); background: rgba(251, 191, 36, 0.09); }
+    .delta.bad { color: #fda4af; border-color: rgba(251, 113, 133, 0.35); background: rgba(251, 113, 133, 0.09); }
+    .metar-cell { color: var(--metar); font-weight: 750; background: linear-gradient(90deg, rgba(52, 211, 153, 0.08), transparent); }
+    .pending { color: var(--mute); font-size: 11px; }
+    .source-primary { --source: var(--primary); }
+    .source-consensus { --source: var(--consensus); }
+    .source-wu { --source: var(--wu); }
     .day {
       background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: 12px;
+      border-radius: 16px;
       overflow: hidden;
+      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.18);
     }
-    .day > h2 {
+    .day-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
       margin: 0;
       padding: 16px 18px;
-      font-size: 18px;
-      font-weight: 600;
       border-bottom: 1px solid var(--line);
+    }
+    .day-head h2 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 650;
       text-transform: capitalize;
     }
+    .day-head p { margin: 2px 0 0; color: var(--mute); font-size: 11px; }
+    .resolved-pill { display: inline-flex; align-items: center; gap: 6px; color: var(--metar); font-size: 11px; }
+    .resolved-pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 10px currentColor; }
     .slot { border-top: 1px solid var(--line); }
     .slot:first-of-type { border-top: 0; }
     .slot h3 {
       margin: 0;
-      padding: 12px 18px 4px;
+      padding: 14px 18px 5px;
       font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--cyan);
+      color: var(--ink);
     }
+    .slot h3 span { margin-left: 7px; color: var(--mute); font-size: 10px; font-weight: 500; letter-spacing: 0; text-transform: none; }
     .empty { padding: 8px 18px 16px; color: var(--mute); }
+    .expand p { overflow-wrap: anywhere; }
     .models { display: grid; gap: 8px; padding: 4px 8px 8px; }
-    .model-row { display: grid; grid-template-columns: 1.4fr 80px 90px 90px 70px 60px; gap: 8px; font-size: 13px; }
+    .model-row {
+      display: grid;
+      grid-template-columns: 240px 128px 90px 90px 70px 60px;
+      gap: 8px;
+      font-size: 13px;
+      width: max-content;
+      max-width: 100%;
+    }
+    .model-row > div { min-width: 0; }
     a { color: var(--cyan); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    @media (max-width: 900px) {
-      .model-row { grid-template-columns: 1fr 1fr; }
-      header, main { padding-left: 14px; padding-right: 14px; }
+    @media (max-width: 1100px) {
+      th, td { padding: 8px 6px; font-size: 13px; }
+      .model-row { grid-template-columns: 210px 120px 80px 80px 64px 52px; font-size: 12px; }
     }
+    @media (max-width: 900px) {
+      header { padding-left: 14px; padding-right: 14px; }
+      header { flex-wrap: wrap; }
+      #meta { text-align: left; max-width: 100%; }
+      .shell { padding-left: 14px; padding-right: 14px; }
+      .model-row {
+        grid-template-columns: 1fr 1fr;
+        padding: 8px 10px;
+        background: var(--card);
+        border-radius: 8px;
+        width: auto;
+        max-width: none;
+      }
+      .guide { align-items: flex-start; flex-direction: column; }
+      .legend { justify-content: flex-start; }
+      .model-row > :first-child { grid-column: 1 / -1; font-weight: 600; }
+    }
+    @media (max-width: 820px) {
+      header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 16px 14px 12px;
+      }
+      h1 { font-size: 16px; }
+      .shell { padding: 14px 12px 40px; gap: 14px; }
+      #board { gap: 18px; }
+      .day > h2 { font-size: 16px; padding: 14px; }
+      .slot h3 { padding: 12px 14px 6px; }
+      .empty { padding: 8px 14px 16px; }
+      .table-scroll { overflow: visible; }
+      table, thead, tbody { display: block; width: 100%; }
+      thead { display: none; }
+      tbody {
+        display: grid;
+        gap: 10px;
+        padding: 8px 10px 12px;
+      }
+      tbody tr[data-key] {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 12px;
+        padding: 12px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        min-height: 44px;
+      }
+      tbody tr[data-key]:hover { background: #151d26; }
+      tbody tr[data-key].active { background: #1c2a36; }
+      tbody tr[data-key] td {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 0;
+        border: 0;
+        white-space: normal;
+      }
+      tbody tr[data-key] td::before {
+        content: attr(data-label);
+        color: var(--mute);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      tbody tr[data-key] td:first-child {
+        grid-column: 1;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 6px;
+      }
+      tbody tr[data-key] td:nth-child(2) {
+        grid-column: 2;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      tbody tr[data-key] td:first-child::before,
+      tbody tr[data-key] td:nth-child(2)::before { display: none; }
+      tbody tr[data-key] td:last-child:nth-child(odd) { grid-column: 1 / -1; }
+      tbody tr[data-key] .forecast-cell { border-left: 2px solid color-mix(in srgb, var(--source), transparent 45%); padding-left: 8px; }
+      .forecast-value { justify-content: space-between; }
+      .metar-cell { padding: 8px !important; border-radius: 8px; }
+      tbody tr.detail-row {
+        display: block;
+        padding: 0 2px 4px;
+        background: transparent;
+        border: 0;
+      }
+      tbody tr.detail-row td {
+        display: block;
+        padding: 0 10px 8px;
+        border: 0;
+        white-space: normal;
+      }
+      tbody tr.detail-row td::before { content: none; }
+      .models { padding: 0; }
+    }
+    @media (min-width: 1100px) {
+      .shell {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      #stations {
+        width: 208px;
+        flex-shrink: 0;
+        position: sticky;
+        top: 104px;
+      }
+      .station-nav {
+        flex-direction: column;
+        max-height: calc(100vh - 144px);
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 0 6px 12px 0;
+        scrollbar-width: thin;
+        scrollbar-color: var(--line) transparent;
+      }
+      .station-group {
+        flex-direction: column;
+        flex-shrink: 1;
+      }
+      .station-group-label {
+        min-width: 0;
+        margin-top: 8px;
+        padding: 0 2px;
+      }
+      .station-chip {
+        min-width: 0;
+        min-height: 0;
+        width: 100%;
+      }
+    }
+    button { font: inherit; }
   </style>
 </head>
 <body>
   <header>
     <div>
-      <h1>WStation <span>snapshots</span></h1>
-      <p>Un bloc par jour : relevés 6h / 9h / 13h (Paris), puis max METAR résolu à 23h heure locale</p>
+      <h1>WStation <span>Forecast Lab</span></h1>
+      <p>Prévisions de température maximale confrontées au résultat METAR de 23h locale</p>
     </div>
     <p id="meta" class="muted"></p>
   </header>
-  <main id="board">
-    <p class="muted">Chargement…</p>
-  </main>
+  <div class="shell">
+    <aside id="stations"></aside>
+    <main id="board">
+      <p class="muted">Chargement…</p>
+    </main>
+  </div>
   <script>
     const SLOTS = [
-      { id: "06:00", label: "6h" },
-      { id: "09:00", label: "9h" },
-      { id: "13:00", label: "13h" },
+      { id: "06:15", aliases: ["06:00"], label: "6h15" },
+      { id: "09:15", aliases: ["09:00"], label: "9h15" },
+      { id: "13:15", aliases: ["13:00"], label: "13h15" },
+      { id: "14:15", aliases: ["14:00"], label: "14h15" },
     ];
-    const fmt = (n) => n == null || Number.isNaN(n) ? "—" : Number(n).toFixed(1) + "°C";
+    const US_ICAO = new Set(["KHOU", "KDAL", "KLGA"]);
+    const REGION_ORDER = [
+      { id: "europe", label: "Europe" },
+      { id: "asia", label: "Asia" },
+      { id: "america", label: "America" },
+    ];
     const board = document.getElementById("board");
+    const aside = document.getElementById("stations");
+    let lastIndex = null;
+    let selectedIcao = icaoFromHash();
+
+    function icaoFromHash() {
+      const h = decodeURIComponent((location.hash || "").replace(/^#/, "")).toUpperCase();
+      if (!h || h === "ALL") return null;
+      return h;
+    }
+
+    function writeHash(icao) {
+      if (icao) history.replaceState(null, "", "#" + icao);
+      else history.replaceState(null, "", location.pathname + location.search);
+    }
+
+    function cToF(c) {
+      return (Number(c) * 9) / 5 + 32;
+    }
+
+    function unitOf(icao, payload, metar) {
+      const hinted = payload?.unit || metar?.unit || metar?.synoptic_unit;
+      if (hinted === "F" || hinted === "C") return hinted;
+      return US_ICAO.has(icao) ? "F" : "C";
+    }
+
+    function fmt(n, unit) {
+      if (n == null || Number.isNaN(Number(n))) return "—";
+      const u = unit === "F" ? "F" : "C";
+      const v = u === "F" ? cToF(n) : Number(n);
+      return v.toFixed(1) + "°" + u;
+    }
+
+    function metarTargetC(metar, icao) {
+      if (!metar) return null;
+      if (metar.metar_resolution_max_c != null && Number.isFinite(Number(metar.metar_resolution_max_c))) {
+        return Number(metar.metar_resolution_max_c);
+      }
+      if (metar.synoptic_resolution_max != null && Number.isFinite(Number(metar.synoptic_resolution_max))) {
+        const value = Number(metar.synoptic_resolution_max);
+        return unitOf(icao, null, metar) === "F" ? (value - 32) * 5 / 9 : value;
+      }
+      return null;
+    }
+
+    function deltaInfo(forecastC, metar, icao, unit) {
+      const targetC = metarTargetC(metar, icao);
+      if (forecastC == null || !Number.isFinite(Number(forecastC)) || targetC == null) return null;
+      const native = (Number(forecastC) - targetC) * (unit === "F" ? 9 / 5 : 1);
+      const abs = Math.abs(native);
+      const goodLimit = unit === "F" ? 2 : 1;
+      const warnLimit = unit === "F" ? 4 : 2;
+      return {
+        value: native,
+        text: `${native > 0 ? "+" : ""}${native.toFixed(1)}°`,
+        cls: abs <= goodLimit ? "good" : abs <= warnLimit ? "warn" : "bad",
+      };
+    }
+
+    function forecastCell(valueC, metar, icao, unit, source, label, rawC = null) {
+      const delta = deltaInfo(valueC, metar, icao, unit);
+      const deltaHtml = delta
+        ? `<span class="delta ${delta.cls}" title="Écart prévision − METAR">${delta.text}</span>`
+        : '<span class="delta" title="Résultat METAR en attente">Δ —</span>';
+      const rawHtml = rawC == null
+        ? ""
+        : `<span class="raw-temp" title="Prévision non corrigée">${fmt(rawC, unit)}</span><span class="forecast-arrow">→</span>`;
+      return `<td data-label="${label}" class="mono forecast-cell source-${source}">
+        <div class="forecast-value">${rawHtml}<span class="temp">${fmt(valueC, unit)}</span>${deltaHtml}</div>
+      </td>`;
+    }
+
+    function pmBucket(tempC, unit) {
+      if (tempC == null || Number.isNaN(Number(tempC))) return "";
+      const u = unit === "F" ? "F" : "C";
+      const resolved = Math.round(u === "F" ? cToF(tempC) : Number(tempC));
+      if (u === "F") {
+        const lo = Math.floor(resolved / 2) * 2;
+        return `${lo}-${lo + 1}F`;
+      }
+      return `${resolved}°C`;
+    }
+
+    function resolutionInt(tempC, unit) {
+      if (tempC == null || Number.isNaN(Number(tempC))) return null;
+      const u = unit === "F" ? "F" : "C";
+      return Math.round(u === "F" ? cToF(tempC) : Number(tempC));
+    }
+
+    function resolutionLabel(metar, icao) {
+      if (!metar) return "—";
+      const unit = unitOf(icao, null, metar);
+      if (metar.synoptic_resolution_max != null && Number.isFinite(Number(metar.synoptic_resolution_max))) {
+        return `${Math.round(Number(metar.synoptic_resolution_max))}°${unit}`;
+      }
+      const resolved = resolutionInt(metar.metar_resolution_max_c, unit);
+      return resolved == null ? "—" : `${resolved}°${unit}`;
+    }
+
+    function snapForSlot(snapshots, slot) {
+      const ids = [slot.id, ...(slot.aliases || [])];
+      for (const id of ids) {
+        const found = (snapshots || []).find((x) => x.slot === id);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    function isKnownSlot(slotId) {
+      return SLOTS.some((slot) => slot.id === slotId || (slot.aliases || []).includes(slotId));
+    }
 
     function formatDay(iso) {
       const [y, m, d] = (iso || "").split("-").map(Number);
@@ -112,6 +517,18 @@
         timeZone: "UTC",
       }).format(new Date(Date.UTC(y, m - 1, d)));
       return text.charAt(0).toUpperCase() + text.slice(1);
+    }
+
+    function formatMetaTime(iso) {
+      const ms = Date.parse(iso || "");
+      if (!Number.isFinite(ms)) return "";
+      return new Intl.DateTimeFormat("fr-FR", {
+        day: "2-digit",
+        month: "short",
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZone: "Europe/Paris",
+      }).format(new Date(ms)).replace(",", " ·");
     }
 
     function primary(payload) {
@@ -154,47 +571,68 @@
     function parisRun(run) {
       if (!run) return "";
       let ms = run.init_at ? Date.parse(run.init_at) : NaN;
-      if (!Number.isFinite(ms) && typeof run.init_z === "string") {
-        const hour = Number(String(run.init_z).replace(/Z$/i, ""));
-        if (Number.isFinite(hour)) {
-          const now = new Date();
-          ms = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), hour, 0, 0);
-        }
+      let zHour = null;
+      if (typeof run.init_z === "string") {
+        const parsed = Number(String(run.init_z).replace(/z$/i, ""));
+        if (Number.isFinite(parsed)) zHour = parsed;
       }
-      if (!Number.isFinite(ms)) return "";
-      const label = new Intl.DateTimeFormat("fr-FR", {
+      if (!Number.isFinite(ms) && zHour != null) {
+        const now = new Date();
+        ms = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), zHour, 0, 0);
+      }
+      if (zHour == null && Number.isFinite(ms)) {
+        zHour = new Date(ms).getUTCHours();
+      }
+      if (zHour == null) return "";
+      const zLabel = String(zHour).padStart(2, "0") + "z";
+      if (!Number.isFinite(ms)) return zLabel;
+      const parts = new Intl.DateTimeFormat("fr-FR", {
         timeZone: "Europe/Paris",
         hour: "2-digit",
         minute: "2-digit",
         hourCycle: "h23",
-      }).format(new Date(ms));
-      return `<span title="${run.init_z || ""}">${label}</span>`;
+      }).formatToParts(new Date(ms));
+      const hh = parts.find((p) => p.type === "hour")?.value;
+      const mm = parts.find((p) => p.type === "minute")?.value;
+      if (!hh || !mm) return zLabel;
+      return `${zLabel} (${hh}h${mm})`;
     }
 
-    function modelsHtml(snap) {
+    function modelsHtml(snap, icao) {
       const p = snap.payload || {};
+      const unit = unitOf(icao, p);
+      const biasTxt = (m) => {
+        if (m.bias_c == null) return "";
+        const native = m.bias?.bias_native;
+        const v = native != null
+          ? Number(native)
+          : (unit === "F" ? Number(m.bias_c) * 9 / 5 : Number(m.bias_c));
+        return (v > 0 ? "+" : "") + v.toFixed(2);
+      };
       const models = (p.models || []).map((m) => `
         <div class="model-row">
           <div>${m.label || m.id}${m.primary ? " · primary" : ""}</div>
           <div class="mono">${parisRun(m.run)}</div>
-          <div class="mono">${fmt(m.raw_max_c)} raw</div>
-          <div class="mono">${fmt(m.corrected_max_c)} corr</div>
-          <div class="mono muted">${m.bias_c == null ? "" : (m.bias_c > 0 ? "+" : "") + Number(m.bias_c).toFixed(2)}</div>
+          <div class="mono">${fmt(m.raw_max_c, unit)} raw</div>
+          <div class="mono">${fmt(m.corrected_max_c, unit)} corr</div>
+          <div class="mono muted">${biasTxt(m)}</div>
           <div class="muted">${m.role || ""}</div>
         </div>`).join("");
+      const bucket = pmBucket(p.consensus_corrected_c, unit);
       return `<div class="expand">
         ${snap.error ? `<p class="fail">${snap.error}</p>` : ""}
-        <p class="muted">${snap.captured_at || ""} · consensus ${fmt(p.consensus_corrected_c)} · WU ${fmt(p.wunderground?.predicted_high_c)} · Husky ${fmt(p.husky?.daily_max_c)}${pmHref(p) ? ` · <a href="${pmHref(p)}" target="_blank" rel="noreferrer">Polymarket</a>` : ""}</p>
+        <p class="muted">${snap.captured_at || ""} · consensus ${fmt(p.consensus_corrected_c, unit)}${bucket ? ` · ${bucket}` : ""} · WU ${fmt(p.wunderground?.predicted_high_c, unit)} · Husky ${fmt(p.husky?.daily_max_c, unit)}${pmHref(p) ? ` · <a href="${pmHref(p)}" target="_blank" rel="noreferrer">Polymarket</a>` : ""}</p>
         <div class="models">${models}</div>
       </div>`;
     }
 
-    function metarCell(metar) {
-      if (!metar || metar.metar_resolution_max_c == null) {
-        return '<td class="muted">—</td>';
+    function metarCell(metar, icao) {
+      const label = resolutionLabel(metar, icao);
+      if (!metar || label === "—") {
+        return '<td data-label="METAR résolu" class="pending">En attente · 23h locale</td>';
       }
       const cls = metar.ok ? "ok" : "fail";
-      return `<td class="${cls} mono" title="max METAR résolu, 23h locale">${fmt(metar.metar_resolution_max_c)}</td>`;
+      return `<td data-label="METAR résolu" class="${cls} mono metar-cell" title="Température maximale METAR résolue à 23h locale">${label}</td>`;
     }
 
     function pmHref(payload) {
@@ -203,54 +641,55 @@
       return null;
     }
 
-    function pmCell(payload) {
+    function pmCell(payload, icao) {
+      const unit = unitOf(icao, payload);
+      const bucket = pmBucket(payload?.consensus_corrected_c, unit);
       const href = pmHref(payload);
-      if (!href) return '<td class="muted">—</td>';
-      return `<td><a href="${href}" target="_blank" rel="noreferrer" onclick="event.stopPropagation()">Marché</a></td>`;
+      if (!href && !bucket) return '<td data-label="Polymarket" class="muted">—</td>';
+      if (href) {
+        return `<td data-label="Polymarket" class="mono"><a href="${href}" target="_blank" rel="noreferrer" onclick="event.stopPropagation()">${bucket || "Marché"}</a></td>`;
+      }
+      return `<td data-label="Polymarket" class="mono">${bucket}</td>`;
     }
 
-    function stationRows(stations, slotId, day) {
+    function stationRows(stations, slot, day) {
+      const slotId = typeof slot === "string" ? slot : slot.id;
       const rows = [];
       (stations || []).forEach((s) => {
-        const snap = (s.snapshots || []).find((x) => x.slot === slotId);
+        const snap = typeof slot === "string"
+          ? (s.snapshots || []).find((x) => x.slot === slotId)
+          : snapForSlot(s.snapshots, slot);
         if (!snap) return;
         const p = snap.payload || {};
         const prim = primary(p);
+        const unit = unitOf(s.icao, p, s.metar);
         const key = `${day}:${slotId}:${s.icao}`;
         rows.push(`<tr data-key="${key}">
-          <td><strong>${s.icao}</strong> <span class="muted">${s.city || ""}</span></td>
-          <td class="${snap.ok ? "ok" : "fail"}">${snap.ok ? "ok" : "échec"}</td>
-          <td class="mono">${fmt(prim?.raw_max_c)}</td>
-          <td class="mono ${snap.ok ? "ok" : ""}">${fmt(prim?.corrected_max_c)}</td>
-          <td class="mono">${fmt(p.consensus_corrected_c)}</td>
-          <td class="mono">${fmt(p.wunderground?.predicted_high_c)}</td>
-          ${metarCell(s.metar)}
-          ${pmCell(p)}
-          <td class="mono muted">${parisRun(prim?.run)}</td>
+          <td data-label="Station"><div class="station-name"><strong>${s.icao}</strong> <span class="muted">${s.city || ""}</span></div></td>
+          ${forecastCell(prim?.corrected_max_c, s.metar, s.icao, unit, "primary", "Primaire brut → corrigé", prim?.raw_max_c)}
+          ${forecastCell(p.consensus_corrected_c, s.metar, s.icao, unit, "consensus", "Consensus")}
+          ${forecastCell(p.wunderground?.predicted_high_c, s.metar, s.icao, unit, "wu", "Wunderground")}
+          ${metarCell(s.metar, s.icao)}
         </tr>
         <tr class="detail-row" data-for="${key}" hidden>
-          <td colspan="9">${modelsHtml(snap)}</td>
+          <td colspan="5">${modelsHtml(snap, s.icao)}</td>
         </tr>`);
       });
       if (!rows.length) {
         return `<p class="empty">Pas encore de capture à cette heure.</p>`;
       }
-      return `<table>
+      return `<div class="table-scroll"><table>
         <thead>
           <tr>
             <th>Station</th>
-            <th></th>
-            <th>Raw</th>
-            <th>Corrigé</th>
-            <th>Consensus</th>
-            <th>WU</th>
-            <th>METAR 23h</th>
-            <th>Polymarket</th>
-            <th>Init Paris</th>
+            <th style="color:var(--primary)">Primaire brut → corrigé · Δ</th>
+            <th style="color:var(--consensus)">Consensus · Δ</th>
+            <th style="color:var(--wu)">Wunderground · Δ</th>
+            <th style="color:var(--metar)">METAR résolu</th>
           </tr>
         </thead>
         <tbody>${rows.join("")}</tbody>
-      </table>`;
+      </table></div>`;
     }
 
     function metarRows(stations, day) {
@@ -258,19 +697,20 @@
       (stations || []).forEach((s) => {
         const metar = s.metar;
         if (!metar) return;
+        const unit = unitOf(s.icao, null, metar);
         const key = `${day}:23:00:${s.icao}`;
         rows.push(`<tr data-key="${key}">
-          <td><strong>${s.icao}</strong> <span class="muted">${s.city || ""}</span></td>
-          <td class="${metar.ok ? "ok" : "fail"}">${metar.ok ? "ok" : "échec"}</td>
-          <td class="mono">${fmt(metar.metar_running_max_c)}</td>
-          <td class="mono ${metar.ok ? "ok" : ""}">${fmt(metar.metar_resolution_max_c)}</td>
-          <td class="muted mono">${metar.captured_at || ""}</td>
+          <td data-label="Station"><strong>${s.icao}</strong> <span class="muted">${s.city || ""}</span></td>
+          <td data-label="Statut" class="${metar.ok ? "ok" : "fail"}">${metar.ok ? "ok" : "échec"}</td>
+          <td data-label="Max physique" class="mono">${fmt(metar.metar_running_max_c, unit)}</td>
+          <td data-label="Max résolu" class="mono ${metar.ok ? "ok" : ""}">${resolutionLabel(metar, s.icao)}</td>
+          <td data-label="Capturé" class="muted mono">${metar.captured_at || ""}</td>
         </tr>`);
       });
       if (!rows.length) {
         return `<p class="empty">Pas encore de max METAR — relevé à 23h heure locale de la station.</p>`;
       }
-      return `<table>
+      return `<div class="table-scroll"><table>
         <thead>
           <tr>
             <th>Station</th>
@@ -281,53 +721,77 @@
           </tr>
         </thead>
         <tbody>${rows.join("")}</tbody>
-      </table>`;
+      </table></div>`;
     }
 
-    async function loadIndex() {
-      const res = await fetch("/api/stations");
-      const data = await res.json();
-      document.getElementById("meta").textContent =
-        (data.next_slot || "") + (data.now ? " · " + data.now : "");
-      let days = data.days;
-      if (!days) {
-        const files = await Promise.all(
-          (data.stations || []).map((s) => fetch("/api/stations/" + s.icao).then((r) => r.json()))
-        );
-        days = groupDays(data.stations || [], files);
+    function visibleStations(stations) {
+      if (!selectedIcao) return stations || [];
+      return (stations || []).filter((s) => s.icao === selectedIcao);
+    }
+
+    function catalogStations(data) {
+      return (data.stations || []).map((s) => ({
+        icao: s.icao,
+        city: s.city || "",
+        region: s.region || (US_ICAO.has(s.icao) ? "america" : "europe"),
+      }));
+    }
+
+    function stationsHtml(data) {
+      const items = catalogStations(data);
+      const known = new Set(items.map((s) => s.icao));
+      if (selectedIcao && !known.has(selectedIcao)) selectedIcao = null;
+      const groups = REGION_ORDER.map((region) => ({
+        ...region,
+        stations: items.filter((s) => s.region === region.id),
+      })).filter((g) => g.stations.length);
+      const chip = (icao, city, label) => {
+        const active = (selectedIcao || "") === (icao || "");
+        return `<button type="button" class="station-chip${active ? " active" : ""}" data-icao="${icao || ""}">
+          <span class="icao">${label || icao}</span>
+          <span class="city">${city}</span>
+        </button>`;
+      };
+      return `
+        <div class="stations-label">Stations</div>
+        <nav class="station-nav">
+          <div class="station-group">
+            <div class="station-group-label">Vue</div>
+            ${chip("", "toutes les stations", "Toutes")}
+          </div>
+          ${groups.map((g) => `
+            <div class="station-group">
+              <div class="station-group-label">${g.label}</div>
+              ${g.stations.map((s) => chip(s.icao, s.city)).join("")}
+            </div>`).join("")}
+        </nav>`;
+    }
+
+    function syncStationActive() {
+      aside.querySelectorAll("[data-icao]").forEach((btn) => {
+        btn.classList.toggle("active", (selectedIcao || "") === (btn.dataset.icao || ""));
+      });
+    }
+
+    function renderStations(data) {
+      if (!aside.dataset.ready) {
+        aside.innerHTML = stationsHtml(data);
+        aside.dataset.ready = "1";
+        aside.addEventListener("click", (e) => {
+          const btn = e.target.closest("[data-icao]");
+          if (!btn) return;
+          const icao = btn.dataset.icao || null;
+          selectedIcao = icao && icao === selectedIcao ? null : icao;
+          writeHash(selectedIcao);
+          syncStationActive();
+          if (lastIndex) renderBoard(lastIndex);
+        });
+      } else {
+        syncStationActive();
       }
-      if (!days.length) {
-        board.innerHTML = '<p class="muted">Aucune capture.</p>';
-        return;
-      }
-      const open = board.querySelector("tr.active")?.dataset.key;
-      board.innerHTML = days.map((day) => {
-        const sections = SLOTS.map((slot) => `
-          <section class="slot">
-            <h3>${slot.label}</h3>
-            ${stationRows(day.stations, slot.id, day.date)}
-          </section>`).join("");
-        const extra = (day.stations || []).some((s) =>
-          (s.snapshots || []).some((x) => !SLOTS.some((slot) => slot.id === x.slot))
-        );
-        const extraSection = extra ? `
-          <section class="slot">
-            <h3>Hors créneau</h3>
-            <p class="empty">Captures lancées à la main, hors 6h / 9h / 13h.</p>
-            ${stationRows(day.stations, "manual", day.date)}
-          </section>` : "";
-        const metarSection = `
-          <section class="slot">
-            <h3>Max METAR · 23h locale</h3>
-            ${metarRows(day.stations, day.date)}
-          </section>`;
-        return `<article class="day">
-          <h2>${formatDay(day.date)}</h2>
-          ${sections}
-          ${extraSection}
-          ${metarSection}
-        </article>`;
-      }).join("");
+    }
+
+    function bindRows(open) {
       board.querySelectorAll("tr[data-key]").forEach((tr) => {
         tr.addEventListener("click", () => {
           const key = tr.dataset.key;
@@ -343,6 +807,84 @@
       });
       if (open) board.querySelector(`tr[data-key="${open}"]`)?.click();
     }
+
+    function renderBoard(data) {
+      const days = data.days || [];
+      if (!days.length) {
+        board.innerHTML = '<p class="muted">Aucune capture.</p>';
+        return;
+      }
+      const open = board.querySelector("tr.active")?.dataset.key;
+      const guide = `<section class="guide">
+        <div class="guide-copy">
+          <strong>Le badge Δ mesure prévision − METAR</strong>
+          <span>Positif = modèle trop chaud · négatif = modèle trop froid · cliquez une ligne pour voir les runs et valeurs brutes.</span>
+        </div>
+        <div class="legend" aria-label="Légende">
+          <span class="legend-item"><i class="legend-dot" style="--dot:var(--primary)"></i>Primaire corrigé</span>
+          <span class="legend-item"><i class="legend-dot" style="--dot:var(--consensus)"></i>Consensus</span>
+          <span class="legend-item"><i class="legend-dot" style="--dot:var(--wu)"></i>Wunderground</span>
+          <span class="legend-item"><i class="legend-dot" style="--dot:var(--metar)"></i>METAR 23h</span>
+        </div>
+      </section>`;
+      board.innerHTML = guide + days.map((day) => {
+        const stations = visibleStations(day.stations);
+        const resolved = stations.filter((s) => metarTargetC(s.metar, s.icao) != null).length;
+        const sections = SLOTS.map((slot) => `
+          <section class="slot">
+            <h3>${slot.label}<span>heure de capture · Paris</span></h3>
+            ${stationRows(stations, slot, day.date)}
+          </section>`).join("");
+        const extra = (stations || []).some((s) =>
+          (s.snapshots || []).some((x) => x.slot && !isKnownSlot(x.slot))
+        );
+        const extraSection = extra ? `
+          <section class="slot">
+            <h3>Hors créneau</h3>
+            <p class="empty">Captures lancées à la main, hors 6h15 / 9h15 / 13h15 / 14h15.</p>
+            ${stationRows(stations, "manual", day.date)}
+          </section>` : "";
+        const metarSection = `
+          <section class="slot">
+            <h3>Détail observation METAR<span>figé à 23h heure locale de chaque station</span></h3>
+            ${metarRows(stations, day.date)}
+          </section>`;
+        return `<article class="day">
+          <div class="day-head">
+            <div><h2>${formatDay(day.date)}</h2><p>${selectedIcao ? selectedIcao : `${stations.length} stations`} · quatre instantanés de prévision</p></div>
+            <span class="resolved-pill">${resolved}/${stations.length} METAR résolus</span>
+          </div>
+          ${sections}
+          ${extraSection}
+          ${metarSection}
+        </article>`;
+      }).join("");
+      bindRows(open);
+    }
+
+    async function loadIndex() {
+      const res = await fetch("/api/stations");
+      const data = await res.json();
+      const updated = formatMetaTime(data.now);
+      const next = formatMetaTime(data.next_slot);
+      document.getElementById("meta").textContent =
+        `${updated ? `Actualisé ${updated}` : ""}${updated && next ? " · " : ""}${next ? `prochaine capture ${next}` : ""}`;
+      if (!data.days) {
+        const files = await Promise.all(
+          (data.stations || []).map((s) => fetch("/api/stations/" + s.icao).then((r) => r.json()))
+        );
+        data.days = groupDays(data.stations || [], files);
+      }
+      lastIndex = data;
+      renderStations(data);
+      renderBoard(data);
+    }
+
+    window.addEventListener("hashchange", () => {
+      selectedIcao = icaoFromHash();
+      syncStationActive();
+      if (lastIndex) renderBoard(lastIndex);
+    });
 
     loadIndex().catch((e) => {
       document.getElementById("meta").textContent = String(e);

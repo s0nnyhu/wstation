@@ -70,7 +70,7 @@ describe("getBias against data/biases.seasonal.json", () => {
     expect(r.source).toBe("none");
   });
 
-  it("loads WRH seasonal bias for ZSPD UKMO and ZGSZ AIFS", () => {
+  it("loads WRH seasonal bias for Asia stations", () => {
     const shanghai = getBias({
       icao: "ZSPD",
       model: "ukmo_seamless",
@@ -90,6 +90,22 @@ describe("getBias against data/biases.seasonal.json", () => {
     expect(shenzhen.source).toBe("season");
     expect(shenzhen.n).toBeGreaterThanOrEqual(MIN_BIAS_N);
     expect(shenzhen.biasC).toBeLessThan(0);
+
+    const wuhan = getBias({
+      icao: "ZHHH",
+      model: "icon_seamless",
+      dateLocal: "2026-09-12",
+    });
+    expect(wuhan.source).toBe("season");
+    expect(wuhan.n).toBeGreaterThanOrEqual(MIN_BIAS_N);
+
+    const tokyo = getBias({
+      icao: "RJTT",
+      model: "gfs_seamless",
+      dateLocal: "2026-09-12",
+    });
+    expect(tokyo.source).toBe("season");
+    expect(tokyo.n).toBeGreaterThanOrEqual(MIN_BIAS_N);
   });
 
   it("flags HRRR as identical to GFS seamless in this archive", () => {

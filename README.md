@@ -25,8 +25,11 @@ Not financial advice. Always verify the market’s station, units, and rules.
 |------|---------|----------|---------------|
 | ZSPD | Shanghai Pudong | Asia/Shanghai | `ukmo_seamless` |
 | ZGSZ | Shenzhen Bao'an | Asia/Shanghai | `ecmwf_aifs025_single` |
+| ZHHH | Wuhan Tianhe | Asia/Shanghai | `icon_seamless` |
+| ZUUU | Chengdu Shuangliu | Asia/Shanghai | `ecmwf_aifs025_single` |
+| RJTT | Tokyo Haneda | Asia/Tokyo | `gfs_seamless` |
 
-Asia stays in °C. Bias table is NOAA WRH / Synoptic daily max vs Open-Meteo Previous Runs H−0 (2024-01-01 → 2026-09-15). AIFS at Shenzhen has a shorter archive (~2025). JMA Seamless is MSM at Shanghai and GSM at Shenzhen.
+Asia stays in °C. Bias table is NOAA WRH / Synoptic daily max vs Open-Meteo Previous Runs H−0 (2024-01-01 → 2026-09-15). AIFS at Shenzhen has a shorter archive (~2025). JMA Seamless is MSM at Shanghai and Tokyo, GSM at Shenzhen / Wuhan / Chengdu.
 
 ### America (`region: "america"`) — default °F
 

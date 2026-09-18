@@ -2,7 +2,7 @@
 """Archive live /api/stations payloads and serve them on a local dashboard.
 
 Default: one capture (cron-friendly).
---loop: capture at 06:00, 09:00, 13:00 Europe/Paris, METAR max at 23:00
+--loop: capture at 06:15, 09:15, 13:15, 14:15 Europe/Paris, METAR max at 23:00
 station-local, and serve :5002 on 0.0.0.0.
 --metar: fetch today's METAR resolved max now.
 --serve: dashboard only (no capture loop).
@@ -30,7 +30,8 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 PARIS = ZoneInfo("Europe/Paris")
-SLOTS = (dtime(6, 0), dtime(9, 0), dtime(13, 0))
+SLOTS = (dtime(6, 15), dtime(9, 15), dtime(13, 15), dtime(14, 15))
+SLOT_GRACE = timedelta(minutes=15)
 STATIONS = (
     "EDDM",
     "EGLC",
@@ -40,6 +41,11 @@ STATIONS = (
     "EFHK",
     "EPWA",
     "EHAM",
+    "ZSPD",
+    "ZGSZ",
+    "ZHHH",
+    "ZUUU",
+    "RJTT",
     "KHOU",
     "KDAL",
     "KLGA",
@@ -53,9 +59,32 @@ STATION_TZ = {
     "EFHK": "Europe/Helsinki",
     "EPWA": "Europe/Warsaw",
     "EHAM": "Europe/Amsterdam",
+    "ZSPD": "Asia/Shanghai",
+    "ZGSZ": "Asia/Shanghai",
+    "ZHHH": "Asia/Shanghai",
+    "ZUUU": "Asia/Shanghai",
+    "RJTT": "Asia/Tokyo",
     "KHOU": "America/Chicago",
     "KDAL": "America/Chicago",
     "KLGA": "America/New_York",
+}
+STATION_CITY = {
+    "EDDM": "Munich",
+    "EGLC": "London",
+    "LIMC": "Milan",
+    "LFPB": "Paris",
+    "LTAC": "Ankara",
+    "EFHK": "Helsinki",
+    "EPWA": "Warsaw",
+    "EHAM": "Amsterdam",
+    "ZSPD": "Shanghai",
+    "ZGSZ": "Shenzhen",
+    "ZHHH": "Wuhan",
+    "ZUUU": "Chengdu",
+    "RJTT": "Tokyo",
+    "KHOU": "Houston",
+    "KDAL": "Dallas",
+    "KLGA": "New York",
 }
 METAR_SLOT = dtime(23, 0)
 DEFAULT_BASE = "https://wstation-sepia.vercel.app/api/stations"
@@ -82,16 +111,29 @@ def station_zone(icao: str) -> ZoneInfo:
     return ZoneInfo(STATION_TZ[icao])
 
 
+def station_unit(icao: str) -> str:
+    return "F" if STATION_TZ[icao].startswith("America/") else "C"
+
+
+def station_region(icao: str) -> str:
+    tz = STATION_TZ[icao]
+    if tz.startswith("America/"):
+        return "america"
+    if tz.startswith("Asia/"):
+        return "asia"
+    return "europe"
+
+
 def local_date(icao: str, instant: datetime | None = None) -> str:
     return (instant or now_utc()).astimezone(station_zone(icao)).date().isoformat()
 
 
 def slot_label(now: datetime | None = None) -> str:
     local = (now or now_paris()).astimezone(PARIS)
-    hhmm = dtime(local.hour, local.minute)
     for slot in SLOTS:
-        if hhmm.hour == slot.hour and hhmm.minute < 15:
-            return f"{slot.hour:02d}:{slot.minute:02d}"
+        start = datetime.combine(local.date(), slot, tzinfo=PARIS)
+        if start <= local < start + SLOT_GRACE:
+            return slot.strftime("%H:%M")
     return "manual"
 
 
@@ -161,7 +203,9 @@ def http_json_obj(url: str) -> dict:
     return payload
 
 
-SLOT_RANK = {"06:00": 0, "09:00": 1, "13:00": 2}
+SLOT_RANK = {slot.strftime("%H:%M"): i for i, slot in enumerate(SLOTS)}
+for i, label in enumerate(("06:00", "09:00", "13:00", "14:00")):
+    SLOT_RANK.setdefault(label, i)
 
 
 def snapshot_day(snap: dict) -> str:
@@ -322,7 +366,7 @@ def metar_max_from_api(payload: dict) -> dict | None:
     }
 
 
-FORECAST_SLOTS = {"06:00", "09:00", "13:00"}
+FORECAST_SLOTS = set(SLOT_RANK)
 
 
 def has_daily_obs(out_dir: Path, icao: str, date: str) -> bool:
@@ -384,13 +428,13 @@ def capture_metar_one(icao: str, base_url: str, out_dir: Path, force: bool = Fal
             record.update(metar_max_from_aw(icao, payload.get("market_date") or market_date))
             record["date"] = payload.get("market_date") or market_date
         record["ok"] = True
-        record["unit"] = payload.get("unit") or "C"
+        record["unit"] = payload.get("unit") or station_unit(icao)
         record["city"] = payload.get("city")
     except Exception as e:
         try:
             record.update(metar_max_from_aw(icao, market_date))
             record["ok"] = True
-            record["unit"] = "C"
+            record["unit"] = station_unit(icao)
         except Exception as fallback:
             record["ok"] = False
             record["error"] = f"{e} | fallback: {fallback}"
@@ -407,7 +451,7 @@ def catch_up_metar(base_url: str, out_dir: Path) -> None:
         rec = capture_metar_one(icao, base_url, out_dir)
         if rec.get("skipped"):
             if rec.get("reason") == "no-forecast":
-                print(f"  {icao} METAR skip {rec.get('date')} (pas de capture 6h/9h/13h)", flush=True)
+                print(f"  {icao} METAR skip {rec.get('date')} (pas de capture 6h15/9h15/13h15/14h15)", flush=True)
             continue
         if rec.get("ok"):
             print(
@@ -425,7 +469,7 @@ def capture_metar(base_url: str, out_dir: Path, force: bool = False) -> int:
         rec = capture_metar_one(icao, base_url, out_dir, force=force)
         if rec.get("skipped"):
             reason = rec.get("reason")
-            extra = " (pas de capture 6h/9h/13h)" if reason == "no-forecast" else ""
+            extra = " (pas de capture 6h15/9h15/13h15/14h15)" if reason == "no-forecast" else ""
             print(f"  {icao} skip {rec.get('date')}{extra}", flush=True)
             continue
         if rec.get("ok"):
@@ -455,8 +499,9 @@ def station_summary(icao: str, out_dir: Path) -> dict:
     payload = (latest or {}).get("payload") or {}
     return {
         "icao": icao,
-        "city": payload.get("city") or data.get("city"),
+        "city": payload.get("city") or data.get("city") or STATION_CITY.get(icao, ""),
         "name": payload.get("name"),
+        "region": payload.get("region") or station_region(icao),
         "n": len(snaps),
         "latest": latest,
     }
@@ -488,7 +533,8 @@ def dashboard_index(out_dir: Path) -> dict:
             stations.append(
                 {
                     "icao": icao,
-                    "city": cities.get(icao) or "",
+                    "city": cities.get(icao) or STATION_CITY.get(icao, ""),
+                    "region": station_region(icao),
                     "snapshots": snaps,
                     "latest": snaps[-1] if snaps else None,
                     "metar": metar_by.get(icao, {}).get(date),
@@ -556,7 +602,7 @@ def start_dashboard(host: str, port: int, out_dir: Path) -> ThreadingHTTPServer:
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--loop", action="store_true", help="capture at 06:00/09:00/13:00 Paris and serve the dashboard")
+    p.add_argument("--loop", action="store_true", help="capture at 06:15/09:15/13:15/14:15 Paris and serve the dashboard")
     p.add_argument("--metar", action="store_true", help="capture today's METAR max now (23h locale job)")
     p.add_argument("--serve", action="store_true", help="serve the dashboard without the capture loop")
     p.add_argument("--host", default="0.0.0.0", help="dashboard bind address")
@@ -601,7 +647,7 @@ def main(argv: list[str] | None = None) -> int:
                 if rec.get("skipped"):
                     reason = rec.get("reason")
                     if reason == "no-forecast":
-                        print(f"  {icao} METAR skip {rec.get('date')} (pas de capture 6h/9h/13h)", flush=True)
+                        print(f"  {icao} METAR skip {rec.get('date')} (pas de capture 6h15/9h15/13h15/14h15)", flush=True)
                     else:
                         print(f"  {icao} METAR already stored {rec.get('date')}", flush=True)
                 elif rec.get("ok"):
