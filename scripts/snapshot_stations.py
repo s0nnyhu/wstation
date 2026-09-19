@@ -2,7 +2,7 @@
 """Archive live /api/stations payloads and serve them on a local dashboard.
 
 Default: one capture (cron-friendly).
---loop: capture at 06:15, 09:15, 13:15, 14:15 Europe/Paris, METAR max at 23:00
+--loop: capture at 06:15, 09:15, 13:15, 14:15 station-local, METAR max at 21:00
 station-local, and serve :5002 on 0.0.0.0.
 --metar: fetch today's METAR resolved max now.
 --serve: dashboard only (no capture loop).
@@ -86,7 +86,7 @@ STATION_CITY = {
     "KDAL": "Dallas",
     "KLGA": "New York",
 }
-METAR_SLOT = dtime(23, 0)
+METAR_SLOT = dtime(21, 0)
 DEFAULT_BASE = "https://wstation-sepia.vercel.app/api/stations"
 METAR_BASE = "https://aviationweather.gov/api/data/metar"
 UA = "WStation/0.1 station snapshot"
@@ -128,44 +128,58 @@ def local_date(icao: str, instant: datetime | None = None) -> str:
     return (instant or now_utc()).astimezone(station_zone(icao)).date().isoformat()
 
 
-def slot_label(now: datetime | None = None) -> str:
-    local = (now or now_paris()).astimezone(PARIS)
+def slot_label(icao: str, now: datetime | None = None) -> str:
+    tz = station_zone(icao)
+    local = (now or now_utc()).astimezone(tz)
     for slot in SLOTS:
-        start = datetime.combine(local.date(), slot, tzinfo=PARIS)
+        start = datetime.combine(local.date(), slot, tzinfo=tz)
         if start <= local < start + SLOT_GRACE:
             return slot.strftime("%H:%M")
     return "manual"
 
 
-def next_forecast_slot(now: datetime | None = None) -> datetime:
-    local = (now or now_paris()).astimezone(PARIS)
+def next_local_clock(icao: str, clock: dtime, now: datetime | None = None) -> datetime:
+    tz = station_zone(icao)
+    local = (now or now_utc()).astimezone(tz)
+    for offset in (0, 1, 2):
+        day = local.date() + timedelta(days=offset)
+        candidate = datetime.combine(day, clock, tzinfo=tz)
+        if candidate > local + timedelta(seconds=15):
+            return candidate
+    return datetime.combine(local.date() + timedelta(days=1), clock, tzinfo=tz)
+
+
+def next_forecast_slot(icao: str, now: datetime | None = None) -> datetime:
+    tz = station_zone(icao)
+    local = (now or now_utc()).astimezone(tz)
     for offset in (0, 1):
         day = local.date() + timedelta(days=offset)
         for slot in SLOTS:
-            candidate = datetime.combine(day, slot, tzinfo=PARIS)
+            candidate = datetime.combine(day, slot, tzinfo=tz)
             if candidate > local + timedelta(seconds=15):
                 return candidate
-    return datetime.combine(local.date() + timedelta(days=1), SLOTS[0], tzinfo=PARIS)
+    return datetime.combine(local.date() + timedelta(days=1), SLOTS[0], tzinfo=tz)
 
 
 def next_metar_slot(icao: str, now: datetime | None = None) -> datetime:
-    local = (now or now_utc()).astimezone(station_zone(icao))
-    for offset in (0, 1, 2):
-        day = local.date() + timedelta(days=offset)
-        candidate = datetime.combine(day, METAR_SLOT, tzinfo=station_zone(icao))
-        if candidate > local + timedelta(seconds=15):
-            return candidate
-    return datetime.combine(local.date() + timedelta(days=1), METAR_SLOT, tzinfo=station_zone(icao))
+    return next_local_clock(icao, METAR_SLOT, now)
 
 
-def next_event(now: datetime | None = None) -> tuple[datetime, str, str | None]:
+def next_forecast_across_stations(now: datetime | None = None) -> tuple[datetime, str]:
     instant = now or now_utc()
-    candidates: list[tuple[datetime, str, str | None]] = [
-        (next_forecast_slot(instant), "forecast", None)
-    ]
+    return min(
+        ((next_forecast_slot(icao, instant), icao) for icao in STATIONS),
+        key=lambda row: (row[0], row[1]),
+    )
+
+
+def next_event(now: datetime | None = None) -> tuple[datetime, str, str]:
+    instant = now or now_utc()
+    candidates: list[tuple[datetime, str, str]] = []
     for icao in STATIONS:
+        candidates.append((next_forecast_slot(icao, instant), "forecast", icao))
         candidates.append((next_metar_slot(icao, instant), "metar", icao))
-    return min(candidates, key=lambda row: (row[0], row[1], row[2] or ""))
+    return min(candidates, key=lambda row: (row[0], row[1], row[2]))
 
 
 def http_json(url: str) -> dict:
@@ -250,8 +264,8 @@ def atomic_write(path: Path, payload: dict) -> None:
 
 def snapshot_one(icao: str, base_url: str, out_dir: Path) -> dict:
     url = f"{base_url.rstrip('/')}/{icao}"
-    captured_at = now_paris().isoformat(timespec="seconds")
-    slot = slot_label()
+    captured_at = now_utc().astimezone(station_zone(icao)).isoformat(timespec="seconds")
+    slot = slot_label(icao)
     try:
         body = http_json_obj(url)
         record = {
@@ -280,14 +294,15 @@ def snapshot_one(icao: str, base_url: str, out_dir: Path) -> dict:
     return record
 
 
-def capture(base_url: str, out_dir: Path) -> int:
+def capture(base_url: str, out_dir: Path, icaos: list[str] | None = None) -> int:
+    targets = list(icaos) if icaos is not None else list(STATIONS)
     failures = 0
-    print(f"{now_paris().isoformat(timespec='seconds')} slot={slot_label()}", flush=True)
-    for icao in STATIONS:
+    print(f"{now_paris().isoformat(timespec='seconds')} stations={','.join(targets)}", flush=True)
+    for icao in targets:
         record = snapshot_one(icao, base_url, out_dir)
         if record["ok"]:
             market = (record.get("payload") or {}).get("market_date")
-            print(f"  {icao} ok market_date={market}", flush=True)
+            print(f"  {icao} ok slot={record.get('slot')} market_date={market}", flush=True)
         else:
             failures += 1
             print(f"  {icao} FAIL {record.get('error')}", flush=True)
@@ -386,6 +401,19 @@ def has_forecast_for_day(out_dir: Path, icao: str, date: str) -> bool:
     return False
 
 
+def has_forecast_for_slot(out_dir: Path, icao: str, date: str, slot: str) -> bool:
+    data = load_file(out_dir / f"{icao}.json")
+    for snap in data.get("snapshots") or []:
+        if snap.get("ok") and snapshot_day(snap) == date and snap.get("slot") == slot:
+            return True
+    return False
+
+
+def stations_due_for_forecast(now: datetime | None = None) -> list[str]:
+    instant = now or now_utc()
+    return [icao for icao in STATIONS if slot_label(icao, instant) != "manual"]
+
+
 def upsert_daily_obs(out_dir: Path, icao: str, record: dict) -> None:
     path = out_dir / f"{icao}.json"
     file_data = load_file(path)
@@ -413,7 +441,7 @@ def capture_metar_one(icao: str, base_url: str, out_dir: Path, force: bool = Fal
     record: dict[str, Any] = {
         "ok": False,
         "date": market_date,
-        "slot": "23:00",
+        "slot": METAR_SLOT.strftime("%H:%M"),
         "timezone": STATION_TZ[icao],
         "captured_at": captured_at,
         "url": url,
@@ -442,11 +470,22 @@ def capture_metar_one(icao: str, base_url: str, out_dir: Path, force: bool = Fal
     return record
 
 
+def catch_up_forecast(base_url: str, out_dir: Path) -> None:
+    due = stations_due_for_forecast()
+    pending = [
+        icao
+        for icao in due
+        if not has_forecast_for_slot(out_dir, icao, local_date(icao), slot_label(icao))
+    ]
+    if pending:
+        capture(base_url, out_dir, pending)
+
+
 def catch_up_metar(base_url: str, out_dir: Path) -> None:
     now = now_utc()
     for icao in STATIONS:
         local = now.astimezone(station_zone(icao))
-        if local.hour < 23:
+        if local.hour < METAR_SLOT.hour:
             continue
         rec = capture_metar_one(icao, base_url, out_dir)
         if rec.get("skipped"):
@@ -464,7 +503,7 @@ def catch_up_metar(base_url: str, out_dir: Path) -> None:
 
 def capture_metar(base_url: str, out_dir: Path, force: bool = False) -> int:
     failures = 0
-    print(f"{now_paris().isoformat(timespec='seconds')} METAR 23h locale", flush=True)
+    print(f"{now_paris().isoformat(timespec='seconds')} METAR 21h locale", flush=True)
     for icao in STATIONS:
         rec = capture_metar_one(icao, base_url, out_dir, force=force)
         if rec.get("skipped"):
@@ -541,9 +580,11 @@ def dashboard_index(out_dir: Path) -> dict:
                 }
             )
         days.append({"date": date, "stations": stations})
+    next_at, next_icao = next_forecast_across_stations()
     return {
         "now": now_paris().isoformat(timespec="seconds"),
-        "next_slot": next_forecast_slot().isoformat(timespec="seconds"),
+        "next_slot": next_at.isoformat(timespec="seconds"),
+        "next_slot_icao": next_icao,
         "slots": [s.strftime("%H:%M") for s in SLOTS],
         "stations": summaries,
         "days": days,
@@ -602,8 +643,8 @@ def start_dashboard(host: str, port: int, out_dir: Path) -> ThreadingHTTPServer:
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--loop", action="store_true", help="capture at 06:15/09:15/13:15/14:15 Paris and serve the dashboard")
-    p.add_argument("--metar", action="store_true", help="capture today's METAR max now (23h locale job)")
+    p.add_argument("--loop", action="store_true", help="capture at 06:15/09:15/13:15/14:15 station-local and serve the dashboard")
+    p.add_argument("--metar", action="store_true", help="capture today's METAR max now (21h locale job)")
     p.add_argument("--serve", action="store_true", help="serve the dashboard without the capture loop")
     p.add_argument("--host", default="0.0.0.0", help="dashboard bind address")
     p.add_argument("--port", type=int, default=5002, help="dashboard port")
@@ -632,33 +673,16 @@ def main(argv: list[str] | None = None) -> int:
         return 1 if capture(args.base_url, out_dir) else 0
 
     print(
-        f"loop Europe/Paris {[s.strftime('%H:%M') for s in SLOTS]} + METAR 23:00 station-local",
+        f"loop station-local {[s.strftime('%H:%M') for s in SLOTS]} + METAR {METAR_SLOT.strftime('%H:%M')} station-local",
         flush=True,
     )
     try:
         while True:
+            catch_up_forecast(args.base_url, out_dir)
             catch_up_metar(args.base_url, out_dir)
             nxt, kind, icao = next_event()
-            label = f"{kind}" + (f" {icao}" if icao else "")
-            print(f"next {label} {nxt.isoformat(timespec='seconds')}", flush=True)
+            print(f"next {kind} {icao} {nxt.isoformat(timespec='seconds')}", flush=True)
             sleep_until(nxt)
-            if kind == "metar" and icao:
-                rec = capture_metar_one(icao, args.base_url, out_dir)
-                if rec.get("skipped"):
-                    reason = rec.get("reason")
-                    if reason == "no-forecast":
-                        print(f"  {icao} METAR skip {rec.get('date')} (pas de capture 6h15/9h15/13h15/14h15)", flush=True)
-                    else:
-                        print(f"  {icao} METAR already stored {rec.get('date')}", flush=True)
-                elif rec.get("ok"):
-                    print(
-                        f"  {icao} METAR {rec.get('date')} resolved={rec.get('metar_resolution_max_c')}",
-                        flush=True,
-                    )
-                else:
-                    print(f"  {icao} METAR FAIL {rec.get('error')}", flush=True)
-            else:
-                capture(args.base_url, out_dir)
     finally:
         if httpd:
             httpd.shutdown()

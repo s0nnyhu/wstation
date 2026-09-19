@@ -371,7 +371,7 @@
   <header>
     <div>
       <h1>WStation <span>Forecast Lab</span></h1>
-      <p>Prévisions de température maximale confrontées au résultat METAR de 23h locale</p>
+      <p>Prévisions de température maximale confrontées au résultat METAR de 21h locale</p>
     </div>
     <p id="meta" class="muted"></p>
   </header>
@@ -444,7 +444,7 @@
       if (forecastC == null || !Number.isFinite(Number(forecastC)) || targetC == null) return null;
       const native = (Number(forecastC) - targetC) * (unit === "F" ? 9 / 5 : 1);
       const abs = Math.abs(native);
-      const goodLimit = unit === "F" ? 2 : 1;
+      const goodLimit = 0.5;
       const warnLimit = unit === "F" ? 4 : 2;
       return {
         value: native,
@@ -629,10 +629,10 @@
     function metarCell(metar, icao) {
       const label = resolutionLabel(metar, icao);
       if (!metar || label === "—") {
-        return '<td data-label="METAR résolu" class="pending">En attente · 23h locale</td>';
+        return '<td data-label="METAR résolu" class="pending">En attente · 21h locale</td>';
       }
       const cls = metar.ok ? "ok" : "fail";
-      return `<td data-label="METAR résolu" class="${cls} mono metar-cell" title="Température maximale METAR résolue à 23h locale">${label}</td>`;
+      return `<td data-label="METAR résolu" class="${cls} mono metar-cell" title="Température maximale METAR résolue à 21h locale">${label}</td>`;
     }
 
     function pmHref(payload) {
@@ -698,7 +698,7 @@
         const metar = s.metar;
         if (!metar) return;
         const unit = unitOf(s.icao, null, metar);
-        const key = `${day}:23:00:${s.icao}`;
+        const key = `${day}:21:00:${s.icao}`;
         rows.push(`<tr data-key="${key}">
           <td data-label="Station"><strong>${s.icao}</strong> <span class="muted">${s.city || ""}</span></td>
           <td data-label="Statut" class="${metar.ok ? "ok" : "fail"}">${metar.ok ? "ok" : "échec"}</td>
@@ -708,7 +708,7 @@
         </tr>`);
       });
       if (!rows.length) {
-        return `<p class="empty">Pas encore de max METAR — relevé à 23h heure locale de la station.</p>`;
+        return `<p class="empty">Pas encore de max METAR — relevé à 21h heure locale de la station.</p>`;
       }
       return `<div class="table-scroll"><table>
         <thead>
@@ -824,7 +824,7 @@
           <span class="legend-item"><i class="legend-dot" style="--dot:var(--primary)"></i>Primaire corrigé</span>
           <span class="legend-item"><i class="legend-dot" style="--dot:var(--consensus)"></i>Consensus</span>
           <span class="legend-item"><i class="legend-dot" style="--dot:var(--wu)"></i>Wunderground</span>
-          <span class="legend-item"><i class="legend-dot" style="--dot:var(--metar)"></i>METAR 23h</span>
+          <span class="legend-item"><i class="legend-dot" style="--dot:var(--metar)"></i>METAR 21h</span>
         </div>
       </section>`;
       board.innerHTML = guide + days.map((day) => {
@@ -832,7 +832,7 @@
         const resolved = stations.filter((s) => metarTargetC(s.metar, s.icao) != null).length;
         const sections = SLOTS.map((slot) => `
           <section class="slot">
-            <h3>${slot.label}<span>heure de capture · Paris</span></h3>
+            <h3>${slot.label}<span>heure locale de la station</span></h3>
             ${stationRows(stations, slot, day.date)}
           </section>`).join("");
         const extra = (stations || []).some((s) =>
@@ -846,12 +846,12 @@
           </section>` : "";
         const metarSection = `
           <section class="slot">
-            <h3>Détail observation METAR<span>figé à 23h heure locale de chaque station</span></h3>
+            <h3>Détail observation METAR<span>figé à 21h heure locale de chaque station</span></h3>
             ${metarRows(stations, day.date)}
           </section>`;
         return `<article class="day">
           <div class="day-head">
-            <div><h2>${formatDay(day.date)}</h2><p>${selectedIcao ? selectedIcao : `${stations.length} stations`} · quatre instantanés de prévision</p></div>
+            <div><h2>${formatDay(day.date)}</h2><p>${selectedIcao ? selectedIcao : `${stations.length} stations`} · date locale du marché · quatre instantanés</p></div>
             <span class="resolved-pill">${resolved}/${stations.length} METAR résolus</span>
           </div>
           ${sections}
@@ -867,8 +867,9 @@
       const data = await res.json();
       const updated = formatMetaTime(data.now);
       const next = formatMetaTime(data.next_slot);
+      const nextIcao = data.next_slot_icao ? ` · ${data.next_slot_icao}` : "";
       document.getElementById("meta").textContent =
-        `${updated ? `Actualisé ${updated}` : ""}${updated && next ? " · " : ""}${next ? `prochaine capture ${next}` : ""}`;
+        `${updated ? `Actualisé ${updated}` : ""}${updated && next ? " · " : ""}${next ? `prochaine capture ${next}${nextIcao}` : ""}`;
       if (!data.days) {
         const files = await Promise.all(
           (data.stations || []).map((s) => fetch("/api/stations/" + s.icao).then((r) => r.json()))
