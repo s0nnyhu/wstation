@@ -43,6 +43,14 @@
     }
     header > div { min-width: 0; }
     header p { margin: 4px 0 0; color: var(--mute); font-size: 12px; overflow-wrap: anywhere; }
+    .local-clock {
+      margin: 6px 0 0;
+      color: var(--cyan);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      letter-spacing: 0.01em;
+    }
+    .local-clock[hidden] { display: none; }
     #meta { text-align: right; max-width: min(420px, 100%); }
     h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
     h1 span { color: var(--cyan); }
@@ -372,6 +380,7 @@
     <div>
       <h1>WStation <span>Forecast Lab</span></h1>
       <p>Prévisions de température maximale confrontées au résultat METAR de 21h locale</p>
+      <p id="local-clock" class="local-clock" hidden></p>
     </div>
     <p id="meta" class="muted"></p>
   </header>
@@ -389,6 +398,24 @@
       { id: "14:15", aliases: ["14:00"], label: "14h15" },
     ];
     const US_ICAO = new Set(["KHOU", "KDAL", "KLGA"]);
+    const STATION_TZ = {
+      EDDM: "Europe/Berlin",
+      EGLC: "Europe/London",
+      LIMC: "Europe/Rome",
+      LFPB: "Europe/Paris",
+      LTAC: "Europe/Istanbul",
+      EFHK: "Europe/Helsinki",
+      EPWA: "Europe/Warsaw",
+      EHAM: "Europe/Amsterdam",
+      ZSPD: "Asia/Shanghai",
+      ZGSZ: "Asia/Shanghai",
+      ZHHH: "Asia/Shanghai",
+      ZUUU: "Asia/Shanghai",
+      RJTT: "Asia/Tokyo",
+      KHOU: "America/Chicago",
+      KDAL: "America/Chicago",
+      KLGA: "America/New_York",
+    };
     const REGION_ORDER = [
       { id: "europe", label: "Europe" },
       { id: "asia", label: "Asia" },
@@ -733,8 +760,34 @@
       return (data.stations || []).map((s) => ({
         icao: s.icao,
         city: s.city || "",
+        timezone: s.timezone || s.latest?.payload?.timezone || STATION_TZ[s.icao] || "",
         region: s.region || (US_ICAO.has(s.icao) ? "america" : "europe"),
       }));
+    }
+
+    function renderLocalClock() {
+      const el = document.getElementById("local-clock");
+      const station = catalogStations(lastIndex || {}).find((s) => s.icao === selectedIcao);
+      if (!station?.timezone) {
+        el.hidden = true;
+        el.textContent = "";
+        el.removeAttribute("title");
+        return;
+      }
+      const time = new Intl.DateTimeFormat("fr-FR", {
+        timeZone: station.timezone,
+        weekday: "short",
+        day: "numeric",
+        month: "short",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hourCycle: "h23",
+      }).format(new Date());
+      const place = station.city ? `${station.icao} · ${station.city}` : station.icao;
+      el.hidden = false;
+      el.title = station.timezone;
+      el.textContent = `Heure locale · ${place} · ${time}`;
     }
 
     function stationsHtml(data) {
@@ -784,6 +837,7 @@
           selectedIcao = icao && icao === selectedIcao ? null : icao;
           writeHash(selectedIcao);
           syncStationActive();
+          renderLocalClock();
           if (lastIndex) renderBoard(lastIndex);
         });
       } else {
@@ -878,18 +932,21 @@
       }
       lastIndex = data;
       renderStations(data);
+      renderLocalClock();
       renderBoard(data);
     }
 
     window.addEventListener("hashchange", () => {
       selectedIcao = icaoFromHash();
       syncStationActive();
+      renderLocalClock();
       if (lastIndex) renderBoard(lastIndex);
     });
 
     loadIndex().catch((e) => {
       document.getElementById("meta").textContent = String(e);
     });
+    setInterval(renderLocalClock, 1000);
     setInterval(loadIndex, 60000);
   </script>
 </body>

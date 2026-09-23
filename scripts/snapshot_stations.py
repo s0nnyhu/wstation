@@ -92,6 +92,10 @@ METAR_BASE = "https://aviationweather.gov/api/data/metar"
 UA = "WStation/0.1 station snapshot"
 TIMEOUT_S = 60
 RETRIES = 3
+# Open-Meteo 429 is wrapped as HTTP 502 {"error":"Open-Meteo HTTP 429"}.
+# A 1/2/4s retry lands in the same quota window and makes the limit worse.
+RATE_LIMIT_RETRIES = 4
+STATION_GAP_S = 12.0
 DASHBOARD_HTML = Path(__file__).with_name("snapshot_dashboard.html")
 
 
@@ -182,9 +186,36 @@ def next_event(now: datetime | None = None) -> tuple[datetime, str, str]:
     return min(candidates, key=lambda row: (row[0], row[1], row[2]))
 
 
+def _error_body(exc: urllib.error.HTTPError) -> bytes:
+    try:
+        return exc.read() or b""
+    except Exception:
+        return b""
+
+
+def _rate_limited(code: int, body: bytes) -> bool:
+    if code == 429:
+        return True
+    lowered = body.lower()
+    return b"429" in body and (b"open-meteo" in lowered or b"too many" in lowered or b"rate" in lowered)
+
+
+def _retry_wait(exc: urllib.error.HTTPError, body: bytes, attempt: int, limited: bool) -> float:
+    if not limited:
+        return float(2**attempt)
+    header = exc.headers.get("Retry-After") if exc.headers else None
+    if header:
+        try:
+            return min(120.0, max(1.0, float(header)))
+        except ValueError:
+            pass
+    return min(60.0, 30.0 * (attempt + 1))
+
+
 def http_json(url: str) -> dict:
     last: Exception | None = None
-    for attempt in range(RETRIES + 1):
+    label = url.rstrip("/").rsplit("/", 1)[-1]
+    for attempt in range(RATE_LIMIT_RETRIES + 1):
         req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
         try:
             with urllib.request.urlopen(req, timeout=TIMEOUT_S) as res:
@@ -195,12 +226,20 @@ def http_json(url: str) -> dict:
             return payload
         except urllib.error.HTTPError as e:
             last = e
-            retryable = e.code in (429, 500, 502, 503, 504)
-            if retryable and attempt < RETRIES:
-                time.sleep(2**attempt)
+            body = _error_body(e)
+            limited = _rate_limited(e.code, body)
+            retryable = limited or e.code in (429, 500, 502, 503, 504)
+            cap = RATE_LIMIT_RETRIES if limited else RETRIES
+            if retryable and attempt < cap:
+                wait = _retry_wait(e, body, attempt, limited)
+                reason = "rate limit" if limited else f"HTTP {e.code}"
+                print(
+                    f"    {label} {reason} — retry in {wait:.0f}s ({attempt + 1}/{cap})",
+                    flush=True,
+                )
+                time.sleep(wait)
                 continue
-            body = e.read()[:300] if e.fp else b""
-            raise RuntimeError(f"HTTP {e.code} {body!r}") from e
+            raise RuntimeError(f"HTTP {e.code} {body[:300]!r}") from e
         except Exception as e:
             last = e
             if attempt < RETRIES:
@@ -262,10 +301,10 @@ def atomic_write(path: Path, payload: dict) -> None:
     tmp.replace(path)
 
 
-def snapshot_one(icao: str, base_url: str, out_dir: Path) -> dict:
+def snapshot_one(icao: str, base_url: str, out_dir: Path, slot: str | None = None) -> dict:
     url = f"{base_url.rstrip('/')}/{icao}"
     captured_at = now_utc().astimezone(station_zone(icao)).isoformat(timespec="seconds")
-    slot = slot_label(icao)
+    slot = slot or slot_label(icao)
     try:
         body = http_json_obj(url)
         record = {
@@ -294,12 +333,23 @@ def snapshot_one(icao: str, base_url: str, out_dir: Path) -> dict:
     return record
 
 
-def capture(base_url: str, out_dir: Path, icaos: list[str] | None = None) -> int:
+def _pause_before_station(index: int) -> None:
+    if index > 0 and STATION_GAP_S > 0:
+        time.sleep(STATION_GAP_S)
+
+
+def capture(
+    base_url: str,
+    out_dir: Path,
+    icaos: list[str] | None = None,
+    slots: dict[str, str] | None = None,
+) -> int:
     targets = list(icaos) if icaos is not None else list(STATIONS)
     failures = 0
     print(f"{now_paris().isoformat(timespec='seconds')} stations={','.join(targets)}", flush=True)
-    for icao in targets:
-        record = snapshot_one(icao, base_url, out_dir)
+    for index, icao in enumerate(targets):
+        _pause_before_station(index)
+        record = snapshot_one(icao, base_url, out_dir, slot=(slots or {}).get(icao))
         if record["ok"]:
             market = (record.get("payload") or {}).get("market_date")
             print(f"  {icao} ok slot={record.get('slot')} market_date={market}", flush=True)
@@ -472,21 +522,25 @@ def capture_metar_one(icao: str, base_url: str, out_dir: Path, force: bool = Fal
 
 def catch_up_forecast(base_url: str, out_dir: Path) -> None:
     due = stations_due_for_forecast()
+    slots = {icao: slot_label(icao) for icao in due}
     pending = [
         icao
         for icao in due
-        if not has_forecast_for_slot(out_dir, icao, local_date(icao), slot_label(icao))
+        if not has_forecast_for_slot(out_dir, icao, local_date(icao), slots[icao])
     ]
     if pending:
-        capture(base_url, out_dir, pending)
+        capture(base_url, out_dir, pending, slots)
 
 
 def catch_up_metar(base_url: str, out_dir: Path) -> None:
     now = now_utc()
+    index = 0
     for icao in STATIONS:
         local = now.astimezone(station_zone(icao))
         if local.hour < METAR_SLOT.hour:
             continue
+        _pause_before_station(index)
+        index += 1
         rec = capture_metar_one(icao, base_url, out_dir)
         if rec.get("skipped"):
             if rec.get("reason") == "no-forecast":
@@ -504,7 +558,8 @@ def catch_up_metar(base_url: str, out_dir: Path) -> None:
 def capture_metar(base_url: str, out_dir: Path, force: bool = False) -> int:
     failures = 0
     print(f"{now_paris().isoformat(timespec='seconds')} METAR 21h locale", flush=True)
-    for icao in STATIONS:
+    for index, icao in enumerate(STATIONS):
+        _pause_before_station(index)
         rec = capture_metar_one(icao, base_url, out_dir, force=force)
         if rec.get("skipped"):
             reason = rec.get("reason")
@@ -540,6 +595,7 @@ def station_summary(icao: str, out_dir: Path) -> dict:
         "icao": icao,
         "city": payload.get("city") or data.get("city") or STATION_CITY.get(icao, ""),
         "name": payload.get("name"),
+        "timezone": payload.get("timezone") or STATION_TZ[icao],
         "region": payload.get("region") or station_region(icao),
         "n": len(snaps),
         "latest": latest,
