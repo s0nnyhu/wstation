@@ -6,18 +6,20 @@
   <title>WStation Forecast Lab</title>
   <style>
     :root {
-      --bg: #080c12;
-      --panel: #101720;
-      --line: #263342;
-      --ink: #f2f6fa;
-      --mute: #8d9caf;
-      --cyan: #5eead4;
-      --primary: #60a5fa;
-      --consensus: #c084fc;
-      --wu: #fbbf24;
-      --metar: #34d399;
-      --fail: #fb7185;
-      --card: #0c1219;
+      --bg: #ffffff;
+      --panel: #ffffff;
+      --line: #e2e8f0;
+      --ink: #0f172a;
+      --mute: #64748b;
+      --cyan: #0f766e;
+      --primary: #2563eb;
+      --consensus: #7c3aed;
+      --wu: #b45309;
+      --metar: #047857;
+      --fail: #e11d48;
+      --card: #f8fafc;
+      --hover: #f1f5f9;
+      --active: #e6f6f4;
     }
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
@@ -26,7 +28,7 @@
       font: 14px/1.45 ui-sans-serif, system-ui, sans-serif;
       background: var(--bg);
       color: var(--ink);
-      color-scheme: dark;
+      color-scheme: light;
     }
     header {
       display: flex;
@@ -35,7 +37,7 @@
       align-items: center;
       padding: 22px 24px 18px;
       border-bottom: 1px solid var(--line);
-      background: rgba(8, 12, 18, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       position: sticky;
       top: 0;
       z-index: 10;
@@ -111,12 +113,12 @@
       text-align: left;
       flex-shrink: 0;
     }
-    .station-chip:hover { border-color: rgba(94, 234, 212, 0.4); color: var(--ink); }
+    .station-chip:hover { border-color: rgba(15, 118, 110, 0.45); color: var(--ink); }
     .station-chip.active {
       border: 2px solid var(--cyan);
-      background: rgba(94, 234, 212, 0.12);
+      background: rgba(15, 118, 110, 0.08);
       color: var(--ink);
-      box-shadow: 0 0 16px rgba(62, 224, 200, 0.28);
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
     }
     .station-chip .icao {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -125,7 +127,7 @@
       color: var(--cyan);
     }
     .station-chip .city { font-size: 12px; }
-    #board { min-width: 0; display: grid; gap: 28px; flex: 1; }
+    #board { min-width: 0; display: grid; gap: 36px; flex: 1; }
     .guide {
       display: flex;
       align-items: center;
@@ -134,7 +136,7 @@
       padding: 14px 16px;
       border: 1px solid var(--line);
       border-radius: 14px;
-      background: linear-gradient(120deg, rgba(94, 234, 212, 0.08), rgba(96, 165, 250, 0.04));
+      background: linear-gradient(120deg, rgba(15, 118, 110, 0.08), rgba(37, 99, 235, 0.05));
     }
     .guide-copy strong { display: block; margin-bottom: 2px; font-size: 13px; }
     .guide-copy span { color: var(--mute); font-size: 12px; }
@@ -146,8 +148,8 @@
     th, td { text-align: left; padding: 11px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
     th { color: var(--mute); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
     tbody tr { cursor: pointer; }
-    tbody tr:hover { background: #17222d; }
-    tbody tr.active { background: #1c2a36; }
+    tbody tr:hover { background: var(--hover); }
+    tbody tr.active { background: var(--active); }
     tbody tr.detail-row { cursor: default; }
     tbody tr.detail-row:hover { background: transparent; }
     tbody tr[hidden] { display: none !important; }
@@ -169,25 +171,26 @@
       border: 1px solid var(--line);
       border-radius: 999px;
       color: var(--mute);
-      background: rgba(255,255,255,0.025);
+      background: rgba(15, 23, 42, 0.04);
       font-size: 10px;
       font-weight: 700;
       text-align: center;
     }
-    .delta.good { color: #86efac; border-color: rgba(52, 211, 153, 0.35); background: rgba(52, 211, 153, 0.09); }
-    .delta.warn { color: #fde68a; border-color: rgba(251, 191, 36, 0.35); background: rgba(251, 191, 36, 0.09); }
-    .delta.bad { color: #fda4af; border-color: rgba(251, 113, 133, 0.35); background: rgba(251, 113, 133, 0.09); }
+    .delta.good { color: #047857; border-color: rgba(4, 120, 87, 0.35); background: rgba(4, 120, 87, 0.08); }
+    .delta.warn { color: #b45309; border-color: rgba(180, 83, 9, 0.35); background: rgba(180, 83, 9, 0.08); }
+    .delta.bad { color: #be123c; border-color: rgba(190, 18, 60, 0.35); background: rgba(190, 18, 60, 0.08); }
     .metar-cell { color: var(--metar); font-weight: 750; background: linear-gradient(90deg, rgba(52, 211, 153, 0.08), transparent); }
     .pending { color: var(--mute); font-size: 11px; }
     .source-primary { --source: var(--primary); }
     .source-consensus { --source: var(--consensus); }
     .source-wu { --source: var(--wu); }
     .day {
-      background: var(--panel);
-      border: 1px solid var(--line);
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid var(--cyan);
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
     }
     .day-head {
       display: flex;
@@ -196,7 +199,8 @@
       gap: 16px;
       margin: 0;
       padding: 16px 18px;
-      border-bottom: 1px solid var(--line);
+      background: #f1f5f9;
+      border-bottom: 1px solid #cbd5e1;
     }
     .day-head h2 {
       margin: 0;
@@ -285,8 +289,8 @@
         border-radius: 10px;
         min-height: 44px;
       }
-      tbody tr[data-key]:hover { background: #151d26; }
-      tbody tr[data-key].active { background: #1c2a36; }
+      tbody tr[data-key]:hover { background: var(--hover); }
+      tbody tr[data-key].active { background: var(--active); }
       tbody tr[data-key] td {
         display: flex;
         flex-direction: column;
