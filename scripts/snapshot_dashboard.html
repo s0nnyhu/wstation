@@ -160,6 +160,10 @@
       .station-chip .city {
         font-size: 12px;
       }
+      .chip-meta,
+      .region-filters {
+        display: none;
+      }
       #board {
         min-width: 0;
         display: grid;
@@ -688,6 +692,80 @@
           padding: 0;
         }
       }
+      @media (max-width: 1099px) {
+        .stations-label {
+          display: none;
+        }
+        .region-filters {
+          display: flex;
+          gap: 4px;
+          margin-bottom: 8px;
+        }
+        .region-filter {
+          flex: 1;
+          min-height: 36px;
+          padding: 6px 8px;
+          border: 1px solid var(--line);
+          border-radius: 8px;
+          background: var(--card);
+          color: var(--mute);
+          font-size: 11px;
+          cursor: pointer;
+        }
+        .region-filter.active {
+          border-color: rgba(94, 234, 212, 0.4);
+          background: rgba(94, 234, 212, 0.1);
+          color: var(--cyan);
+        }
+        .station-nav {
+          scroll-snap-type: x mandatory;
+          margin: 0 -14px;
+          padding: 0 14px 8px;
+        }
+        .station-group-label,
+        .station-group.all-view {
+          display: none;
+        }
+        #stations[data-region="europe"] .station-group[data-region="asia"],
+        #stations[data-region="europe"] .station-group[data-region="america"],
+        #stations[data-region="asia"] .station-group[data-region="europe"],
+        #stations[data-region="asia"] .station-group[data-region="america"],
+        #stations[data-region="america"] .station-group[data-region="europe"],
+        #stations[data-region="america"] .station-group[data-region="asia"] {
+          display: none;
+        }
+        .chip-meta {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 8px;
+          width: 100%;
+        }
+        .chip-region {
+          color: var(--mute);
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+        }
+        .chip-now {
+          display: none;
+          padding: 1px 4px;
+          border-radius: 4px;
+          background: var(--cyan);
+          color: var(--bg);
+          font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+          font-size: 9px;
+          letter-spacing: 0.04em;
+        }
+        .station-chip.active .chip-now {
+          display: inline-block;
+        }
+        .station-chip {
+          min-height: 56px;
+          scroll-snap-align: start;
+        }
+      }
       @media (min-width: 1100px) {
         .shell {
           flex-direction: row;
@@ -907,6 +985,7 @@
       const aside = document.getElementById("stations");
       let lastIndex = null;
       let selectedIcao = icaoFromHash();
+      let regionFilter = "all";
 
       function icaoFromHash() {
         const h = decodeURIComponent(
@@ -1354,30 +1433,59 @@
           ...region,
           stations: items.filter((s) => s.region === region.id),
         })).filter((g) => g.stations.length);
-        const chip = (icao, city, label) => {
-          const active = (selectedIcao || "") === (icao || "");
-          return `<button type="button" class="station-chip${active ? " active" : ""}" data-icao="${icao || ""}">
-          <span class="icao">${label || icao}</span>
-          <span class="city">${city}</span>
+        const chip = (station) => {
+          const active = selectedIcao === station.icao;
+          return `<button type="button" class="station-chip${active ? " active" : ""}" data-icao="${station.icao}">
+          <span class="chip-meta"><span class="chip-region">${station.region}</span><span class="chip-now">NOW</span></span>
+          <span class="icao">${station.icao}</span>
+          <span class="city">${station.city}</span>
         </button>`;
         };
+        const filters = [
+          ["all", "All"],
+          ["europe", "Europe"],
+          ["asia", "Asia"],
+          ["america", "America"],
+        ]
+          .map(
+            ([id, label]) =>
+              `<button type="button" class="region-filter${regionFilter === id ? " active" : ""}" data-region="${id}">${label}</button>`,
+          )
+          .join("");
         return `
         <div class="stations-label">Stations</div>
+        <div class="region-filters">${filters}</div>
         <nav class="station-nav">
-          <div class="station-group">
+          <div class="station-group all-view">
             <div class="station-group-label">Vue</div>
-            ${chip("", "toutes les stations", "Toutes")}
+            <button type="button" class="station-chip${selectedIcao ? "" : " active"}" data-icao="">
+              <span class="icao">Toutes</span>
+              <span class="city">toutes les stations</span>
+            </button>
           </div>
           ${groups
             .map(
               (g) => `
-            <div class="station-group">
+            <div class="station-group" data-region="${g.id}">
               <div class="station-group-label">${g.label}</div>
-              ${g.stations.map((s) => chip(s.icao, s.city)).join("")}
+              ${g.stations.map((s) => chip({ ...s, region: g.label })).join("")}
             </div>`,
             )
             .join("")}
         </nav>`;
+      }
+
+      function syncRegionFilter() {
+        aside.dataset.region = regionFilter;
+        aside.querySelectorAll("[data-region]").forEach((btn) => {
+          if (!btn.classList.contains("region-filter")) return;
+          btn.classList.toggle("active", btn.dataset.region === regionFilter);
+        });
+        if (window.innerWidth >= 1100) return;
+        aside.querySelector(".station-chip.active")?.scrollIntoView({
+          inline: "center",
+          block: "nearest",
+        });
       }
 
       function syncStationActive() {
@@ -1393,13 +1501,22 @@
         if (!aside.dataset.ready) {
           aside.innerHTML = stationsHtml(data);
           aside.dataset.ready = "1";
+          aside.dataset.region = regionFilter;
+          syncRegionFilter();
           aside.addEventListener("click", (e) => {
+            const filter = e.target.closest(".region-filter");
+            if (filter) {
+              regionFilter = filter.dataset.region || "all";
+              syncRegionFilter();
+              return;
+            }
             const btn = e.target.closest("[data-icao]");
             if (!btn) return;
             const icao = btn.dataset.icao || null;
             selectedIcao = icao && icao === selectedIcao ? null : icao;
             writeHash(selectedIcao);
             syncStationActive();
+            syncRegionFilter();
             renderLocalClock();
             if (lastIndex) renderBoard(lastIndex);
           });
