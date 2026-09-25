@@ -235,11 +235,11 @@ export function Dashboard({
   }
 
   const refresh = useCallback(
-    async (opts: { silent?: boolean } = {}) => {
+    async (opts: { silent?: boolean; fresh?: boolean } = {}) => {
       const current = navRef.current;
       await fetchStation({
         ...current,
-        fresh: true,
+        fresh: opts.fresh ?? true,
         silent: opts.silent,
       });
     },
@@ -258,13 +258,15 @@ export function Dashboard({
     [fetchStation],
   );
 
-  // Auto-refresh every 60 s while the tab is visible (METAR TTL is 2 min,
-  // Polymarket 1 min — polling faster only hits the server cache).
+  // METAR is fetched live on every request. The silent tick does not bust
+  // forecast / WU / Polymarket caches; the Refresh button still does.
   useEffect(() => {
     if (!autoRefresh) return;
-    const AUTO_MS = 60_000;
+    const AUTO_MS = 15_000;
     const tick = () => {
-      if (document.visibilityState === "visible") void refresh({ silent: true });
+      if (document.visibilityState === "visible") {
+        void refresh({ silent: true, fresh: false });
+      }
     };
     const id = window.setInterval(tick, AUTO_MS);
     document.addEventListener("visibilitychange", tick);
@@ -380,7 +382,7 @@ export function Dashboard({
                 {refreshing ? "Refreshing…" : "Refresh"}
               </button>
               <Toggle
-                label={autoRefresh ? "Auto 60s" : "Auto off"}
+                label={autoRefresh ? "Auto 15s" : "Auto off"}
                 on={autoRefresh}
                 onClick={() => setAutoRefresh((v) => !v)}
               />

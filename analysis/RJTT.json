@@ -1,0 +1,3263 @@
+{
+  "icao": "RJTT",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-20T09:15:00+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T00:15:01.276Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 22.4,
+            "corrected_max_c": 23.951999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-19T23:30:19.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.8,
+            "raw_min_c": 21.9,
+            "corrected_max_c": 24.412,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-19T23:08:07.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.3,
+            "raw_min_c": 22.4,
+            "corrected_max_c": 23.377000000000002,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-19T21:38:51.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.8,
+        "consensus_corrected_c": 23.951999999999998,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 22,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": false,
+          "error": "fetch failed",
+          "running_max_c": null,
+          "resolution_max_c": null,
+          "running_max_at": null,
+          "latest_temp_c": null,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-20T13:15:05+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T04:15:05.921Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 22.4,
+            "corrected_max_c": 23.951999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-19T23:30:19.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.4,
+            "raw_min_c": 22.2,
+            "corrected_max_c": 24.011999999999997,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-19T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-20T00:35:18.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.1,
+            "raw_min_c": 22.3,
+            "corrected_max_c": 23.177000000000003,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T03:49:08.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.4,
+        "consensus_corrected_c": 23.951999999999998,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 22,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 23,
+          "resolution_max_c": 23,
+          "running_max_at": "2026-09-20T04:00:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-20T14:15:03+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T05:15:03.426Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 22.4,
+            "corrected_max_c": 23.951999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-19T23:30:19.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.4,
+            "raw_min_c": 22.2,
+            "corrected_max_c": 24.011999999999997,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-19T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-20T00:35:18.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.1,
+            "raw_min_c": 22.3,
+            "corrected_max_c": 23.177000000000003,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T03:49:08.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.4,
+        "consensus_corrected_c": 23.951999999999998,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 22,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 23,
+          "resolution_max_c": 23,
+          "running_max_at": "2026-09-20T05:00:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-21T06:15:00+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-20T21:15:01.222Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.9,
+            "raw_min_c": 21.4,
+            "corrected_max_c": 24.451999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-20T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-20T17:32:28.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.4,
+            "raw_min_c": 21.9,
+            "corrected_max_c": 27.011999999999997,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-20T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-20T18:34:49.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.6,
+            "raw_min_c": 22.3,
+            "corrected_max_c": 27.677000000000003,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-20T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-20T15:45:10.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 26.4,
+        "consensus_corrected_c": 27.011999999999997,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 22,
+          "current_temp_c": 22,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 26,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 22,
+          "resolution_max_c": 22,
+          "running_max_at": "2026-09-20T21:00:00.000Z",
+          "latest_temp_c": 22,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-21T09:15:00+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T00:15:01.120Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.7,
+            "raw_min_c": 21.4,
+            "corrected_max_c": 23.252,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T23:25:45.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.3,
+            "raw_min_c": 21.7,
+            "corrected_max_c": 26.912,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T00:06:26.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.8,
+            "raw_min_c": 21.7,
+            "corrected_max_c": 26.877000000000002,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T21:27:51.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 26.3,
+        "consensus_corrected_c": 26.877000000000002,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 22,
+          "current_temp_c": 22,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 26,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 22,
+          "resolution_max_c": 22,
+          "running_max_at": "2026-09-21T00:00:00.000Z",
+          "latest_temp_c": 22,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-21T13:15:11+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T04:15:11.286Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.7,
+            "raw_min_c": 21.4,
+            "corrected_max_c": 23.252,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T23:25:45.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26,
+            "raw_min_c": 21.8,
+            "corrected_max_c": 26.612,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-20T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-21T00:31:25.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.1,
+            "raw_min_c": 21.7,
+            "corrected_max_c": 27.177000000000003,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T03:41:45.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 26,
+        "consensus_corrected_c": 26.612,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 22,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 25,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 23,
+          "resolution_max_c": 23,
+          "running_max_at": "2026-09-21T04:00:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-21T14:15:03+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T05:15:03.347Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.7,
+            "raw_min_c": 21.4,
+            "corrected_max_c": 23.252,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T23:25:45.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26,
+            "raw_min_c": 21.8,
+            "corrected_max_c": 26.612,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T05:04:55.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.1,
+            "raw_min_c": 21.7,
+            "corrected_max_c": 27.177000000000003,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T03:41:45.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 26,
+        "consensus_corrected_c": 26.612,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 22,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 25,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 23,
+          "resolution_max_c": 23,
+          "running_max_at": "2026-09-21T05:00:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-22T06:15:00+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-21T21:15:01.054Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.5,
+            "raw_min_c": 24.5,
+            "corrected_max_c": 29.052,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-21T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-21T17:29:10.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 30.1,
+            "raw_min_c": 24.3,
+            "corrected_max_c": 30.712,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-21T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-21T18:32:33.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.8,
+            "raw_min_c": 24,
+            "corrected_max_c": 28.877000000000002,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-21T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-21T15:55:07.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 29.5,
+        "consensus_corrected_c": 29.052,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 29,
+          "predicted_high_c": 29,
+          "low_c": 23,
+          "current_temp_c": 25,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 29,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 25,
+          "resolution_max_c": 25,
+          "running_max_at": "2026-09-21T21:00:00.000Z",
+          "latest_temp_c": 25,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-22T09:15:00+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T00:15:01.047Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.9,
+            "raw_min_c": 24.7,
+            "corrected_max_c": 29.451999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T23:30:45.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 29.7,
+            "raw_min_c": 24.4,
+            "corrected_max_c": 30.311999999999998,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T00:06:04.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 29,
+            "raw_min_c": 24,
+            "corrected_max_c": 29.077,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T21:43:08.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 29.7,
+        "consensus_corrected_c": 29.451999999999998,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 30,
+          "predicted_high_c": 30,
+          "low_c": 23,
+          "current_temp_c": 29,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 29,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 29,
+          "resolution_max_c": 29,
+          "running_max_at": "2026-09-22T00:00:00.000Z",
+          "latest_temp_c": 29,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-22T13:15:05+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T04:15:06.043Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.9,
+            "raw_min_c": 24.7,
+            "corrected_max_c": 29.451999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T23:30:45.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 29.3,
+            "raw_min_c": 24.4,
+            "corrected_max_c": 29.912,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-21T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-22T00:31:00.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 29,
+            "raw_min_c": 24.1,
+            "corrected_max_c": 29.077,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T03:45:51.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 29.3,
+        "consensus_corrected_c": 29.451999999999998,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 31,
+          "predicted_high_c": 31,
+          "low_c": 23,
+          "current_temp_c": 28,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 29,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 30,
+          "resolution_max_c": 30,
+          "running_max_at": "2026-09-22T02:30:00.000Z",
+          "latest_temp_c": 28,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-22T14:15:09+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T05:15:09.470Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.9,
+            "raw_min_c": 24.7,
+            "corrected_max_c": 29.451999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T23:30:45.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 29,
+            "raw_min_c": 24.4,
+            "corrected_max_c": 29.612,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T05:04:56.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 29,
+            "raw_min_c": 24.1,
+            "corrected_max_c": 29.077,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T03:45:51.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 29,
+        "consensus_corrected_c": 29.451999999999998,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 29,
+          "predicted_high_c": 29,
+          "low_c": 23,
+          "current_temp_c": 28,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 29,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 30,
+          "resolution_max_c": 30,
+          "running_max_at": "2026-09-22T02:30:00.000Z",
+          "latest_temp_c": 28,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-23T06:15:00+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-22T21:15:01.014Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.9,
+            "raw_min_c": 21.9,
+            "corrected_max_c": 24.451999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-22T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-22T17:43:07.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.1,
+            "raw_min_c": 21.4,
+            "corrected_max_c": 24.712,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-22T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-22T19:34:06.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24,
+            "raw_min_c": 21.2,
+            "corrected_max_c": 24.077,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-22T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-22T15:40:53.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.1,
+        "consensus_corrected_c": 24.451999999999998,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 21,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 24,
+          "resolution_max_c": 24,
+          "running_max_at": "2026-09-22T18:00:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-23T09:15:00+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T00:15:00.737Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.9,
+            "raw_min_c": 21.9,
+            "corrected_max_c": 24.451999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-22T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-22T23:16:38.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.1,
+            "raw_min_c": 20.9,
+            "corrected_max_c": 24.712,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-22T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T23:19:32.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24,
+            "raw_min_c": 21.2,
+            "corrected_max_c": 24.077,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T09:34:27.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.1,
+        "consensus_corrected_c": 24.451999999999998,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 23,
+          "predicted_high_c": 23,
+          "low_c": 21,
+          "current_temp_c": 21,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 24,
+          "resolution_max_c": 24,
+          "running_max_at": "2026-09-22T18:00:00.000Z",
+          "latest_temp_c": 21,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-23T13:15:06+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T04:15:06.847Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.9,
+            "raw_min_c": 21.5,
+            "corrected_max_c": 24.451999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-22T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-23T01:17:04.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.1,
+            "raw_min_c": 20.4,
+            "corrected_max_c": 24.712,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-22T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-23T01:16:59.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24,
+            "raw_min_c": 20.5,
+            "corrected_max_c": 24.077,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T03:55:03.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.1,
+        "consensus_corrected_c": 24.451999999999998,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 22,
+          "predicted_high_c": 22,
+          "low_c": 20,
+          "current_temp_c": 20,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 24,
+          "resolution_max_c": 24,
+          "running_max_at": "2026-09-22T18:00:00.000Z",
+          "latest_temp_c": 20,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-23T14:15:05+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T05:15:05.227Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.9,
+            "raw_min_c": 21.5,
+            "corrected_max_c": 24.451999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-22T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T23:30:04.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.1,
+            "raw_min_c": 20.2,
+            "corrected_max_c": 24.712,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T05:05:33.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24,
+            "raw_min_c": 20.5,
+            "corrected_max_c": 24.077,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T03:44:45.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.1,
+        "consensus_corrected_c": 24.451999999999998,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 22,
+          "predicted_high_c": 22,
+          "low_c": 20,
+          "current_temp_c": 20,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 24,
+          "resolution_max_c": 24,
+          "running_max_at": "2026-09-22T18:00:00.000Z",
+          "latest_temp_c": 20,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-24T06:15:00+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-23T21:15:00.912Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.2,
+            "raw_min_c": 21.3,
+            "corrected_max_c": 28.752,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-23T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-23T17:26:06.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.7,
+            "raw_min_c": 19.9,
+            "corrected_max_c": 27.311999999999998,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-23T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-23T18:32:13.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.2,
+            "raw_min_c": 19.8,
+            "corrected_max_c": 27.277,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-23T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-23T16:00:50.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 27.2,
+        "consensus_corrected_c": 27.311999999999998,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 27,
+          "predicted_high_c": 27,
+          "low_c": 20,
+          "current_temp_c": 21,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 21,
+          "resolution_max_c": 21,
+          "running_max_at": "2026-09-23T21:00:00.000Z",
+          "latest_temp_c": 21,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-24T09:15:00+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T00:15:01.266Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.3,
+            "raw_min_c": 21.1,
+            "corrected_max_c": 28.852,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-23T23:33:15.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.3,
+            "raw_min_c": 20.2,
+            "corrected_max_c": 26.912,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-23T23:14:49.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.3,
+            "raw_min_c": 19.8,
+            "corrected_max_c": 27.377000000000002,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-23T21:36:54.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 27.3,
+        "consensus_corrected_c": 27.377000000000002,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 27,
+          "predicted_high_c": 27,
+          "low_c": 20,
+          "current_temp_c": 22,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 23,
+          "resolution_max_c": 23,
+          "running_max_at": "2026-09-24T00:00:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-24T13:16:04+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T04:16:04.994Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.3,
+            "raw_min_c": 21.1,
+            "corrected_max_c": 28.852,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-23T23:33:44.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.5,
+            "raw_min_c": 20.2,
+            "corrected_max_c": 27.112,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-23T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-24T00:41:35.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.4,
+            "raw_min_c": 19.8,
+            "corrected_max_c": 27.477,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T03:45:45.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 27.4,
+        "consensus_corrected_c": 27.477,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 27,
+          "predicted_high_c": 27,
+          "low_c": 20,
+          "current_temp_c": 26,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 25,
+          "resolution_max_c": 25,
+          "running_max_at": "2026-09-24T04:00:00.000Z",
+          "latest_temp_c": 25,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-24T14:16:12+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T05:16:12.849Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.3,
+            "raw_min_c": 21.1,
+            "corrected_max_c": 28.852,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-23T23:33:44.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.6,
+            "raw_min_c": 20.2,
+            "corrected_max_c": 27.212,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T05:13:03.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.4,
+            "raw_min_c": 19.8,
+            "corrected_max_c": 27.477,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T03:45:45.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 27.4,
+        "consensus_corrected_c": 27.477,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 27,
+          "predicted_high_c": 27,
+          "low_c": 20,
+          "current_temp_c": 26,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 26,
+          "resolution_max_c": 26,
+          "running_max_at": "2026-09-24T05:00:00.000Z",
+          "latest_temp_c": 26,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-25T06:15:00+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-24T21:15:00.992Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.3,
+            "raw_min_c": 23.3,
+            "corrected_max_c": 26.852,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-24T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-24T17:42:00.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.3,
+            "raw_min_c": 22.2,
+            "corrected_max_c": 26.912,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-24T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-24T18:34:13.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.6,
+            "raw_min_c": 22.2,
+            "corrected_max_c": 25.677000000000003,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-24T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-24T16:10:28.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 26.3,
+        "consensus_corrected_c": 26.852,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 26,
+          "predicted_high_c": 26,
+          "low_c": 22,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 24,
+          "resolution_max_c": 24,
+          "running_max_at": "2026-09-24T17:00:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-25T09:15:00+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T00:15:01.086Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.4,
+            "raw_min_c": 23.3,
+            "corrected_max_c": 26.951999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T23:49:20.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.2,
+            "raw_min_c": 22.5,
+            "corrected_max_c": 26.811999999999998,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T23:07:20.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.4,
+            "raw_min_c": 22.3,
+            "corrected_max_c": 26.477,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T21:36:18.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 26.4,
+        "consensus_corrected_c": 26.811999999999998,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 26,
+          "predicted_high_c": 26,
+          "low_c": 22,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 24,
+          "resolution_max_c": 24,
+          "running_max_at": "2026-09-24T17:00:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-25T13:16:05+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T04:16:05.914Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.4,
+            "raw_min_c": 23.3,
+            "corrected_max_c": 26.951999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T23:49:20.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.3,
+            "raw_min_c": 22.6,
+            "corrected_max_c": 26.912,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-24T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-25T00:32:45.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.6,
+            "raw_min_c": 22.3,
+            "corrected_max_c": 25.677000000000003,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T03:46:25.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 26.3,
+        "consensus_corrected_c": 26.912,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 26,
+          "predicted_high_c": 26,
+          "low_c": 22,
+          "current_temp_c": 25,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 25,
+          "resolution_max_c": 25,
+          "running_max_at": "2026-09-25T04:00:00.000Z",
+          "latest_temp_c": 25,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-25T14:16:04+09:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "payload": {
+        "icao": "RJTT",
+        "city": "Tokyo",
+        "name": "Tokyo Haneda",
+        "region": "asia",
+        "timezone": "Asia/Tokyo",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T05:16:04.704Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.4,
+            "raw_min_c": 23.3,
+            "corrected_max_c": 26.951999999999998,
+            "bias_c": 0.448,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.448,
+              "bias_c": 0.448,
+              "n": 197,
+              "mae": 0.774
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T23:49:20.000Z",
+              "nest": "GFS"
+            }
+          },
+          {
+            "id": "jma_seamless",
+            "label": "JMA Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.1,
+            "raw_min_c": 22.6,
+            "corrected_max_c": 26.712,
+            "bias_c": -0.612,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.612,
+              "bias_c": -0.612,
+              "n": 197,
+              "mae": 0.868
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T05:07:19.000Z",
+              "nest": "JMA MSM"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.6,
+            "raw_min_c": 22.3,
+            "corrected_max_c": 25.677000000000003,
+            "bias_c": -0.077,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.077,
+              "bias_c": -0.077,
+              "n": 197,
+              "mae": 0.72
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T03:46:25.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 26.1,
+        "consensus_corrected_c": 26.712,
+        "polymarket_slug": "highest-temperature-in-tokyo-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-tokyo-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "RJTT",
+          "daily_max_c": 26,
+          "predicted_high_c": 26,
+          "low_c": 22,
+          "current_temp_c": 25,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/RJTT"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/RJTT"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 25,
+          "resolution_max_c": 25,
+          "running_max_at": "2026-09-25T05:00:00.000Z",
+          "latest_temp_c": 25,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+  "daily_obs": [
+    {
+      "ok": true,
+      "date": "2026-09-20",
+      "slot": "21:00",
+      "timezone": "Asia/Tokyo",
+      "captured_at": "2026-09-20T12:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "source": "wstation-api",
+      "metar_running_max_c": 23,
+      "metar_resolution_max_c": 23,
+      "running_max_at": "2026-09-20T05:00:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Tokyo"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-21",
+      "slot": "21:00",
+      "timezone": "Asia/Tokyo",
+      "captured_at": "2026-09-21T12:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "source": "wstation-api",
+      "metar_running_max_c": 24,
+      "metar_resolution_max_c": 24,
+      "running_max_at": "2026-09-21T10:00:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Tokyo"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-22",
+      "slot": "21:00",
+      "timezone": "Asia/Tokyo",
+      "captured_at": "2026-09-22T12:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "source": "wstation-api",
+      "metar_running_max_c": 30,
+      "metar_resolution_max_c": 30,
+      "running_max_at": "2026-09-22T02:30:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Tokyo"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-23",
+      "slot": "21:00",
+      "timezone": "Asia/Tokyo",
+      "captured_at": "2026-09-23T12:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "source": "wstation-api",
+      "metar_running_max_c": 24,
+      "metar_resolution_max_c": 24,
+      "running_max_at": "2026-09-22T18:00:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Tokyo"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-24",
+      "slot": "21:00",
+      "timezone": "Asia/Tokyo",
+      "captured_at": "2026-09-24T12:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/RJTT",
+      "source": "wstation-api",
+      "metar_running_max_c": 27,
+      "metar_resolution_max_c": 27,
+      "running_max_at": "2026-09-24T10:00:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Tokyo"
+    }
+  ]
+}

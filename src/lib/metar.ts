@@ -1,4 +1,4 @@
-import { cacheGet, cacheSet, FRESH_MIN_AGE_MS, METAR_TTL_MS } from "./cache";
+import { cacheGet, cacheSet, STALE_MAX_MS } from "./cache";
 import { fetchWithBackoff } from "./http";
 import type { MetarLatest, MetarPayload, MetarStripPoint } from "./types";
 import { iconFromMetar, parseMetarSky } from "./weatherIcon";
@@ -156,13 +156,13 @@ export async function fetchMetar(
   marketDate: string,
   opts: { fresh?: boolean } = {},
 ): Promise<MetarPayload> {
+  void opts;
+  // Always hit Aviation Weather. The previous 2-minute TTL kept serving the
+  // prior METAR after the next one was already published. The stored payload
+  // is only a fallback when that request fails.
   const cacheKey = `metar:v4:${icao}`;
-  const cached = cacheGet<MetarPayload>(cacheKey, METAR_TTL_MS);
-  const cachedObs = cacheGet<MetarLatest[]>(obsCacheKey(icao), METAR_TTL_MS);
-
-  if (cached?.fresh && !(opts.fresh && cached.ageMs > FRESH_MIN_AGE_MS)) {
-    return withRunning(cached.value, cachedObs?.value, timezone, marketDate, false);
-  }
+  const cached = cacheGet<MetarPayload>(cacheKey, STALE_MAX_MS);
+  const cachedObs = cacheGet<MetarLatest[]>(obsCacheKey(icao), STALE_MAX_MS);
 
   const url = new URL(metarBase());
   url.searchParams.set("ids", icao);

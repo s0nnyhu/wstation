@@ -1,0 +1,4085 @@
+{
+  "icao": "LFPB",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-20T06:15:02+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T04:15:02.343Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.8,
+            "raw_min_c": 15.1,
+            "corrected_max_c": 24.023,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T01:28:27.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.8,
+            "raw_min_c": 13.2,
+            "corrected_max_c": 22.95,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T02:53:03.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.8,
+            "raw_min_c": 13.9,
+            "corrected_max_c": 22.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T03:00:02.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.8,
+            "raw_min_c": 13.9,
+            "corrected_max_c": 22.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T02:53:03.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.8,
+            "raw_min_c": 17.2,
+            "corrected_max_c": 23.223,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T01:13:39.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 22.8,
+        "consensus_corrected_c": 23.223,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 23,
+          "predicted_high_c": 23,
+          "low_c": 14,
+          "current_temp_c": 14,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 18,
+          "resolution_max_c": 18,
+          "running_max_at": "2026-09-19T22:00:00.000Z",
+          "latest_temp_c": 14,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-20T09:15:06+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T07:15:06.936Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.7,
+            "raw_min_c": 14.9,
+            "corrected_max_c": 23.923,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T04:26:19.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.2,
+            "raw_min_c": 13.4,
+            "corrected_max_c": 22.349999999999998,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T05:49:46.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.1,
+            "raw_min_c": 13.4,
+            "corrected_max_c": 22.1,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T05:48:50.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.2,
+            "raw_min_c": 13.4,
+            "corrected_max_c": 22.2,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T05:49:46.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.4,
+            "raw_min_c": 16.9,
+            "corrected_max_c": 22.822999999999997,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T01:13:39.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 22.4,
+        "consensus_corrected_c": 22.822999999999997,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 14,
+          "current_temp_c": 16,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 18,
+          "resolution_max_c": 18,
+          "running_max_at": "2026-09-19T22:00:00.000Z",
+          "latest_temp_c": 16,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-20T13:15:02+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T11:15:02.465Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 22.3,
+            "raw_min_c": 14.8,
+            "corrected_max_c": 22.523,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-20T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-20T10:25:44.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.5,
+            "raw_min_c": 13.4,
+            "corrected_max_c": 24.65,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T11:02:38.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.1,
+            "raw_min_c": 13.4,
+            "corrected_max_c": 22.1,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T05:48:50.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.6,
+            "raw_min_c": 13.3,
+            "corrected_max_c": 22.6,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T11:02:38.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.5,
+            "raw_min_c": 16.4,
+            "corrected_max_c": 21.923,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T07:32:56.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 22.3,
+        "consensus_corrected_c": 22.523,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 23,
+          "predicted_high_c": 23,
+          "low_c": 14,
+          "current_temp_c": 22,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 22,
+          "resolution_max_c": 22,
+          "running_max_at": "2026-09-20T11:00:00.000Z",
+          "latest_temp_c": 22,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-20T14:15:02+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T12:15:02.809Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 22.3,
+            "raw_min_c": 14.8,
+            "corrected_max_c": 22.523,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-20T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-20T10:32:14.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.6,
+            "raw_min_c": 13.4,
+            "corrected_max_c": 23.75,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T11:04:00.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.4,
+            "raw_min_c": 13.3,
+            "corrected_max_c": 22.4,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T11:09:26.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.6,
+            "raw_min_c": 13.3,
+            "corrected_max_c": 22.6,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T11:04:00.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.9,
+            "raw_min_c": 16.4,
+            "corrected_max_c": 22.322999999999997,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T07:22:35.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 22.3,
+        "consensus_corrected_c": 22.523,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 23,
+          "predicted_high_c": 23,
+          "low_c": 14,
+          "current_temp_c": 22,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 22,
+          "resolution_max_c": 22,
+          "running_max_at": "2026-09-20T12:00:00.000Z",
+          "latest_temp_c": 22,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-21T06:15:03+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T04:15:04.004Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 22,
+            "raw_min_c": 11.1,
+            "corrected_max_c": 22.223,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T01:26:23.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.8,
+            "raw_min_c": 9.8,
+            "corrected_max_c": 22.95,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T02:47:44.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.7,
+            "raw_min_c": 10.3,
+            "corrected_max_c": 22.7,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T02:52:07.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.8,
+            "raw_min_c": 10,
+            "corrected_max_c": 22.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T02:47:44.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.8,
+            "raw_min_c": 13.5,
+            "corrected_max_c": 22.223,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T01:03:05.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 22,
+        "consensus_corrected_c": 22.223,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 23,
+          "predicted_high_c": 23,
+          "low_c": 11,
+          "current_temp_c": 11,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 22,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 15,
+          "resolution_max_c": 15,
+          "running_max_at": "2026-09-20T22:30:00.000Z",
+          "latest_temp_c": 11,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-21T09:15:02+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T07:15:02.644Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 21.9,
+            "raw_min_c": 10.9,
+            "corrected_max_c": 22.122999999999998,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T04:30:09.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.8,
+            "raw_min_c": 10.2,
+            "corrected_max_c": 22.95,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T05:42:48.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.7,
+            "raw_min_c": 10.7,
+            "corrected_max_c": 22.7,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T05:55:18.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.8,
+            "raw_min_c": 10.3,
+            "corrected_max_c": 22.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T05:42:48.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22,
+            "raw_min_c": 13,
+            "corrected_max_c": 22.423,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T01:19:36.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 22,
+        "consensus_corrected_c": 22.423,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 23,
+          "predicted_high_c": 23,
+          "low_c": 12,
+          "current_temp_c": 13,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 22,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 15,
+          "resolution_max_c": 15,
+          "running_max_at": "2026-09-20T22:30:00.000Z",
+          "latest_temp_c": 13,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-21T13:15:04+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T11:15:04.403Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 22.4,
+            "raw_min_c": 11.2,
+            "corrected_max_c": 22.622999999999998,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-21T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-21T10:26:13.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.9,
+            "raw_min_c": 10.2,
+            "corrected_max_c": 23.049999999999997,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T05:42:48.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.7,
+            "raw_min_c": 10.7,
+            "corrected_max_c": 22.7,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T05:55:18.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.8,
+            "raw_min_c": 10.3,
+            "corrected_max_c": 22.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T05:42:48.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.8,
+            "raw_min_c": 12.6,
+            "corrected_max_c": 22.223,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T07:39:59.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 22.4,
+        "consensus_corrected_c": 22.622999999999998,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 23,
+          "predicted_high_c": 23,
+          "low_c": 12,
+          "current_temp_c": 21,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 22,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 21,
+          "resolution_max_c": 21,
+          "running_max_at": "2026-09-21T11:00:00.000Z",
+          "latest_temp_c": 21,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-21T14:15:03+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T12:15:03.573Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 22.4,
+            "raw_min_c": 11.2,
+            "corrected_max_c": 22.622999999999998,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-21T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-21T10:24:26.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.9,
+            "raw_min_c": 10.2,
+            "corrected_max_c": 23.049999999999997,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T11:10:11.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.7,
+            "raw_min_c": 10.3,
+            "corrected_max_c": 22.7,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T11:11:57.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.8,
+            "raw_min_c": 9.9,
+            "corrected_max_c": 22.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T11:10:11.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.8,
+            "raw_min_c": 12.6,
+            "corrected_max_c": 22.223,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T07:38:33.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 22.4,
+        "consensus_corrected_c": 22.622999999999998,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 23,
+          "predicted_high_c": 23,
+          "low_c": 12,
+          "current_temp_c": 21,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 22,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 21,
+          "resolution_max_c": 21,
+          "running_max_at": "2026-09-21T12:00:00.000Z",
+          "latest_temp_c": 21,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-22T06:15:01+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T04:15:02.051Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24,
+            "raw_min_c": 11.1,
+            "corrected_max_c": 24.223,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T01:25:24.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.5,
+            "raw_min_c": 9.4,
+            "corrected_max_c": 24.65,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T02:49:08.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 10.5,
+            "corrected_max_c": 24.4,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T02:54:12.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.5,
+            "raw_min_c": 10.1,
+            "corrected_max_c": 24.5,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T02:49:08.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.5,
+            "raw_min_c": 13.3,
+            "corrected_max_c": 23.923,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T01:04:38.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 24,
+        "consensus_corrected_c": 24.223,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 10,
+          "current_temp_c": 11,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 14,
+          "resolution_max_c": 14,
+          "running_max_at": "2026-09-21T22:00:00.000Z",
+          "latest_temp_c": 11,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-22T09:15:01+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T07:15:02.292Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24,
+            "raw_min_c": 10.5,
+            "corrected_max_c": 24.223,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-22T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-22T04:27:06.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.5,
+            "raw_min_c": 10,
+            "corrected_max_c": 24.65,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-22T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-22T05:44:58.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.3,
+            "raw_min_c": 10.6,
+            "corrected_max_c": 24.3,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-22T05:58:44.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.5,
+            "raw_min_c": 10.2,
+            "corrected_max_c": 24.5,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-22T05:44:58.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.3,
+            "raw_min_c": 12.4,
+            "corrected_max_c": 23.723,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T01:20:22.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 24,
+        "consensus_corrected_c": 24.223,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 11,
+          "current_temp_c": 14,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 14,
+          "resolution_max_c": 14,
+          "running_max_at": "2026-09-21T22:00:00.000Z",
+          "latest_temp_c": 13,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-22T13:15:01+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T11:15:01.994Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.2,
+            "raw_min_c": 10.4,
+            "corrected_max_c": 24.423,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-22T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-22T10:30:07.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.6,
+            "raw_min_c": 10,
+            "corrected_max_c": 24.75,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T11:04:43.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.3,
+            "raw_min_c": 10.3,
+            "corrected_max_c": 24.3,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T11:13:03.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 10,
+            "corrected_max_c": 24.4,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T11:04:43.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.3,
+            "raw_min_c": 12.3,
+            "corrected_max_c": 23.723,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T07:45:18.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.2,
+        "consensus_corrected_c": 24.423,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 11,
+          "current_temp_c": 22,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 22,
+          "resolution_max_c": 22,
+          "running_max_at": "2026-09-22T11:00:00.000Z",
+          "latest_temp_c": 22,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-22T14:15:05+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T12:15:06.088Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.2,
+            "raw_min_c": 10.4,
+            "corrected_max_c": 24.423,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-22T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-22T10:30:07.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.7,
+            "raw_min_c": 10,
+            "corrected_max_c": 24.849999999999998,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T11:04:43.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.3,
+            "raw_min_c": 10.3,
+            "corrected_max_c": 24.3,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T11:13:03.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 10,
+            "corrected_max_c": 24.4,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T11:04:43.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.3,
+            "raw_min_c": 12.3,
+            "corrected_max_c": 23.723,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T07:45:18.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.2,
+        "consensus_corrected_c": 24.423,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 10,
+          "current_temp_c": 22,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 22,
+          "resolution_max_c": 22,
+          "running_max_at": "2026-09-22T12:00:00.000Z",
+          "latest_temp_c": 22,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-23T06:15:02+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T04:15:02.648Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 25.2,
+            "raw_min_c": 11.4,
+            "corrected_max_c": 25.423,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T01:38:05.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.8,
+            "raw_min_c": 9.6,
+            "corrected_max_c": 26.95,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T02:46:09.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.7,
+            "raw_min_c": 10.2,
+            "corrected_max_c": 26.7,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T02:54:24.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.8,
+            "raw_min_c": 9.9,
+            "corrected_max_c": 26.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T02:46:09.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.9,
+            "raw_min_c": 14.2,
+            "corrected_max_c": 26.322999999999997,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T13:16:40.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 25.9,
+        "consensus_corrected_c": 26.322999999999997,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 27,
+          "predicted_high_c": 27,
+          "low_c": 11,
+          "current_temp_c": 12,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 26,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 16,
+          "resolution_max_c": 16,
+          "running_max_at": "2026-09-22T23:00:00.000Z",
+          "latest_temp_c": 12,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": false,
+      "slot": "09:15",
+      "captured_at": "2026-09-23T09:15:47+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "error": "HTTP 502 b'{\"error\":\"Open-Meteo HTTP 429\"}'"
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-23T13:15:04+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T11:15:04.148Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 25.9,
+            "raw_min_c": 11,
+            "corrected_max_c": 26.122999999999998,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-23T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-23T10:30:06.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.7,
+            "raw_min_c": 9.7,
+            "corrected_max_c": 26.849999999999998,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-23T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-23T05:42:35.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.4,
+            "raw_min_c": 10.1,
+            "corrected_max_c": 26.4,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-23T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-23T05:51:23.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.5,
+            "raw_min_c": 9.7,
+            "corrected_max_c": 26.5,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-23T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-23T05:42:35.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.7,
+            "raw_min_c": 13.1,
+            "corrected_max_c": 26.122999999999998,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T07:50:18.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 25.9,
+        "consensus_corrected_c": 26.122999999999998,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 27,
+          "predicted_high_c": 27,
+          "low_c": 12,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 26,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 23,
+          "resolution_max_c": 23,
+          "running_max_at": "2026-09-23T11:00:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-23T14:15:07+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T12:15:07.355Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 25.9,
+            "raw_min_c": 11,
+            "corrected_max_c": 26.122999999999998,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-23T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-23T10:31:28.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.9,
+            "raw_min_c": 9.7,
+            "corrected_max_c": 27.049999999999997,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T11:03:02.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.3,
+            "raw_min_c": 10.2,
+            "corrected_max_c": 26.3,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T11:09:41.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.4,
+            "raw_min_c": 9.7,
+            "corrected_max_c": 26.4,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T11:03:02.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.7,
+            "raw_min_c": 13.1,
+            "corrected_max_c": 26.122999999999998,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T08:14:06.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 25.9,
+        "consensus_corrected_c": 26.122999999999998,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 27,
+          "predicted_high_c": 27,
+          "low_c": 11,
+          "current_temp_c": 25,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 26,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 25,
+          "resolution_max_c": 25,
+          "running_max_at": "2026-09-23T11:30:00.000Z",
+          "latest_temp_c": 25,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-24T06:15:26+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T04:15:26.407Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24,
+            "raw_min_c": 13.2,
+            "corrected_max_c": 24.223,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T01:34:09.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.7,
+            "raw_min_c": 11.5,
+            "corrected_max_c": 24.849999999999998,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T02:47:25.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.7,
+            "raw_min_c": 12.5,
+            "corrected_max_c": 24.7,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T02:54:40.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.7,
+            "raw_min_c": 12.3,
+            "corrected_max_c": 24.7,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T02:47:25.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.1,
+            "raw_min_c": 15.1,
+            "corrected_max_c": 23.523,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T01:18:03.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 24,
+        "consensus_corrected_c": 24.223,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 13,
+          "current_temp_c": 13,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 17,
+          "resolution_max_c": 17,
+          "running_max_at": "2026-09-23T22:00:00.000Z",
+          "latest_temp_c": 13,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-24T09:15:26+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T07:15:26.831Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.8,
+            "raw_min_c": 13.1,
+            "corrected_max_c": 24.023,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T04:24:17.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.6,
+            "raw_min_c": 12,
+            "corrected_max_c": 24.75,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T05:38:33.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.5,
+            "raw_min_c": 12,
+            "corrected_max_c": 24.5,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T05:42:56.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.6,
+            "raw_min_c": 11.6,
+            "corrected_max_c": 24.6,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T05:38:33.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.3,
+            "raw_min_c": 14.6,
+            "corrected_max_c": 23.723,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T01:04:46.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.8,
+        "consensus_corrected_c": 24.023,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 13,
+          "current_temp_c": 16,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 17,
+          "resolution_max_c": 17,
+          "running_max_at": "2026-09-23T22:00:00.000Z",
+          "latest_temp_c": 15,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-24T13:15:26+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T11:15:26.271Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23,
+            "raw_min_c": 13.1,
+            "corrected_max_c": 23.223,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-24T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-24T10:26:30.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.9,
+            "raw_min_c": 12,
+            "corrected_max_c": 25.049999999999997,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T11:13:01.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.5,
+            "raw_min_c": 12,
+            "corrected_max_c": 24.5,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T05:45:54.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.8,
+            "raw_min_c": 11.6,
+            "corrected_max_c": 24.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T11:13:01.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.2,
+            "raw_min_c": 14.5,
+            "corrected_max_c": 23.622999999999998,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T07:49:57.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.2,
+        "consensus_corrected_c": 23.622999999999998,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 12,
+          "current_temp_c": 20,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 20,
+          "resolution_max_c": 20,
+          "running_max_at": "2026-09-24T11:00:00.000Z",
+          "latest_temp_c": 20,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-24T14:15:46+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T12:15:46.742Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23,
+            "raw_min_c": 13.1,
+            "corrected_max_c": 23.223,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-24T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-24T10:26:18.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.8,
+            "raw_min_c": 12,
+            "corrected_max_c": 24.95,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T11:03:05.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.7,
+            "raw_min_c": 12,
+            "corrected_max_c": 24.7,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T11:35:26.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.8,
+            "raw_min_c": 11.6,
+            "corrected_max_c": 24.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T11:03:05.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.8,
+            "raw_min_c": 14.1,
+            "corrected_max_c": 23.223,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T07:52:44.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 23,
+        "consensus_corrected_c": 23.223,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 13,
+          "current_temp_c": 21,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 21,
+          "resolution_max_c": 21,
+          "running_max_at": "2026-09-24T12:00:00.000Z",
+          "latest_temp_c": 21,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-25T06:15:26+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T04:15:26.715Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.5,
+            "raw_min_c": 13.2,
+            "corrected_max_c": 27.723,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T01:27:06.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.4,
+            "raw_min_c": 10.8,
+            "corrected_max_c": 28.549999999999997,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T02:45:09.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.2,
+            "raw_min_c": 11.5,
+            "corrected_max_c": 28.2,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T02:54:22.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.4,
+            "raw_min_c": 11.2,
+            "corrected_max_c": 28.4,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T02:45:09.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.3,
+            "raw_min_c": 14.9,
+            "corrected_max_c": 26.723,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-25T01:02:11.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 27.5,
+        "consensus_corrected_c": 27.723,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 12,
+          "current_temp_c": 13,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": null,
+          "resolution_max_c": null,
+          "running_max_at": null,
+          "latest_temp_c": 17,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-25T09:15:26+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "payload": {
+        "icao": "LFPB",
+        "city": "Paris",
+        "name": "Paris Le Bourget",
+        "region": "europe",
+        "timezone": "Europe/Paris",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T07:15:26.603Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.5,
+            "raw_min_c": 13.2,
+            "corrected_max_c": 27.723,
+            "bias_c": -0.223,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.223,
+              "bias_c": -0.223,
+              "n": 183,
+              "mae": 0.495
+            },
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T04:34:30.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.3,
+            "raw_min_c": 10.6,
+            "corrected_max_c": 28.45,
+            "bias_c": -0.15,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.15,
+              "bias_c": -0.15,
+              "n": 183,
+              "mae": 0.463
+            },
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T05:51:31.000Z",
+              "nest": "AROME HD"
+            }
+          },
+          {
+            "id": "meteofrance_arome_france",
+            "label": "AROME France",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.2,
+            "raw_min_c": 11.3,
+            "corrected_max_c": 28.2,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T05:49:28.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_arome_france_hd",
+            "label": "AROME France HD",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.3,
+            "raw_min_c": 10.9,
+            "corrected_max_c": 28.3,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T05:51:31.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.7,
+            "raw_min_c": 14.9,
+            "corrected_max_c": 26.122999999999998,
+            "bias_c": -0.423,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.423,
+              "bias_c": -0.423,
+              "n": 183,
+              "mae": 0.582
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-25T01:26:06.000Z",
+              "nest": "UKMO global"
+            }
+          }
+        ],
+        "consensus_raw_c": 27.5,
+        "consensus_corrected_c": 27.723,
+        "polymarket_slug": "highest-temperature-in-paris-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-paris-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LFPB",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 12,
+          "current_temp_c": 15,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LFPB"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LFPB"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": null,
+          "resolution_max_c": null,
+          "running_max_at": null,
+          "latest_temp_c": 17,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+  "daily_obs": [
+    {
+      "ok": true,
+      "date": "2026-09-20",
+      "slot": "21:00",
+      "timezone": "Europe/Paris",
+      "captured_at": "2026-09-20T19:01:33+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "source": "wstation-api",
+      "metar_running_max_c": 24,
+      "metar_resolution_max_c": 24,
+      "running_max_at": "2026-09-20T12:30:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Paris"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-21",
+      "slot": "21:00",
+      "timezone": "Europe/Paris",
+      "captured_at": "2026-09-21T19:00:10+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "source": "wstation-api",
+      "metar_running_max_c": 22,
+      "metar_resolution_max_c": 22,
+      "running_max_at": "2026-09-21T16:30:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Paris"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-22",
+      "slot": "21:00",
+      "timezone": "Europe/Paris",
+      "captured_at": "2026-09-22T19:00:05+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "source": "wstation-api",
+      "metar_running_max_c": 24,
+      "metar_resolution_max_c": 24,
+      "running_max_at": "2026-09-22T16:30:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Paris"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-23",
+      "slot": "21:00",
+      "timezone": "Europe/Paris",
+      "captured_at": "2026-09-23T19:00:46+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "source": "wstation-api",
+      "metar_running_max_c": 27,
+      "metar_resolution_max_c": 27,
+      "running_max_at": "2026-09-23T16:00:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Paris"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-24",
+      "slot": "21:00",
+      "timezone": "Europe/Paris",
+      "captured_at": "2026-09-24T19:00:30+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LFPB",
+      "source": "wstation-api",
+      "metar_running_max_c": 24,
+      "metar_resolution_max_c": 24,
+      "running_max_at": "2026-09-24T14:30:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Paris"
+    }
+  ]
+}

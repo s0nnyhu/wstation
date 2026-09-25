@@ -6,7 +6,6 @@ export interface CacheEntry<T> {
 const store = new Map<string, CacheEntry<unknown>>();
 
 export const FORECAST_TTL_MS = 12 * 60 * 1000;
-export const METAR_TTL_MS = 2 * 60 * 1000;
 export const WU_TTL_MS = 3 * 60 * 1000;
 export const HUSKY_TTL_MS = 3 * 60 * 1000;
 export const POLYMARKET_TTL_MS = 60 * 1000;

@@ -1,0 +1,3124 @@
+{
+  "icao": "EFHK",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-20T06:15:02+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T03:15:02.427Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 15.7,
+            "raw_min_c": 12.3,
+            "corrected_max_c": 15.66,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T02:45:24.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 15.7,
+            "raw_min_c": 12.3,
+            "corrected_max_c": 15.7,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T02:45:24.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 16.2,
+            "raw_min_c": 11.4,
+            "corrected_max_c": 16.62,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-19T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-19T23:59:47.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 15.95,
+        "consensus_corrected_c": 16.14,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 17,
+          "predicted_high_c": 17,
+          "low_c": 10,
+          "current_temp_c": 14,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 15,
+          "resolution_max_c": 15,
+          "running_max_at": "2026-09-20T02:50:00.000Z",
+          "latest_temp_c": 15,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-20T09:15:01+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T06:15:01.991Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 15.8,
+            "raw_min_c": 12.1,
+            "corrected_max_c": 15.760000000000002,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T05:50:26.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 15.8,
+            "raw_min_c": 12.1,
+            "corrected_max_c": 15.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T05:50:26.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 15.9,
+            "raw_min_c": 11.1,
+            "corrected_max_c": 16.32,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T05:58:50.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 15.850000000000001,
+        "consensus_corrected_c": 16.04,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 17,
+          "predicted_high_c": 17,
+          "low_c": 10,
+          "current_temp_c": 13,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 15,
+          "resolution_max_c": 15,
+          "running_max_at": "2026-09-20T02:50:00.000Z",
+          "latest_temp_c": 13,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-20T13:15:05+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T10:15:05.683Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16,
+            "raw_min_c": 13.7,
+            "corrected_max_c": 15.96,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-20T07:00:00.000Z",
+              "init_z": "07Z",
+              "available_at": "2026-09-20T09:44:20.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 16,
+            "raw_min_c": 13.7,
+            "corrected_max_c": 16,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T07:00:00.000Z",
+              "init_z": "07Z",
+              "available_at": "2026-09-20T09:44:20.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 16,
+            "raw_min_c": 10.9,
+            "corrected_max_c": 16.42,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T09:47:04.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 16,
+        "consensus_corrected_c": 16.19,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 17,
+          "predicted_high_c": 17,
+          "low_c": 10,
+          "current_temp_c": 16,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 16,
+          "resolution_max_c": 16,
+          "running_max_at": "2026-09-20T09:50:00.000Z",
+          "latest_temp_c": 16,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-20T14:15:04+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T11:15:04.529Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 15.8,
+            "raw_min_c": 13.5,
+            "corrected_max_c": 15.760000000000002,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-20T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-20T10:45:04.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 15.8,
+            "raw_min_c": 13.5,
+            "corrected_max_c": 15.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-20T10:45:04.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 16,
+            "raw_min_c": 10.9,
+            "corrected_max_c": 16.42,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T09:52:50.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 15.9,
+        "consensus_corrected_c": 16.090000000000003,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 17,
+          "predicted_high_c": 17,
+          "low_c": 10,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 17,
+          "resolution_max_c": 17,
+          "running_max_at": "2026-09-20T10:50:00.000Z",
+          "latest_temp_c": 17,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-21T06:15:01+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T03:15:01.737Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 15.3,
+            "raw_min_c": 10,
+            "corrected_max_c": 15.260000000000002,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T02:36:29.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 15.3,
+            "raw_min_c": 10,
+            "corrected_max_c": 15.3,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T02:36:29.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 15.5,
+            "raw_min_c": 9.5,
+            "corrected_max_c": 15.92,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-20T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-20T23:57:57.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 15.4,
+        "consensus_corrected_c": 15.59,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 16,
+          "predicted_high_c": 16,
+          "low_c": 8,
+          "current_temp_c": 9,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 12,
+          "resolution_max_c": 12,
+          "running_max_at": "2026-09-20T22:50:00.000Z",
+          "latest_temp_c": 9,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-21T09:15:01+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T06:15:01.735Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.1,
+            "raw_min_c": 10.3,
+            "corrected_max_c": 16.060000000000002,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T05:37:34.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 16.1,
+            "raw_min_c": 10.3,
+            "corrected_max_c": 16.1,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T05:37:34.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 14.3,
+            "raw_min_c": 9.6,
+            "corrected_max_c": 14.72,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T05:55:37.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 15.200000000000001,
+        "consensus_corrected_c": 15.39,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 16,
+          "predicted_high_c": 16,
+          "low_c": 8,
+          "current_temp_c": 11,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 12,
+          "resolution_max_c": 12,
+          "running_max_at": "2026-09-20T22:50:00.000Z",
+          "latest_temp_c": 11,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-21T13:15:10+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T10:15:10.746Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.5,
+            "raw_min_c": 10.3,
+            "corrected_max_c": 16.46,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-21T07:00:00.000Z",
+              "init_z": "07Z",
+              "available_at": "2026-09-21T09:39:37.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 16.5,
+            "raw_min_c": 10.3,
+            "corrected_max_c": 16.5,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T07:00:00.000Z",
+              "init_z": "07Z",
+              "available_at": "2026-09-21T09:39:37.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 14.2,
+            "raw_min_c": 9.5,
+            "corrected_max_c": 14.62,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T09:48:40.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 15.35,
+        "consensus_corrected_c": 15.54,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 16,
+          "predicted_high_c": 16,
+          "low_c": 8,
+          "current_temp_c": 16,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 15,
+          "resolution_max_c": 15,
+          "running_max_at": "2026-09-21T09:50:00.000Z",
+          "latest_temp_c": 15,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-21T14:15:08+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T11:15:08.755Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16,
+            "raw_min_c": 10.3,
+            "corrected_max_c": 15.96,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-21T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-21T10:44:56.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 16,
+            "raw_min_c": 10.3,
+            "corrected_max_c": 16,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-21T10:44:56.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 14.2,
+            "raw_min_c": 9.5,
+            "corrected_max_c": 14.62,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T09:48:40.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 15.1,
+        "consensus_corrected_c": 15.29,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 16,
+          "predicted_high_c": 16,
+          "low_c": 8,
+          "current_temp_c": 16,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 16,
+          "resolution_max_c": 16,
+          "running_max_at": "2026-09-21T10:50:00.000Z",
+          "latest_temp_c": 16,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-22T06:15:02+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T03:15:02.565Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 14.9,
+            "raw_min_c": 7.4,
+            "corrected_max_c": 14.860000000000001,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T02:36:58.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 14.9,
+            "raw_min_c": 7.4,
+            "corrected_max_c": 14.9,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T02:36:58.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 14.5,
+            "raw_min_c": 7.2,
+            "corrected_max_c": 14.92,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-21T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-21T23:55:44.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 14.7,
+        "consensus_corrected_c": 14.89,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 16,
+          "predicted_high_c": 16,
+          "low_c": 6,
+          "current_temp_c": 7,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 15,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 10,
+          "resolution_max_c": 10,
+          "running_max_at": "2026-09-21T21:20:00.000Z",
+          "latest_temp_c": 7,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-22T09:15:02+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T06:15:02.665Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 14.9,
+            "raw_min_c": 7.6,
+            "corrected_max_c": 14.860000000000001,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-22T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-22T05:46:19.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 14.9,
+            "raw_min_c": 7.6,
+            "corrected_max_c": 14.9,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-22T05:46:19.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 15,
+            "raw_min_c": 7.1,
+            "corrected_max_c": 15.42,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T03:45:02.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 14.95,
+        "consensus_corrected_c": 15.14,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 16,
+          "predicted_high_c": 16,
+          "low_c": 6,
+          "current_temp_c": 8,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 15,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 10,
+          "resolution_max_c": 10,
+          "running_max_at": "2026-09-21T21:20:00.000Z",
+          "latest_temp_c": 8,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-22T13:15:04+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T10:15:05.033Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 15.1,
+            "raw_min_c": 7.6,
+            "corrected_max_c": 15.06,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-22T07:00:00.000Z",
+              "init_z": "07Z",
+              "available_at": "2026-09-22T09:52:56.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 15.1,
+            "raw_min_c": 7.6,
+            "corrected_max_c": 15.1,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T07:00:00.000Z",
+              "init_z": "07Z",
+              "available_at": "2026-09-22T09:52:56.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 14.7,
+            "raw_min_c": 6.9,
+            "corrected_max_c": 15.12,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T09:53:59.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 14.899999999999999,
+        "consensus_corrected_c": 15.09,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 15,
+          "predicted_high_c": 15,
+          "low_c": 6,
+          "current_temp_c": 13,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 15,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 14,
+          "resolution_max_c": 14,
+          "running_max_at": "2026-09-22T09:20:00.000Z",
+          "latest_temp_c": 13,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-22T14:15:05+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T11:15:05.697Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 14.7,
+            "raw_min_c": 7.6,
+            "corrected_max_c": 14.66,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-22T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-22T10:44:41.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 14.7,
+            "raw_min_c": 7.6,
+            "corrected_max_c": 14.7,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-22T10:44:41.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 14.7,
+            "raw_min_c": 6.9,
+            "corrected_max_c": 15.12,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T09:49:21.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 14.7,
+        "consensus_corrected_c": 14.89,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 15,
+          "predicted_high_c": 15,
+          "low_c": 6,
+          "current_temp_c": 14,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 15,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 14,
+          "resolution_max_c": 14,
+          "running_max_at": "2026-09-22T10:50:00.000Z",
+          "latest_temp_c": 14,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-23T06:15:03+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T03:15:03.150Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 10.7,
+            "raw_min_c": 6.9,
+            "corrected_max_c": 10.66,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T02:37:00.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 10.7,
+            "raw_min_c": 6.9,
+            "corrected_max_c": 10.7,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T02:37:00.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 11.4,
+            "raw_min_c": 6.2,
+            "corrected_max_c": 11.82,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-22T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-22T23:57:54.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 11.05,
+        "consensus_corrected_c": 11.24,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 12,
+          "predicted_high_c": 12,
+          "low_c": 5,
+          "current_temp_c": 8,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 12,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 8,
+          "resolution_max_c": 8,
+          "running_max_at": "2026-09-23T02:50:00.000Z",
+          "latest_temp_c": 8,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-23T09:15:01+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T06:15:01.844Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 10.8,
+            "raw_min_c": 7.1,
+            "corrected_max_c": 10.760000000000002,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-23T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-23T05:43:09.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 10.8,
+            "raw_min_c": 7.1,
+            "corrected_max_c": 10.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-23T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-23T05:43:09.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 11,
+            "raw_min_c": 6.4,
+            "corrected_max_c": 11.42,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-23T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-23T06:02:17.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 10.9,
+        "consensus_corrected_c": 11.09,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 12,
+          "predicted_high_c": 12,
+          "low_c": 5,
+          "current_temp_c": 8,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 12,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 8,
+          "resolution_max_c": 8,
+          "running_max_at": "2026-09-23T05:50:00.000Z",
+          "latest_temp_c": 8,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-23T13:15:02+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T10:15:02.243Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 11.5,
+            "raw_min_c": 7,
+            "corrected_max_c": 11.46,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-23T07:00:00.000Z",
+              "init_z": "07Z",
+              "available_at": "2026-09-23T09:37:21.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 11.5,
+            "raw_min_c": 7,
+            "corrected_max_c": 11.5,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-23T07:00:00.000Z",
+              "init_z": "07Z",
+              "available_at": "2026-09-23T09:37:21.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 11,
+            "raw_min_c": 6.4,
+            "corrected_max_c": 11.42,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T09:48:20.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 11.25,
+        "consensus_corrected_c": 11.440000000000001,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 12,
+          "predicted_high_c": 12,
+          "low_c": 5,
+          "current_temp_c": 10,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 12,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 11,
+          "resolution_max_c": 11,
+          "running_max_at": "2026-09-23T08:50:00.000Z",
+          "latest_temp_c": 10,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-23T14:15:05+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T11:15:05.541Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 11.3,
+            "raw_min_c": 7,
+            "corrected_max_c": 11.260000000000002,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-23T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-23T10:44:15.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 11.3,
+            "raw_min_c": 7,
+            "corrected_max_c": 11.3,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-23T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-23T10:44:15.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 11,
+            "raw_min_c": 6.4,
+            "corrected_max_c": 11.42,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T09:49:59.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 11.15,
+        "consensus_corrected_c": 11.34,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 12,
+          "predicted_high_c": 12,
+          "low_c": 5,
+          "current_temp_c": 10,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 12,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 11,
+          "resolution_max_c": 11,
+          "running_max_at": "2026-09-23T08:50:00.000Z",
+          "latest_temp_c": 10,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-24T06:15:13+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T03:15:13.848Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 13.4,
+            "raw_min_c": 7.9,
+            "corrected_max_c": 13.360000000000001,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T02:37:05.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 13.4,
+            "raw_min_c": 7.9,
+            "corrected_max_c": 13.4,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T02:37:05.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 12.9,
+            "raw_min_c": 9.4,
+            "corrected_max_c": 13.32,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-23T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-23T23:54:32.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 13.15,
+        "consensus_corrected_c": 13.34,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 14,
+          "predicted_high_c": 14,
+          "low_c": 9,
+          "current_temp_c": 10,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 14,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 12,
+          "resolution_max_c": 12,
+          "running_max_at": "2026-09-23T21:20:00.000Z",
+          "latest_temp_c": 10,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-24T09:15:14+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T06:15:14.959Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 14.2,
+            "raw_min_c": 9.6,
+            "corrected_max_c": 14.16,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T05:39:27.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 14.2,
+            "raw_min_c": 9.6,
+            "corrected_max_c": 14.2,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T05:39:27.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 13.8,
+            "raw_min_c": 10.1,
+            "corrected_max_c": 14.22,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T05:56:32.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 14,
+        "consensus_corrected_c": 14.190000000000001,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 14,
+          "predicted_high_c": 14,
+          "low_c": 9,
+          "current_temp_c": 11,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 14,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 12,
+          "resolution_max_c": 12,
+          "running_max_at": "2026-09-23T21:20:00.000Z",
+          "latest_temp_c": 11,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-24T13:15:15+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T10:15:15.859Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 13.5,
+            "raw_min_c": 8.3,
+            "corrected_max_c": 13.46,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-24T07:00:00.000Z",
+              "init_z": "07Z",
+              "available_at": "2026-09-24T09:38:00.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 13.5,
+            "raw_min_c": 8.3,
+            "corrected_max_c": 13.5,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T07:00:00.000Z",
+              "init_z": "07Z",
+              "available_at": "2026-09-24T09:38:00.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 14.3,
+            "raw_min_c": 10.1,
+            "corrected_max_c": 14.72,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T09:47:16.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 13.9,
+        "consensus_corrected_c": 14.09,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 15,
+          "predicted_high_c": 15,
+          "low_c": 9,
+          "current_temp_c": 14,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 14,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 14,
+          "resolution_max_c": 14,
+          "running_max_at": "2026-09-24T09:50:00.000Z",
+          "latest_temp_c": 14,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-24T14:15:51+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T11:15:51.344Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 13.8,
+            "raw_min_c": 8.3,
+            "corrected_max_c": 13.760000000000002,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-24T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-24T10:46:05.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 13.8,
+            "raw_min_c": 8.3,
+            "corrected_max_c": 13.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-24T10:46:05.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 14.3,
+            "raw_min_c": 10.1,
+            "corrected_max_c": 14.72,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T09:49:50.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 14.05,
+        "consensus_corrected_c": 14.240000000000002,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 14,
+          "predicted_high_c": 14,
+          "low_c": 9,
+          "current_temp_c": 14,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 14,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 14,
+          "resolution_max_c": 14,
+          "running_max_at": "2026-09-24T10:50:00.000Z",
+          "latest_temp_c": 14,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-25T06:15:14+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T03:15:14.360Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 12.5,
+            "raw_min_c": 11.5,
+            "corrected_max_c": 12.46,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T02:37:43.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 12.5,
+            "raw_min_c": 11.5,
+            "corrected_max_c": 12.5,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T02:37:43.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 13,
+            "raw_min_c": 11.7,
+            "corrected_max_c": 13.42,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-24T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-24T23:55:06.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 12.75,
+        "consensus_corrected_c": 12.940000000000001,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 13,
+          "predicted_high_c": 13,
+          "low_c": 11,
+          "current_temp_c": 12,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 13,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 13,
+          "resolution_max_c": 13,
+          "running_max_at": "2026-09-25T01:50:00.000Z",
+          "latest_temp_c": 12,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-25T09:15:16+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "payload": {
+        "icao": "EFHK",
+        "city": "Helsinki",
+        "name": "Helsinki-Vantaa",
+        "region": "europe",
+        "timezone": "Europe/Helsinki",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T06:15:16.679Z",
+        "primary_model": "knmi_seamless",
+        "primary_models": [
+          "knmi_seamless"
+        ],
+        "models": [
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 12.5,
+            "raw_min_c": 11.5,
+            "corrected_max_c": 12.46,
+            "bias_c": 0.04,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.04,
+              "bias_c": 0.04,
+              "n": 183,
+              "mae": 0.589
+            },
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T05:53:35.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "knmi_harmonie_arome_europe",
+            "label": "HARMONIE-AROME EU",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 12.5,
+            "raw_min_c": 11.5,
+            "corrected_max_c": 12.5,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T05:53:35.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 12.8,
+            "raw_min_c": 11.9,
+            "corrected_max_c": 13.22,
+            "bias_c": -0.42,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.42,
+              "bias_c": -0.42,
+              "n": 183,
+              "mae": 0.67
+            },
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T06:12:51.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 12.65,
+        "consensus_corrected_c": 12.84,
+        "polymarket_slug": "highest-temperature-in-helsinki-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-helsinki-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EFHK",
+          "daily_max_c": 13,
+          "predicted_high_c": 13,
+          "low_c": 11,
+          "current_temp_c": 12,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EFHK"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 13,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EFHK"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 13,
+          "resolution_max_c": 13,
+          "running_max_at": "2026-09-25T01:50:00.000Z",
+          "latest_temp_c": 12,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+  "daily_obs": [
+    {
+      "ok": true,
+      "date": "2026-09-20",
+      "slot": "21:00",
+      "timezone": "Europe/Helsinki",
+      "captured_at": "2026-09-20T18:00:02+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "source": "wstation-api",
+      "metar_running_max_c": 17,
+      "metar_resolution_max_c": 17,
+      "running_max_at": "2026-09-20T10:50:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Helsinki"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-21",
+      "slot": "21:00",
+      "timezone": "Europe/Helsinki",
+      "captured_at": "2026-09-21T18:00:05+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "source": "wstation-api",
+      "metar_running_max_c": 16,
+      "metar_resolution_max_c": 16,
+      "running_max_at": "2026-09-21T12:50:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Helsinki"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-22",
+      "slot": "21:00",
+      "timezone": "Europe/Helsinki",
+      "captured_at": "2026-09-22T18:00:03+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "source": "wstation-api",
+      "metar_running_max_c": 15,
+      "metar_resolution_max_c": 15,
+      "running_max_at": "2026-09-22T11:50:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Helsinki"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-23",
+      "slot": "21:00",
+      "timezone": "Europe/Helsinki",
+      "captured_at": "2026-09-23T18:00:16+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "source": "wstation-api",
+      "metar_running_max_c": 11,
+      "metar_resolution_max_c": 11,
+      "running_max_at": "2026-09-23T17:50:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Helsinki"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-24",
+      "slot": "21:00",
+      "timezone": "Europe/Helsinki",
+      "captured_at": "2026-09-24T18:00:15+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EFHK",
+      "source": "wstation-api",
+      "metar_running_max_c": 14,
+      "metar_resolution_max_c": 14,
+      "running_max_at": "2026-09-24T10:50:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Helsinki"
+    }
+  ]
+}

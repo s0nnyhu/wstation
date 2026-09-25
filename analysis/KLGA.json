@@ -1,0 +1,2889 @@
+{
+  "icao": "KLGA",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-20T06:15:07-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T10:15:07.176Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 21.5,
+            "raw_min_c": 18,
+            "corrected_max_c": 21.331666666666667,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-20T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-20T09:47:29.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 21.5,
+            "raw_min_c": 18,
+            "corrected_max_c": 21.331666666666667,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-20T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-20T09:47:29.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21,
+            "raw_min_c": 17.6,
+            "corrected_max_c": 20.97277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T09:27:28.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 21.25,
+        "consensus_corrected_c": 21.15222222222222,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 21,
+          "predicted_high_c": 21,
+          "low_c": 18,
+          "current_temp_c": 19,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 21,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 18.9,
+          "resolution_max_c": 19,
+          "running_max_at": "2026-09-20T09:51:00.000Z",
+          "latest_temp_c": 18.9,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-20T09:15:01-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T13:15:02.407Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 20.9,
+            "raw_min_c": 18.2,
+            "corrected_max_c": 20.731666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-20T10:00:00.000Z",
+              "init_z": "10Z",
+              "available_at": "2026-09-20T11:44:43.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 20.9,
+            "raw_min_c": 18.2,
+            "corrected_max_c": 20.731666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-20T10:00:00.000Z",
+              "init_z": "10Z",
+              "available_at": "2026-09-20T11:44:43.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21,
+            "raw_min_c": 17.6,
+            "corrected_max_c": 20.97277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T09:27:28.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 20.95,
+        "consensus_corrected_c": 20.852222222222224,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 21,
+          "predicted_high_c": 21,
+          "low_c": 18,
+          "current_temp_c": 18,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 21,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 19.4,
+          "resolution_max_c": 19,
+          "running_max_at": "2026-09-20T10:51:00.000Z",
+          "latest_temp_c": 18.3,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-20T13:15:00-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T17:15:01.073Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 20.5,
+            "raw_min_c": 17.7,
+            "corrected_max_c": 20.331666666666667,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-20T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-20T16:42:06.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 20.5,
+            "raw_min_c": 17.7,
+            "corrected_max_c": 20.331666666666667,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-20T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-20T16:42:06.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.6,
+            "raw_min_c": 17.7,
+            "corrected_max_c": 21.57277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-20T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-20T15:41:12.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 21.05,
+        "consensus_corrected_c": 20.952222222222225,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 21,
+          "predicted_high_c": 21,
+          "low_c": 18,
+          "current_temp_c": 20,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 21,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 20.6,
+          "resolution_max_c": 21,
+          "running_max_at": "2026-09-20T16:51:00.000Z",
+          "latest_temp_c": 20.6,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-20T14:15:08-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T18:15:08.763Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 20.2,
+            "raw_min_c": 17.7,
+            "corrected_max_c": 20.031666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-20T16:00:00.000Z",
+              "init_z": "16Z",
+              "available_at": "2026-09-20T17:36:29.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 20.2,
+            "raw_min_c": 17.7,
+            "corrected_max_c": 20.031666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-20T16:00:00.000Z",
+              "init_z": "16Z",
+              "available_at": "2026-09-20T17:36:29.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.6,
+            "raw_min_c": 17.7,
+            "corrected_max_c": 21.57277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-20T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-20T15:45:10.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 20.9,
+        "consensus_corrected_c": 20.802222222222223,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 21,
+          "predicted_high_c": 21,
+          "low_c": 18,
+          "current_temp_c": 20,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 21,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 20.6,
+          "resolution_max_c": 21,
+          "running_max_at": "2026-09-20T17:51:00.000Z",
+          "latest_temp_c": 20.6,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-21T06:15:21-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T10:15:21.224Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 21.3,
+            "raw_min_c": 16.5,
+            "corrected_max_c": 21.131666666666668,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-21T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-21T09:40:54.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 21.3,
+            "raw_min_c": 16.5,
+            "corrected_max_c": 21.131666666666668,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-21T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-21T09:40:54.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.7,
+            "raw_min_c": 16.9,
+            "corrected_max_c": 21.672777777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T09:35:33.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 21.5,
+        "consensus_corrected_c": 21.40222222222222,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 21,
+          "predicted_high_c": 21,
+          "low_c": 17,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 22,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 20,
+          "resolution_max_c": 20,
+          "running_max_at": "2026-09-21T04:51:00.000Z",
+          "latest_temp_c": 17.2,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-21T09:15:01-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T13:15:01.718Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 20.9,
+            "raw_min_c": 16.3,
+            "corrected_max_c": 20.731666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-21T11:00:00.000Z",
+              "init_z": "11Z",
+              "available_at": "2026-09-21T13:10:57.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 20.9,
+            "raw_min_c": 16.3,
+            "corrected_max_c": 20.731666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-21T11:00:00.000Z",
+              "init_z": "11Z",
+              "available_at": "2026-09-21T13:10:57.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.7,
+            "raw_min_c": 16.9,
+            "corrected_max_c": 21.672777777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T09:26:04.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 21.299999999999997,
+        "consensus_corrected_c": 21.202222222222222,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 22,
+          "predicted_high_c": 22,
+          "low_c": 17,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 22,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 20,
+          "resolution_max_c": 20,
+          "running_max_at": "2026-09-21T04:51:00.000Z",
+          "latest_temp_c": 17.2,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-21T13:15:00-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T17:15:01.147Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 21.3,
+            "raw_min_c": 16.4,
+            "corrected_max_c": 21.131666666666668,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-21T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-21T16:45:19.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 21.3,
+            "raw_min_c": 16.4,
+            "corrected_max_c": 21.131666666666668,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-21T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-21T16:45:19.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 20.8,
+            "raw_min_c": 16.9,
+            "corrected_max_c": 20.77277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-21T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-21T15:53:21.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 21.05,
+        "consensus_corrected_c": 20.952222222222225,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 22,
+          "predicted_high_c": 22,
+          "low_c": 17,
+          "current_temp_c": 21,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": false,
+          "error": "This operation was aborted",
+          "daily_max_c": null,
+          "local_date": null,
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 21.1,
+          "resolution_max_c": 21,
+          "running_max_at": "2026-09-21T16:51:00.000Z",
+          "latest_temp_c": 21.1,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-21T14:15:03-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T18:15:03.213Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 21.5,
+            "raw_min_c": 16.4,
+            "corrected_max_c": 21.331666666666667,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-21T16:00:00.000Z",
+              "init_z": "16Z",
+              "available_at": "2026-09-21T17:40:46.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 21.5,
+            "raw_min_c": 16.4,
+            "corrected_max_c": 21.331666666666667,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-21T16:00:00.000Z",
+              "init_z": "16Z",
+              "available_at": "2026-09-21T17:40:46.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 20.8,
+            "raw_min_c": 16.9,
+            "corrected_max_c": 20.77277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-21T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-21T15:53:21.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 21.15,
+        "consensus_corrected_c": 21.052222222222223,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 22,
+          "predicted_high_c": 22,
+          "low_c": 17,
+          "current_temp_c": 21,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 21,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 21.1,
+          "resolution_max_c": 21,
+          "running_max_at": "2026-09-21T17:51:00.000Z",
+          "latest_temp_c": 21.1,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-22T06:15:06-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T10:15:06.598Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 18.7,
+            "raw_min_c": 15,
+            "corrected_max_c": 18.531666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-22T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-22T09:54:00.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.7,
+            "raw_min_c": 15,
+            "corrected_max_c": 18.531666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-22T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-22T09:54:00.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18.9,
+            "raw_min_c": 14.6,
+            "corrected_max_c": 18.872777777777777,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T09:28:20.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.799999999999997,
+        "consensus_corrected_c": 18.702222222222222,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 19,
+          "predicted_high_c": 19,
+          "low_c": 15,
+          "current_temp_c": 16,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 20,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 17.8,
+          "resolution_max_c": 18,
+          "running_max_at": "2026-09-22T05:51:00.000Z",
+          "latest_temp_c": 16.1,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-22T09:15:01-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T13:15:01.818Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 20.4,
+            "raw_min_c": 15,
+            "corrected_max_c": 20.231666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-22T11:00:00.000Z",
+              "init_z": "11Z",
+              "available_at": "2026-09-22T12:54:00.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 20.4,
+            "raw_min_c": 15,
+            "corrected_max_c": 20.231666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-22T11:00:00.000Z",
+              "init_z": "11Z",
+              "available_at": "2026-09-22T12:54:00.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18.9,
+            "raw_min_c": 14.6,
+            "corrected_max_c": 18.872777777777777,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T09:28:20.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 19.65,
+        "consensus_corrected_c": 19.55222222222222,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 19,
+          "predicted_high_c": 19,
+          "low_c": 15,
+          "current_temp_c": 16,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 19,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 17.8,
+          "resolution_max_c": 18,
+          "running_max_at": "2026-09-22T05:51:00.000Z",
+          "latest_temp_c": 16.7,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-22T13:15:00-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T17:15:01.143Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 19.3,
+            "raw_min_c": 15,
+            "corrected_max_c": 19.131666666666668,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-22T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-22T16:38:41.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 19.3,
+            "raw_min_c": 15,
+            "corrected_max_c": 19.131666666666668,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-22T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-22T16:38:41.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 19.1,
+            "raw_min_c": 14.6,
+            "corrected_max_c": 19.07277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-22T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-22T15:40:53.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 19.200000000000003,
+        "consensus_corrected_c": 19.102222222222224,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 19,
+          "predicted_high_c": 19,
+          "low_c": 15,
+          "current_temp_c": 19,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 20,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 19.4,
+          "resolution_max_c": 19,
+          "running_max_at": "2026-09-22T16:51:00.000Z",
+          "latest_temp_c": 19.4,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-22T14:15:07-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T18:15:07.967Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 19.4,
+            "raw_min_c": 14.9,
+            "corrected_max_c": 19.231666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-22T16:00:00.000Z",
+              "init_z": "16Z",
+              "available_at": "2026-09-22T17:39:59.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 19.4,
+            "raw_min_c": 14.9,
+            "corrected_max_c": 19.231666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-22T16:00:00.000Z",
+              "init_z": "16Z",
+              "available_at": "2026-09-22T17:39:59.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 19.1,
+            "raw_min_c": 14.6,
+            "corrected_max_c": 19.07277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-22T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-22T15:40:53.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 19.25,
+        "consensus_corrected_c": 19.15222222222222,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 15,
+          "current_temp_c": 19,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 20,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 19.4,
+          "resolution_max_c": 19,
+          "running_max_at": "2026-09-22T17:51:00.000Z",
+          "latest_temp_c": 19.4,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-23T06:15:03-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T10:15:03.429Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 19,
+            "raw_min_c": 13.1,
+            "corrected_max_c": 18.831666666666667,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-23T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-23T09:48:31.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 19,
+            "raw_min_c": 13.1,
+            "corrected_max_c": 18.831666666666667,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-23T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-23T09:48:31.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 19.3,
+            "raw_min_c": 13.3,
+            "corrected_max_c": 19.27277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T09:45:10.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 19.15,
+        "consensus_corrected_c": 19.052222222222223,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 14,
+          "current_temp_c": 14,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 20,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 15,
+          "resolution_max_c": 15,
+          "running_max_at": "2026-09-23T07:51:00.000Z",
+          "latest_temp_c": 13.9,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-23T09:15:01-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T13:15:02.028Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 20,
+            "raw_min_c": 13.6,
+            "corrected_max_c": 19.831666666666667,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-23T11:00:00.000Z",
+              "init_z": "11Z",
+              "available_at": "2026-09-23T12:43:56.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 20,
+            "raw_min_c": 13.6,
+            "corrected_max_c": 19.831666666666667,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-23T11:00:00.000Z",
+              "init_z": "11Z",
+              "available_at": "2026-09-23T12:43:56.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 19.3,
+            "raw_min_c": 13.3,
+            "corrected_max_c": 19.27277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T09:45:10.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 19.65,
+        "consensus_corrected_c": 19.552222222222223,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 14,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 20,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 16.7,
+          "resolution_max_c": 17,
+          "running_max_at": "2026-09-23T12:51:00.000Z",
+          "latest_temp_c": 16.7,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-23T13:15:00-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T17:15:00.236Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 20.3,
+            "raw_min_c": 13.6,
+            "corrected_max_c": 20.131666666666668,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-23T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-23T16:40:35.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 20.3,
+            "raw_min_c": 13.6,
+            "corrected_max_c": 20.131666666666668,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-23T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-23T16:40:35.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 19.6,
+            "raw_min_c": 13.3,
+            "corrected_max_c": 19.57277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-23T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-23T15:54:09.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 19.950000000000003,
+        "consensus_corrected_c": 19.852222222222224,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 19,
+          "predicted_high_c": 19,
+          "low_c": 14,
+          "current_temp_c": 18,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 20,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 18.3,
+          "resolution_max_c": 18,
+          "running_max_at": "2026-09-23T16:51:00.000Z",
+          "latest_temp_c": 18.3,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-23T14:15:31-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T18:15:31.636Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 20.2,
+            "raw_min_c": 13.6,
+            "corrected_max_c": 20.031666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-23T16:00:00.000Z",
+              "init_z": "16Z",
+              "available_at": "2026-09-23T17:37:25.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 20.2,
+            "raw_min_c": 13.6,
+            "corrected_max_c": 20.031666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-23T16:00:00.000Z",
+              "init_z": "16Z",
+              "available_at": "2026-09-23T17:37:25.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 19.6,
+            "raw_min_c": 13.3,
+            "corrected_max_c": 19.57277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-23T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-23T15:54:09.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 19.9,
+        "consensus_corrected_c": 19.802222222222223,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 14,
+          "current_temp_c": 19,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 20,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 20,
+          "resolution_max_c": 20,
+          "running_max_at": "2026-09-23T17:51:00.000Z",
+          "latest_temp_c": 20,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-24T06:15:28-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T10:15:28.533Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 18.6,
+            "raw_min_c": 11.5,
+            "corrected_max_c": 18.43166666666667,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-24T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-24T09:47:20.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.6,
+            "raw_min_c": 11.5,
+            "corrected_max_c": 18.43166666666667,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-24T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-24T09:47:20.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 19,
+            "raw_min_c": 11.7,
+            "corrected_max_c": 18.97277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T09:29:33.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.8,
+        "consensus_corrected_c": 18.702222222222225,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 13,
+          "current_temp_c": 12,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 19,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 13.3,
+          "resolution_max_c": 13,
+          "running_max_at": "2026-09-24T05:43:00.000Z",
+          "latest_temp_c": 12.2,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-24T09:15:14-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T13:15:14.508Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 18.8,
+            "raw_min_c": 12.3,
+            "corrected_max_c": 18.631666666666668,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-24T11:00:00.000Z",
+              "init_z": "11Z",
+              "available_at": "2026-09-24T12:51:06.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.8,
+            "raw_min_c": 12.3,
+            "corrected_max_c": 18.631666666666668,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-24T11:00:00.000Z",
+              "init_z": "11Z",
+              "available_at": "2026-09-24T12:51:06.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 19,
+            "raw_min_c": 11.7,
+            "corrected_max_c": 18.97277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T09:29:33.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.9,
+        "consensus_corrected_c": 18.802222222222223,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 13,
+          "current_temp_c": 14,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 19,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 13.9,
+          "resolution_max_c": 14,
+          "running_max_at": "2026-09-24T12:51:00.000Z",
+          "latest_temp_c": 13.9,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-24T13:15:00-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T17:15:01.166Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 19.4,
+            "raw_min_c": 12.3,
+            "corrected_max_c": 19.231666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-24T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-24T16:37:54.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 19.4,
+            "raw_min_c": 12.3,
+            "corrected_max_c": 19.231666666666666,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-24T15:00:00.000Z",
+              "init_z": "15Z",
+              "available_at": "2026-09-24T16:37:54.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 19,
+            "raw_min_c": 11.7,
+            "corrected_max_c": 18.97277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-24T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-24T16:10:28.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 19.2,
+        "consensus_corrected_c": 19.102222222222224,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 12,
+          "current_temp_c": 18,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 19,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 17.8,
+          "resolution_max_c": 18,
+          "running_max_at": "2026-09-24T16:51:00.000Z",
+          "latest_temp_c": 17.8,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-24T14:15:31-04:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "payload": {
+        "icao": "KLGA",
+        "city": "New York",
+        "name": "New York LaGuardia",
+        "region": "america",
+        "timezone": "America/New_York",
+        "unit": "F",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T18:15:31.553Z",
+        "primary_model": "gfs_seamless",
+        "primary_models": [
+          "gfs_hrrr",
+          "gfs_seamless"
+        ],
+        "models": [
+          {
+            "id": "gfs_hrrr",
+            "label": "HRRR",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 19.8,
+            "raw_min_c": 12.3,
+            "corrected_max_c": 19.631666666666668,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "note": "HRRR/HRDPS series matches seamless in this archive — not a native short-range bias",
+            "run": {
+              "init_at": "2026-09-24T16:00:00.000Z",
+              "init_z": "16Z",
+              "available_at": "2026-09-24T17:41:04.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "gfs_seamless",
+            "label": "GFS Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 19.8,
+            "raw_min_c": 12.3,
+            "corrected_max_c": 19.631666666666668,
+            "bias_c": 0.16833333333333333,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.303,
+              "bias_c": 0.16833333333333333,
+              "n": 183,
+              "mae": 0.913
+            },
+            "run": {
+              "init_at": "2026-09-24T16:00:00.000Z",
+              "init_z": "16Z",
+              "available_at": "2026-09-24T17:41:04.000Z",
+              "nest": "HRRR"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 19,
+            "raw_min_c": 11.7,
+            "corrected_max_c": 18.97277777777778,
+            "bias_c": 0.02722222222222222,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "F",
+              "bias_native": 0.049,
+              "bias_c": 0.02722222222222222,
+              "n": 183,
+              "mae": 1.123
+            },
+            "run": {
+              "init_at": "2026-09-24T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-24T15:50:01.000Z",
+              "nest": "ICON global"
+            }
+          }
+        ],
+        "consensus_raw_c": 19.4,
+        "consensus_corrected_c": 19.302222222222223,
+        "polymarket_slug": "highest-temperature-in-nyc-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-nyc-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "KLGA",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 13,
+          "current_temp_c": 18,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/KLGA"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 19,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/KLGA"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 18.3,
+          "resolution_max_c": 18,
+          "running_max_at": "2026-09-24T17:51:00.000Z",
+          "latest_temp_c": 18.3,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "F",
+          "stale": false
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+  "daily_obs": [
+    {
+      "ok": true,
+      "date": "2026-09-20",
+      "slot": "21:00",
+      "timezone": "America/New_York",
+      "captured_at": "2026-09-21T01:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "source": "wstation-api",
+      "metar_running_max_c": 21.7,
+      "metar_resolution_max_c": 22,
+      "running_max_at": "2026-09-21T00:33:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "F",
+      "city": "New York"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-21",
+      "slot": "21:00",
+      "timezone": "America/New_York",
+      "captured_at": "2026-09-22T01:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "source": "wstation-api",
+      "metar_running_max_c": 21.1,
+      "metar_resolution_max_c": 21,
+      "running_max_at": "2026-09-22T00:51:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "F",
+      "city": "New York"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-22",
+      "slot": "21:00",
+      "timezone": "America/New_York",
+      "captured_at": "2026-09-23T01:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "source": "wstation-api",
+      "metar_running_max_c": 20.6,
+      "metar_resolution_max_c": 21,
+      "running_max_at": "2026-09-22T19:51:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "F",
+      "city": "New York"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-23",
+      "slot": "21:00",
+      "timezone": "America/New_York",
+      "captured_at": "2026-09-24T01:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "source": "wstation-api",
+      "metar_running_max_c": 21.1,
+      "metar_resolution_max_c": 21,
+      "running_max_at": "2026-09-23T19:51:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "F",
+      "city": "New York"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-24",
+      "slot": "21:00",
+      "timezone": "America/New_York",
+      "captured_at": "2026-09-25T01:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/KLGA",
+      "source": "wstation-api",
+      "metar_running_max_c": 20,
+      "metar_resolution_max_c": 20,
+      "running_max_at": "2026-09-24T20:51:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "F",
+      "city": "New York"
+    }
+  ]
+}

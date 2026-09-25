@@ -1,0 +1,3560 @@
+{
+  "icao": "EDDM",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-20T06:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T04:15:00.974Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.4,
+            "raw_min_c": 9.5,
+            "corrected_max_c": 23.915,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T01:28:27.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.2,
+            "raw_min_c": 9.7,
+            "corrected_max_c": 24.956,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T03:39:27.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 23.4,
+            "raw_min_c": 9.5,
+            "corrected_max_c": 23.915,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T01:28:27.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 8.6,
+            "corrected_max_c": 24.308999999999997,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T03:52:53.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.9,
+        "consensus_corrected_c": 24.112,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 10,
+          "current_temp_c": 10,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 11,
+          "resolution_max_c": 11,
+          "running_max_at": "2026-09-20T03:20:00.000Z",
+          "latest_temp_c": 9,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-20T09:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T07:15:01.189Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.3,
+            "raw_min_c": 9.6,
+            "corrected_max_c": 24.815,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T04:26:19.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.2,
+            "raw_min_c": 9.3,
+            "corrected_max_c": 24.956,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T05:58:50.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 24.3,
+            "raw_min_c": 9.6,
+            "corrected_max_c": 24.815,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T04:26:19.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 8.7,
+            "corrected_max_c": 24.308999999999997,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T03:52:53.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.35,
+        "consensus_corrected_c": 24.561999999999998,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 10,
+          "current_temp_c": 15,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 14,
+          "resolution_max_c": 14,
+          "running_max_at": "2026-09-20T06:50:00.000Z",
+          "latest_temp_c": 14,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-20T13:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T11:15:01.045Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24,
+            "raw_min_c": 9.6,
+            "corrected_max_c": 24.515,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-20T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-20T10:25:44.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.9,
+            "raw_min_c": 9.3,
+            "corrected_max_c": 24.656,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T09:52:50.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 24,
+            "raw_min_c": 9.6,
+            "corrected_max_c": 24.515,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-20T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-20T10:25:44.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.2,
+            "raw_min_c": 8.7,
+            "corrected_max_c": 24.108999999999998,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T10:19:37.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.1,
+        "consensus_corrected_c": 24.311999999999998,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 9,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 22,
+          "resolution_max_c": 22,
+          "running_max_at": "2026-09-20T10:50:00.000Z",
+          "latest_temp_c": 22,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-20T14:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T12:15:00.470Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24,
+            "raw_min_c": 9.6,
+            "corrected_max_c": 24.515,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-20T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-20T10:32:14.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.9,
+            "raw_min_c": 9.3,
+            "corrected_max_c": 24.656,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T09:47:04.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 24,
+            "raw_min_c": 9.6,
+            "corrected_max_c": 24.515,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-20T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-20T10:32:14.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.2,
+            "raw_min_c": 8.7,
+            "corrected_max_c": 24.108999999999998,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T10:20:12.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.1,
+        "consensus_corrected_c": 24.311999999999998,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 10,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 23,
+          "resolution_max_c": 23,
+          "running_max_at": "2026-09-20T11:50:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-21T06:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T04:15:00.968Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 17.2,
+            "raw_min_c": 7.6,
+            "corrected_max_c": 17.715,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T01:26:23.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.6,
+            "raw_min_c": 8.2,
+            "corrected_max_c": 17.356,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T03:37:52.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 17.2,
+            "raw_min_c": 7.6,
+            "corrected_max_c": 17.715,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T01:26:23.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.5,
+            "raw_min_c": 9,
+            "corrected_max_c": 17.409,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T04:03:02.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 17.35,
+        "consensus_corrected_c": 17.561999999999998,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 17,
+          "predicted_high_c": 17,
+          "low_c": 7,
+          "current_temp_c": 12,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 17,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 14,
+          "resolution_max_c": 14,
+          "running_max_at": "2026-09-20T23:50:00.000Z",
+          "latest_temp_c": 12,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-21T09:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T07:15:01.044Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 17.1,
+            "raw_min_c": 7.7,
+            "corrected_max_c": 17.615000000000002,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T04:30:09.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.4,
+            "raw_min_c": 8.4,
+            "corrected_max_c": 17.156,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T06:09:50.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 17.1,
+            "raw_min_c": 7.7,
+            "corrected_max_c": 17.615000000000002,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T04:30:09.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.5,
+            "raw_min_c": 8.2,
+            "corrected_max_c": 17.409,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T04:07:13.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 17.3,
+        "consensus_corrected_c": 17.512,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 17,
+          "predicted_high_c": 17,
+          "low_c": 7,
+          "current_temp_c": 12,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 17,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 14,
+          "resolution_max_c": 14,
+          "running_max_at": "2026-09-20T23:50:00.000Z",
+          "latest_temp_c": 12,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-21T13:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T11:15:01.216Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.4,
+            "raw_min_c": 8.3,
+            "corrected_max_c": 16.915,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-21T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-21T10:26:13.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.5,
+            "raw_min_c": 9,
+            "corrected_max_c": 17.256,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T09:48:40.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 16.4,
+            "raw_min_c": 8.3,
+            "corrected_max_c": 16.915,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-21T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-21T10:26:13.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.2,
+            "raw_min_c": 8.2,
+            "corrected_max_c": 17.108999999999998,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T10:27:10.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 16.799999999999997,
+        "consensus_corrected_c": 17.012,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 17,
+          "predicted_high_c": 17,
+          "low_c": 7,
+          "current_temp_c": 15,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 14,
+          "resolution_max_c": 14,
+          "running_max_at": "2026-09-21T10:50:00.000Z",
+          "latest_temp_c": 14,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-21T14:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T12:15:01.829Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.4,
+            "raw_min_c": 8.3,
+            "corrected_max_c": 16.915,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-21T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-21T10:24:26.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.2,
+            "raw_min_c": 8.8,
+            "corrected_max_c": 16.956,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-21T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-21T11:58:57.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 16.4,
+            "raw_min_c": 8.3,
+            "corrected_max_c": 16.915,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-21T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-21T10:24:26.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17,
+            "raw_min_c": 8.1,
+            "corrected_max_c": 16.909,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T10:21:20.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 16.7,
+        "consensus_corrected_c": 16.912,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 17,
+          "predicted_high_c": 17,
+          "low_c": 7,
+          "current_temp_c": 16,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 15,
+          "resolution_max_c": 15,
+          "running_max_at": "2026-09-21T11:50:00.000Z",
+          "latest_temp_c": 15,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-22T06:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T04:15:00.972Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.3,
+            "raw_min_c": 4.7,
+            "corrected_max_c": 16.815,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T01:25:24.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 17,
+            "raw_min_c": 5.3,
+            "corrected_max_c": 17.756,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T03:48:26.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 16.3,
+            "raw_min_c": 4.7,
+            "corrected_max_c": 16.815,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T01:25:24.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 16.4,
+            "raw_min_c": 6.5,
+            "corrected_max_c": 16.308999999999997,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T03:54:00.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 16.35,
+        "consensus_corrected_c": 16.561999999999998,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 17,
+          "predicted_high_c": 17,
+          "low_c": 4,
+          "current_temp_c": 6,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 7,
+          "resolution_max_c": 7,
+          "running_max_at": "2026-09-21T22:20:00.000Z",
+          "latest_temp_c": 5,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-22T09:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T07:15:01.035Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.4,
+            "raw_min_c": 5.5,
+            "corrected_max_c": 16.915,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-22T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-22T04:27:06.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 17,
+            "raw_min_c": 5.3,
+            "corrected_max_c": 17.756,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-22T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-22T06:15:20.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 16.4,
+            "raw_min_c": 5.5,
+            "corrected_max_c": 16.915,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-22T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-22T04:27:06.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 16.1,
+            "raw_min_c": 6.3,
+            "corrected_max_c": 16.009,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T04:00:21.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 16.25,
+        "consensus_corrected_c": 16.462,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 17,
+          "predicted_high_c": 17,
+          "low_c": 5,
+          "current_temp_c": 10,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 9,
+          "resolution_max_c": 9,
+          "running_max_at": "2026-09-22T06:50:00.000Z",
+          "latest_temp_c": 9,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-22T13:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T11:15:01.005Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.1,
+            "raw_min_c": 5.5,
+            "corrected_max_c": 16.615000000000002,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-22T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-22T10:30:07.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.6,
+            "raw_min_c": 5.3,
+            "corrected_max_c": 17.356,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T09:49:21.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 16.1,
+            "raw_min_c": 5.5,
+            "corrected_max_c": 16.615000000000002,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-22T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-22T10:30:07.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 16,
+            "raw_min_c": 6.5,
+            "corrected_max_c": 15.909,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T10:23:17.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 16.05,
+        "consensus_corrected_c": 16.262,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 17,
+          "predicted_high_c": 17,
+          "low_c": 5,
+          "current_temp_c": 16,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 15,
+          "resolution_max_c": 15,
+          "running_max_at": "2026-09-22T10:50:00.000Z",
+          "latest_temp_c": 15,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-22T14:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T12:15:01.048Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.1,
+            "raw_min_c": 5.5,
+            "corrected_max_c": 16.615000000000002,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-22T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-22T10:30:07.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.6,
+            "raw_min_c": 5.3,
+            "corrected_max_c": 17.356,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-22T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-22T12:05:25.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 16.1,
+            "raw_min_c": 5.5,
+            "corrected_max_c": 16.615000000000002,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-22T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-22T10:30:07.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 16,
+            "raw_min_c": 6.5,
+            "corrected_max_c": 15.909,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T10:23:17.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 16.05,
+        "consensus_corrected_c": 16.262,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 17,
+          "predicted_high_c": 17,
+          "low_c": 4,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 16,
+          "resolution_max_c": 16,
+          "running_max_at": "2026-09-22T11:50:00.000Z",
+          "latest_temp_c": 16,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-23T06:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T04:15:01.365Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 17.9,
+            "raw_min_c": 0.4,
+            "corrected_max_c": 18.415,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T01:38:05.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 17.9,
+            "raw_min_c": 1.1,
+            "corrected_max_c": 18.656,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T03:44:33.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 17.9,
+            "raw_min_c": 0.4,
+            "corrected_max_c": 18.415,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T01:38:05.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.6,
+            "raw_min_c": 0.5,
+            "corrected_max_c": 17.509,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T03:35:08.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 17.75,
+        "consensus_corrected_c": 17.962,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 19,
+          "predicted_high_c": 19,
+          "low_c": 0,
+          "current_temp_c": 2,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 17,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 4,
+          "resolution_max_c": 4,
+          "running_max_at": "2026-09-22T22:20:00.000Z",
+          "latest_temp_c": 1,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": false,
+      "slot": "09:15",
+      "captured_at": "2026-09-23T09:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "error": "HTTP 502 b'{\"error\":\"Open-Meteo HTTP 429\"}'"
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-23T13:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T11:15:01.142Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.1,
+            "raw_min_c": 1,
+            "corrected_max_c": 18.615000000000002,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-23T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-23T10:30:06.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.1,
+            "raw_min_c": -0.2,
+            "corrected_max_c": 18.856,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T09:49:59.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 18.1,
+            "raw_min_c": 1,
+            "corrected_max_c": 18.615000000000002,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-23T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-23T10:30:06.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.6,
+            "raw_min_c": 0.8,
+            "corrected_max_c": 17.509,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T10:22:41.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 17.85,
+        "consensus_corrected_c": 18.062,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 18,
+          "predicted_high_c": 18,
+          "low_c": 1,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 17,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 16,
+          "resolution_max_c": 16,
+          "running_max_at": "2026-09-23T10:50:00.000Z",
+          "latest_temp_c": 16,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-23T14:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T12:15:01.384Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.1,
+            "raw_min_c": 1,
+            "corrected_max_c": 18.615000000000002,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-23T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-23T10:31:28.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.1,
+            "raw_min_c": -0.2,
+            "corrected_max_c": 18.856,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-23T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-23T11:58:55.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 18.1,
+            "raw_min_c": 1,
+            "corrected_max_c": 18.615000000000002,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-23T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-23T10:31:28.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.7,
+            "raw_min_c": 0.8,
+            "corrected_max_c": 17.608999999999998,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T10:20:06.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 17.9,
+        "consensus_corrected_c": 18.112000000000002,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 18,
+          "predicted_high_c": 18,
+          "low_c": 1,
+          "current_temp_c": 18,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 17,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 17,
+          "resolution_max_c": 17,
+          "running_max_at": "2026-09-23T11:50:00.000Z",
+          "latest_temp_c": 17,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-24T06:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T04:15:01.155Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.8,
+            "raw_min_c": 5.6,
+            "corrected_max_c": 17.315,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T01:34:09.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 17,
+            "raw_min_c": 4.8,
+            "corrected_max_c": 17.756,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T04:05:20.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 16.8,
+            "raw_min_c": 5.6,
+            "corrected_max_c": 17.315,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T01:34:09.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 15.2,
+            "raw_min_c": 5.5,
+            "corrected_max_c": 15.109,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T03:47:56.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 16,
+        "consensus_corrected_c": 16.212,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 15,
+          "predicted_high_c": 15,
+          "low_c": 4,
+          "current_temp_c": 11,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 10,
+          "resolution_max_c": 10,
+          "running_max_at": "2026-09-24T03:50:00.000Z",
+          "latest_temp_c": 10,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-24T09:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T07:15:01.053Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 17.5,
+            "raw_min_c": 5.6,
+            "corrected_max_c": 18.015,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T04:24:17.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 17,
+            "raw_min_c": 4.8,
+            "corrected_max_c": 17.756,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T05:56:32.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 17.5,
+            "raw_min_c": 5.6,
+            "corrected_max_c": 18.015,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T04:24:17.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 15.4,
+            "raw_min_c": 5.5,
+            "corrected_max_c": 15.309000000000001,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T03:46:51.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 16.45,
+        "consensus_corrected_c": 16.662,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 16,
+          "predicted_high_c": 16,
+          "low_c": 4,
+          "current_temp_c": 14,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 14,
+          "resolution_max_c": 14,
+          "running_max_at": "2026-09-24T06:50:00.000Z",
+          "latest_temp_c": 14,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-24T13:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T11:15:01.072Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.7,
+            "raw_min_c": 5.6,
+            "corrected_max_c": 17.215,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-24T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-24T10:26:30.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.6,
+            "raw_min_c": 4.8,
+            "corrected_max_c": 17.356,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T09:49:50.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 16.7,
+            "raw_min_c": 5.6,
+            "corrected_max_c": 17.215,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-24T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-24T10:26:30.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 15.1,
+            "raw_min_c": 5.5,
+            "corrected_max_c": 15.009,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T10:27:50.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 15.899999999999999,
+        "consensus_corrected_c": 16.112000000000002,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 15,
+          "predicted_high_c": 15,
+          "low_c": 4,
+          "current_temp_c": 15,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 15,
+          "resolution_max_c": 15,
+          "running_max_at": "2026-09-24T10:50:00.000Z",
+          "latest_temp_c": 15,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-24T14:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T12:15:01.209Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.7,
+            "raw_min_c": 5.6,
+            "corrected_max_c": 17.215,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-24T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-24T10:26:18.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 16.9,
+            "raw_min_c": 4.8,
+            "corrected_max_c": 17.656,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-24T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-24T11:55:06.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 16.7,
+            "raw_min_c": 5.6,
+            "corrected_max_c": 17.215,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-24T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-24T10:26:18.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 15.4,
+            "raw_min_c": 5.5,
+            "corrected_max_c": 15.309000000000001,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T10:20:58.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 16.05,
+        "consensus_corrected_c": 16.262,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 17,
+          "predicted_high_c": 17,
+          "low_c": 5,
+          "current_temp_c": 15,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 16,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 16,
+          "resolution_max_c": 16,
+          "running_max_at": "2026-09-24T11:20:00.000Z",
+          "latest_temp_c": 15,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-25T06:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T04:15:01.034Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.5,
+            "raw_min_c": 0.7,
+            "corrected_max_c": 19.015,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T01:27:06.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 17.9,
+            "raw_min_c": 2.3,
+            "corrected_max_c": 18.656,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T03:40:20.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 18.5,
+            "raw_min_c": 0.7,
+            "corrected_max_c": 19.015,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T01:27:06.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18.2,
+            "raw_min_c": 1.8,
+            "corrected_max_c": 18.108999999999998,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T03:51:51.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.35,
+        "consensus_corrected_c": 18.561999999999998,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 19,
+          "predicted_high_c": 19,
+          "low_c": 1,
+          "current_temp_c": 2,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 18,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 7,
+          "resolution_max_c": 7,
+          "running_max_at": "2026-09-24T22:20:00.000Z",
+          "latest_temp_c": 1,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-25T09:15:00+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "payload": {
+        "icao": "EDDM",
+        "city": "Munich",
+        "name": "Munich",
+        "region": "europe",
+        "timezone": "Europe/Berlin",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T07:15:01.204Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless",
+          "icon_eu"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.4,
+            "raw_min_c": -0.2,
+            "corrected_max_c": 18.915,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T04:34:30.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 17.9,
+            "raw_min_c": 2.2,
+            "corrected_max_c": 18.656,
+            "bias_c": -0.756,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.756,
+              "bias_c": -0.756,
+              "n": 183,
+              "mae": 0.91
+            },
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T06:12:51.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "icon_d2",
+            "label": "ICON-D2",
+            "primary": false,
+            "role": "short-range",
+            "available": true,
+            "raw_max_c": 18.4,
+            "raw_min_c": -0.2,
+            "corrected_max_c": 18.915,
+            "bias_c": -0.515,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.515,
+              "bias_c": -0.515,
+              "n": 183,
+              "mae": 0.693
+            },
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T04:34:30.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18,
+            "raw_min_c": 1.6,
+            "corrected_max_c": 17.909,
+            "bias_c": 0.091,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": 0.091,
+              "bias_c": 0.091,
+              "n": 183,
+              "mae": 0.797
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T04:04:15.000Z",
+              "nest": "ARPEGE EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.2,
+        "consensus_corrected_c": 18.412,
+        "polymarket_slug": "highest-temperature-in-munich-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-munich-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "EDDM",
+          "daily_max_c": 19,
+          "predicted_high_c": 19,
+          "low_c": 2,
+          "current_temp_c": 9,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/EDDM"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 18,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/EDDM"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 7,
+          "resolution_max_c": 7,
+          "running_max_at": "2026-09-25T06:50:00.000Z",
+          "latest_temp_c": 7,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+  "daily_obs": [
+    {
+      "ok": true,
+      "date": "2026-09-20",
+      "slot": "21:00",
+      "timezone": "Europe/Berlin",
+      "captured_at": "2026-09-20T19:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "source": "wstation-api",
+      "metar_running_max_c": 24,
+      "metar_resolution_max_c": 24,
+      "running_max_at": "2026-09-20T14:50:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Munich"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-21",
+      "slot": "21:00",
+      "timezone": "Europe/Berlin",
+      "captured_at": "2026-09-21T19:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "source": "wstation-api",
+      "metar_running_max_c": 17,
+      "metar_resolution_max_c": 17,
+      "running_max_at": "2026-09-21T14:50:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Munich"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-22",
+      "slot": "21:00",
+      "timezone": "Europe/Berlin",
+      "captured_at": "2026-09-22T19:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "source": "wstation-api",
+      "metar_running_max_c": 17,
+      "metar_resolution_max_c": 17,
+      "running_max_at": "2026-09-22T15:20:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Munich"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-23",
+      "slot": "21:00",
+      "timezone": "Europe/Berlin",
+      "captured_at": "2026-09-23T19:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "source": "wstation-api",
+      "metar_running_max_c": 19,
+      "metar_resolution_max_c": 19,
+      "running_max_at": "2026-09-23T15:20:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Munich"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-24",
+      "slot": "21:00",
+      "timezone": "Europe/Berlin",
+      "captured_at": "2026-09-24T19:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/EDDM",
+      "source": "wstation-api",
+      "metar_running_max_c": 17,
+      "metar_resolution_max_c": 17,
+      "running_max_at": "2026-09-24T15:20:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Munich"
+    }
+  ]
+}

@@ -1,0 +1,3539 @@
+{
+  "icao": "LIMC",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-20T06:15:01+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T04:15:01.571Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 25.8,
+            "raw_min_c": 15.7,
+            "corrected_max_c": 26.417,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T01:28:27.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.7,
+            "raw_min_c": 16.1,
+            "corrected_max_c": 26.7,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T03:39:27.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.2,
+            "raw_min_c": 16.6,
+            "corrected_max_c": 27.843,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-20T01:00:00.000Z",
+              "init_z": "01Z",
+              "available_at": "2026-09-20T03:41:01.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.1,
+            "raw_min_c": 15.4,
+            "corrected_max_c": 27.117,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T02:53:03.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 27.1,
+        "consensus_corrected_c": 27.117,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 16,
+          "current_temp_c": 16,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 26,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 18,
+          "resolution_max_c": 18,
+          "running_max_at": "2026-09-19T22:20:00.000Z",
+          "latest_temp_c": 16,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-20T09:15:05+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T07:15:06.023Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 25.9,
+            "raw_min_c": 15.7,
+            "corrected_max_c": 26.517,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T04:26:19.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.6,
+            "raw_min_c": 16.1,
+            "corrected_max_c": 26.6,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T05:58:50.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.9,
+            "raw_min_c": 16.1,
+            "corrected_max_c": 27.543,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-20T04:00:00.000Z",
+              "init_z": "04Z",
+              "available_at": "2026-09-20T06:40:05.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.1,
+            "raw_min_c": 15.3,
+            "corrected_max_c": 27.117,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T05:49:46.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 26.9,
+        "consensus_corrected_c": 27.117,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 16,
+          "current_temp_c": 19,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 26,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 19,
+          "resolution_max_c": 19,
+          "running_max_at": "2026-09-20T06:50:00.000Z",
+          "latest_temp_c": 19,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-20T13:15:01+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T11:15:01.966Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 26,
+            "raw_min_c": 15.7,
+            "corrected_max_c": 26.617,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-20T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-20T10:25:44.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.6,
+            "raw_min_c": 16.1,
+            "corrected_max_c": 26.6,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T09:52:50.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.3,
+            "raw_min_c": 15.3,
+            "corrected_max_c": 26.943,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-20T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-20T10:45:04.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.3,
+            "raw_min_c": 15.3,
+            "corrected_max_c": 27.317,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T11:02:38.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 26.3,
+        "consensus_corrected_c": 26.943,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 27,
+          "predicted_high_c": 27,
+          "low_c": 16,
+          "current_temp_c": 26,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 26,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 25,
+          "resolution_max_c": 25,
+          "running_max_at": "2026-09-20T10:50:00.000Z",
+          "latest_temp_c": 25,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-20T14:15:01+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T12:15:02.071Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 26,
+            "raw_min_c": 15.7,
+            "corrected_max_c": 26.617,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-20T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-20T10:32:14.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.6,
+            "raw_min_c": 16.1,
+            "corrected_max_c": 26.6,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T09:47:04.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.2,
+            "raw_min_c": 15.3,
+            "corrected_max_c": 26.843,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-20T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-20T11:37:25.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.4,
+            "raw_min_c": 15.3,
+            "corrected_max_c": 27.416999999999998,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T11:04:00.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 26.2,
+        "consensus_corrected_c": 26.843,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 27,
+          "predicted_high_c": 27,
+          "low_c": 16,
+          "current_temp_c": 26,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 26,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 26,
+          "resolution_max_c": 26,
+          "running_max_at": "2026-09-20T11:50:00.000Z",
+          "latest_temp_c": 26,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-21T06:15:02+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T04:15:02.276Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 28.6,
+            "raw_min_c": 17.2,
+            "corrected_max_c": 29.217000000000002,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T01:26:23.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.8,
+            "raw_min_c": 17.4,
+            "corrected_max_c": 28.8,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T03:37:52.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.8,
+            "raw_min_c": 17,
+            "corrected_max_c": 29.443,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-21T01:00:00.000Z",
+              "init_z": "01Z",
+              "available_at": "2026-09-21T03:36:20.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 30.2,
+            "raw_min_c": 16.3,
+            "corrected_max_c": 30.217,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T02:47:44.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 28.8,
+        "consensus_corrected_c": 29.443,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 30,
+          "predicted_high_c": 30,
+          "low_c": 17,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 18,
+          "resolution_max_c": 18,
+          "running_max_at": "2026-09-21T02:50:00.000Z",
+          "latest_temp_c": 17,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-21T09:15:01+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T07:15:02.165Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 28.8,
+            "raw_min_c": 17.1,
+            "corrected_max_c": 29.417,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T04:30:09.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 29.7,
+            "raw_min_c": 17.1,
+            "corrected_max_c": 29.7,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T06:09:50.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.4,
+            "raw_min_c": 16.5,
+            "corrected_max_c": 29.043,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-21T04:00:00.000Z",
+              "init_z": "04Z",
+              "available_at": "2026-09-21T06:40:28.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 30.2,
+            "raw_min_c": 16,
+            "corrected_max_c": 30.217,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T05:42:48.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 28.8,
+        "consensus_corrected_c": 29.417,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 29,
+          "predicted_high_c": 29,
+          "low_c": 16,
+          "current_temp_c": 21,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 21,
+          "resolution_max_c": 21,
+          "running_max_at": "2026-09-21T06:50:00.000Z",
+          "latest_temp_c": 21,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-21T13:15:02+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T11:15:02.262Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.2,
+            "raw_min_c": 17.1,
+            "corrected_max_c": 29.817,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-21T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-21T10:26:13.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 29.4,
+            "raw_min_c": 17.1,
+            "corrected_max_c": 29.4,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T09:48:40.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.5,
+            "raw_min_c": 15.4,
+            "corrected_max_c": 29.143,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-21T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-21T10:44:56.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 30.4,
+            "raw_min_c": 16,
+            "corrected_max_c": 30.416999999999998,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T05:42:48.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 29.2,
+        "consensus_corrected_c": 29.817,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 29,
+          "predicted_high_c": 29,
+          "low_c": 16,
+          "current_temp_c": 28,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 28,
+          "resolution_max_c": 28,
+          "running_max_at": "2026-09-21T10:50:00.000Z",
+          "latest_temp_c": 28,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-21T14:15:03+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T12:15:03.289Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.2,
+            "raw_min_c": 17.1,
+            "corrected_max_c": 29.817,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-21T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-21T10:24:26.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 29.1,
+            "raw_min_c": 17.1,
+            "corrected_max_c": 29.1,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-21T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-21T11:58:57.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.6,
+            "raw_min_c": 15.4,
+            "corrected_max_c": 29.243000000000002,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-21T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-21T11:38:22.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 30.1,
+            "raw_min_c": 16,
+            "corrected_max_c": 30.117,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T11:10:11.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 29.2,
+        "consensus_corrected_c": 29.817,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 29,
+          "predicted_high_c": 29,
+          "low_c": 16,
+          "current_temp_c": 29,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 29,
+          "resolution_max_c": 29,
+          "running_max_at": "2026-09-21T11:50:00.000Z",
+          "latest_temp_c": 29,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-22T06:15:01+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T04:15:01.704Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 17.3,
+            "corrected_max_c": 25.017,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T01:25:24.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.6,
+            "raw_min_c": 15.4,
+            "corrected_max_c": 24.6,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T03:48:26.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.7,
+            "raw_min_c": 16.4,
+            "corrected_max_c": 25.343,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-22T01:00:00.000Z",
+              "init_z": "01Z",
+              "available_at": "2026-09-22T03:37:07.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.8,
+            "raw_min_c": 16.8,
+            "corrected_max_c": 24.817,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T02:49:08.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.7,
+        "consensus_corrected_c": 25.017,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 16,
+          "current_temp_c": 18,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 19,
+          "resolution_max_c": 19,
+          "running_max_at": "2026-09-22T02:50:00.000Z",
+          "latest_temp_c": 18,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-22T09:15:01+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T07:15:01.727Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.1,
+            "raw_min_c": 17.7,
+            "corrected_max_c": 24.717000000000002,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-22T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-22T04:27:06.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 15.4,
+            "corrected_max_c": 24.4,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-22T06:15:20.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.7,
+            "raw_min_c": 16.3,
+            "corrected_max_c": 25.343,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-22T04:00:00.000Z",
+              "init_z": "04Z",
+              "available_at": "2026-09-22T06:47:39.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.9,
+            "raw_min_c": 16.7,
+            "corrected_max_c": 24.916999999999998,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-22T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-22T05:44:58.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.7,
+        "consensus_corrected_c": 24.916999999999998,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 16,
+          "current_temp_c": 20,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 20,
+          "resolution_max_c": 20,
+          "running_max_at": "2026-09-22T06:50:00.000Z",
+          "latest_temp_c": 20,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-22T13:15:01+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T11:15:01.645Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.3,
+            "raw_min_c": 17.7,
+            "corrected_max_c": 24.917,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-22T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-22T10:30:07.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.3,
+            "raw_min_c": 15.4,
+            "corrected_max_c": 24.3,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T09:49:21.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.5,
+            "raw_min_c": 15.8,
+            "corrected_max_c": 25.143,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-22T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-22T10:44:41.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25,
+            "raw_min_c": 16.7,
+            "corrected_max_c": 25.017,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T11:04:43.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.5,
+        "consensus_corrected_c": 25.017,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 16,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 23,
+          "resolution_max_c": 23,
+          "running_max_at": "2026-09-22T10:50:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-22T14:15:03+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T12:15:03.491Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.3,
+            "raw_min_c": 17.7,
+            "corrected_max_c": 24.917,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-22T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-22T10:30:07.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.3,
+            "raw_min_c": 15.4,
+            "corrected_max_c": 24.3,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-22T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-22T12:05:25.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.3,
+            "raw_min_c": 15.8,
+            "corrected_max_c": 24.943,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-22T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-22T11:47:03.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25,
+            "raw_min_c": 16.7,
+            "corrected_max_c": 25.017,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T11:04:43.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.3,
+        "consensus_corrected_c": 24.943,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 16,
+          "current_temp_c": 24,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 24,
+          "resolution_max_c": 24,
+          "running_max_at": "2026-09-22T11:50:00.000Z",
+          "latest_temp_c": 24,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-23T06:15:02+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T04:15:02.376Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 22.8,
+            "raw_min_c": 17.3,
+            "corrected_max_c": 23.417,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T01:38:05.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.1,
+            "raw_min_c": 17.1,
+            "corrected_max_c": 23.1,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T03:44:33.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.7,
+            "raw_min_c": 17.2,
+            "corrected_max_c": 24.343,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-23T01:00:00.000Z",
+              "init_z": "01Z",
+              "available_at": "2026-09-23T03:46:19.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.6,
+            "raw_min_c": 15.6,
+            "corrected_max_c": 23.617,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T02:46:09.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.6,
+        "consensus_corrected_c": 23.617,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 23,
+          "predicted_high_c": 23,
+          "low_c": 15,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 20,
+          "resolution_max_c": 20,
+          "running_max_at": "2026-09-22T22:50:00.000Z",
+          "latest_temp_c": 17,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": false,
+      "slot": "09:15",
+      "captured_at": "2026-09-23T09:15:35+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "error": "HTTP 502 b'{\"error\":\"Open-Meteo HTTP 429\"}'"
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-23T13:15:03+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T11:15:03.800Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 22.9,
+            "raw_min_c": 16.8,
+            "corrected_max_c": 23.517,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-23T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-23T10:30:06.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.9,
+            "raw_min_c": 17.1,
+            "corrected_max_c": 22.9,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T09:49:59.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23,
+            "raw_min_c": 16.5,
+            "corrected_max_c": 23.643,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-23T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-23T10:44:15.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.5,
+            "raw_min_c": 15.2,
+            "corrected_max_c": 23.517,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-23T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-23T05:42:35.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 23,
+        "consensus_corrected_c": 23.517,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 23,
+          "predicted_high_c": 23,
+          "low_c": 15,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 22,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 23,
+          "resolution_max_c": 23,
+          "running_max_at": "2026-09-23T10:50:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-23T14:15:06+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T12:15:06.117Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 22.9,
+            "raw_min_c": 16.8,
+            "corrected_max_c": 23.517,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-23T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-23T10:31:28.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23,
+            "raw_min_c": 17.2,
+            "corrected_max_c": 23,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-23T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-23T11:58:55.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.1,
+            "raw_min_c": 16.5,
+            "corrected_max_c": 23.743000000000002,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-23T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-23T11:38:29.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.8,
+            "raw_min_c": 15.2,
+            "corrected_max_c": 23.817,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T11:03:02.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.1,
+        "consensus_corrected_c": 23.743000000000002,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 15,
+          "current_temp_c": 22,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 22,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 23,
+          "resolution_max_c": 23,
+          "running_max_at": "2026-09-23T11:20:00.000Z",
+          "latest_temp_c": 22,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-24T06:15:13+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T04:15:13.734Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.9,
+            "raw_min_c": 13.4,
+            "corrected_max_c": 24.517,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T01:34:09.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 12.2,
+            "corrected_max_c": 24.4,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T04:05:20.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.2,
+            "raw_min_c": 13,
+            "corrected_max_c": 24.843,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-24T01:00:00.000Z",
+              "init_z": "01Z",
+              "available_at": "2026-09-24T03:41:22.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.2,
+            "raw_min_c": 11.4,
+            "corrected_max_c": 25.217,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T02:47:25.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.2,
+        "consensus_corrected_c": 24.843,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 12,
+          "current_temp_c": 12,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 15,
+          "resolution_max_c": 15,
+          "running_max_at": "2026-09-23T23:20:00.000Z",
+          "latest_temp_c": 12,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-24T09:15:14+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T07:15:14.133Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.7,
+            "raw_min_c": 12.4,
+            "corrected_max_c": 24.317,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T04:24:17.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.3,
+            "raw_min_c": 11.9,
+            "corrected_max_c": 24.3,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T05:56:32.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.7,
+            "raw_min_c": 12.3,
+            "corrected_max_c": 23.343,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T05:39:27.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.4,
+            "raw_min_c": 11.1,
+            "corrected_max_c": 25.416999999999998,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T05:38:33.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.7,
+        "consensus_corrected_c": 24.317,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 12,
+          "current_temp_c": 16,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 15,
+          "resolution_max_c": 15,
+          "running_max_at": "2026-09-24T06:50:00.000Z",
+          "latest_temp_c": 15,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-24T13:15:13+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T11:15:13.736Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.2,
+            "raw_min_c": 12,
+            "corrected_max_c": 23.817,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-24T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-24T10:26:30.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.2,
+            "raw_min_c": 11.9,
+            "corrected_max_c": 24.2,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T09:49:50.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.1,
+            "raw_min_c": 12,
+            "corrected_max_c": 23.743000000000002,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-24T08:00:00.000Z",
+              "init_z": "08Z",
+              "available_at": "2026-09-24T10:46:05.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.5,
+            "raw_min_c": 11.1,
+            "corrected_max_c": 25.517,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T11:13:01.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.2,
+        "consensus_corrected_c": 23.817,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 12,
+          "current_temp_c": 22,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 21,
+          "resolution_max_c": 21,
+          "running_max_at": "2026-09-24T10:50:00.000Z",
+          "latest_temp_c": 21,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-24T14:15:32+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T12:15:32.416Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.2,
+            "raw_min_c": 12,
+            "corrected_max_c": 23.817,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-24T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-24T10:26:18.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.6,
+            "raw_min_c": 11.9,
+            "corrected_max_c": 23.6,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-24T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-24T11:55:06.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.5,
+            "raw_min_c": 12,
+            "corrected_max_c": 23.143,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-24T09:00:00.000Z",
+              "init_z": "09Z",
+              "available_at": "2026-09-24T11:36:42.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.5,
+            "raw_min_c": 11.1,
+            "corrected_max_c": 25.517,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T11:03:05.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.2,
+        "consensus_corrected_c": 23.817,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 12,
+          "current_temp_c": 22,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 22,
+          "resolution_max_c": 22,
+          "running_max_at": "2026-09-24T11:50:00.000Z",
+          "latest_temp_c": 22,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-25T06:15:13+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T04:15:14.006Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 21.8,
+            "raw_min_c": 15.9,
+            "corrected_max_c": 22.417,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T01:27:06.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.9,
+            "raw_min_c": 15.8,
+            "corrected_max_c": 21.9,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T03:40:20.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.2,
+            "raw_min_c": 14.7,
+            "corrected_max_c": 22.843,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-25T01:00:00.000Z",
+              "init_z": "01Z",
+              "available_at": "2026-09-25T03:38:52.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.9,
+            "raw_min_c": 14,
+            "corrected_max_c": 22.916999999999998,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T02:45:09.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 22.2,
+        "consensus_corrected_c": 22.843,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 22,
+          "predicted_high_c": 22,
+          "low_c": 14,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 21,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 17,
+          "resolution_max_c": 17,
+          "running_max_at": "2026-09-25T03:50:00.000Z",
+          "latest_temp_c": 17,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-25T09:15:13+02:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "payload": {
+        "icao": "LIMC",
+        "city": "Milan",
+        "name": "Milan Malpensa",
+        "region": "europe",
+        "timezone": "Europe/Rome",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T07:15:13.882Z",
+        "primary_model": "icon_seamless",
+        "primary_models": [
+          "icon_seamless"
+        ],
+        "models": [
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 21.7,
+            "raw_min_c": 16,
+            "corrected_max_c": 22.317,
+            "bias_c": -0.617,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.617,
+              "bias_c": -0.617,
+              "n": 183,
+              "mae": 0.751
+            },
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T04:34:30.000Z",
+              "nest": "ICON-D2"
+            }
+          },
+          {
+            "id": "icon_eu",
+            "label": "ICON-EU",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22,
+            "raw_min_c": 15.8,
+            "corrected_max_c": 22,
+            "bias_c": null,
+            "bias": {
+              "season": "SON",
+              "source": "none",
+              "unit": "C",
+              "bias_native": null,
+              "bias_c": null,
+              "n": 0
+            },
+            "note": "no bias sample",
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T06:12:51.000Z",
+              "nest": null
+            }
+          },
+          {
+            "id": "knmi_seamless",
+            "label": "KNMI Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.2,
+            "raw_min_c": 14.7,
+            "corrected_max_c": 22.843,
+            "bias_c": -0.643,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.643,
+              "bias_c": -0.643,
+              "n": 183,
+              "mae": 0.884
+            },
+            "run": {
+              "init_at": "2026-09-25T04:00:00.000Z",
+              "init_z": "04Z",
+              "available_at": "2026-09-25T06:51:21.000Z",
+              "nest": "HARMONIE EU"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.9,
+            "raw_min_c": 14,
+            "corrected_max_c": 22.916999999999998,
+            "bias_c": -0.017,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.017,
+              "bias_c": -0.017,
+              "n": 183,
+              "mae": 0.717
+            },
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T05:51:31.000Z",
+              "nest": "AROME HD"
+            }
+          }
+        ],
+        "consensus_raw_c": 22.2,
+        "consensus_corrected_c": 22.843,
+        "polymarket_slug": "highest-temperature-in-milan-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-milan-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LIMC",
+          "daily_max_c": 22,
+          "predicted_high_c": 22,
+          "low_c": 15,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LIMC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 21,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LIMC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 17,
+          "resolution_max_c": 17,
+          "running_max_at": "2026-09-25T06:50:00.000Z",
+          "latest_temp_c": 17,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+  "daily_obs": [
+    {
+      "ok": true,
+      "date": "2026-09-20",
+      "slot": "21:00",
+      "timezone": "Europe/Rome",
+      "captured_at": "2026-09-20T19:01:31+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "source": "wstation-api",
+      "metar_running_max_c": 27,
+      "metar_resolution_max_c": 27,
+      "running_max_at": "2026-09-20T15:50:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Milan"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-21",
+      "slot": "21:00",
+      "timezone": "Europe/Rome",
+      "captured_at": "2026-09-21T19:00:02+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "source": "wstation-api",
+      "metar_running_max_c": 30,
+      "metar_resolution_max_c": 30,
+      "running_max_at": "2026-09-21T15:50:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Milan"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-22",
+      "slot": "21:00",
+      "timezone": "Europe/Rome",
+      "captured_at": "2026-09-22T19:00:01+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "source": "wstation-api",
+      "metar_running_max_c": 25,
+      "metar_resolution_max_c": 25,
+      "running_max_at": "2026-09-22T15:20:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Milan"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-23",
+      "slot": "21:00",
+      "timezone": "Europe/Rome",
+      "captured_at": "2026-09-23T19:00:25+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "source": "wstation-api",
+      "metar_running_max_c": 24,
+      "metar_resolution_max_c": 24,
+      "running_max_at": "2026-09-23T14:20:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Milan"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-24",
+      "slot": "21:00",
+      "timezone": "Europe/Rome",
+      "captured_at": "2026-09-24T19:00:17+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LIMC",
+      "source": "wstation-api",
+      "metar_running_max_c": 24,
+      "metar_resolution_max_c": 24,
+      "running_max_at": "2026-09-24T16:20:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Milan"
+    }
+  ]
+}

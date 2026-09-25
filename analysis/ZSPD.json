@@ -1,0 +1,3401 @@
+{
+  "icao": "ZSPD",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-20T06:15:00+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-19T22:15:01.809Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27,
+            "raw_min_c": 23.7,
+            "corrected_max_c": 27.887,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-19T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-19T19:20:10.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.9,
+            "raw_min_c": 23,
+            "corrected_max_c": 28.235999999999997,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-19T21:28:49.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.9,
+            "raw_min_c": 23.3,
+            "corrected_max_c": 28.980999999999998,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-19T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-19T19:41:12.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27,
+        "consensus_corrected_c": 28.235999999999997,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 23,
+          "current_temp_c": 25,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 26,
+          "resolution_max_c": 26,
+          "running_max_at": "2026-09-19T18:00:00.000Z",
+          "latest_temp_c": 25,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-20T09:15:00+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T01:15:01.272Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27,
+            "raw_min_c": 23.9,
+            "corrected_max_c": 27.887,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T01:04:17.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.9,
+            "raw_min_c": 23,
+            "corrected_max_c": 28.235999999999997,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-19T21:28:49.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.8,
+            "raw_min_c": 23.2,
+            "corrected_max_c": 28.881,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T01:07:29.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27,
+        "consensus_corrected_c": 28.235999999999997,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 23,
+          "current_temp_c": 27,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": false,
+          "error": "fetch failed",
+          "running_max_c": null,
+          "resolution_max_c": null,
+          "running_max_at": null,
+          "latest_temp_c": null,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-20T13:15:01+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T05:15:01.645Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27,
+            "raw_min_c": 23.9,
+            "corrected_max_c": 27.887,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T01:13:39.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.9,
+            "raw_min_c": 23.2,
+            "corrected_max_c": 28.235999999999997,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T03:49:08.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.8,
+            "raw_min_c": 23.2,
+            "corrected_max_c": 28.881,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T01:15:48.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27,
+        "consensus_corrected_c": 28.235999999999997,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 29,
+          "predicted_high_c": 29,
+          "low_c": 23,
+          "current_temp_c": 28,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 28,
+          "resolution_max_c": 28,
+          "running_max_at": "2026-09-20T05:00:00.000Z",
+          "latest_temp_c": 28,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-20T14:15:02+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T06:15:02.892Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27,
+            "raw_min_c": 23.9,
+            "corrected_max_c": 27.887,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T01:13:39.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.9,
+            "raw_min_c": 23.2,
+            "corrected_max_c": 28.235999999999997,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T03:49:08.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.8,
+            "raw_min_c": 23.2,
+            "corrected_max_c": 28.881,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T01:15:48.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27,
+        "consensus_corrected_c": 28.235999999999997,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 29,
+          "predicted_high_c": 29,
+          "low_c": 23,
+          "current_temp_c": 28,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 28,
+          "resolution_max_c": 28,
+          "running_max_at": "2026-09-20T06:00:00.000Z",
+          "latest_temp_c": 28,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-21T06:15:00+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-20T22:15:01.420Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.2,
+            "raw_min_c": 23.4,
+            "corrected_max_c": 28.087,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-20T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-20T19:45:17.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.5,
+            "raw_min_c": 21.9,
+            "corrected_max_c": 28.836,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T21:35:33.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.7,
+            "raw_min_c": 22.7,
+            "corrected_max_c": 29.781,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-20T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-20T19:53:47.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27.5,
+        "consensus_corrected_c": 28.836,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 22,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 23,
+          "resolution_max_c": 23,
+          "running_max_at": "2026-09-20T22:00:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-21T09:15:00+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T01:15:01.066Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.2,
+            "raw_min_c": 23.4,
+            "corrected_max_c": 28.087,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-20T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-20T19:45:17.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.5,
+            "raw_min_c": 21.9,
+            "corrected_max_c": 28.836,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T21:35:33.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.7,
+            "raw_min_c": 22.7,
+            "corrected_max_c": 29.781,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-20T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-20T19:53:47.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27.5,
+        "consensus_corrected_c": 28.836,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 22,
+          "current_temp_c": 27,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 27,
+          "resolution_max_c": 27,
+          "running_max_at": "2026-09-21T01:00:00.000Z",
+          "latest_temp_c": 27,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-21T13:15:01+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T05:15:01.688Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.1,
+            "raw_min_c": 23.3,
+            "corrected_max_c": 27.987000000000002,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T01:03:05.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.8,
+            "raw_min_c": 21.9,
+            "corrected_max_c": 29.136,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T03:41:45.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.3,
+            "raw_min_c": 22.7,
+            "corrected_max_c": 29.381,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T01:10:37.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27.8,
+        "consensus_corrected_c": 29.136,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 30,
+          "predicted_high_c": 30,
+          "low_c": 22,
+          "current_temp_c": 28,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 29,
+          "resolution_max_c": 29,
+          "running_max_at": "2026-09-21T04:30:00.000Z",
+          "latest_temp_c": 28,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-21T14:15:01+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T06:15:02.078Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.1,
+            "raw_min_c": 23.3,
+            "corrected_max_c": 27.987000000000002,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T01:03:05.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.8,
+            "raw_min_c": 21.9,
+            "corrected_max_c": 29.136,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T03:41:45.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.3,
+            "raw_min_c": 22.7,
+            "corrected_max_c": 29.381,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T01:10:37.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27.8,
+        "consensus_corrected_c": 29.136,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 26,
+          "predicted_high_c": 26,
+          "low_c": 22,
+          "current_temp_c": 26,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 29,
+          "resolution_max_c": 29,
+          "running_max_at": "2026-09-21T04:30:00.000Z",
+          "latest_temp_c": 25,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-22T06:15:00+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-21T22:15:00.975Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.2,
+            "raw_min_c": 23.2,
+            "corrected_max_c": 28.087,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-21T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-21T19:47:53.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.6,
+            "raw_min_c": 23.3,
+            "corrected_max_c": 27.936,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T21:43:08.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.7,
+            "raw_min_c": 23.2,
+            "corrected_max_c": 28.781,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-21T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-21T19:52:33.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27.2,
+        "consensus_corrected_c": 28.087,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 22,
+          "current_temp_c": 23,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 23,
+          "resolution_max_c": 23,
+          "running_max_at": "2026-09-21T22:00:00.000Z",
+          "latest_temp_c": 23,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-22T09:15:00+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T01:15:00.924Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 26.8,
+            "raw_min_c": 23.1,
+            "corrected_max_c": 27.687,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T01:04:38.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.6,
+            "raw_min_c": 23.3,
+            "corrected_max_c": 27.936,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T21:43:08.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27,
+            "raw_min_c": 23.4,
+            "corrected_max_c": 28.081,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T01:07:07.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 26.8,
+        "consensus_corrected_c": 27.936,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 22,
+          "current_temp_c": 27,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 27,
+          "resolution_max_c": 27,
+          "running_max_at": "2026-09-22T01:00:00.000Z",
+          "latest_temp_c": 27,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-22T13:15:01+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T05:15:01.630Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 26.8,
+            "raw_min_c": 23.1,
+            "corrected_max_c": 27.687,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T01:04:38.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.5,
+            "raw_min_c": 23.3,
+            "corrected_max_c": 27.836,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T03:45:51.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27,
+            "raw_min_c": 23.4,
+            "corrected_max_c": 28.081,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T01:07:07.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 26.8,
+        "consensus_corrected_c": 27.836,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 29,
+          "predicted_high_c": 29,
+          "low_c": 22,
+          "current_temp_c": 28,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 28,
+          "resolution_max_c": 28,
+          "running_max_at": "2026-09-22T05:00:00.000Z",
+          "latest_temp_c": 28,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-22T14:15:02+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T06:15:02.948Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 26.8,
+            "raw_min_c": 23.1,
+            "corrected_max_c": 27.687,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T01:20:22.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.5,
+            "raw_min_c": 23.3,
+            "corrected_max_c": 27.836,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T03:54:31.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27,
+            "raw_min_c": 23.4,
+            "corrected_max_c": 28.081,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T01:13:18.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 26.8,
+        "consensus_corrected_c": 27.836,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 29,
+          "predicted_high_c": 29,
+          "low_c": 22,
+          "current_temp_c": 28,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 28,
+          "resolution_max_c": 28,
+          "running_max_at": "2026-09-22T06:00:00.000Z",
+          "latest_temp_c": 28,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-23T06:15:00+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-22T22:15:00.943Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.7,
+            "raw_min_c": 23.1,
+            "corrected_max_c": 28.587,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T13:08:00.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.7,
+            "raw_min_c": 23.6,
+            "corrected_max_c": 28.035999999999998,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-22T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T21:23:19.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.1,
+            "raw_min_c": 24.3,
+            "corrected_max_c": 29.181,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-22T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-22T19:42:15.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27.7,
+        "consensus_corrected_c": 28.587,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 23,
+          "current_temp_c": 25,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 25,
+          "resolution_max_c": 25,
+          "running_max_at": "2026-09-22T22:00:00.000Z",
+          "latest_temp_c": 25,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-23T09:15:00+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T01:15:00.970Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.7,
+            "raw_min_c": 23.1,
+            "corrected_max_c": 28.587,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T13:08:00.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.7,
+            "raw_min_c": 23.6,
+            "corrected_max_c": 28.035999999999998,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-22T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T21:23:19.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28,
+            "raw_min_c": 24.2,
+            "corrected_max_c": 29.081,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-22T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-23T01:05:42.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27.7,
+        "consensus_corrected_c": 28.587,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 23,
+          "current_temp_c": 26,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 27,
+          "resolution_max_c": 27,
+          "running_max_at": "2026-09-23T00:30:00.000Z",
+          "latest_temp_c": 26,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-23T13:15:02+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T05:15:02.584Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.7,
+            "raw_min_c": 23.1,
+            "corrected_max_c": 28.587,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T13:08:00.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.8,
+            "raw_min_c": 23.6,
+            "corrected_max_c": 28.136,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T03:44:45.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28,
+            "raw_min_c": 24.2,
+            "corrected_max_c": 29.081,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-22T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-23T01:05:42.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27.7,
+        "consensus_corrected_c": 28.587,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 29,
+          "predicted_high_c": 29,
+          "low_c": 23,
+          "current_temp_c": 28,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 29,
+          "resolution_max_c": 29,
+          "running_max_at": "2026-09-23T04:00:00.000Z",
+          "latest_temp_c": 28,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-23T14:15:02+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T06:15:02.640Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.7,
+            "raw_min_c": 23.1,
+            "corrected_max_c": 28.587,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T13:16:40.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26.8,
+            "raw_min_c": 23.6,
+            "corrected_max_c": 28.136,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T03:55:03.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28,
+            "raw_min_c": 24.2,
+            "corrected_max_c": 29.081,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-22T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-23T01:14:24.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27.7,
+        "consensus_corrected_c": 28.587,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 29,
+          "predicted_high_c": 29,
+          "low_c": 23,
+          "current_temp_c": 28,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 27,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 29,
+          "resolution_max_c": 29,
+          "running_max_at": "2026-09-23T04:00:00.000Z",
+          "latest_temp_c": 28,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-24T06:15:00+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-23T22:15:01.064Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.8,
+            "raw_min_c": 23.4,
+            "corrected_max_c": 28.687,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-23T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-23T19:38:19.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.5,
+            "raw_min_c": 23.9,
+            "corrected_max_c": 28.836,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-23T21:30:09.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.2,
+            "raw_min_c": 24.8,
+            "corrected_max_c": 29.281,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-23T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-23T19:49:52.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27.8,
+        "consensus_corrected_c": 28.836,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 24,
+          "current_temp_c": 24,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 25,
+          "resolution_max_c": 25,
+          "running_max_at": "2026-09-23T17:00:00.000Z",
+          "latest_temp_c": 24,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-24T09:15:00+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T01:15:01.047Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.6,
+            "raw_min_c": 23.4,
+            "corrected_max_c": 28.487000000000002,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T01:04:46.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.5,
+            "raw_min_c": 23.9,
+            "corrected_max_c": 28.836,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-23T21:30:09.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.5,
+            "raw_min_c": 24.8,
+            "corrected_max_c": 29.581,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-23T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-23T19:49:52.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27.6,
+        "consensus_corrected_c": 28.836,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 29,
+          "predicted_high_c": 29,
+          "low_c": 24,
+          "current_temp_c": 27,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 27,
+          "resolution_max_c": 27,
+          "running_max_at": "2026-09-24T01:00:00.000Z",
+          "latest_temp_c": 27,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-24T13:15:13+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T05:15:13.737Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.6,
+            "raw_min_c": 23.4,
+            "corrected_max_c": 28.487000000000002,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T01:04:46.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.2,
+            "raw_min_c": 23.9,
+            "corrected_max_c": 28.535999999999998,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T03:45:45.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.5,
+            "raw_min_c": 24.8,
+            "corrected_max_c": 29.581,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T01:16:06.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27.6,
+        "consensus_corrected_c": 28.535999999999998,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 24,
+          "current_temp_c": 27,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 28,
+          "resolution_max_c": 28,
+          "running_max_at": "2026-09-24T04:30:00.000Z",
+          "latest_temp_c": 27,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-24T14:15:27+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T06:15:27.597Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 27.6,
+            "raw_min_c": 23.4,
+            "corrected_max_c": 28.487000000000002,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T01:04:46.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 27.2,
+            "raw_min_c": 23.9,
+            "corrected_max_c": 28.535999999999998,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T03:45:45.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 28.5,
+            "raw_min_c": 24.8,
+            "corrected_max_c": 29.581,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T01:16:06.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 27.6,
+        "consensus_corrected_c": 28.535999999999998,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 28,
+          "predicted_high_c": 28,
+          "low_c": 24,
+          "current_temp_c": 26,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 28,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 28,
+          "resolution_max_c": 28,
+          "running_max_at": "2026-09-24T04:30:00.000Z",
+          "latest_temp_c": 26,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-25T06:15:00+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-24T22:15:01.197Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.9,
+            "raw_min_c": 23.9,
+            "corrected_max_c": 30.787,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-24T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-24T19:59:44.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 29.1,
+            "raw_min_c": 24.1,
+            "corrected_max_c": 30.436,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T21:47:11.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 31.2,
+            "raw_min_c": 24.8,
+            "corrected_max_c": 32.281,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-24T12:00:00.000Z",
+              "init_z": "12Z",
+              "available_at": "2026-09-24T20:02:15.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 29.9,
+        "consensus_corrected_c": 30.787,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 30,
+          "predicted_high_c": 30,
+          "low_c": 24,
+          "current_temp_c": 24,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 30,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 25,
+          "resolution_max_c": 25,
+          "running_max_at": "2026-09-24T19:30:00.000Z",
+          "latest_temp_c": 24,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-25T09:15:00+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T01:15:01.008Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.2,
+            "raw_min_c": 23.6,
+            "corrected_max_c": 30.087,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-25T01:02:11.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 29.1,
+            "raw_min_c": 24.1,
+            "corrected_max_c": 30.436,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T21:36:18.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 30.3,
+            "raw_min_c": 24.6,
+            "corrected_max_c": 31.381,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-25T01:07:15.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 29.2,
+        "consensus_corrected_c": 30.436,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 30,
+          "predicted_high_c": 30,
+          "low_c": 24,
+          "current_temp_c": 29,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 30,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 29,
+          "resolution_max_c": 29,
+          "running_max_at": "2026-09-25T01:00:00.000Z",
+          "latest_temp_c": 29,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-25T13:15:14+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T05:15:14.424Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.2,
+            "raw_min_c": 23.6,
+            "corrected_max_c": 30.087,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-25T01:02:11.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 29.1,
+            "raw_min_c": 24.1,
+            "corrected_max_c": 30.436,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T03:46:25.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 30.3,
+            "raw_min_c": 24.6,
+            "corrected_max_c": 31.381,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-25T01:07:15.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 29.2,
+        "consensus_corrected_c": 30.436,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 32,
+          "predicted_high_c": 32,
+          "low_c": 24,
+          "current_temp_c": 31,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 29,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 31,
+          "resolution_max_c": 31,
+          "running_max_at": "2026-09-25T05:00:00.000Z",
+          "latest_temp_c": 31,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-25T14:15:29+08:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "payload": {
+        "icao": "ZSPD",
+        "city": "Shanghai",
+        "name": "Shanghai Pudong",
+        "region": "asia",
+        "timezone": "Asia/Shanghai",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T06:15:29.180Z",
+        "primary_model": "ukmo_seamless",
+        "primary_models": [
+          "ukmo_seamless"
+        ],
+        "models": [
+          {
+            "id": "ukmo_seamless",
+            "label": "UKMO Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 29.2,
+            "raw_min_c": 23.6,
+            "corrected_max_c": 30.087,
+            "bias_c": -0.887,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.887,
+              "bias_c": -0.887,
+              "n": 197,
+              "mae": 1.062
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-25T01:26:06.000Z",
+              "nest": "UKMO global"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 29.1,
+            "raw_min_c": 24.1,
+            "corrected_max_c": 30.436,
+            "bias_c": -1.336,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.336,
+              "bias_c": -1.336,
+              "n": 197,
+              "mae": 1.38
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T03:56:10.000Z",
+              "nest": "ICON global"
+            }
+          },
+          {
+            "id": "ecmwf_ifs025",
+            "label": "ECMWF IFS 0.25°",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 30.3,
+            "raw_min_c": 24.6,
+            "corrected_max_c": 31.381,
+            "bias_c": -1.081,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -1.081,
+              "bias_c": -1.081,
+              "n": 197,
+              "mae": 1.146
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-25T01:10:19.000Z",
+              "nest": null
+            }
+          }
+        ],
+        "consensus_raw_c": 29.2,
+        "consensus_corrected_c": 30.436,
+        "polymarket_slug": "highest-temperature-in-shanghai-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-shanghai-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "ZSPD",
+          "daily_max_c": 32,
+          "predicted_high_c": 32,
+          "low_c": 24,
+          "current_temp_c": 31,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/ZSPD"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 29,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/ZSPD"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 31,
+          "resolution_max_c": 31,
+          "running_max_at": "2026-09-25T06:00:00.000Z",
+          "latest_temp_c": 31,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+  "daily_obs": [
+    {
+      "ok": true,
+      "date": "2026-09-20",
+      "slot": "21:00",
+      "timezone": "Asia/Shanghai",
+      "captured_at": "2026-09-20T13:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "source": "wstation-api",
+      "metar_running_max_c": 28,
+      "metar_resolution_max_c": 28,
+      "running_max_at": "2026-09-20T06:30:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Shanghai"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-21",
+      "slot": "21:00",
+      "timezone": "Asia/Shanghai",
+      "captured_at": "2026-09-21T13:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "source": "wstation-api",
+      "metar_running_max_c": 29,
+      "metar_resolution_max_c": 29,
+      "running_max_at": "2026-09-21T04:30:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Shanghai"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-22",
+      "slot": "21:00",
+      "timezone": "Asia/Shanghai",
+      "captured_at": "2026-09-22T13:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "source": "wstation-api",
+      "metar_running_max_c": 28,
+      "metar_resolution_max_c": 28,
+      "running_max_at": "2026-09-22T06:30:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Shanghai"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-23",
+      "slot": "21:00",
+      "timezone": "Asia/Shanghai",
+      "captured_at": "2026-09-23T13:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "source": "wstation-api",
+      "metar_running_max_c": 29,
+      "metar_resolution_max_c": 29,
+      "running_max_at": "2026-09-23T04:00:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Shanghai"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-24",
+      "slot": "21:00",
+      "timezone": "Asia/Shanghai",
+      "captured_at": "2026-09-24T13:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/ZSPD",
+      "source": "wstation-api",
+      "metar_running_max_c": 28,
+      "metar_resolution_max_c": 28,
+      "running_max_at": "2026-09-24T04:30:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Shanghai"
+    }
+  ]
+}

@@ -1,0 +1,3124 @@
+{
+  "icao": "LTAC",
+  "snapshots": [
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-20T06:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T03:15:00.965Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.7,
+            "raw_min_c": 11.7,
+            "corrected_max_c": 25.195,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-05-26T05:11:39.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.7,
+            "raw_min_c": 14.9,
+            "corrected_max_c": 25.02,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-19T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-19T22:22:57.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.5,
+            "raw_min_c": 14.3,
+            "corrected_max_c": 24.32,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-19T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-19T23:59:47.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 24.7,
+        "consensus_corrected_c": 25.02,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 13,
+          "current_temp_c": 14,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 16,
+          "resolution_max_c": 16,
+          "running_max_at": "2026-09-19T21:50:00.000Z",
+          "latest_temp_c": 14,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-20T09:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T06:15:01.382Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.8,
+            "raw_min_c": 12.7,
+            "corrected_max_c": 24.295,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-05-26T05:11:39.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.9,
+            "raw_min_c": 15.4,
+            "corrected_max_c": 22.22,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T03:52:53.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.7,
+            "raw_min_c": 14,
+            "corrected_max_c": 24.52,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-20T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-20T05:58:50.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.7,
+        "consensus_corrected_c": 24.295,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 12,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 17,
+          "resolution_max_c": 17,
+          "running_max_at": "2026-09-20T05:50:00.000Z",
+          "latest_temp_c": 17,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-20T13:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T10:15:01.068Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.8,
+            "raw_min_c": 12.7,
+            "corrected_max_c": 24.295,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-07-01T10:46:56.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.9,
+            "raw_min_c": 15.4,
+            "corrected_max_c": 22.22,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-20T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-20T03:42:27.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.6,
+            "raw_min_c": 14,
+            "corrected_max_c": 24.42,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T09:47:04.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.6,
+        "consensus_corrected_c": 24.295,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 12,
+          "current_temp_c": 22,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 23,
+          "resolution_max_c": 23,
+          "running_max_at": "2026-09-20T09:20:00.000Z",
+          "latest_temp_c": 22,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-20T14:15:03+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-20",
+        "date_requested": "2026-09-20T11:15:03.594Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.8,
+            "raw_min_c": 12.7,
+            "corrected_max_c": 24.295,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-05-26T05:11:39.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 22.3,
+            "raw_min_c": 15.4,
+            "corrected_max_c": 22.62,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T10:19:37.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 23.6,
+            "raw_min_c": 14,
+            "corrected_max_c": 24.42,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-20T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-20T09:52:50.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 23.6,
+        "consensus_corrected_c": 24.295,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-20-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-20-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 25,
+          "predicted_high_c": 25,
+          "low_c": 12,
+          "current_temp_c": 24,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 24,
+          "local_date": "2026-09-20",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 24,
+          "resolution_max_c": 24,
+          "running_max_at": "2026-09-20T10:50:00.000Z",
+          "latest_temp_c": 24,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-21T06:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T03:15:01.056Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 25.8,
+            "raw_min_c": 11.8,
+            "corrected_max_c": 26.295,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-07-01T10:46:56.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 26,
+            "raw_min_c": 15.6,
+            "corrected_max_c": 26.32,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-20T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-20T22:20:02.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 12.9,
+            "corrected_max_c": 25.22,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-20T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-20T23:57:57.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 25.8,
+        "consensus_corrected_c": 26.295,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 26,
+          "predicted_high_c": 26,
+          "low_c": 13,
+          "current_temp_c": 14,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 25,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 19,
+          "resolution_max_c": 19,
+          "running_max_at": "2026-09-20T21:20:00.000Z",
+          "latest_temp_c": 14,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-21T09:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T06:15:01.071Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 25.4,
+            "raw_min_c": 11.5,
+            "corrected_max_c": 25.895,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-07-01T10:46:56.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.6,
+            "raw_min_c": 15.4,
+            "corrected_max_c": 25.92,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T04:03:02.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.2,
+            "raw_min_c": 13.4,
+            "corrected_max_c": 25.02,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-21T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-21T05:55:37.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 25.4,
+        "consensus_corrected_c": 25.895,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 26,
+          "predicted_high_c": 26,
+          "low_c": 13,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 25,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 19,
+          "resolution_max_c": 19,
+          "running_max_at": "2026-09-20T21:20:00.000Z",
+          "latest_temp_c": 17,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-21T13:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T10:15:01.444Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 25.4,
+            "raw_min_c": 11.5,
+            "corrected_max_c": 25.895,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-05-26T05:11:39.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.6,
+            "raw_min_c": 15.4,
+            "corrected_max_c": 25.92,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-21T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-21T04:07:13.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 13.4,
+            "corrected_max_c": 25.22,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T09:48:40.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 25.4,
+        "consensus_corrected_c": 25.895,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 26,
+          "predicted_high_c": 26,
+          "low_c": 13,
+          "current_temp_c": 24,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 25,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 24,
+          "resolution_max_c": 24,
+          "running_max_at": "2026-09-21T09:50:00.000Z",
+          "latest_temp_c": 24,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-21T14:15:05+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-21",
+        "date_requested": "2026-09-21T11:15:05.138Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 25.4,
+            "raw_min_c": 11.5,
+            "corrected_max_c": 25.895,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-05-26T05:11:39.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 25.5,
+            "raw_min_c": 15.4,
+            "corrected_max_c": 25.82,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T10:27:10.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 13.4,
+            "corrected_max_c": 25.22,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-21T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-21T09:48:40.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 25.4,
+        "consensus_corrected_c": 25.82,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-21-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-21-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 27,
+          "predicted_high_c": 27,
+          "low_c": 13,
+          "current_temp_c": 25,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 25,
+          "local_date": "2026-09-21",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 26,
+          "resolution_max_c": 26,
+          "running_max_at": "2026-09-21T10:20:00.000Z",
+          "latest_temp_c": 25,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-22T06:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T03:15:01.242Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 9.4,
+            "corrected_max_c": 24.895,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-07-01T10:46:56.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 19.8,
+            "raw_min_c": 15.2,
+            "corrected_max_c": 20.12,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-21T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-21T22:20:24.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.4,
+            "raw_min_c": 11.3,
+            "corrected_max_c": 22.22,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-21T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-21T23:55:44.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 21.4,
+        "consensus_corrected_c": 22.22,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 11,
+          "current_temp_c": 13,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 15,
+          "resolution_max_c": 15,
+          "running_max_at": "2026-09-21T22:20:00.000Z",
+          "latest_temp_c": 13,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-22T09:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T06:15:02.064Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 24.4,
+            "raw_min_c": 9.4,
+            "corrected_max_c": 24.895,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-05-26T05:11:39.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.7,
+            "raw_min_c": 14.5,
+            "corrected_max_c": 22.02,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T04:00:21.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 20.8,
+            "raw_min_c": 12.2,
+            "corrected_max_c": 21.62,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T03:45:02.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 21.7,
+        "consensus_corrected_c": 22.02,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 11,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 16,
+          "resolution_max_c": 16,
+          "running_max_at": "2026-09-22T05:50:00.000Z",
+          "latest_temp_c": 16,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-22T13:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T10:15:01.117Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.4,
+            "raw_min_c": 10.6,
+            "corrected_max_c": 23.895,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-07-01T10:46:56.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.7,
+            "raw_min_c": 14.5,
+            "corrected_max_c": 22.02,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-22T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-22T03:54:00.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.9,
+            "raw_min_c": 12,
+            "corrected_max_c": 22.72,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T09:53:59.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 21.9,
+        "consensus_corrected_c": 22.72,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 11,
+          "current_temp_c": 21,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 22,
+          "resolution_max_c": 22,
+          "running_max_at": "2026-09-22T08:50:00.000Z",
+          "latest_temp_c": 20,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-22T14:15:02+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-22",
+        "date_requested": "2026-09-22T11:15:02.268Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 23.4,
+            "raw_min_c": 10.6,
+            "corrected_max_c": 23.895,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-05-26T05:11:39.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 20.9,
+            "raw_min_c": 14.5,
+            "corrected_max_c": 21.22,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T10:23:17.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 21.9,
+            "raw_min_c": 12,
+            "corrected_max_c": 22.72,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-22T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-22T09:49:21.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 21.9,
+        "consensus_corrected_c": 22.72,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-22-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-22-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 24,
+          "predicted_high_c": 24,
+          "low_c": 11,
+          "current_temp_c": 22,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 23,
+          "local_date": "2026-09-22",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 22,
+          "resolution_max_c": 22,
+          "running_max_at": "2026-09-22T10:50:00.000Z",
+          "latest_temp_c": 22,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-23T06:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T03:15:01.393Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 19.2,
+            "raw_min_c": 13.1,
+            "corrected_max_c": 19.695,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-07-01T10:46:56.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.7,
+            "raw_min_c": 14.4,
+            "corrected_max_c": 18.02,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-22T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-22T22:19:50.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 19.2,
+            "raw_min_c": 12.4,
+            "corrected_max_c": 20.02,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-22T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-22T23:57:54.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 19.2,
+        "consensus_corrected_c": 19.695,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 12,
+          "current_temp_c": 15,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 20,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 15,
+          "resolution_max_c": 15,
+          "running_max_at": "2026-09-23T02:50:00.000Z",
+          "latest_temp_c": 15,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-23T09:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T06:15:01.151Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 20.9,
+            "raw_min_c": 12.9,
+            "corrected_max_c": 21.395,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-05-26T05:11:39.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.7,
+            "raw_min_c": 14.5,
+            "corrected_max_c": 18.02,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T03:35:08.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18.8,
+            "raw_min_c": 12.4,
+            "corrected_max_c": 19.62,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-23T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-23T06:02:17.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.8,
+        "consensus_corrected_c": 19.62,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 12,
+          "current_temp_c": 15,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 20,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 16,
+          "resolution_max_c": 16,
+          "running_max_at": "2026-09-23T05:20:00.000Z",
+          "latest_temp_c": 15,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-23T13:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T10:15:01.114Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 20.9,
+            "raw_min_c": 12.9,
+            "corrected_max_c": 21.395,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-07-01T10:46:56.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.7,
+            "raw_min_c": 14.5,
+            "corrected_max_c": 18.02,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-23T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-23T03:28:43.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18.8,
+            "raw_min_c": 12.1,
+            "corrected_max_c": 19.62,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T09:48:20.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.8,
+        "consensus_corrected_c": 19.62,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 12,
+          "current_temp_c": 18,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 20,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 18,
+          "resolution_max_c": 18,
+          "running_max_at": "2026-09-23T09:50:00.000Z",
+          "latest_temp_c": 18,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-23T14:15:05+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-23",
+        "date_requested": "2026-09-23T11:15:05.269Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 20.9,
+            "raw_min_c": 12.9,
+            "corrected_max_c": 21.395,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-05-26T05:11:39.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.7,
+            "raw_min_c": 14.3,
+            "corrected_max_c": 18.02,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T10:22:41.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18.8,
+            "raw_min_c": 12.1,
+            "corrected_max_c": 19.62,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-23T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-23T09:49:59.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.8,
+        "consensus_corrected_c": 19.62,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-23-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-23-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 12,
+          "current_temp_c": 18,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 20,
+          "local_date": "2026-09-23",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 18,
+          "resolution_max_c": 18,
+          "running_max_at": "2026-09-23T10:50:00.000Z",
+          "latest_temp_c": 18,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-24T06:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T03:15:01.170Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.8,
+            "raw_min_c": 4.1,
+            "corrected_max_c": 19.295,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-07-01T10:46:56.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18.8,
+            "raw_min_c": 9.5,
+            "corrected_max_c": 19.12,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-23T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-23T22:24:24.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.4,
+            "raw_min_c": 6.7,
+            "corrected_max_c": 18.22,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-23T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-23T23:54:32.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.8,
+        "consensus_corrected_c": 19.12,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 19,
+          "predicted_high_c": 19,
+          "low_c": 7,
+          "current_temp_c": 8,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 18,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 12,
+          "resolution_max_c": 12,
+          "running_max_at": "2026-09-23T21:20:00.000Z",
+          "latest_temp_c": 8,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-24T09:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T06:15:01.808Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.3,
+            "raw_min_c": 4.4,
+            "corrected_max_c": 18.795,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-07-01T10:46:56.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18.8,
+            "raw_min_c": 9.2,
+            "corrected_max_c": 19.12,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T03:46:51.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.5,
+            "raw_min_c": 7.1,
+            "corrected_max_c": 18.32,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-24T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-24T05:56:32.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.3,
+        "consensus_corrected_c": 18.795,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 19,
+          "predicted_high_c": 19,
+          "low_c": 7,
+          "current_temp_c": 11,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 18,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 12,
+          "resolution_max_c": 12,
+          "running_max_at": "2026-09-23T21:20:00.000Z",
+          "latest_temp_c": 10,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "13:15",
+      "captured_at": "2026-09-24T13:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T10:15:01.309Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.3,
+            "raw_min_c": 4.4,
+            "corrected_max_c": 18.795,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-07-01T10:46:56.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18.8,
+            "raw_min_c": 9.2,
+            "corrected_max_c": 19.12,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-24T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-24T03:46:51.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.4,
+            "raw_min_c": 7.1,
+            "corrected_max_c": 18.22,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T09:47:16.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.3,
+        "consensus_corrected_c": 18.795,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 18,
+          "predicted_high_c": 18,
+          "low_c": 7,
+          "current_temp_c": 16,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 18,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 16,
+          "resolution_max_c": 16,
+          "running_max_at": "2026-09-24T09:50:00.000Z",
+          "latest_temp_c": 16,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "14:15",
+      "captured_at": "2026-09-24T14:15:38+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-24",
+        "date_requested": "2026-09-24T11:15:38.768Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.3,
+            "raw_min_c": 4.4,
+            "corrected_max_c": 18.795,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-05-26T05:11:39.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18.6,
+            "raw_min_c": 9.2,
+            "corrected_max_c": 18.92,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T10:27:50.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 17.4,
+            "raw_min_c": 7.1,
+            "corrected_max_c": 18.22,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-24T06:00:00.000Z",
+              "init_z": "06Z",
+              "available_at": "2026-09-24T09:49:50.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.3,
+        "consensus_corrected_c": 18.795,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-24-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-24-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 19,
+          "predicted_high_c": 19,
+          "low_c": 7,
+          "current_temp_c": 17,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 18,
+          "local_date": "2026-09-24",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 18,
+          "resolution_max_c": 18,
+          "running_max_at": "2026-09-24T10:20:00.000Z",
+          "latest_temp_c": 17,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "06:15",
+      "captured_at": "2026-09-25T06:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T03:15:01.011Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 19.3,
+            "raw_min_c": 8.2,
+            "corrected_max_c": 19.795,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-07-01T10:46:56.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 20.1,
+            "raw_min_c": 9.4,
+            "corrected_max_c": 20.42,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-24T18:00:00.000Z",
+              "init_z": "18Z",
+              "available_at": "2026-09-24T22:26:52.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18.2,
+            "raw_min_c": 7.2,
+            "corrected_max_c": 19.02,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-24T21:00:00.000Z",
+              "init_z": "21Z",
+              "available_at": "2026-09-24T23:55:06.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 19.3,
+        "consensus_corrected_c": 19.795,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 8,
+          "current_temp_c": 9,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 19,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 11,
+          "resolution_max_c": 11,
+          "running_max_at": "2026-09-24T21:50:00.000Z",
+          "latest_temp_c": 9,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "slot": "09:15",
+      "captured_at": "2026-09-25T09:15:00+03:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "payload": {
+        "icao": "LTAC",
+        "city": "Ankara",
+        "name": "Ankara Esenboğa",
+        "region": "europe",
+        "timezone": "Europe/Istanbul",
+        "unit": "C",
+        "day": "now",
+        "market_date": "2026-09-25",
+        "date_requested": "2026-09-25T06:15:01.439Z",
+        "primary_model": "gem_seamless",
+        "primary_models": [
+          "gem_seamless"
+        ],
+        "models": [
+          {
+            "id": "gem_seamless",
+            "label": "GEM Seamless",
+            "primary": true,
+            "role": "primary",
+            "available": true,
+            "raw_max_c": 18.6,
+            "raw_min_c": 8.2,
+            "corrected_max_c": 19.095000000000002,
+            "bias_c": -0.495,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.495,
+              "bias_c": -0.495,
+              "n": 183,
+              "mae": 0.695
+            },
+            "run": {
+              "init_at": "2026-05-26T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-05-26T05:11:39.000Z",
+              "nest": "GDPS"
+            }
+          },
+          {
+            "id": "meteofrance_seamless",
+            "label": "Météo-France Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 20,
+            "raw_min_c": 9.1,
+            "corrected_max_c": 20.32,
+            "bias_c": -0.32,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.32,
+              "bias_c": -0.32,
+              "n": 183,
+              "mae": 0.785
+            },
+            "run": {
+              "init_at": "2026-09-25T00:00:00.000Z",
+              "init_z": "00Z",
+              "available_at": "2026-09-25T04:04:15.000Z",
+              "nest": "ARPEGE EU"
+            }
+          },
+          {
+            "id": "icon_seamless",
+            "label": "ICON Seamless",
+            "primary": false,
+            "role": "backup",
+            "available": true,
+            "raw_max_c": 18.7,
+            "raw_min_c": 7.4,
+            "corrected_max_c": 19.52,
+            "bias_c": -0.82,
+            "bias": {
+              "season": "SON",
+              "source": "season",
+              "unit": "C",
+              "bias_native": -0.82,
+              "bias_c": -0.82,
+              "n": 183,
+              "mae": 0.931
+            },
+            "run": {
+              "init_at": "2026-09-25T03:00:00.000Z",
+              "init_z": "03Z",
+              "available_at": "2026-09-25T06:12:51.000Z",
+              "nest": "ICON-EU"
+            }
+          }
+        ],
+        "consensus_raw_c": 18.7,
+        "consensus_corrected_c": 19.52,
+        "polymarket_slug": "highest-temperature-in-ankara-on-september-25-2026",
+        "polymarket_url": "https://polymarket.com/event/highest-temperature-in-ankara-on-september-25-2026",
+        "wunderground": {
+          "ok": true,
+          "station_id": "LTAC",
+          "daily_max_c": 20,
+          "predicted_high_c": 20,
+          "low_c": 8,
+          "current_temp_c": 12,
+          "stale": false,
+          "url": "https://www.wunderground.com/forecast/LTAC"
+        },
+        "husky": {
+          "ok": true,
+          "daily_max_c": 19,
+          "local_date": "2026-09-25",
+          "stale": false,
+          "url": "https://huskyweather.com/station/LTAC"
+        },
+        "metar": {
+          "ok": true,
+          "running_max_c": 12,
+          "resolution_max_c": 12,
+          "running_max_at": "2026-09-25T05:50:00.000Z",
+          "latest_temp_c": 12,
+          "stale": false
+        },
+        "synoptic": {
+          "ok": false,
+          "configured": false,
+          "error": "SYNOPTIC_TOKEN not set",
+          "resolution_max": null,
+          "unit": "C",
+          "stale": false
+        }
+      }
+    }
+  ],
+  "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+  "daily_obs": [
+    {
+      "ok": true,
+      "date": "2026-09-20",
+      "slot": "21:00",
+      "timezone": "Europe/Istanbul",
+      "captured_at": "2026-09-20T18:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "source": "wstation-api",
+      "metar_running_max_c": 25,
+      "metar_resolution_max_c": 25,
+      "running_max_at": "2026-09-20T13:20:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Ankara"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-21",
+      "slot": "21:00",
+      "timezone": "Europe/Istanbul",
+      "captured_at": "2026-09-21T18:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "source": "wstation-api",
+      "metar_running_max_c": 26,
+      "metar_resolution_max_c": 26,
+      "running_max_at": "2026-09-21T13:50:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Ankara"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-22",
+      "slot": "21:00",
+      "timezone": "Europe/Istanbul",
+      "captured_at": "2026-09-22T18:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "source": "wstation-api",
+      "metar_running_max_c": 26,
+      "metar_resolution_max_c": 26,
+      "running_max_at": "2026-09-22T13:20:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Ankara"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-23",
+      "slot": "21:00",
+      "timezone": "Europe/Istanbul",
+      "captured_at": "2026-09-23T18:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "source": "wstation-api",
+      "metar_running_max_c": 19,
+      "metar_resolution_max_c": 19,
+      "running_max_at": "2026-09-23T13:20:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Ankara"
+    },
+    {
+      "ok": true,
+      "date": "2026-09-24",
+      "slot": "21:00",
+      "timezone": "Europe/Istanbul",
+      "captured_at": "2026-09-24T18:00:00+00:00",
+      "url": "https://wstation-sepia.vercel.app/api/stations/LTAC",
+      "source": "wstation-api",
+      "metar_running_max_c": 19,
+      "metar_resolution_max_c": 19,
+      "running_max_at": "2026-09-24T13:50:00.000Z",
+      "synoptic_resolution_max": null,
+      "synoptic_unit": null,
+      "unit": "C",
+      "city": "Ankara"
+    }
+  ]
+}
