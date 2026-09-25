@@ -189,6 +189,71 @@
         color: var(--mute);
         font-size: 12px;
       }
+      .reliable {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px 24px;
+        padding: 14px 16px;
+        border: 1px solid rgba(94, 234, 212, 0.45);
+        border-radius: 14px;
+        background: rgba(94, 234, 212, 0.08);
+      }
+      .reliable.weak {
+        border-color: rgba(251, 113, 133, 0.45);
+        background: rgba(251, 113, 133, 0.08);
+      }
+      .reliable-kicker {
+        margin: 0 0 4px;
+        color: var(--cyan);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .reliable.weak .reliable-kicker {
+        color: var(--fail);
+      }
+      .reliable-source {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      .reliable-note {
+        margin: 4px 0 0;
+        color: var(--mute);
+        font-size: 12px;
+      }
+      .reliable-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-end;
+      }
+      .reliable-stat {
+        flex: 0 0 auto;
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--card);
+        white-space: nowrap;
+      }
+      .reliable-stat span {
+        display: block;
+        color: var(--mute);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .reliable-stat strong {
+        display: block;
+        margin-top: 2px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 13px;
+        white-space: nowrap;
+      }
       .legend {
         display: flex;
         flex-wrap: wrap;
@@ -659,6 +724,15 @@
           width: 100%;
         }
       }
+      @media (max-width: 720px) {
+        .reliable {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .reliable-stats {
+          justify-content: flex-start;
+        }
+      }
       button {
         font: inherit;
       }
@@ -707,6 +781,122 @@
         KHOU: "America/Chicago",
         KDAL: "America/Chicago",
         KLGA: "America/New_York",
+      };
+      const RELIABLE_SOURCE = {
+        EDDM: {
+          source: "ICON-EU brut",
+          mae: "0,34 °C",
+          hit: "80 %",
+          bias: "−0,26 °C",
+          note: "Devant ICON corrigé (0,38) et Wunderground (0,40). La correction saisonnière le dégrade.",
+        },
+        EFHK: {
+          source: "Husky ou Wunderground",
+          mae: "0,40 °C",
+          hit: "60 %",
+          bias: "0 / +0,40 °C",
+          note: "Égalité entre les deux. ICON corrigé suit à 0,41. Le consensus brut reste trop froid.",
+        },
+        EGLC: {
+          source: "Wunderground",
+          mae: "0,60 °C",
+          hit: "60 %",
+          bias: "+0,60 °C",
+          note: "Aucun modèle du snapshot ne passe devant. Le consensus brut est à 0,68.",
+        },
+        EHAM: {
+          source: "Husky",
+          mae: "0,20 °C",
+          hit: "80 %",
+          bias: "+0,20 °C",
+          note: "Meilleur score du panel. UKMO brut et le consensus corrigé sont à 0,36.",
+        },
+        EPWA: {
+          source: "Wunderground",
+          mae: "0,60 °C",
+          hit: "60 %",
+          bias: "−0,60 °C",
+          note: "GEM brut est à 0,76. Le consensus (0,98) est tiré vers le bas par une famille trop froide.",
+        },
+        KDAL: {
+          source: "GFS / HRRR brut",
+          mae: "0,58 °C",
+          hit: "60 %",
+          bias: "−0,14 °C",
+          note: "Même série pour les deux. Wunderground est à 0,80. La correction les refroidit encore.",
+        },
+        KHOU: {
+          source: "ICON brut",
+          mae: "0,98 °C",
+          hit: "20 %",
+          bias: "+0,50 °C",
+          weak: true,
+          note: "Moins mauvaise source du snapshot, pas une source fiable. Un degré exact sur cinq jours.",
+        },
+        KLGA: {
+          source: "Wunderground",
+          mae: "0,80 °C",
+          hit: "40 %",
+          bias: "−0,80 °C",
+          note: "Trop froid de 0,8 °C. Le consensus brut est à 1,30. GFS du matin ne fait pas mieux.",
+        },
+        LFPB: {
+          source: "ICON Seamless brut",
+          mae: "0,40 °C",
+          hit: "80 %",
+          bias: "−0,40 °C",
+          note: "Devant le consensus corrigé (0,42) et Wunderground (0,60). Gros raté le 23 sept : 25,2 contre 27.",
+        },
+        LIMC: {
+          source: "Consensus corrigé",
+          mae: "0,38 °C",
+          hit: "60 %",
+          bias: "+0,01 °C",
+          note: "La correction aide ici. Météo-France brut a 80 % de degrés exacts, pour une MAE de 0,42.",
+        },
+        LTAC: {
+          source: "GEM brut",
+          mae: "0,50 °C",
+          hit: "80 %",
+          bias: "−0,42 °C",
+          note: "La correction baisse le taux de hit à 60 %. Le consensus (1,10) est à écarter.",
+        },
+        RJTT: {
+          source: "Wunderground",
+          mae: "0,50 °C",
+          hit: "50 %",
+          bias: "0,00 °C",
+          note: "JMA brut est à 0,72. Pas de snapshot 06:15 le 20 sept.",
+        },
+        ZGSZ: {
+          source: "Consensus brut",
+          mae: "0,50 °C",
+          hit: "40 %",
+          bias: "−0,14 °C",
+          note: "AIFS brut suit à 0,52. Le consensus corrigé saute à 0,96.",
+        },
+        ZHHH: {
+          source: "Consensus brut",
+          mae: "0,66 °C",
+          hit: "40 %",
+          bias: "0,00 °C",
+          note: "ICON brut est équivalent (0,68). Le consensus corrigé monte à 1,04.",
+        },
+        ZSPD: {
+          source: "Consensus corrigé",
+          mae: "0,35 °C",
+          hit: "80 %",
+          bias: "+0,12 °C",
+          note: "Le consensus brut est à 0,96. IFS brut est presque aussi bon (0,36).",
+        },
+        ZUUU: {
+          source: "Wunderground",
+          mae: "1,20 °C",
+          hit: "0 %",
+          bias: "−0,40 °C",
+          weak: true,
+          note: "Aucune source ne touche le degré exact. Le consensus brut est à 1,76.",
+        },
       };
       const REGION_ORDER = [
         { id: "europe", label: "Europe" },
@@ -1248,6 +1438,21 @@
           return;
         }
         const open = board.querySelector("tr.active")?.dataset.key;
+        const reliable = RELIABLE_SOURCE[selectedIcao];
+        const reliableBanner = reliable
+          ? `<section class="reliable${reliable.weak ? " weak" : ""}">
+        <div>
+          <p class="reliable-kicker">Source la plus fiable · 06:15 · 20–24 sept</p>
+          <p class="reliable-source">${reliable.source}</p>
+          <p class="reliable-note">${reliable.note}</p>
+        </div>
+        <div class="reliable-stats">
+          <div class="reliable-stat"><span>MAE</span><strong>${reliable.mae}</strong></div>
+          <div class="reliable-stat"><span>Degré exact</span><strong>${reliable.hit}</strong></div>
+          <div class="reliable-stat"><span>Biais</span><strong>${reliable.bias}</strong></div>
+        </div>
+      </section>`
+          : "";
         const guide = `<section class="guide">
         <div class="guide-copy">
           <strong>Le badge Δ mesure prévision − METAR</strong>
@@ -1261,6 +1466,7 @@
         </div>
       </section>`;
         board.innerHTML =
+          reliableBanner +
           guide +
           days
             .map((day) => {
