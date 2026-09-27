@@ -119,6 +119,15 @@ def station_unit(icao: str) -> str:
     return "F" if STATION_TZ[icao].startswith("America/") else "C"
 
 
+def nws_timeseries_url(icao: str) -> str:
+    units = "english" if station_unit(icao) == "F" else "metric"
+    return (
+        "https://www.weather.gov/wrh/timeseries"
+        f"?site={icao}&hours=72&units={units}"
+        "&chart=on&headers=on&obs=tabular&hourly=false&pview=standard&font=12&plot="
+    )
+
+
 def station_region(icao: str) -> str:
     tz = STATION_TZ[icao]
     if tz.startswith("America/"):
@@ -370,6 +379,54 @@ def parse_obs_time(value: object) -> datetime | None:
     if dt.tzinfo is None:
         dt = dt.replace(tzinfo=timezone.utc)
     return dt
+
+
+def http_json_once(url: str, timeout: float = 12) -> Any:
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
+    with urllib.request.urlopen(req, timeout=timeout) as res:
+        raw = res.read()
+    if not raw.strip():
+        raise ValueError("empty body")
+    return json.loads(raw)
+
+
+def latest_metar(icao: str) -> dict:
+    """Most recent Aviation Weather METAR, plus the NWS timeseries page for that station."""
+    icao = icao.strip().upper()
+    record: dict[str, Any] = {
+        "icao": icao,
+        "unit": station_unit(icao),
+        "nws_url": nws_timeseries_url(icao),
+        "ok": False,
+    }
+    try:
+        payload = http_json_once(f"{METAR_BASE}?ids={icao}&format=json&hours=6")
+    except Exception as e:
+        record["error"] = str(e)
+        return record
+    if not isinstance(payload, list):
+        record["error"] = "METAR payload is not a list"
+        return record
+    best: dict | None = None
+    best_at: datetime | None = None
+    for obs in payload:
+        if not isinstance(obs, dict):
+            continue
+        instant = parse_obs_time(obs.get("reportTime") or obs.get("obsTime") or obs.get("receiptTime"))
+        if instant is None:
+            continue
+        if best_at is None or instant > best_at:
+            best = obs
+            best_at = instant
+    if best is None or best_at is None:
+        record["error"] = f"no METAR for {icao}"
+        return record
+    temp = best.get("temp")
+    record["ok"] = True
+    record["temp_c"] = float(temp) if isinstance(temp, (int, float)) else None
+    record["observed_at"] = best_at.astimezone(timezone.utc).isoformat(timespec="seconds")
+    record["raw"] = best.get("rawOb") if isinstance(best.get("rawOb"), str) else ""
+    return record
 
 
 def metar_max_from_aw(icao: str, market_date: str) -> dict:
@@ -676,6 +733,14 @@ class SnapshotHandler(BaseHTTPRequestHandler):
             return
         if path in ("/api/stations", "/api/by-day"):
             self._send_json(200, dashboard_index(self.out_dir))
+            return
+        metar_prefix = "/api/metar/"
+        if path.startswith(metar_prefix):
+            icao = path[len(metar_prefix) :].upper()
+            if icao not in STATIONS:
+                self._send_json(404, {"error": f"unknown station {icao}"})
+                return
+            self._send_json(200, latest_metar(icao))
             return
         prefix = "/api/stations/"
         if path.startswith(prefix):

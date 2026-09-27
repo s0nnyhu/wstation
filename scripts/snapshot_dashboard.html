@@ -69,6 +69,60 @@
       .local-clock[hidden] {
         display: none;
       }
+      .latest-metar {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px 24px;
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--panel);
+      }
+      .latest-metar[hidden] {
+        display: none;
+      }
+      .latest-kicker {
+        margin: 0;
+        color: var(--metar);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .latest-temp {
+        margin: 4px 0 0;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 22px;
+        font-weight: 650;
+        letter-spacing: -0.03em;
+      }
+      .latest-temp span {
+        margin-left: 8px;
+        color: var(--mute);
+        font-size: 13px;
+        font-weight: 450;
+      }
+      .latest-raw {
+        margin: 8px 0 0;
+        color: var(--mute);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 12px;
+        overflow-wrap: anywhere;
+      }
+      .latest-link {
+        flex-shrink: 0;
+        align-self: center;
+        color: var(--cyan);
+        font-size: 13px;
+        text-decoration: none;
+        border: 1px solid rgba(94, 234, 212, 0.4);
+        border-radius: 999px;
+        padding: 8px 12px;
+      }
+      .latest-link:hover {
+        background: rgba(94, 234, 212, 0.1);
+      }
       #meta {
         text-align: right;
         max-width: min(420px, 100%);
@@ -803,9 +857,13 @@
         }
       }
       @media (max-width: 720px) {
+        .latest-metar,
         .reliable {
           flex-direction: column;
           align-items: stretch;
+        }
+        .latest-link {
+          align-self: flex-start;
         }
         .reliable-stats {
           justify-content: flex-start;
@@ -830,6 +888,7 @@
     </header>
     <div class="shell">
       <aside id="stations"></aside>
+      <section id="latest-metar" class="latest-metar" hidden></section>
       <main id="board">
         <p class="muted">Chargement…</p>
       </main>
@@ -1518,6 +1577,7 @@
             syncStationActive();
             syncRegionFilter();
             renderLocalClock();
+            renderLatestMetar();
             if (lastIndex) renderBoard(lastIndex);
           });
         } else {
@@ -1647,13 +1707,81 @@
         lastIndex = data;
         renderStations(data);
         renderLocalClock();
+        renderLatestMetar();
         renderBoard(data);
+      }
+
+      function esc(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      let latestMetarToken = 0;
+
+      function renderLatestMetar() {
+        const el = document.getElementById("latest-metar");
+        const token = ++latestMetarToken;
+        if (!selectedIcao) {
+          el.hidden = true;
+          el.innerHTML = "";
+          return;
+        }
+        const icao = selectedIcao;
+        const unit = US_ICAO.has(icao) ? "F" : "C";
+        el.hidden = false;
+        el.innerHTML = `<p class="muted">Dernier METAR ${esc(icao)}…</p>`;
+        fetch("/api/metar/" + icao)
+          .then((res) => res.json())
+          .then((data) => {
+            if (token !== latestMetarToken) return;
+            const zone = STATION_TZ[icao];
+            const when =
+              data.observed_at && zone
+                ? new Intl.DateTimeFormat("fr-FR", {
+                    timeZone: zone,
+                    day: "numeric",
+                    month: "short",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hourCycle: "h23",
+                  }).format(new Date(data.observed_at))
+                : "";
+            const temp =
+              data.temp_c == null ? "—" : fmt(data.temp_c, data.unit || unit);
+            const raw = data.raw
+              ? `<p class="latest-raw">${esc(data.raw)}</p>`
+              : "";
+            const err = data.ok
+              ? ""
+              : `<p class="fail">${esc(data.error || "METAR indisponible")}</p>`;
+            const href = data.nws_url || "";
+            el.innerHTML = `
+              <div>
+                <p class="latest-kicker">Dernier METAR · ${esc(icao)}</p>
+                <p class="latest-temp">${esc(temp)}<span>${esc(when)}</span></p>
+                ${raw}
+                ${err}
+              </div>
+              ${
+                href
+                  ? `<a class="latest-link" href="${esc(href)}" target="_blank" rel="noreferrer">Série NWS 72h</a>`
+                  : ""
+              }`;
+          })
+          .catch((error) => {
+            if (token !== latestMetarToken) return;
+            el.innerHTML = `<p class="fail">${esc(error)}</p>`;
+          });
       }
 
       window.addEventListener("hashchange", () => {
         selectedIcao = icaoFromHash();
         syncStationActive();
         renderLocalClock();
+        renderLatestMetar();
         if (lastIndex) renderBoard(lastIndex);
       });
 
