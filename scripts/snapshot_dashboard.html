@@ -69,15 +69,24 @@
       .local-clock[hidden] {
         display: none;
       }
+      .main-col {
+        min-width: 0;
+        flex: 1;
+        display: grid;
+        gap: 16px;
+      }
       .latest-metar {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         justify-content: space-between;
         gap: 16px 24px;
         padding: 14px 16px;
         border: 1px solid var(--line);
         border-radius: 14px;
         background: var(--panel);
+      }
+      .latest-copy {
+        min-width: 0;
       }
       .latest-metar[hidden] {
         display: none;
@@ -826,6 +835,27 @@
           align-items: flex-start;
           gap: 20px;
         }
+        .latest-copy {
+          display: grid;
+          grid-template-columns: auto minmax(0, 1fr);
+          column-gap: 20px;
+          row-gap: 2px;
+          align-items: baseline;
+          flex: 1;
+        }
+        .latest-kicker,
+        .latest-temp {
+          grid-column: 1;
+        }
+        .latest-temp {
+          margin: 0;
+        }
+        .latest-raw {
+          grid-column: 2;
+          grid-row: 1 / span 2;
+          align-self: center;
+          margin: 0;
+        }
         #stations {
           width: 208px;
           flex-shrink: 0;
@@ -888,10 +918,12 @@
     </header>
     <div class="shell">
       <aside id="stations"></aside>
-      <section id="latest-metar" class="latest-metar" hidden></section>
-      <main id="board">
-        <p class="muted">Chargement…</p>
-      </main>
+      <div class="main-col">
+        <section id="latest-metar" class="latest-metar" hidden></section>
+        <main id="board">
+          <p class="muted">Chargement…</p>
+        </main>
+      </div>
     </div>
     <script>
       const SLOTS = [
@@ -1759,7 +1791,7 @@
               : `<p class="fail">${esc(data.error || "METAR indisponible")}</p>`;
             const href = data.nws_url || "";
             el.innerHTML = `
-              <div>
+              <div class="latest-copy">
                 <p class="latest-kicker">Dernier METAR · ${esc(icao)}</p>
                 <p class="latest-temp">${esc(temp)}<span>${esc(when)}</span></p>
                 ${raw}
