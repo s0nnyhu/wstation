@@ -1353,7 +1353,7 @@
         const bucket = pmBucket(p.consensus_corrected_c, unit);
         return `<div class="expand">
         ${snap.error ? `<p class="fail">${snap.error}</p>` : ""}
-        <p class="muted">${snap.captured_at || ""} · consensus ${fmt(p.consensus_corrected_c, unit)}${bucket ? ` · ${bucket}` : ""} · WU ${fmt(p.wunderground?.predicted_high_c, unit)} · Husky ${fmt(p.husky?.daily_max_c, unit)}${pmHref(p) ? ` · <a href="${pmHref(p)}" target="_blank" rel="noreferrer">Polymarket</a>` : ""}</p>
+        <p class="muted">${snap.captured_at || ""} · consensus ${fmt(p.consensus_raw_c, unit)} → ${fmt(p.consensus_corrected_c, unit)}${bucket ? ` · ${bucket}` : ""} · WU ${fmt(p.wunderground?.predicted_high_c, unit)} · Husky ${fmt(p.husky?.daily_max_c, unit)}${pmHref(p) ? ` · <a href="${pmHref(p)}" target="_blank" rel="noreferrer">Polymarket</a>` : ""}</p>
         <div class="models">${models}</div>
       </div>`;
       }
@@ -1402,7 +1402,7 @@
           rows.push(`<tr data-key="${key}">
           <td data-label="Station"><div class="station-name"><strong>${s.icao}</strong> <span class="muted">${s.city || ""}</span></div></td>
           ${forecastCell(prim?.corrected_max_c, s.metar, s.icao, unit, "primary", "Primaire brut → corrigé", prim?.raw_max_c)}
-          ${forecastCell(p.consensus_corrected_c, s.metar, s.icao, unit, "consensus", "Consensus")}
+          ${forecastCell(p.consensus_corrected_c, s.metar, s.icao, unit, "consensus", "Consensus brut → corrigé", p.consensus_raw_c)}
           ${forecastCell(p.wunderground?.predicted_high_c, s.metar, s.icao, unit, "wu", "Wunderground")}
           ${metarCell(s.metar, s.icao)}
         </tr>
@@ -1418,7 +1418,7 @@
           <tr>
             <th>Station</th>
             <th style="color:var(--primary)">Primaire brut → corrigé · Δ</th>
-            <th style="color:var(--consensus)">Consensus · Δ</th>
+            <th style="color:var(--consensus)">Consensus brut → corrigé · Δ</th>
             <th style="color:var(--wu)">Wunderground · Δ</th>
             <th style="color:var(--metar)">METAR résolu</th>
           </tr>
@@ -1669,7 +1669,7 @@
         </div>
         <div class="legend" aria-label="Légende">
           <span class="legend-item"><i class="legend-dot" style="--dot:var(--primary)"></i>Primaire corrigé</span>
-          <span class="legend-item"><i class="legend-dot" style="--dot:var(--consensus)"></i>Consensus</span>
+          <span class="legend-item"><i class="legend-dot" style="--dot:var(--consensus)"></i>Consensus brut → corrigé</span>
           <span class="legend-item"><i class="legend-dot" style="--dot:var(--wu)"></i>Wunderground</span>
           <span class="legend-item"><i class="legend-dot" style="--dot:var(--metar)"></i>METAR 21h</span>
         </div>
