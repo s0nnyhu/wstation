@@ -932,7 +932,7 @@
         { id: "13:15", aliases: ["13:00"], label: "13h15" },
         { id: "14:15", aliases: ["14:00"], label: "14h15" },
       ];
-      const US_ICAO = new Set(["KHOU", "KDAL", "KLGA"]);
+      const US_ICAO = new Set(["KHOU", "KDAL", "KMIA", "KLGA", "KSEA"]);
       const STATION_TZ = {
         EDDM: "Europe/Berlin",
         EGLC: "Europe/London",
@@ -949,7 +949,9 @@
         RJTT: "Asia/Tokyo",
         KHOU: "America/Chicago",
         KDAL: "America/Chicago",
+        KMIA: "America/New_York",
         KLGA: "America/New_York",
+        KSEA: "America/Los_Angeles",
       };
       const RELIABLE_SOURCE = {
         EDDM: {

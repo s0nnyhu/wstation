@@ -48,7 +48,9 @@ STATIONS = (
     "RJTT",
     "KHOU",
     "KDAL",
+    "KMIA",
     "KLGA",
+    "KSEA",
 )
 STATION_TZ = {
     "EDDM": "Europe/Berlin",
@@ -66,7 +68,9 @@ STATION_TZ = {
     "RJTT": "Asia/Tokyo",
     "KHOU": "America/Chicago",
     "KDAL": "America/Chicago",
+    "KMIA": "America/New_York",
     "KLGA": "America/New_York",
+    "KSEA": "America/Los_Angeles",
 }
 STATION_CITY = {
     "EDDM": "Munich",
@@ -84,7 +88,9 @@ STATION_CITY = {
     "RJTT": "Tokyo",
     "KHOU": "Houston",
     "KDAL": "Dallas",
+    "KMIA": "Miami",
     "KLGA": "New York",
+    "KSEA": "Seattle",
 }
 METAR_SLOT = dtime(21, 0)
 DEFAULT_BASE = "https://wstation-sepia.vercel.app/api/stations"
