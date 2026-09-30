@@ -42,6 +42,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PARIS = ZoneInfo("Europe/Paris")
 SLOTS = (dtime(8, 0), dtime(10, 30), dtime(13, 30))
 SLOT_LABELS = tuple(slot.strftime("%H:%M") for slot in SLOTS)
+SLOT_GRACE = timedelta(minutes=15)
 DASHBOARD_HTML = Path(__file__).with_name("meteoblue_dashboard.html")
 UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -345,15 +346,12 @@ def pending_station(station: dict[str, Any]) -> dict[str, Any]:
 
 
 def current_slot(local: datetime) -> str | None:
-    """The open slot. Earlier slots that were missed stay empty."""
-    clock = local.timetz().replace(tzinfo=None)
-    chosen: str | None = None
+    """Slot open only within SLOT_GRACE after its start. Missed slots stay empty."""
     for slot in SLOTS:
-        if clock >= slot:
-            chosen = slot.strftime("%H:%M")
-        else:
-            break
-    return chosen
+        start = datetime.combine(local.date(), slot, tzinfo=local.tzinfo)
+        if start <= local < start + SLOT_GRACE:
+            return slot.strftime("%H:%M")
+    return None
 
 
 def run_done(record: dict[str, Any] | None, slot: str) -> bool:
