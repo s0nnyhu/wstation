@@ -42,11 +42,13 @@
         justify-content: space-between;
         gap: 16px;
         align-items: center;
+        width: 100%;
         padding: 22px 24px 18px;
         border-bottom: 1px solid var(--line);
         background: rgba(8, 12, 18, 0.92);
         position: sticky;
         top: 0;
+        left: 0;
         z-index: 10;
         backdrop-filter: blur(16px);
       }
@@ -344,6 +346,7 @@
       }
       .table-scroll {
         overflow-x: auto;
+        min-width: 0;
         -webkit-overflow-scrolling: touch;
       }
       table {
@@ -485,6 +488,7 @@
         border-left: 4px solid var(--cyan);
         border-radius: 16px;
         overflow: clip;
+        min-width: 0;
         box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
       }
       .day-head {
