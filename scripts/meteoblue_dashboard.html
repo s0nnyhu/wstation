@@ -1,0 +1,1216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f3efe6" />
+    <title>Runsheet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      try {
+        if (localStorage.getItem("runsheet-theme") === "dark") {
+          document.documentElement.dataset.theme = "dark";
+          document.querySelector('meta[name="theme-color"]').content = "#1c1916";
+        }
+      } catch (err) {}
+    </script>
+    <style>
+      :root {
+        --bg: #f3efe6;
+        --panel: #faf7f1;
+        --card: #fffcf7;
+        --line: #e3d9cc;
+        --ink: #221e1a;
+        --mute: #7d756c;
+        --cyan: #1f4d3a;
+        --gold: #9a5424;
+        --good: #2a6b45;
+        --bad: #9c3b3b;
+        --hover: #f3ece2;
+        --header-h: 88px;
+        --model-col: 8.2rem;
+        --max-col: 3.6rem;
+        --sans: "Instrument Sans", "Avenir Next", "Segoe UI", sans-serif;
+        --serif: "Instrument Serif", "Iowan Old Style", Palatino, Georgia, serif;
+        --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font: 14px/1.45 var(--sans);
+        background: var(--bg);
+        color: var(--ink);
+        color-scheme: light;
+      }
+      html[data-theme="dark"] {
+        --bg: #1c1916;
+        --panel: #26211c;
+        --card: #2e2822;
+        --line: #433a32;
+        --ink: #f3efe6;
+        --mute: #b3a89c;
+        --cyan: #9dccb0;
+        --gold: #e0a06a;
+        --good: #8fbfa0;
+        --bad: #e09a92;
+        --hover: #3a322b;
+        color-scheme: dark;
+      }
+      html[data-theme="dark"] body { color-scheme: dark; }
+      html[data-theme="dark"] header { background: rgba(28, 25, 22, 0.92); }
+      html[data-theme="dark"] thead th,
+      html[data-theme="dark"] thead th.model,
+      html[data-theme="dark"] thead th.maxh { background: #322c26; }
+      html[data-theme="dark"] tr.wu td.model,
+      html[data-theme="dark"] tr.wu td.maxh { background: #243028; }
+      html[data-theme="dark"] td.miss { color: #6e655c; }
+      html[data-theme="dark"] .scroll::-webkit-scrollbar-thumb,
+      html[data-theme="dark"] aside::-webkit-scrollbar-thumb,
+      html[data-theme="dark"] .station-list::-webkit-scrollbar-thumb { background: #5c5146; }
+      .icon {
+        width: 14px;
+        height: 14px;
+        flex: 0 0 auto;
+        display: block;
+      }
+      button { font: inherit; color: inherit; }
+      :focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+      a.link {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        color: var(--cyan);
+        font-size: 13px;
+        font-weight: 500;
+        text-decoration: none;
+      }
+      a.link::after {
+        content: "";
+        width: 11px;
+        height: 11px;
+        background: currentColor;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' d='M4 12 L12 4 M7 4 H12 V9'/%3E%3C/svg%3E")
+          center / contain no-repeat;
+      }
+      a.link:hover { text-decoration: underline; }
+      header {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: flex-end;
+        padding: max(16px, env(safe-area-inset-top)) 24px 14px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(243, 239, 230, 0.92);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(16px);
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(20px, 2.4vw, 26px);
+        font-family: var(--serif);
+        font-weight: 400;
+        letter-spacing: -0.02em;
+      }
+      h1 span { color: var(--cyan); }
+      .meta { margin: 4px 0 0; color: var(--mute); font-size: 12px; }
+      #dates {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 6px;
+        min-width: min(320px, 100%);
+      }
+      .date-top {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      #theme {
+        width: 32px;
+        height: 32px;
+        display: grid;
+        place-items: center;
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--card);
+        color: var(--ink);
+        cursor: pointer;
+      }
+      #theme:hover { border-color: var(--cyan); color: var(--cyan); }
+      .kicker {
+        margin: 0;
+        color: var(--mute);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .date-nav { display: flex; align-items: center; gap: 8px; width: min(100%, 360px); }
+      .date-nav button {
+        width: 44px;
+        height: 44px;
+        flex: 0 0 auto;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--card);
+        color: var(--ink);
+        display: grid;
+        place-items: center;
+        padding: 0;
+        cursor: pointer;
+      }
+      .date-nav button .icon { width: 16px; height: 16px; }
+      .date-nav button:hover:not(:disabled) { border-color: var(--cyan); color: var(--cyan); }
+      .date-nav button:disabled { opacity: 0.35; cursor: default; }
+      .date-nav select {
+        flex: 1;
+        min-width: 0;
+        height: 44px;
+        padding: 0 28px 0 10px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--card);
+        color: var(--ink);
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+      .shell {
+        display: grid;
+        grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+        gap: 20px;
+        align-items: start;
+        padding: 16px 24px calc(40px + env(safe-area-inset-bottom));
+      }
+      .shell > *,
+      .main > *,
+      .station-head,
+      .days,
+      .scroll,
+      .station-list {
+        min-width: 0;
+        max-width: 100%;
+      }
+      aside {
+        position: sticky;
+        top: calc(var(--header-h) + 12px);
+        max-height: calc(100vh - var(--header-h) - 28px);
+        overflow: auto;
+      }
+      .stations-label { margin: 0 0 10px; }
+      .station-group { margin-bottom: 14px; }
+      .station-group-label {
+        margin: 0 0 6px;
+        color: var(--mute);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .station-chips { display: grid; gap: 6px; }
+      .station-chip {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--card);
+        color: var(--mute);
+        text-align: left;
+        cursor: pointer;
+      }
+      .station-chip .icao {
+        font-family: var(--mono);
+        font-size: 13px;
+        color: var(--cyan);
+        letter-spacing: 0.04em;
+      }
+      .station-chip .city { font-size: 12px; }
+      .station-chip.active {
+        color: var(--ink);
+        border-color: var(--cyan);
+        background: rgba(31, 77, 58, 0.08);
+      }
+      .station-chip.failing .icao { color: var(--bad); }
+      .station-chip.waiting .icao { color: var(--gold); }
+      .main { min-width: 0; display: grid; gap: 12px; }
+      .station-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--panel);
+      }
+      .station-head h2 {
+        margin: 0;
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(26px, 3vw, 34px);
+        letter-spacing: -0.02em;
+      }
+      .where .local-clock {
+        font-family: var(--mono);
+        font-weight: 500;
+      }
+      .station-head .where { display: flex; flex-wrap: wrap; margin: 4px 0 0; color: var(--mute); font-size: 13px; }
+      .where span { white-space: nowrap; }
+      .where span:not(:last-child)::after { content: "\00a0·\00a0"; }
+      .links { display: flex; flex-wrap: wrap; gap: 10px 14px; }
+      .slots {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .slots button {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--card);
+        color: var(--mute);
+        padding: 8px 12px;
+        cursor: pointer;
+        font-family: var(--mono);
+        font-size: 13px;
+      }
+      .slots button[aria-pressed="true"] {
+        color: var(--ink);
+        border-color: var(--cyan);
+        background: rgba(31, 77, 58, 0.08);
+      }
+      .slots button:disabled { opacity: 0.4; cursor: default; }
+      .days {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .day-card {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-width: 0;
+        padding: 10px 12px 12px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--card);
+      }
+      .day-card.active {
+        border-color: var(--cyan);
+        background: rgba(31, 77, 58, 0.06);
+      }
+      .day-select {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--mute);
+        text-align: left;
+        cursor: pointer;
+      }
+      .day-select span {
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .day-select .when {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .day-select .date { font-size: 12px; }
+      .day-card.active .day-select { color: var(--ink); }
+      .day-select .fav,
+      .day-select .metar {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 4px;
+        font-family: var(--mono);
+        font-size: 13px;
+        font-weight: 500;
+      }
+      .day-select .fav { color: var(--gold); }
+      .day-select .metar { color: var(--good); margin-top: 0; }
+      .day-links { display: flex; flex-wrap: wrap; gap: 8px 12px; }
+      .scroll-hint { display: none; margin: 0; color: var(--mute); font-size: 12px; }
+      .scroll {
+        overflow: auto;
+        overscroll-behavior-x: contain;
+        max-height: min(72vh, 820px);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--card);
+      }
+      table { border-collapse: separate; border-spacing: 0; min-width: 100%; white-space: nowrap; }
+      th, td {
+        padding: 6px 7px;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+        font-family: var(--mono);
+        font-size: 12px;
+        border-bottom: 1px solid var(--line);
+      }
+      thead th {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: #efe8dc;
+        color: var(--mute);
+        font-weight: 500;
+        font-size: 11px;
+      }
+      th.model, td.model {
+        text-align: left;
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        min-width: var(--model-col);
+        background: var(--card);
+        font-family: var(--sans);
+      }
+      th.maxh, td.maxh {
+        position: sticky;
+        left: var(--model-col);
+        z-index: 1;
+        min-width: var(--max-col);
+        background: var(--card);
+        box-shadow: 8px 0 8px -8px rgba(34, 30, 26, 0.18);
+      }
+      thead th.model, thead th.maxh { z-index: 3; background: #efe8dc; }
+      td.model .name { display: block; font-weight: 500; }
+      td.model small { color: var(--mute); font-size: 11px; font-weight: 400; }
+      td.maxh { font-weight: 700; }
+      td.peak { background: #e4c36a !important; color: var(--ink) !important; font-weight: 500; }
+      td.own { box-shadow: inset 0 0 0 1px var(--cyan); }
+      td.miss { color: #b3aa9e; }
+      tr.wu td.model .name { color: var(--cyan); }
+      tr.wu td.model, tr.wu td.maxh { background: #f3f6f2; }
+      tbody tr:hover td.model { background: var(--hover); }
+      .note { margin: 0; color: var(--mute); font-size: 12px; }
+      .fail, .empty {
+        padding: 16px 18px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--panel);
+      }
+      .fail { color: var(--bad); }
+      .empty { color: var(--mute); }
+      .scroll::-webkit-scrollbar, aside::-webkit-scrollbar, .station-list::-webkit-scrollbar { height: 8px; width: 8px; }
+      .scroll::-webkit-scrollbar-thumb, aside::-webkit-scrollbar-thumb, .station-list::-webkit-scrollbar-thumb {
+        background: #d4c9b8;
+        border-radius: 99px;
+      }
+      @media (max-width: 860px) {
+        header { flex-direction: column; align-items: stretch; }
+        #dates, .date-nav { width: 100%; align-items: stretch; }
+        .shell { grid-template-columns: minmax(0, 1fr); padding: 12px 12px calc(32px + env(safe-area-inset-bottom)); }
+        aside { position: static; max-height: none; overflow: hidden; }
+        .station-list {
+          display: flex;
+          gap: 14px;
+          overflow-x: auto;
+          overscroll-behavior-x: contain;
+          padding-bottom: 4px;
+          scroll-snap-type: x proximity;
+        }
+        .station-group { margin: 0; }
+        .station-chips { display: flex; gap: 8px; }
+        .station-chip { width: auto; min-width: 7.2rem; scroll-snap-align: start; }
+        .scroll-hint { display: block; }
+        .station-head { flex-direction: column; }
+      }
+      @media (max-width: 720px) {
+        .days {
+          display: flex;
+          overflow-x: auto;
+          overscroll-behavior-x: contain;
+          scroll-snap-type: x mandatory;
+          padding-bottom: 4px;
+        }
+        .day-card { flex: 0 0 16rem; scroll-snap-align: start; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * { scroll-behavior: auto !important; transition: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Runsheet</h1>
+        <p class="meta" id="meta">Loading…</p>
+      </div>
+      <nav id="dates" aria-label="Capture date"></nav>
+    </header>
+    <div class="shell">
+      <aside>
+        <p class="kicker stations-label">Stations</p>
+        <div class="station-list" id="stations"></div>
+      </aside>
+      <main class="main" id="main"></main>
+    </div>
+    <script>
+      const HOURS = Array.from({ length: 24 }, (_, hour) => String(hour).padStart(2, "0") + ":00");
+      const REGIONS = [
+        { id: "europe", label: "Europe", match: (tz) => tz.startsWith("Europe/") },
+        { id: "asia", label: "Asia", match: (tz) => tz.startsWith("Asia/") },
+        { id: "america", label: "Americas", match: (tz) => tz.startsWith("America/") },
+      ];
+      const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const MONTH_LONG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+      const state = {
+        dates: [],
+        payload: null,
+        icao: null,
+        day: null,
+        slotChoice: null,
+        context: null,
+        contextKey: "",
+      };
+
+      const SLOT_ORDER = ["08:00", "10:30", "13:30"];
+
+      function slotTitle(slot) {
+        if (slot === "manuel" || slot === "manual") return "Manual";
+        const parts = String(slot || "").split(":");
+        if (parts.length !== 2) return slot || "—";
+        return String(Number(parts[0])) + ":" + parts[1];
+      }
+
+      function stationRuns(station) {
+        if (station.runs && station.runs.length) return station.runs;
+        if (station.models || station.captured_at || station.ok) {
+          const fileSlot = (state.payload && state.payload.slot) || "manuel";
+          return [{
+            slot: fileSlot,
+            captured_at: station.captured_at,
+            ok: station.ok,
+            error: station.error,
+            forecast_days: station.forecast_days,
+            models: station.models,
+            wunderground: station.wunderground,
+            location: station.location,
+            page_url: station.page_url,
+          }];
+        }
+        return [];
+      }
+
+      function slotPlan(station) {
+        const runs = stationRuns(station);
+        const by = {};
+        const labels = SLOT_ORDER.slice();
+        for (const run of runs) {
+          by[run.slot] = run;
+          if (run.slot && !labels.includes(run.slot)) labels.push(run.slot);
+        }
+        if (!by[state.slotChoice]) {
+          const ready = labels.filter((label) => by[label] && by[label].ok);
+          state.slotChoice = ready.length ? ready[ready.length - 1] : labels[0];
+        }
+        return { labels, by, run: by[state.slotChoice] || null };
+      }
+
+      function localClock(timeZone) {
+        try {
+          return new Intl.DateTimeFormat("en-GB", {
+            timeZone,
+            hour: "2-digit",
+            minute: "2-digit",
+            hourCycle: "h23",
+          }).format(new Date());
+        } catch (err) {
+          return "";
+        }
+      }
+
+      function localClockHtml(timeZone) {
+        const time = localClock(timeZone);
+        if (!time) return "";
+        return '<span class="local-clock" data-tz="' + escapeHtml(timeZone) + '">' + escapeHtml(time) + "</span>";
+      }
+
+      function paintClocks() {
+        document.querySelectorAll(".local-clock").forEach((node) => {
+          const zone = node.dataset.tz;
+          if (!zone) return;
+          const time = localClock(zone);
+          if (time && node.textContent !== time) {
+            node.textContent = time;
+          }
+        });
+      }
+
+      function icon(name) {
+        const paths = {
+          left: '<path d="M10 3.5 5.5 8 10 12.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>',
+          right: '<path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>',
+          mark: '<circle cx="8" cy="8" r="2.15" fill="currentColor"/>',
+          temp: '<path d="M8 2.6v6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="11.3" r="2.05" fill="none" stroke="currentColor" stroke-width="1.4"/>',
+          moon: '<path d="M9.4 2.6a4.8 4.8 0 1 0 4.2 7.8A4.2 4.2 0 0 1 9.4 2.6z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>',
+          sun: '<circle cx="8" cy="8" r="2.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 2.5v1.5M8 12v1.5M2.5 8h1.5M12 8h1.5M4.1 4.1l1 1M10.9 10.9l1 1M11.9 4.1l-1 1M5.1 10.9l-1 1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>',
+        };
+        return '<svg class="icon" viewBox="0 0 16 16" aria-hidden="true">' + paths[name] + "</svg>";
+      }
+
+      function qs(name) {
+        return new URLSearchParams(location.search).get(name);
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function unitSymbol(unit) {
+        return unit === "F" ? "°F" : "°C";
+      }
+
+      function toUnit(tempC, unit) {
+        return unit === "F" ? (tempC * 9) / 5 + 32 : tempC;
+      }
+
+      function fmtTemp(value) {
+        if (value == null || Number.isNaN(value)) return "—";
+        return value.toFixed(1).replace(".", ",");
+      }
+
+      function parseIso(iso) {
+        const [y, m, d] = iso.split("-").map(Number);
+        return { y, m, d, date: new Date(Date.UTC(y, m - 1, d)) };
+      }
+
+      function fmtDay(iso) {
+        const { d, m, date } = parseIso(iso);
+        return WEEKDAYS[date.getUTCDay()] + " " + d + " " + MONTHS[m - 1];
+      }
+
+      function fmtCapture(iso) {
+        const { y, d, m } = parseIso(iso);
+        return d + " " + MONTHS[m - 1] + " " + y;
+      }
+
+      function fmtCaptured(iso) {
+        const text = String(iso || "");
+        const day = text.slice(0, 10);
+        const hm = text.slice(11, 16);
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) return text || "—";
+        return fmtCapture(day) + (hm ? ", " + hm : "");
+      }
+
+      function monthLabel(iso) {
+        const { y, m } = parseIso(iso);
+        return MONTH_LONG[m - 1] + " " + y;
+      }
+
+      function localToday(timeZone) {
+        try {
+          return new Intl.DateTimeFormat("en-CA", {
+            timeZone,
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          }).format(new Date());
+        } catch (err) {
+          return "";
+        }
+      }
+
+      function dayRelation(iso, timeZone) {
+        const today = localToday(timeZone);
+        if (!today) return "";
+        if (iso === today) return "Today";
+        const diff = Math.round((Date.parse(iso + "T00:00:00Z") - Date.parse(today + "T00:00:00Z")) / 86400000);
+        if (diff === 1) return "Tomorrow";
+        if (diff === 2) return "Day after";
+        return "";
+      }
+
+      function quantile(sorted, p) {
+        if (!sorted.length) return null;
+        const i = (sorted.length - 1) * p;
+        const lo = Math.floor(i);
+        const hi = Math.ceil(i);
+        return lo === hi ? sorted[lo] : sorted[lo] * (hi - i) + sorted[hi] * (i - lo);
+      }
+
+      function heat(value, min, max) {
+        if (value == null || min == null || max == null || max === min) return "";
+        const t = Math.min(1, Math.max(0, (value - min) / (max - min)));
+        return "background:hsla(" + (198 - t * 176) + ",38%,74%,0.95);color:#221e1a";
+      }
+
+      function dayHours(model, day, unit) {
+        const found = {};
+        for (const point of model.hours || []) {
+          if (String(point.time).slice(0, 10) !== day) continue;
+          const hour = String(point.time).slice(11, 16);
+          if (!HOURS.includes(hour)) continue;
+          found[hour] = Math.round(toUnit(point.temp_c, unit) * 10) / 10;
+        }
+        return found;
+      }
+
+      function dayView(station, day, run) {
+        const unit = station.unit || "C";
+        const source = run || {};
+        const rows = [];
+        let peak = null;
+        const models = [];
+        const stored = source.wunderground && source.wunderground.ok ? source.wunderground : null;
+        const live = !stored && state.context && state.contextKey === contextKey() ? state.context.wunderground : null;
+        const wu = stored || (live && live.ok ? live : null);
+        if (wu && wu.ok) {
+          models.push({
+            name: "Wunderground",
+            updated_label: wu.updated_label || "forecast",
+            hours: wu.hours || [],
+            dailyMaxC: wu.daily_max_c || {},
+            wu: true,
+          });
+        }
+        models.push(...(source.models || []));
+        for (const model of models) {
+          const hours = dayHours(model, day, unit);
+          const values = Object.values(hours);
+          let modelMax = values.length ? Math.max(...values) : null;
+          if (model.wu && model.dailyMaxC && model.dailyMaxC[day] != null) {
+            modelMax = Math.round(toUnit(model.dailyMaxC[day], unit) * 10) / 10;
+          }
+          rows.push({
+            name: model.name || model.code,
+            updated: model.updated_label,
+            hours,
+            max: modelMax,
+            wu: !!model.wu,
+          });
+          if (modelMax != null && (peak == null || modelMax > peak)) peak = modelMax;
+        }
+        const all = rows.flatMap((row) => Object.values(row.hours)).sort((a, b) => a - b);
+        return { day, unit, peak, rows, heatLo: quantile(all, 0.08), heatHi: quantile(all, 0.92) };
+      }
+
+      function dayInfo(day) {
+        const pending = !state.context || state.contextKey !== contextKey();
+        const info = (!pending && state.context.days && state.context.days[day]) || {};
+        return { pending, info, pm: info.polymarket && info.polymarket.ok ? info.polymarket : null };
+      }
+
+      function contextKey() {
+        const station = (state.payload.stations || []).find((row) => row.icao === state.icao);
+        const days = (station && station.forecast_days) || [];
+        return (state.icao || "") + "|" + days.join(",");
+      }
+
+      function resolutionUnit(station, pm) {
+        return (pm && pm.unit) || station.unit || "C";
+      }
+
+      function resolutionUrl(icao, unit) {
+        const params = new URLSearchParams({
+          site: icao,
+          hours: "72",
+          units: unit === "F" ? "english" : "metric",
+          chart: "on",
+          headers: "on",
+          obs: "tabular",
+          hourly: "false",
+          pview: "standard",
+          font: "12",
+          plot: "",
+        });
+        return "https://www.weather.gov/wrh/timeseries?" + params.toString();
+      }
+
+      function regionOf(station) {
+        return REGIONS.find((region) => region.match(station.timezone || "")) || REGIONS[0];
+      }
+
+      function setHash(icao) {
+        const url = new URL(location.href);
+        url.hash = icao || "";
+        history.replaceState(null, "", url);
+      }
+
+      function syncChrome() {
+        const header = document.querySelector("header");
+        if (header) document.documentElement.style.setProperty("--header-h", header.offsetHeight + "px");
+      }
+
+      async function load(date) {
+        const query = date ? "?date=" + encodeURIComponent(date) : "";
+        const res = await fetch("/api/capture" + query);
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(text.trim() || "capture not found");
+        }
+        return res.json();
+      }
+
+      function themeButton() {
+        const dark = document.documentElement.dataset.theme === "dark";
+        return (
+          '<button type="button" id="theme" aria-pressed="' +
+          (dark ? "true" : "false") +
+          '" aria-label="' +
+          (dark ? "Switch to light mode" : "Switch to dark mode") +
+          '">' +
+          icon(dark ? "sun" : "moon") +
+          "</button>"
+        );
+      }
+
+      function applyTheme(theme) {
+        const dark = theme === "dark";
+        if (dark) document.documentElement.dataset.theme = "dark";
+        else delete document.documentElement.dataset.theme;
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.content = dark ? "#1c1916" : "#f3efe6";
+        try {
+          localStorage.setItem("runsheet-theme", dark ? "dark" : "light");
+        } catch (err) {}
+        const button = document.getElementById("theme");
+        if (!button) return;
+        button.setAttribute("aria-pressed", dark ? "true" : "false");
+        button.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+        button.innerHTML = icon(dark ? "sun" : "moon");
+      }
+
+      function renderDates() {
+        const dates = state.dates;
+        const current = (state.payload.captured_at || "").slice(0, 10);
+        const index = dates.indexOf(current);
+        const prev = index > 0 ? dates[index - 1] : "";
+        const next = index >= 0 && index < dates.length - 1 ? dates[index + 1] : "";
+        const groups = [];
+        for (const day of dates) {
+          const label = monthLabel(day);
+          const last = groups[groups.length - 1];
+          if (!last || last.label !== label) groups.push({ label, days: [day] });
+          else last.days.push(day);
+        }
+        const options = groups
+          .map((group) => {
+            const rows = group.days
+              .map((day) => {
+                const selected = day === current ? " selected" : "";
+                return '<option value="' + day + '"' + selected + ">" + fmtCapture(day) + "</option>";
+              })
+              .join("");
+            return '<optgroup label="' + escapeHtml(group.label) + '">' + rows + "</optgroup>";
+          })
+          .join("");
+        document.getElementById("dates").innerHTML =
+          '<div class="date-top"><p class="kicker">Capture · ' +
+          dates.length +
+          " day" +
+          (dates.length > 1 ? "s" : "") +
+          "</p>" +
+          themeButton() +
+          "</div>" +
+          '<div class="date-nav">' +
+          '<button type="button" data-date="' +
+          prev +
+          '" ' +
+          (prev ? "" : "disabled ") +
+          'aria-label="Previous capture">' +
+          icon("left") +
+          "</button>" +
+          '<select aria-label="Capture date">' +
+          options +
+          "</select>" +
+          '<button type="button" data-date="' +
+          next +
+          '" ' +
+          (next ? "" : "disabled ") +
+          'aria-label="Next capture">' +
+          icon("right") +
+          "</button>" +
+          "</div>";
+      }
+
+      function renderStations() {
+        const stations = state.payload.stations || [];
+        const groups = REGIONS.map((region) => ({
+          ...region,
+          stations: stations.filter((station) => regionOf(station).id === region.id),
+        })).filter((group) => group.stations.length);
+        document.getElementById("stations").innerHTML = groups
+          .map((group) => {
+            const chips = group.stations
+              .map((station) => {
+                const active = station.icao === state.icao;
+                const waiting = !!station.pending;
+                const city = waiting
+                  ? (station.city || "") + " · 08:00"
+                  : station.ok === false
+                    ? (station.city || "") + " · failed"
+                    : station.city || "";
+                return (
+                  '<button type="button" class="station-chip' +
+                  (active ? " active" : "") +
+                  (waiting ? " waiting" : station.ok === false ? " failing" : "") +
+                  '" data-icao="' +
+                  station.icao +
+                  '" aria-pressed="' +
+                  (active ? "true" : "false") +
+                  '"><span class="icao">' +
+                  station.icao +
+                  '</span><span class="city">' +
+                  escapeHtml(city) +
+                  "</span></button>"
+                );
+              })
+              .join("");
+            return (
+              '<div class="station-group"><p class="station-group-label">' +
+              group.label +
+              '</p><div class="station-chips">' +
+              chips +
+              "</div></div>"
+            );
+          })
+          .join("");
+      }
+
+      function favoriteLine(pack) {
+        if (pack.pending) return "Favorite …";
+        const fav = pack.pm && pack.pm.favorite;
+        if (!fav || !fav.label) return "Favorite —";
+        return "Favorite " + fav.label + (fav.cents != null ? " · " + fav.cents + "¢" : "");
+      }
+
+      function metarLine(day, station, pack) {
+        const today = localToday(station.timezone);
+        if (today && day > today) return "METAR not yet";
+        if (pack.pending) return "METAR …";
+        const metar = pack.info.metar;
+        if (metar && metar.max != null) {
+          return "METAR " + fmtTemp(metar.max) + " " + unitSymbol(metar.unit || station.unit);
+        }
+        return "METAR —";
+      }
+
+      function renderDays(station, days) {
+        return days
+          .map((day) => {
+            const pack = dayInfo(day);
+            const active = day === state.day;
+            const relation = dayRelation(day, station.timezone);
+            const unit = resolutionUnit(station, pack.pm);
+            const links = [];
+            if (pack.pm && pack.pm.url) {
+              links.push(
+                '<a class="link" href="' +
+                  escapeHtml(pack.pm.url) +
+                  '" target="_blank" rel="noreferrer">Polymarket</a>',
+              );
+            }
+            links.push(
+              '<a class="link" href="' +
+                escapeHtml(resolutionUrl(station.icao, unit)) +
+                '" target="_blank" rel="noreferrer">Resolution</a>',
+            );
+            links.push(
+              '<a class="link" href="' +
+                escapeHtml("https://www.wunderground.com/hourly/" + station.icao) +
+                '" target="_blank" rel="noreferrer">Wunderground</a>',
+            );
+            return (
+              '<article class="day-card' +
+              (active ? " active" : "") +
+              '"><button type="button" class="day-select" data-day="' +
+              day +
+              '" aria-pressed="' +
+              (active ? "true" : "false") +
+              '"><span class="when">' +
+              escapeHtml(relation || fmtDay(day)) +
+              "</span>" +
+              (relation ? '<span class="date">' + fmtDay(day) + "</span>" : "") +
+              '<span class="fav">' +
+              icon("mark") +
+              "<span>" +
+              escapeHtml(favoriteLine(pack)) +
+              '</span></span><span class="metar">' +
+              icon("temp") +
+              "<span>" +
+              escapeHtml(metarLine(day, station, pack)) +
+              "</span></span></button><p class=\"day-links\">" +
+              links.join("") +
+              "</p></article>"
+            );
+          })
+          .join("");
+      }
+
+      function renderTable(view) {
+        if (view.peak == null) return '<p class="note">No temperature for this day.</p>';
+        const symbol = unitSymbol(view.unit);
+        const head =
+          '<tr><th class="model">Model</th><th class="maxh">Max</th>' +
+          HOURS.map((hour) => "<th>" + hour.slice(0, 2) + "</th>").join("") +
+          "</tr>";
+        const body = view.rows
+          .map((row) => {
+            const cells = HOURS.map((hour) => {
+              const value = row.hours[hour];
+              if (value == null) return '<td class="miss">·</td>';
+              const cls = value === view.peak ? "peak" : value === row.max ? "own" : "";
+              return (
+                "<td" +
+                (cls ? ' class="' + cls + '"' : "") +
+                ' style="' +
+                heat(value, view.heatLo, view.heatHi) +
+                '">' +
+                fmtTemp(value) +
+                "</td>"
+              );
+            }).join("");
+            return (
+              '<tr class="' +
+              (row.wu ? "wu" : "") +
+              '"><td class="model"><span class="name">' +
+              escapeHtml(row.name) +
+              "</span>" +
+              (row.updated ? "<small>" + escapeHtml(row.updated) + "</small>" : "") +
+              '</td><td class="maxh">' +
+              fmtTemp(row.max) +
+              "</td>" +
+              cells +
+              "</tr>"
+            );
+          })
+          .join("");
+        return (
+          '<p class="scroll-hint">Scroll sideways for all 24 hours. ' +
+          symbol +
+          ".</p>" +
+          '<div class="scroll"><table><thead>' +
+          head +
+          "</thead><tbody>" +
+          body +
+          "</tbody></table></div>" +
+          '<p class="note">Gold marks the highest temperature of the day across every model. The outline marks that model\'s own high.</p>'
+        );
+      }
+
+      function renderMain() {
+        const station = (state.payload.stations || []).find((row) => row.icao === state.icao);
+        const main = document.getElementById("main");
+        if (!station) {
+          main.innerHTML = '<div class="empty">No station.</div>';
+          return;
+        }
+        if (station.pending && !(station.runs && station.runs.length)) {
+          main.innerHTML =
+            '<div class="station-head"><h2>' +
+            station.icao +
+            " · " +
+            escapeHtml(station.city || "") +
+            '</h2></div><div class="empty">Runs at 8:00, 10:30 and 13:30 local time. None yet.</div>';
+          return;
+        }
+        const plan = slotPlan(station);
+        const run = plan.run;
+        const slots = plan.labels
+          .map((label) => {
+            const item = plan.by[label];
+            const pressed = label === state.slotChoice;
+            return (
+              '<button type="button" data-slot="' +
+              escapeHtml(label) +
+              '" aria-pressed="' +
+              (pressed ? "true" : "false") +
+              '"' +
+              (item ? "" : " disabled") +
+              ">" +
+              escapeHtml(slotTitle(label)) +
+              "</button>"
+            );
+          })
+          .join("");
+        const headBits = (run && run.location) || station.location;
+        const capturedAt = (run && run.captured_at) || "";
+        const symbol = unitSymbol(station.unit);
+        const where =
+          '<p class="where">' +
+          [headBits, station.timezone, symbol, capturedAt ? "captured " + fmtCaptured(capturedAt) : ""]
+            .filter(Boolean)
+            .map((part) => "<span>" + escapeHtml(part) + "</span>")
+            .join("") +
+          localClockHtml(station.timezone) +
+          "</p>";
+        const pageUrl = (run && run.page_url) || station.page_url;
+        const page = pageUrl
+          ? '<a class="link" href="' + escapeHtml(pageUrl) + '" target="_blank" rel="noreferrer">meteoblue</a>'
+          : "";
+        let body = "";
+        if (!run) {
+          body = '<div class="empty">This run has not been captured yet.</div>';
+        } else if (!run.ok) {
+          body = '<div class="fail">' + escapeHtml(run.error || "failed") + "</div>";
+        } else {
+          const days = run.forecast_days || [];
+          if (!days.includes(state.day)) state.day = days[0] || null;
+          const view = state.day ? dayView(station, state.day, run) : null;
+          body = '<div class="days">' + renderDays(station, days) + "</div>" + (view ? renderTable(view) : "");
+        }
+        main.innerHTML =
+          '<div class="station-head"><div><h2>' +
+          station.icao +
+          " · " +
+          escapeHtml(station.city || "") +
+          "</h2>" +
+          where +
+          '</div><div class="links">' +
+          page +
+          "</div></div>" +
+          '<div class="slots" role="group" aria-label="Run">' +
+          slots +
+          "</div>" +
+          body;
+        document.title = station.icao + " · " + slotTitle(state.slotChoice) + " · Runsheet";
+      }
+
+      function render() {
+        const payload = state.payload;
+        document.getElementById("meta").textContent =
+          "Captured " +
+          fmtCaptured(payload.captured_at || "") +
+          (payload.timezone === "local"
+            ? " · 8:00, 10:30 and 13:30 local time"
+            : " · Europe/Paris · slot " + (payload.slot || "—"));
+        if (!state.icao) {
+          const hashed = (location.hash || "").replace("#", "");
+          state.icao = hashed || (payload.stations[0] && payload.stations[0].icao);
+        }
+        renderDates();
+        renderStations();
+        renderMain();
+        setHash(state.icao);
+        syncChrome();
+        const station = (payload.stations || []).find((row) => row.icao === state.icao);
+        const plan = station ? slotPlan(station) : null;
+        const days = (plan && plan.run && plan.run.forecast_days) || (station && station.forecast_days) || [];
+        const key = (state.icao || "") + "|" + days.join(",");
+        if (station && days.length && key !== state.contextKey) {
+          state.context = null;
+          state.contextKey = "";
+          loadContext(state.icao, days);
+        }
+      }
+
+      async function loadContext(icao, days) {
+        if (!icao || !days.length) return;
+        const key = icao + "|" + days.join(",");
+        try {
+          const res = await fetch(
+            "/api/context?icao=" + encodeURIComponent(icao) + "&days=" + encodeURIComponent(days.join(",")),
+          );
+          if (!res.ok) return;
+          const data = await res.json();
+          if (state.icao !== icao) return;
+          state.context = data;
+          state.contextKey = key;
+          renderMain();
+          syncChrome();
+        } catch (err) {
+          console.warn(err);
+        }
+      }
+
+      async function openDate(date) {
+        const data = await load(date);
+        state.dates = data.dates || [];
+        state.payload = data.payload;
+        const stations = data.payload.stations || [];
+        const hashed = decodeURIComponent((location.hash || "").replace("#", "")).toUpperCase();
+        if (!state.icao && stations.some((row) => row.icao === hashed)) state.icao = hashed;
+        if (!stations.some((row) => row.icao === state.icao)) state.icao = stations[0] && stations[0].icao;
+        state.day = null;
+        state.slotChoice = null;
+        state.context = null;
+        state.contextKey = "";
+        const url = new URL(location.href);
+        if (date) url.searchParams.set("date", date);
+        else url.searchParams.delete("date");
+        history.replaceState(null, "", url);
+        render();
+      }
+
+      function pickDate(date) {
+        if (!date || date === (state.payload.captured_at || "").slice(0, 10)) return;
+        openDate(date).catch((err) => {
+          document.getElementById("main").innerHTML = '<div class="fail">' + escapeHtml(err.message) + "</div>";
+        });
+      }
+
+      document.getElementById("dates").addEventListener("click", (event) => {
+        const theme = event.target.closest("#theme");
+        if (theme) {
+          applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+          return;
+        }
+        const button = event.target.closest("button[data-date]");
+        if (button && !button.disabled) pickDate(button.dataset.date);
+      });
+      document.getElementById("dates").addEventListener("change", (event) => {
+        if (event.target.matches("select")) pickDate(event.target.value);
+      });
+      document.getElementById("stations").addEventListener("click", (event) => {
+        const button = event.target.closest("[data-icao]");
+        if (!button) return;
+        state.icao = button.dataset.icao;
+        state.day = null;
+        state.slotChoice = null;
+        render();
+      });
+      document.getElementById("main").addEventListener("click", (event) => {
+        if (event.target.closest("a")) return;
+        const day = event.target.closest("[data-day]");
+        if (day) {
+          state.day = day.dataset.day;
+          renderMain();
+          return;
+        }
+        const slot = event.target.closest("[data-slot]");
+        if (!slot || slot.disabled) return;
+        state.slotChoice = slot.dataset.slot;
+        state.day = null;
+        renderMain();
+      });
+      window.addEventListener("resize", syncChrome);
+      setInterval(paintClocks, 15000);
+
+      openDate(qs("date")).catch((err) => {
+        document.getElementById("meta").textContent = err.message;
+        document.getElementById("main").innerHTML = '<div class="fail">' + escapeHtml(err.message) + "</div>";
+      });
+    </script>
+  </body>
+</html>

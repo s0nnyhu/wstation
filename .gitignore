@@ -48,3 +48,4 @@ next-env.d.ts
 
 # local snapshot dashboard archives (demo / live captures)
 /data/[A-Z][A-Z][A-Z][A-Z].json
+/data/meteoblue/
