@@ -72,6 +72,15 @@ STATIONS: tuple[dict[str, Any], ...] = (
     {"icao": "KMIA", "city": "Miami", "timezone": "America/New_York", "unit": "F", "lat": 25.7959, "lon": -80.287, "slug": "miami-international-airport_united-states_4164181"},
     {"icao": "KLGA", "city": "New York", "timezone": "America/New_York", "unit": "F", "lat": 40.7772, "lon": -73.8726, "slug": "laguardia-airport_united-states_5123698"},
     {"icao": "KSEA", "city": "Seattle", "timezone": "America/Los_Angeles", "unit": "F", "lat": 47.4502, "lon": -122.3088, "slug": "seattle-tacoma-international-airport_united-states_5809876"},
+    {"icao": "ZBAA", "city": "Beijing", "timezone": "Asia/Shanghai", "unit": "C", "lat": 40.0801, "lon": 116.585, "slug": "beijing-capital-international-airport_china_6301354"},
+    {"icao": "ZGGG", "city": "Guangzhou", "timezone": "Asia/Shanghai", "unit": "C", "lat": 23.3924, "lon": 113.299, "slug": "guangzhou-baiyun-international-airport_china_6301359"},
+    {"icao": "WSSS", "city": "Singapore", "timezone": "Asia/Singapore", "unit": "C", "lat": 1.35019, "lon": 103.994, "slug": "singapore-changi-airport_singapore_1880725"},
+    {"icao": "RCSS", "city": "Taipei", "timezone": "Asia/Taipei", "unit": "C", "lat": 25.0694, "lon": 121.552, "slug": "taipei-songshan-airport_taiwan_1980019"},
+    {"icao": "WMKK", "city": "Kuala Lumpur", "timezone": "Asia/Kuala_Lumpur", "unit": "C", "lat": 2.74558, "lon": 101.71, "slug": "kuala-lumpur-international-airport_malaysia_6301255"},
+    {"icao": "RKSI", "city": "Seoul", "timezone": "Asia/Seoul", "unit": "C", "lat": 37.4691, "lon": 126.451, "slug": "incheon-international-airport_south-korea_6300433"},
+    {"icao": "RKPK", "city": "Busan", "timezone": "Asia/Seoul", "unit": "C", "lat": 35.1795, "lon": 128.938, "slug": "busan-/-gimhae-international-airport_south-korea_6300424"},
+    {"icao": "KAUS", "city": "Austin", "timezone": "America/Chicago", "unit": "F", "lat": 30.18304, "lon": -97.67987, "slug": "austin-bergstrom-international-airport_united-states_4673601"},
+    {"icao": "KATL", "city": "Atlanta", "timezone": "America/New_York", "unit": "F", "lat": 33.64028, "lon": -84.42694, "slug": "hartsfield-jackson-atlanta-international-airport_united-states_4199556"},
 )
 BY_ICAO = {row["icao"]: row for row in STATIONS}
 
@@ -94,6 +103,15 @@ POLYMARKET_CITY = {
     "KMIA": "miami",
     "KLGA": "nyc",
     "KSEA": "seattle",
+    "ZBAA": "beijing",
+    "ZGGG": "guangzhou",
+    "WSSS": "singapore",
+    "RCSS": "taipei",
+    "WMKK": "kuala-lumpur",
+    "RKSI": "seoul",
+    "RKPK": "busan",
+    "KAUS": "austin",
+    "KATL": "atlanta",
 }
 POLYMARKET_MONTHS = (
     "january", "february", "march", "april", "may", "june",

@@ -1,0 +1,20 @@
+[Unit]
+Description=WStation meteoblue multimodel captures + dashboard
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__USER__
+Group=__GROUP__
+WorkingDirectory=__ROOT__
+ExecStart=__PYTHON__ __ROOT__/scripts/meteoblue_multimodel.py --loop --host 0.0.0.0 --port 5004 --out-dir __ROOT__/data/meteoblue
+Restart=always
+RestartSec=5
+TimeoutStopSec=15
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
