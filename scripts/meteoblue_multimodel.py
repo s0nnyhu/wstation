@@ -774,11 +774,9 @@ def station_context(icao: str, days: list[str]) -> dict[str, Any]:
             return cached[1]
     today = local_today(station)
     days_out: dict[str, dict[str, Any]] = {day: {} for day in wanted}
-    wunderground: dict[str, Any] | None = None
-    with ThreadPoolExecutor(max_workers=5) as pool:
+    with ThreadPoolExecutor(max_workers=4) as pool:
         jobs = {pool.submit(fetch_polymarket, icao, day): ("pm", day) for day in wanted}
         jobs[pool.submit(fetch_metar_days, station, wanted)] = ("metar", "")
-        jobs[pool.submit(fetch_wunderground, icao)] = ("wu", "")
         for future in jobs:
             kind, day = jobs[future]
             try:
@@ -787,13 +785,11 @@ def station_context(icao: str, days: list[str]) -> dict[str, Any]:
                 continue
             if kind == "pm" and isinstance(value, dict) and value.get("ok"):
                 days_out[day]["polymarket"] = value
-            elif kind == "wu" and isinstance(value, dict) and value.get("ok"):
-                wunderground = value
             elif kind == "metar" and isinstance(value, dict):
                 for metar_day, row in value.items():
                     if isinstance(row, dict) and row.get("ok") and metar_day in days_out:
                         days_out[metar_day]["metar"] = row
-    payload = {"icao": icao, "local_today": today, "days": days_out, "wunderground": wunderground}
+    payload = {"icao": icao, "local_today": today, "days": days_out}
     with _CONTEXT_LOCK:
         _CONTEXT_CACHE[cache_key] = (now, payload)
     return payload
