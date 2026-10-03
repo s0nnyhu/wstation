@@ -479,6 +479,14 @@
       const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
       const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       const MONTH_LONG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      const POLYMARKET_CITY = {
+        EHAM: "amsterdam", LFPB: "paris", EDDM: "munich", EGLC: "london", LTAC: "ankara",
+        LIMC: "milan", EFHK: "helsinki", EPWA: "warsaw", ZSPD: "shanghai", ZGSZ: "shenzhen",
+        ZHHH: "wuhan", ZUUU: "chengdu", RJTT: "tokyo", KHOU: "houston", KDAL: "dallas",
+        KMIA: "miami", KLGA: "nyc", KSEA: "seattle", ZBAA: "beijing", ZGGG: "guangzhou",
+        WSSS: "singapore", RCSS: "taipei", WMKK: "kuala-lumpur", RKSI: "seoul", RKPK: "busan",
+        KAUS: "austin", KATL: "atlanta",
+      };
 
       const state = {
         dates: [],
@@ -723,12 +731,26 @@
 
       function contextKey() {
         const station = (state.payload.stations || []).find((row) => row.icao === state.icao);
-        const days = (station && station.forecast_days) || [];
+        if (!station) return (state.icao || "") + "|";
+        const plan = slotPlan(station);
+        const days = (plan.run && plan.run.forecast_days) || station.forecast_days || [];
         return (state.icao || "") + "|" + days.join(",");
       }
 
       function resolutionUnit(station, pm) {
         return (pm && pm.unit) || station.unit || "C";
+      }
+
+      function polymarketUrl(icao, day, live) {
+        if (live) return live;
+        const city = POLYMARKET_CITY[icao];
+        const parts = String(day || "").split("-");
+        if (!city || parts.length !== 3) return "";
+        const month = Number(parts[1]);
+        const date = Number(parts[2]);
+        if (!month || month > 12 || !date) return "";
+        const slug = "highest-temperature-in-" + city + "-on-" + MONTH_LONG[month - 1].toLowerCase() + "-" + date + "-" + parts[0];
+        return "https://polymarket.com/event/" + slug;
       }
 
       function resolutionUrl(icao, unit) {
@@ -924,10 +946,11 @@
             const relation = dayRelation(day, station.timezone);
             const unit = resolutionUnit(station, pack.pm);
             const links = [];
-            if (pack.pm && pack.pm.url) {
+            const market = polymarketUrl(station.icao, day, pack.pm && pack.pm.url);
+            if (market) {
               links.push(
                 '<a class="link" href="' +
-                  escapeHtml(pack.pm.url) +
+                  escapeHtml(market) +
                   '" target="_blank" rel="noreferrer">Polymarket</a>',
               );
             }
