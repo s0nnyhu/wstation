@@ -52,6 +52,8 @@ export function HeroPanel({
   const resolutionMax = synopticMax ?? metarResolutionMax;
   const resolutionSource = synopticMax != null ? "Synoptic (NOAA feed)" : "METAR body";
 
+  const isHko = data.station.icao === "HKO";
+
   return (
     <section className="panel p-4 sm:p-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-4">
@@ -69,7 +71,7 @@ export function HeroPanel({
           </div>
           <p className="mt-1 break-words text-sm text-mute">
             {data.station.city} · {data.station.lat.toFixed(4)},{" "}
-            {data.station.lon.toFixed(4)} · airport ·{" "}
+            {data.station.lon.toFixed(4)} · {isHko ? "observatory" : "airport"} ·{" "}
             <LocalClock timezone={data.station.timezone} compact />
           </p>
           <div className="mt-2 flex flex-wrap items-center gap-2">
@@ -77,20 +79,28 @@ export function HeroPanel({
             {data.station.polymarketUrl && (
               <OutLink href={data.station.polymarketUrl}>Polymarket</OutLink>
             )}
-            {data.station.noaaUrl && (
-              <OutLink href={data.station.noaaUrl}>NOAA resolution source</OutLink>
-            )}
-            {data.wu.forecastUrl && (
-              <OutLink href={data.wu.forecastUrl}>
-                {`WU forecast ${formatTemp(data.wu.ok ? data.wu.dailyMaxC : null, unit, 1)}`}
+            {isHko ? (
+              <OutLink href="https://www.weather.gov.hk/en/cis/climat.htm">
+                HKO Daily Extract
               </OutLink>
+            ) : (
+              <>
+              {data.station.noaaUrl && (
+                <OutLink href={data.station.noaaUrl}>NOAA resolution source</OutLink>
+              )}
+              {data.wu.forecastUrl && (
+                <OutLink href={data.wu.forecastUrl}>
+                  {`WU forecast ${formatTemp(data.wu.ok ? data.wu.dailyMaxC : null, unit, 1)}`}
+                </OutLink>
+              )}
+              {data.station.wuHistoryUrl && (
+                <OutLink href={data.station.wuHistoryUrl}>WU history</OutLink>
+              )}
+              <OutLink href={data.husky.url ?? data.station.huskyUrl ?? `https://huskyweather.com/station/${data.station.icao}`}>
+                {`Husky ${formatTemp(data.husky.ok ? data.husky.dailyMaxC : null, unit, 1)}`}
+              </OutLink>
+              </>
             )}
-            {data.station.wuHistoryUrl && (
-              <OutLink href={data.station.wuHistoryUrl}>WU history</OutLink>
-            )}
-            <OutLink href={data.husky.url ?? data.station.huskyUrl ?? `https://huskyweather.com/station/${data.station.icao}`}>
-              {`Husky ${formatTemp(data.husky.ok ? data.husky.dailyMaxC : null, unit, 1)}`}
-            </OutLink>
           </div>
         </div>
         <div className="flex w-full rounded-lg border border-line bg-surface-2 p-1 sm:w-auto">

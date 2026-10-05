@@ -1,4 +1,5 @@
 import { cacheGet, cacheSet, STALE_MAX_MS } from "./cache";
+import { fetchHko } from "./hko";
 import { fetchWithBackoff } from "./http";
 import type { MetarLatest, MetarPayload, MetarStripPoint } from "./types";
 import { iconFromMetar, parseMetarSky } from "./weatherIcon";
@@ -157,6 +158,8 @@ export async function fetchMetar(
   opts: { fresh?: boolean } = {},
 ): Promise<MetarPayload> {
   void opts;
+  // Hong Kong settles on the Observatory, not an airport METAR.
+  if (icao.toUpperCase() === "HKO") return fetchHko(timezone, marketDate);
   // Always hit Aviation Weather. The previous 2-minute TTL kept serving the
   // prior METAR after the next one was already published. The stored payload
   // is only a fallback when that request fails.
