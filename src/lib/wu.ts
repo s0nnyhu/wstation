@@ -56,7 +56,7 @@ interface WuBundle {
   current: WuCurrentRaw | null;
 }
 
-function wuApiKey(): string {
+export function wuApiKey(): string {
   return process.env.WU_API_KEY?.trim() || DEFAULT_WU_KEY;
 }
 

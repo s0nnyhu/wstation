@@ -7,6 +7,7 @@ import type {
   MarketDay,
   MetarPayload,
   ModelRow,
+  PwsPayload,
   StationPayload,
   SynopticPayload,
   TempUnit,
@@ -57,6 +58,19 @@ export interface PublicWu {
   current_temp_c: number | null;
   stale: boolean;
   url?: string;
+}
+
+export interface PublicPws {
+  id: string;
+  source: string;
+  name: string | null;
+  url: string;
+  ok: boolean;
+  error?: string;
+  temp_c: number | null;
+  observed_at: string | null;
+  /** PWS minus latest METAR, °C (positive = PWS warmer). */
+  delta_vs_metar_c: number | null;
 }
 
 export interface PublicHusky {
@@ -110,6 +124,7 @@ export interface PublicStationResponse {
   husky: PublicHusky;
   metar: PublicMetar;
   synoptic: PublicSynoptic;
+  pws: PublicPws[];
 }
 
 export function parseApiDay(
@@ -202,6 +217,24 @@ function publicSynoptic(synoptic: SynopticPayload): PublicSynoptic {
   };
 }
 
+function publicPws(pws: PwsPayload, metar: MetarPayload): PublicPws[] {
+  const metarC = metar.ok ? (metar.latest?.tempC ?? null) : null;
+  return pws.stations.map((p) => ({
+    id: p.id,
+    source: p.source,
+    name: p.name,
+    url: p.url,
+    ok: p.ok,
+    ...(p.error ? { error: p.error } : {}),
+    temp_c: p.tempC,
+    observed_at: p.obsTimeIso,
+    delta_vs_metar_c:
+      p.tempC != null && metarC != null
+        ? Math.round((p.tempC - metarC) * 10) / 10
+        : null,
+  }));
+}
+
 function publicHusky(husky: HuskyPayload): PublicHusky {
   return {
     ok: husky.ok,
@@ -244,6 +277,7 @@ export function publicStationPayload(
     husky: publicHusky(data.husky),
     metar: publicMetar(data.metar),
     synoptic: publicSynoptic(data.synoptic),
+    pws: publicPws(data.pws, data.metar),
   };
 }
 

@@ -14,6 +14,7 @@ import { withBudget } from "./http";
 import { fetchHuskyConsensus, huskyFailedPayload, huskyStationUrl } from "./husky";
 import { fetchWuDailyMax, wuFailedPayload } from "./wu";
 import { fetchPolymarketBuckets, polymarketFailedPayload } from "./polymarket";
+import { fetchPws, pwsFailedPayload } from "./pws";
 import { fetchSynoptic, synopticFailedPayload } from "./synoptic";
 import { fetchModelRuns } from "./modelRuns";
 import {
@@ -131,7 +132,7 @@ export async function assembleStation(
   // render; forecast + METAR keep their own (bounded) retry budgets.
   const SECONDARY_BUDGET_MS = 8_000;
   const requestedModels = modelsForRequest(station, compareAll);
-  const [forecast, metar, wu, husky, polymarket, synoptic, runs] = await Promise.all([
+  const [forecast, metar, wu, husky, polymarket, synoptic, pws, runs] = await Promise.all([
     fetchOpenMeteoForecast(station, compareAll, opts),
     fetchMetar(station.icao, station.timezone, marketDate, opts),
     withBudget(
@@ -165,6 +166,11 @@ export async function assembleStation(
       ).catch((error) => synopticFailedPayload(station.defaultUnit, error)),
       SECONDARY_BUDGET_MS,
       (error) => synopticFailedPayload(station.defaultUnit, error),
+    ),
+    withBudget(
+      fetchPws(station.icao, opts).catch(pwsFailedPayload),
+      SECONDARY_BUDGET_MS,
+      pwsFailedPayload,
     ),
     withBudget(
       fetchModelRuns(requestedModels, station).catch(
@@ -377,6 +383,7 @@ export async function assembleStation(
     husky,
     polymarket,
     synoptic,
+    pws,
     drivers: buildDrivers(
       hourly,
       peak?.time,

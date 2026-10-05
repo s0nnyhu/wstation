@@ -154,6 +154,11 @@ function payload(): StationPayload {
       fetchedAt: "2026-09-16T09:00:00.000Z",
       stale: false,
     },
+    pws: {
+      stations: [],
+      fetchedAt: "2026-09-16T09:00:00.000Z",
+      stale: false,
+    },
     drivers: {
       modelId: "icon_seamless",
       windowLabel: "",

@@ -18,6 +18,7 @@ import { HourlyChart } from "./HourlyChart";
 import { LocalClock } from "./LocalClock";
 import { ObservationTwin } from "./ObservationTwin";
 import { ModelsTable } from "./ModelsTable";
+import { PwsPanel } from "./PwsPanel";
 import { PolymarketPanel } from "./PolymarketPanel";
 import { StationSwitcher } from "./StationSwitcher";
 import { TradeHelper } from "./TradeHelper";
@@ -460,6 +461,7 @@ export function Dashboard({
               </div>
             ))}
 
+            <PwsPanel data={view} unit={unit} />
             <HeroPanel
               data={view}
               unit={unit}

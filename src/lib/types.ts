@@ -327,6 +327,25 @@ export interface BacktestHit {
   note?: string;
 }
 
+export interface PwsReading {
+  id: string;
+  source: "awekas" | "wunderground";
+  url: string;
+  name: string | null;
+  /** Current air temperature, °C. */
+  tempC: number | null;
+  obsTimeIso: string | null;
+  ok: boolean;
+  error?: string;
+}
+
+export interface PwsPayload {
+  stations: PwsReading[];
+  fetchedAt: string;
+  stale: boolean;
+  error?: string;
+}
+
 export interface StationPayload {
   station: StationPublic;
   day: MarketDay;
@@ -338,6 +357,7 @@ export interface StationPayload {
   husky: HuskyPayload;
   polymarket: PolymarketPayload;
   synoptic: SynopticPayload;
+  pws: PwsPayload;
   drivers: DriversPayload;
   biasMeta: BiasMeta;
   backtest: BacktestHit[];
