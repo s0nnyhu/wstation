@@ -1,5 +1,6 @@
 import { pwsUrlsFor } from "@/config/pws";
 import { cacheGet, cacheSet, PWS_TTL_MS } from "./cache";
+import { fetchRow } from "./hko";
 import { fetchWithBackoff } from "./http";
 import type { PwsPayload, PwsReading } from "./types";
 import { wuApiKey } from "./wu";
@@ -104,10 +105,23 @@ async function fetchWu(url: string): Promise<Hit> {
   };
 }
 
+// ---- HKO regional portal ------------------------------------------------
+
+async function fetchHkoPortal(): Promise<Hit> {
+  const row = await fetchRow("latest_1min_temperature.csv");
+  const tempC = row.values[0];
+  return {
+    name: "Hong Kong Observatory",
+    tempC: Number.isFinite(tempC) ? tempC : null,
+    obsTimeIso: row.at,
+  };
+}
+
 // ---- Public API ---------------------------------------------------------
 
 function describe(url: string): { id: string; source: PwsReading["source"] } {
   const u = new URL(url);
+  if (u.hostname.endsWith("hko.gov.hk")) return { id: "HKO", source: "hko" };
   if (u.hostname.replace(/^www\./, "") === "wunderground.com") {
     return { id: wuPwsIdFromUrl(url), source: "wunderground" };
   }
@@ -118,7 +132,12 @@ async function fetchOne(url: string): Promise<PwsReading> {
   const { id, source } = describe(url);
   const base = { id, source, url, name: null, tempC: null, obsTimeIso: null };
   try {
-    const hit = source === "wunderground" ? await fetchWu(url) : await fetchAwekas(url);
+    const hit =
+      source === "hko"
+        ? await fetchHkoPortal()
+        : source === "wunderground"
+          ? await fetchWu(url)
+          : await fetchAwekas(url);
     return hit.tempC == null
       ? { ...base, ...hit, ok: false, error: "temperature missing" }
       : { ...base, ...hit, ok: true };

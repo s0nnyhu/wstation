@@ -24,7 +24,7 @@ function hktToIso(stamp: string): string | null {
   return Number.isNaN(date.getTime()) ? null : date.toISOString();
 }
 
-async function fetchRow(file: string): Promise<HkoRow> {
+export async function fetchRow(file: string): Promise<HkoRow> {
   const res = await fetchWithBackoff(
     `${BASE}/${file}`,
     { headers: { Accept: "text/csv", "User-Agent": USER_AGENT } },

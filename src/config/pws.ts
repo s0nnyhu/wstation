@@ -9,6 +9,7 @@ export const PWS_STATIONS: Record<string, string[]> = {
     "https://www.awekas.at/fr/instrument.php?id=44077",
     "https://www.wunderground.com/dashboard/pws/IOBERD38",
   ],
+  HKO: ["https://www.hko.gov.hk/en/wxinfo/awsgis/regional_portal.html"],
 };
 
 export function pwsUrlsFor(icao: string): string[] {

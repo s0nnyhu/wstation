@@ -329,7 +329,7 @@ export interface BacktestHit {
 
 export interface PwsReading {
   id: string;
-  source: "awekas" | "wunderground";
+  source: "awekas" | "wunderground" | "hko";
   url: string;
   name: string | null;
   /** Current air temperature, °C. */
