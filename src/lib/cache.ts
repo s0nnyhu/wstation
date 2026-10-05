@@ -10,7 +10,7 @@ export const WU_TTL_MS = 3 * 60 * 1000;
 export const HUSKY_TTL_MS = 3 * 60 * 1000;
 export const POLYMARKET_TTL_MS = 60 * 1000;
 export const SYNOPTIC_TTL_MS = 2 * 60 * 1000;
-export const PWS_TTL_MS = 45 * 1000;
+export const PWS_TTL_MS = 10 * 1000;
 export const STALE_MAX_MS = 2 * 60 * 60 * 1000;
 export const FRESH_MIN_AGE_MS = 30 * 1000;
 
