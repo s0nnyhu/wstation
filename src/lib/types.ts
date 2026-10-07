@@ -9,7 +9,7 @@ export type RegionFilter = "all" | Region;
 export type Season = "DJF" | "MAM" | "JJA" | "SON";
 export type SeasonMode = "auto" | Season;
 export type BiasGrain = "season" | "month";
-export type BiasSource = "season" | "annual" | "month" | "none";
+export type BiasSource = "live" | "season" | "annual" | "month" | "none";
 export type ModelRole = "primary" | "short-range" | "backup" | "compare" | "extra";
 
 export interface BiasResolution {
@@ -22,6 +22,21 @@ export interface BiasResolution {
   n: number;
   mae?: number;
   identicalToSeamless?: boolean;
+  /** source "live": consultation lead (J0_08h … J1) and the native model whose bias is used. */
+  lead?: string;
+  nativeModel?: string;
+  method?: string;
+}
+
+export interface LiveBiasInfo {
+  /** true when the live file was read for this station (it may still lack a given model). */
+  ok: boolean;
+  url: string;
+  generatedUtc?: string;
+  error?: string;
+  lead?: string;
+  /** Number of model rows corrected with the live bias. */
+  applied: number;
 }
 
 export interface BiasMeta {
@@ -360,6 +375,10 @@ export interface StationPayload {
   pws: PwsPayload;
   drivers: DriversPayload;
   biasMeta: BiasMeta;
+  /** Live lead-aware corrections from the weather-analysis VPS (EDDM / LFPB / EGLC / EHAM only). */
+  liveBias?: LiveBiasInfo | null;
+  /** Calibrated per-°C probabilities for the market day from the same pipeline, when available. */
+  liveForecast?: import("./liveBias").LiveForecast | null;
   backtest: BacktestHit[];
   compareAll: boolean;
   seasonMode: SeasonMode;

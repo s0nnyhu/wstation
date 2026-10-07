@@ -48,6 +48,19 @@ export function ModelsTable({
             {data.seasonMode !== "auto" ? ` (forced ${data.seasonMode})` : " (auto from market day)"}.
             MAE is the mean absolute error of the <em>raw</em> forecast over the same sample — an upper bound on the corrected error.
             Run is the last Open-Meteo initialisation (UTC) for the nest at this lat/lon.
+            {data.liveBias?.ok && data.liveBias.applied > 0 && (
+              <>
+                {" "}
+                <span className="text-cyan">LIVE</span> rows ({data.liveBias.applied}) use the
+                lead-aware bias published by the weather-analysis pipeline (lead {data.liveBias.lead},
+                generated {data.liveBias.generatedUtc?.replace("T", " ").slice(0, 16)} UTC): walk-forward
+                mean of past errors of the run actually available at that consultation time, vs the METAR
+                daily max. Other rows use the seasonal table.
+              </>
+            )}
+            {data.liveBias && !data.liveBias.ok && (
+              <span className="text-warn"> {data.liveBias.error} — seasonal table used.</span>
+            )}
           </p>
         </div>
         <div className="flex flex-wrap gap-2 text-[11px]">
@@ -144,7 +157,7 @@ export function ModelsTable({
                   </td>
                   <td className="px-3 py-2.5">
                     <span className="rounded bg-surface-2 px-1.5 py-0.5 font-mono text-[11px] text-cyan">
-                      {row.bias.month ?? row.bias.season}
+                      {row.bias.source === "live" ? row.bias.lead : (row.bias.month ?? row.bias.season)}
                     </span>
                   </td>
                   <td className="px-3 py-2.5 font-mono tabular text-mute">
@@ -158,8 +171,15 @@ export function ModelsTable({
                         className={`rounded px-1 py-0.5 text-[10px] uppercase ${
                           row.bias.source === "none"
                             ? "bg-warn/15 text-warn"
-                            : "bg-surface-2 text-mute"
+                            : row.bias.source === "live"
+                              ? "bg-cyan/15 text-cyan"
+                              : "bg-surface-2 text-mute"
                         }`}
+                        title={
+                          row.bias.source === "live"
+                            ? `${row.bias.nativeModel} · ${row.bias.method ?? ""} mean of past errors`
+                            : undefined
+                        }
                       >
                         {row.bias.source}
                       </span>

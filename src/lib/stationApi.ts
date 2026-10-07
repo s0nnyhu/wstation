@@ -25,6 +25,9 @@ export interface PublicModelBias {
   bias_c: number | null;
   n: number;
   mae?: number;
+  /** source "live": consultation lead and native model of the live correction. */
+  lead?: string;
+  native_model?: string;
 }
 
 export interface PublicModelRow {
@@ -151,6 +154,8 @@ function publicBias(bias: BiasResolution): PublicModelBias {
     bias_c: bias.source === "none" ? null : bias.biasC,
     n: bias.n,
     ...(bias.mae != null ? { mae: bias.mae } : {}),
+    ...(bias.lead ? { lead: bias.lead } : {}),
+    ...(bias.nativeModel ? { native_model: bias.nativeModel } : {}),
   };
 }
 

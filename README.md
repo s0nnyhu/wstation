@@ -107,6 +107,25 @@ Forecasts are cached ~12 minutes, METARs ~2 minutes, Polymarket ~1 minute and Sy
 - `data/bias.json` — older annual table, kept for reference only (not used for correction)
 - `data/backtest_summary.json` — optional hit-rates. **Leave empty unless you have real numbers.** The UI will not invent accuracy percentages.
 
+### Live lead-aware bias (EDDM, LFPB, EGLC, EHAM)
+
+For these four stations the bias comes first from `biais.json`, published three times a day by the
+[weather-analysis](http://34.245.85.250:5006) pipeline (`TMAX_LIVE_BIAS_URL` overrides the URL):
+
+- **Lead-aware**: today uses the correction for the run actually available at the last of 08:00 / 10:30 / 13:30
+  local that has passed; tomorrow uses J1. The static table above comes from Open-Meteo historical-forecast,
+  which stitches the newest runs and understates the bias of what you see in the morning (by ~0.3 °C on average,
+  up to ~0.9 °C, in the 2025-26 backtest).
+- **Walk-forward**: mean of past errors (forecast − METAR daily max) up to the day before, cumulative for J0 / J2
+  and 30-day rolling for J1, refreshed daily.
+- Seamless ids map to the native run they contain on day 0–1 (`icon_seamless` → ICON-D2, then ICON-EU;
+  `ukmo_seamless` → UKV, then UKMO global; `meteofrance_seamless` → AROME HD, then ARPEGE; `knmi_seamless` →
+  HARMONIE NL; `gem_seamless` / `gfs_seamless` → global runs). Rows without a live entry keep the seasonal table.
+- The Polymarket panel then shows the pipeline's **calibrated** per-°C probabilities (out-of-sample backtest)
+  instead of the normal approximation.
+- Forcing a season (`?season=`) or the monthly grain disables the live bias. If the file is unreachable or older
+  than 36 h, the seasonal table is used and the Models panel says so.
+
 Correction: `corrected = raw − bias`. Europe biases are °C, America °F. Season follows the market local date (DJF/MAM/JJA/SON). Force a season with `?season=JJA`; monthly grain with `?grain=month`.
 
 ## Open-Meteo attribution & licence

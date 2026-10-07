@@ -8,6 +8,7 @@ import {
   convertTemp,
   sigmaFromMae,
 } from "@/lib/units";
+import { bucketProbabilitiesFromLive } from "@/lib/liveBias";
 import { OutLink } from "./OutLink";
 
 function cents(price: number | null): string {
@@ -67,8 +68,12 @@ export function PolymarketPanel({
         : primary.bias.unit === "C"
           ? convertDelta(mae, "F")
           : (mae * 5) / 9;
-  const probs =
-    targetMarket != null && maeMarket != null
+  // Calibrated per-°C probabilities from the weather-analysis pipeline (°C markets
+  // only) take precedence over the normal approximation.
+  const live = data.liveForecast && marketUnit === "C" ? data.liveForecast : null;
+  const probs = live?.probs
+    ? bucketProbabilitiesFromLive(pm.buckets, live.probs)
+    : targetMarket != null && maeMarket != null
       ? bucketProbabilities(pm.buckets, targetMarket, sigmaFromMae(maeMarket))
       : null;
 
@@ -134,7 +139,11 @@ export function PolymarketPanel({
                             ? "text-bad"
                             : "text-mute"
                       }`}
-                      title="Approximate model probability (normal, σ from raw MAE)"
+                      title={
+                        live
+                          ? `Calibrated probability (weather-analysis, lead ${live.lead})`
+                          : "Approximate model probability (normal, σ from raw MAE)"
+                      }
                     >
                       ≈{pct(p)}
                     </div>
@@ -153,9 +162,11 @@ export function PolymarketPanel({
             rounded to the market integer; cons. = family consensus; res. high = today&apos;s
             resolution-style running high (
             {synopticMax != null ? "Synoptic feed" : "METAR body integers, lower bound"}).
-            {probs
-              ? ` ≈% is an approximate model probability: Normal(target, σ = 1.25 × raw MAE ${maeMarket?.toFixed(2)}°${marketUnit}) — not calibrated on Polymarket outcomes, and the raw MAE overstates the corrected error. Green / red when it differs from the price by ≥10 pts.`
-              : " No MAE for the primary in this season — no model probability shown."}
+            {live
+              ? ` ≈% is the calibrated probability of the METAR daily max from the weather-analysis pipeline (bias-corrected multi-model blend ${live.blend?.toFixed(1)}°C, NGR σ ${live.sd?.toFixed(2)}°C, lead ${live.lead}${live.m_obs != null ? `, buckets below the ${live.m_obs}°C METAR high already excluded` : ""}). Backtested out of sample, but not on Polymarket outcomes. Green / red when it differs from the price by ≥10 pts.`
+              : probs
+                ? ` ≈% is an approximate model probability: Normal(target, σ = 1.25 × raw MAE ${maeMarket?.toFixed(2)}°${marketUnit}) — not calibrated on Polymarket outcomes, and the raw MAE overstates the corrected error. Green / red when it differs from the price by ≥10 pts.`
+                : " No MAE for the primary in this season — no model probability shown."}
           </p>
         </>
       )}

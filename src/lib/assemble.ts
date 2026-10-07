@@ -18,6 +18,15 @@ import { fetchPws, pwsFailedPayload } from "./pws";
 import { fetchSynoptic, synopticFailedPayload } from "./synoptic";
 import { fetchModelRuns } from "./modelRuns";
 import {
+  fetchLiveBias,
+  isLiveBiasStation,
+  leadFor,
+  liveBiasFailed,
+  liveBiasFor,
+  liveForecastFor,
+  type LiveBiasPayload,
+} from "./liveBias";
+import {
   fetchOpenMeteoForecast,
   modelsForRequest,
   numericSeries,
@@ -132,7 +141,11 @@ export async function assembleStation(
   // render; forecast + METAR keep their own (bounded) retry budgets.
   const SECONDARY_BUDGET_MS = 8_000;
   const requestedModels = modelsForRequest(station, compareAll);
-  const [forecast, metar, wu, husky, polymarket, synoptic, pws, runs] = await Promise.all([
+  // Live lead-aware bias only when the user did not force a season / month grain.
+  const useLive =
+    isLiveBiasStation(station.icao) && seasonMode === "auto" && biasGrain === "season";
+  const liveLead = leadFor(day, local.iso);
+  const [forecast, metar, wu, husky, polymarket, synoptic, pws, runs, live] = await Promise.all([
     fetchOpenMeteoForecast(station, compareAll, opts),
     fetchMetar(station.icao, station.timezone, marketDate, opts),
     withBudget(
@@ -179,6 +192,9 @@ export async function assembleStation(
       4_000,
       () => new Map<string, ModelRun>(),
     ),
+    useLive
+      ? withBudget(fetchLiveBias(opts), 5_000, liveBiasFailed)
+      : Promise.resolve<LiveBiasPayload | null>(null),
   ]);
 
   const modelCount = forecast.models.length;
@@ -199,13 +215,28 @@ export async function assembleStation(
     const rawMinC =
       (dayIndex >= 0 ? dailyMins[dayIndex] ?? null : null) ??
       minOnDate(hourlyTimes, hourlyTemps, marketDate);
-    const bias = getBias({
+    const staticBias = getBias({
       icao: station.icao,
       model: id,
       dateLocal: marketDate,
       seasonMode,
       grain: biasGrain,
     });
+    const liveHit = live ? liveBiasFor(live, station.icao, marketDate, liveLead, id) : null;
+    // Static MAE is kept for the approximate-probability fallback.
+    const bias = liveHit
+      ? {
+          ...staticBias,
+          source: "live" as const,
+          unit: "C" as const,
+          biasNative: liveHit.biasC,
+          biasC: liveHit.biasC,
+          n: liveHit.n,
+          lead: liveHit.lead,
+          nativeModel: liveHit.nativeModel,
+          method: liveHit.method,
+        }
+      : staticBias;
     const correctedMaxC =
       rawMaxC == null ? null : applyBias(rawMaxC, bias.biasC);
     const note = biasNote(id, station.icao, bias.source, bias.identicalToSeamless);
@@ -392,6 +423,17 @@ export async function assembleStation(
       station.primary,
     ),
     biasMeta: SEASONAL_BIAS_META,
+    liveBias: live
+      ? {
+          ok: live.ok,
+          url: live.url,
+          generatedUtc: live.generatedUtc,
+          error: live.error,
+          lead: liveLead,
+          applied: rows.filter((r) => r.bias.source === "live").length,
+        }
+      : null,
+    liveForecast: live ? liveForecastFor(live, station.icao, marketDate) : null,
     backtest: backtestFor(station.icao),
     compareAll,
     seasonMode,
