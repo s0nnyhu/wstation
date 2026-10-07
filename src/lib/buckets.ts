@@ -63,12 +63,7 @@ export function suggestBuckets(
   };
 }
 
-export function h6TargetC(data: StationPayload): number | null {
-  const h6Id =
-    data.station.h6Model ?? data.station.shortRange ?? data.forecast.primaryId;
-  const h6 = data.forecast.models.find((m) => m.id === h6Id);
-  const primary = data.forecast.models.find(
-    (m) => m.id === data.forecast.primaryId,
-  );
-  return h6?.correctedMaxC ?? primary?.correctedMaxC ?? primary?.rawMaxC ?? null;
+/** Value the bucket suggestion is centred on: the calibrated blend, else the raw median. */
+export function targetC(data: StationPayload): number | null {
+  return data.forecast.headlineC;
 }

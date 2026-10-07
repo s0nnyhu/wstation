@@ -1,5 +1,5 @@
 import { formatTemp } from "./units";
-import { h6TargetC, suggestBuckets } from "./buckets";
+import { suggestBuckets, targetC } from "./buckets";
 import type {
   ModelRow,
   PolymarketBucket,
@@ -46,17 +46,29 @@ function formatFavorite(bucket: PolymarketBucket | null): string {
 }
 
 function formatModelLine(row: ModelRow, unit: TempUnit): string | null {
-  if (row.role !== "primary" && row.role !== "backup") return null;
   const run = row.run?.initZ ? ` ${row.run.initZ}` : "";
-  return `${row.label} (${row.role}) ${formatTemp(row.correctedMaxC, unit, 1)}${run}`;
+  if (row.role === "blend") {
+    return `${row.label} ${formatTemp(row.correctedMaxC, unit, 1)} corr${run}`;
+  }
+  if (row.role !== "primary" && row.role !== "backup") return null;
+  return `${row.label} (${row.role}) ${formatTemp(row.rawMaxC, unit, 1)} raw${run}`;
 }
 
-function formatH6Line(data: StationPayload): string {
-  const buckets = suggestBuckets(data, h6TargetC(data));
-  if (!buckets.items.length) return "H-6 —";
+function formatHeadline(data: StationPayload, unit: TempUnit): string {
+  const e = data.forecast.ensemble;
+  if (e?.ok && e.kTop != null && e.pTop != null) {
+    const range = e.range80 ? ` · 80% ${e.range80.lo}–${e.range80.hi}°C` : "";
+    return `Blend ${formatTemp(e.blendC ?? null, unit, 1)} · most likely ${e.kTop}°C (${Math.round(e.pTop * 100)}%)${range} · ${e.lead}`;
+  }
+  return `Raw median ${formatTemp(data.forecast.headlineC, unit, 1)} (no calibrated correction)`;
+}
+
+function formatBucketLine(data: StationPayload): string {
+  const buckets = suggestBuckets(data, targetC(data));
+  if (!buckets.items.length) return "Buckets —";
   const labels = buckets.items.map((b) => b.label).join(" · ");
-  if (buckets.resolvedInt == null) return `H-6 ${labels}`;
-  return `H-6 ${buckets.resolvedInt}°${buckets.marketUnit} (${labels})`;
+  if (buckets.resolvedInt == null) return `Buckets ${labels}`;
+  return `Buckets ${buckets.resolvedInt}°${buckets.marketUnit} (${labels})`;
 }
 
 export function formatStationClipboard(
@@ -81,8 +93,9 @@ export function formatStationClipboard(
       unit,
       1,
     )}`,
+    formatHeadline(data, unit),
     ...models,
-    formatH6Line(data),
+    formatBucketLine(data),
     `Favorite ${formatFavorite(favorite)}`,
   ].join("\n");
 }

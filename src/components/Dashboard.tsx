@@ -2,15 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { getStation } from "@/config/stations";
-import { parseBiasGrain, parseSeasonMode } from "@/lib/bias";
-import type {
-  BiasGrain,
-  MarketDay,
-  RegionFilter,
-  SeasonMode,
-  StationPayload,
-  TempUnit,
-} from "@/lib/types";
+import type { MarketDay, RegionFilter, StationPayload, TempUnit } from "@/lib/types";
 import { Disclaimer } from "./Disclaimer";
 import { DriversPanel } from "./DriversPanel";
 import { HeroPanel } from "./HeroPanel";
@@ -27,8 +19,6 @@ type NavTarget = {
   icao: string;
   day: MarketDay;
   compareAll: boolean;
-  seasonMode: SeasonMode;
-  biasGrain: BiasGrain;
 };
 
 type CacheEntry = { payload: StationPayload; at: number };
@@ -36,7 +26,7 @@ type CacheEntry = { payload: StationPayload; at: number };
 const CLIENT_FRESH_MS = 30_000;
 
 function navKey(t: NavTarget): string {
-  return `${t.icao}:${t.day}:${t.compareAll ? "1" : "0"}:${t.seasonMode}:${t.biasGrain}`;
+  return `${t.icao}:${t.day}:${t.compareAll ? "1" : "0"}`;
 }
 
 function navFromPayload(data: StationPayload): NavTarget {
@@ -44,8 +34,6 @@ function navFromPayload(data: StationPayload): NavTarget {
     icao: data.station.icao,
     day: data.day,
     compareAll: data.compareAll,
-    seasonMode: data.seasonMode,
-    biasGrain: data.biasGrain,
   };
 }
 
@@ -60,7 +48,6 @@ export function Dashboard({
   const [scope, setScope] = useState(stationKey);
   const [live, setLive] = useState<StationPayload | null>(null);
   const [unit, setUnit] = useState<TempUnit>(data.station.defaultUnit);
-  const [applyCorrection, setApplyCorrection] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [regionFilter, setRegionFilter] = useState<RegionFilter>(initialRegionFilter);
@@ -81,7 +68,6 @@ export function Dashboard({
     setScope(stationKey);
     setLive(null);
     setUnit(data.station.defaultUnit);
-    setApplyCorrection(true);
     setError(null);
     setLastRefresh(null);
     setPending(null);
@@ -102,7 +88,6 @@ export function Dashboard({
     (payload: StationPayload, resetUnit?: boolean) => {
       if (resetUnit) {
         setUnit(payload.station.defaultUnit);
-        setApplyCorrection(true);
       }
       cacheRef.current.set(navKey(navFromPayload(payload)), {
         payload,
@@ -142,8 +127,6 @@ export function Dashboard({
           const qs = new URLSearchParams({
             day: opts.day,
             compareAll: opts.compareAll ? "1" : "0",
-            season: opts.seasonMode,
-            grain: opts.biasGrain,
           });
           if (opts.fresh) qs.set("fresh", "1");
           const res = await fetch(`/api/station/${opts.icao}?${qs}`, {
@@ -190,7 +173,6 @@ export function Dashboard({
       if (target.resetUnit) {
         const station = getStation(target.icao);
         if (station) setUnit(station.defaultUnit);
-        setApplyCorrection(true);
       }
 
       const hit = cacheRef.current.get(key);
@@ -211,8 +193,6 @@ export function Dashboard({
   function hrefFor(opts: NavTarget): string {
     const params = new URLSearchParams({ s: opts.icao, d: opts.day });
     if (opts.compareAll) params.set("all", "1");
-    if (opts.seasonMode !== "auto") params.set("season", opts.seasonMode);
-    if (opts.biasGrain === "month") params.set("grain", "month");
     return `/?${params.toString()}`;
   }
 
@@ -220,15 +200,11 @@ export function Dashboard({
     icao?: string;
     day?: MarketDay;
     compareAll?: boolean;
-    seasonMode?: SeasonMode;
-    biasGrain?: BiasGrain;
   }) {
     const target: NavTarget = {
       icao: next.icao ?? nav.icao,
       day: next.day ?? nav.day,
       compareAll: next.compareAll ?? nav.compareAll,
-      seasonMode: next.seasonMode ?? nav.seasonMode,
-      biasGrain: next.biasGrain ?? nav.biasGrain,
     };
     const resetUnit = next.icao != null && next.icao !== view.station.icao;
     window.history.pushState(null, "", hrefFor(target));
@@ -285,8 +261,6 @@ export function Dashboard({
         icao: getStation(sp.get("s") ?? "")?.icao ?? current.icao,
         day: sp.get("d") === "tomorrow" ? "tomorrow" : "today",
         compareAll: sp.get("all") === "1" || sp.get("all") === "true",
-        seasonMode: parseSeasonMode(sp.get("season")),
-        biasGrain: parseBiasGrain(sp.get("grain")),
       };
       showTarget({
         ...target,
@@ -298,9 +272,7 @@ export function Dashboard({
   }, [showTarget]);
 
   const pendingStation = getStation(nav.icao);
-  const noBiasModels = view.forecast.models
-    .filter((m) => m.bias.source === "none" && (m.role === "primary" || m.role === "short-range" || m.role === "backup"))
-    .map((m) => m.id);
+  const ensembleError = view.forecast.ensemble?.error;
   const warnings = [
     ...view.station.warnings,
     ...(view.forecast.stale && view.forecast.staleReason
@@ -308,9 +280,7 @@ export function Dashboard({
       : []),
     ...(view.metar.stale && view.metar.error ? [view.metar.error] : []),
     ...(view.polymarket.stale && view.polymarket.error ? [view.polymarket.error] : []),
-    ...(noBiasModels.length
-      ? [`no bias sample: ${noBiasModels.join(", ")}`]
-      : []),
+    ...(ensembleError ? [ensembleError] : []),
   ];
 
   return (
@@ -358,23 +328,13 @@ export function Dashboard({
                 on={unit === "F"}
                 onClick={() => setUnit((u) => (u === "C" ? "F" : "C"))}
               />
-              <Toggle
-                label={applyCorrection ? "Bias on" : "Bias off"}
-                on={applyCorrection}
-                onClick={() => setApplyCorrection((v) => !v)}
-              />
-              <Toggle
-                label={nav.compareAll ? "Compare all" : "Default models"}
-                on={nav.compareAll}
-                onClick={() => go({ compareAll: !nav.compareAll })}
-              />
-              <Toggle
-                label={nav.biasGrain === "month" ? "Monthly" : "Seasonal"}
-                on={nav.biasGrain === "month"}
-                onClick={() =>
-                  go({ biasGrain: nav.biasGrain === "month" ? "season" : "month" })
-                }
-              />
+              {!view.station.ensemble && (
+                <Toggle
+                  label={nav.compareAll ? "Compare all" : "Default models"}
+                  on={nav.compareAll}
+                  onClick={() => go({ compareAll: !nav.compareAll })}
+                />
+              )}
               <button
                 type="button"
                 onClick={() => void refresh()}
@@ -397,22 +357,6 @@ export function Dashboard({
                   })}
                 </span>
               )}
-            </div>
-            <div className="scroll-pad -mx-3 flex gap-1 overflow-x-auto px-3 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
-              {(["auto", "DJF", "MAM", "JJA", "SON"] as const).map((mode) => (
-                <button
-                  key={mode}
-                  type="button"
-                  onClick={() => go({ seasonMode: mode })}
-                  className={`min-h-9 shrink-0 rounded-lg border px-3 py-1.5 text-xs ${
-                    nav.seasonMode === mode
-                      ? "border-cyan/40 bg-cyan/10 text-cyan"
-                      : "border-line bg-surface-2 text-mute"
-                  }`}
-                >
-                  {mode === "auto" ? `Auto (${view.forecast.season})` : mode}
-                </button>
-              ))}
             </div>
             {nav.icao === "EGLC" && (
               <span className="block text-[11px] text-mute">
@@ -465,28 +409,19 @@ export function Dashboard({
             <HeroPanel
               data={view}
               unit={unit}
-              applyCorrection={applyCorrection}
               day={nav.day}
               onDay={(day) => go({ day })}
             />
             <ObservationTwin data={view} unit={unit} />
             <DriversPanel data={view} />
-            <ModelsTable
-              data={view}
-              unit={unit}
-              applyCorrection={applyCorrection}
-            />
+            <ModelsTable data={view} unit={unit} />
             <HourlyChart
               key={`${view.station.icao}-${view.day}`}
               data={view}
               unit={unit}
             />
-            <TradeHelper
-              data={view}
-              unit={unit}
-              applyCorrection={applyCorrection}
-            />
-            <PolymarketPanel data={view} applyCorrection={applyCorrection} />
+            <TradeHelper data={view} unit={unit} />
+            <PolymarketPanel data={view} />
           </div>
         </main>
       </div>

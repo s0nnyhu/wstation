@@ -1,6 +1,7 @@
 "use client";
 
 import { REGION_LABEL } from "@/config/stations";
+import { LEAD_LABEL } from "@/lib/ensemble";
 import type { MarketDay, StationPayload, TempUnit } from "@/lib/types";
 import { convertTemp, formatTemp } from "@/lib/units";
 import { CopySnapshotButton } from "./CopySnapshotButton";
@@ -15,32 +16,19 @@ function formatPeak(time: string | undefined): string {
 export function HeroPanel({
   data,
   unit,
-  applyCorrection,
   day,
   onDay,
 }: {
   data: StationPayload;
   unit: TempUnit;
-  applyCorrection: boolean;
   day: MarketDay;
   onDay: (day: MarketDay) => void;
 }) {
-  const primary = data.forecast.models.find(
-    (m) => m.id === data.forecast.primaryId,
-  );
-  const heroC = applyCorrection
-    ? (primary?.correctedMaxC ?? primary?.rawMaxC ?? null)
-    : (primary?.rawMaxC ?? null);
-  const otherC = applyCorrection
-    ? (primary?.rawMaxC ?? null)
-    : (primary?.correctedMaxC ?? null);
-  const spread = applyCorrection
-    ? data.forecast.spreadCorrectedC
-    : data.forecast.spreadRawC;
-  const consensusC = applyCorrection
-    ? data.forecast.consensusCorrectedC
-    : data.forecast.consensusRawC;
+  const ens = data.forecast.ensemble;
+  const calibrated = !!ens?.ok;
+  const spread = data.forecast.spreadC;
   const availableCount = data.forecast.models.filter((m) => m.available).length;
+  const memberCount = ens?.selected?.length ?? 0;
 
   // Resolution-style running high in the market unit (NOAA rounds integers).
   const marketUnit: TempUnit = data.polymarket.unit ?? data.station.defaultUnit;
@@ -123,42 +111,51 @@ export function HeroPanel({
 
       <div className="mt-5 grid gap-5 lg:grid-cols-[1.2fr_1fr]">
         <div>
-          <div className="text-[11px] uppercase tracking-[0.16em] text-mute">
-            {applyCorrection
-              ? "Bias-corrected primary high"
-              : "Raw primary high"}
-          </div>
-          <div className="mt-1 flex items-end gap-3">
-            <div className="font-mono text-5xl leading-none tabular text-amber sm:text-6xl lg:text-7xl">
-              {formatTemp(heroC, unit, 1)}
-            </div>
-          </div>
-          <div className="mt-2 text-sm break-words text-mute">
-            {applyCorrection ? "Raw" : "Corrected"}{" "}
-            {formatTemp(otherC, unit, 1)} ·{" "}
-            {primary?.label ?? data.forecast.primaryId}
-            {primary?.bias && (
-              <span>
-                {" "}
-                · {primary.bias.season}
-                {primary.bias.source === "none"
-                  ? " · no bias sample"
-                  : ` · ${primary.bias.biasNative! > 0 ? "+" : ""}${primary.bias.biasNative!.toFixed(2)}°${primary.bias.unit} (${primary.bias.source}, n=${primary.bias.n})`}
-              </span>
-            )}
-          </div>
-          <div className="mt-3 text-sm">
-            Consensus (median, one vote per model family){" "}
-            <span className="font-mono tabular text-ink">
-              {formatTemp(consensusC, unit, 1)}
-            </span>
-            <span className="text-mute">{applyCorrection ? " corrected" : " raw"}</span>
-            {data.forecast.consensusModelIds.length > 0 && (
-              <div className="mt-0.5 break-words font-mono text-[11px] text-mute">
-                {data.forecast.consensusModelIds.join(" · ")}
+          {calibrated && ens ? (
+            <>
+              <div className="text-[11px] uppercase tracking-[0.16em] text-mute">
+                Most likely METAR high · calibrated ensemble
               </div>
-            )}
-          </div>
+              <div className="mt-1 flex flex-wrap items-end gap-3">
+                <div className="font-mono text-5xl leading-none tabular text-amber sm:text-6xl lg:text-7xl">
+                  {unit === "C" ? `${ens.kTop}°C` : formatTemp(ens.kTop ?? null, unit, 0)}
+                </div>
+                <div className="pb-1 font-mono text-xl tabular text-ink">
+                  {ens.pTop != null ? `${Math.round(ens.pTop * 100)}%` : ""}
+                </div>
+              </div>
+              <div className="mt-2 text-sm break-words text-mute">
+                Blend {formatTemp(ens.blendC ?? null, unit, 1)} corrected ({memberCount} models) · raw{" "}
+                {formatTemp(ens.blendRawC ?? null, unit, 1)}
+                {ens.range80 ? ` · 80% range ${ens.range80.lo}–${ens.range80.hi}°C` : ""}
+                {ens.truncatedAt != null ? ` · below ${ens.truncatedAt}°C excluded (METAR high)` : ""}
+              </div>
+              <div className="mt-2 text-[11px] break-words text-mute">
+                {LEAD_LABEL[ens.lead]} · {ens.correctionMethod} bias · {ens.blendMethod}
+                {ens.recipeDate && ens.recipeDate !== data.marketDate ? ` · recipe of ${ens.recipeDate}` : ""}
+                {ens.fittedThrough ? ` · fitted through ${ens.fittedThrough}` : ""}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="text-[11px] uppercase tracking-[0.16em] text-mute">
+                Raw model median · no calibrated correction
+              </div>
+              <div className="mt-1 font-mono text-5xl leading-none tabular text-ink sm:text-6xl lg:text-7xl">
+                {formatTemp(data.forecast.headlineC, unit, 1)}
+              </div>
+              <div className="mt-2 text-sm break-words text-mute">
+                {data.station.ensemble
+                  ? (ens?.error ?? "Calibrated ensemble unavailable")
+                  : "One vote per model family. This station has no calibrated ensemble: raw forecasts, uncorrected."}
+              </div>
+              {data.forecast.consensusModelIds.length > 0 && (
+                <div className="mt-1 break-words font-mono text-[11px] text-mute">
+                  {data.forecast.consensusModelIds.join(" · ")}
+                </div>
+              )}
+            </>
+          )}
         </div>
 
         <div className="grid grid-cols-2 gap-2 text-sm sm:gap-3">
@@ -175,9 +172,9 @@ export function HeroPanel({
                 : "—"
             }
             hint={
-              applyCorrection
-                ? `${data.forecast.spreadCorrectedCount >= 2 ? data.forecast.spreadCorrectedCount : availableCount} of ${availableCount} models bias-corrected`
-                : `${availableCount} models`
+              calibrated
+                ? `corrected, ${data.forecast.models.filter((m) => m.status === "selected" || m.status === "eligible").length} models${ens?.spreadC != null ? ` · σ ${ens.spreadC.toFixed(2)}°C` : ""}`
+                : `raw, ${availableCount} models`
             }
           />
           <Stat

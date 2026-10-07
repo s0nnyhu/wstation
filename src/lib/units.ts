@@ -83,39 +83,10 @@ export function normalCdf(x: number): number {
   return 0.5 * (1 + sign * erf);
 }
 
-/** σ of a normal distribution with the given mean absolute error. */
-export function sigmaFromMae(mae: number): number {
-  return mae * Math.sqrt(Math.PI / 2);
-}
-
-/**
- * Approximate probability that the resolved integer lands in each bucket,
- * assuming resolved ~ Normal(mu, sigma) in the market unit. Integer bucket
- * [lo, hi] is treated as the continuous interval [lo − 0.5, hi + 0.5].
- * Returns null when sigma is unusable.
- */
-export function bucketProbabilities(
-  buckets: Array<{ lo: number | null; hi: number | null }>,
-  mu: number,
-  sigma: number,
-): number[] | null {
-  if (!Number.isFinite(mu) || !Number.isFinite(sigma) || sigma <= 0) return null;
-  return buckets.map((b) => {
-    const upper = b.hi == null ? 1 : normalCdf((b.hi + 0.5 - mu) / sigma);
-    const lower = b.lo == null ? 0 : normalCdf((b.lo - 0.5 - mu) / sigma);
-    return Math.max(0, upper - lower);
-  });
-}
-
 export function formatBucketRange(range: BucketRange, unit: TempUnit): string {
   return range.lo === range.hi
     ? `${range.lo}°${unit}`
     : `${range.lo}-${range.hi}°${unit}`;
-}
-
-export function applyBias(rawC: number, biasC: number | null | undefined): number {
-  if (biasC == null) return rawC;
-  return rawC - biasC;
 }
 
 export function median(values: number[]): number | null {

@@ -1,6 +1,7 @@
 "use client";
 
 import type { ModelRow, StationPayload, TempUnit } from "@/lib/types";
+import type { MemberStatus } from "@/lib/ensemble";
 import { zonedHhMm } from "@/lib/time";
 import { agreementBand, convertDelta, formatTemp } from "@/lib/units";
 
@@ -10,6 +11,17 @@ const ROLE_LABEL: Record<string, string> = {
   backup: "BACKUP",
   extra: "EXTRA",
   compare: "COMPARE",
+  blend: "BLEND",
+  ensemble: "—",
+};
+
+const STATUS_LABEL: Record<MemberStatus, string> = {
+  selected: "in blend",
+  eligible: "not in top-k",
+  redundant: "redundant with a same-family model",
+  "no-skill-yet": "too little history to rank",
+  "no-correction": "no correction published",
+  missing: "no forecast for this day",
 };
 
 function bandClass(band: ReturnType<typeof agreementBand>): string {
@@ -19,52 +31,41 @@ function bandClass(band: ReturnType<typeof agreementBand>): string {
   return "text-mute";
 }
 
-function rowBg(row: ModelRow): string {
-  if (row.role === "primary") return "bg-cyan/8";
-  return "";
+function signed(v: number, unit: TempUnit, digits = 2): string {
+  const d = convertDelta(v, unit);
+  return `${d > 0 ? "+" : ""}${d.toFixed(digits)}°${unit}`;
 }
 
-export function ModelsTable({
-  data,
-  unit,
-  applyCorrection,
-}: {
-  data: StationPayload;
-  unit: TempUnit;
-  applyCorrection: boolean;
-}) {
-  const unitDelta = unit === "F" ? "°F" : "°C";
+export function ModelsTable({ data, unit }: { data: StationPayload; unit: TempUnit }) {
+  const ensemble = data.station.ensemble;
+  const ens = data.forecast.ensemble;
+  const headlineLabel = data.forecast.headlineKind === "blend" ? "blend" : "median";
 
   return (
     <section className="panel overflow-hidden">
       <div className="flex flex-wrap items-end justify-between gap-3 px-4 pt-4 sm:px-5 sm:pt-5">
         <div className="min-w-0">
-          <h2 className="text-sm font-medium uppercase tracking-[0.16em] text-mute">
-            Models
-          </h2>
-          <p className="mt-1 text-xs text-mute">
-            {data.biasMeta.source} · {data.biasMeta.sample} · as of {data.biasMeta.asOf}.{" "}
-            {data.biasMeta.definition} Active season {data.forecast.season}
-            {data.seasonMode !== "auto" ? ` (forced ${data.seasonMode})` : " (auto from market day)"}.
-            MAE is the mean absolute error of the <em>raw</em> forecast over the same sample — an upper bound on the corrected error.
-            Run is the last Open-Meteo initialisation (UTC) for the nest at this lat/lon.
-            {data.liveBias?.ok && data.liveBias.applied > 0 && (
-              <>
-                {" "}
-                <span className="text-cyan">LIVE</span> rows ({data.liveBias.applied}) use the
-                lead-aware bias published by the weather-analysis pipeline (lead {data.liveBias.lead},
-                generated {data.liveBias.generatedUtc?.replace("T", " ").slice(0, 16)} UTC): walk-forward
-                mean of past errors of the run actually available at that consultation time, vs the METAR
-                daily max. Other rows use the seasonal table.
-              </>
-            )}
-            {data.liveBias && !data.liveBias.ok && (
-              <span className="text-warn"> {data.liveBias.error} — seasonal table used.</span>
-            )}
-          </p>
+          <h2 className="text-sm font-medium uppercase tracking-[0.16em] text-mute">Models</h2>
+          {ensemble ? (
+            <p className="mt-1 text-xs text-mute">
+              Native models analysed by weather-analysis. Raw max = hourly max over the local day&apos;s hours at or
+              after the run&apos;s initialisation (today: from the run available at the issue time, so a late run
+              never hides the afternoon peak). Bias = walk-forward mean of past errors (forecast − METAR daily
+              max) of the run available at this consultation time
+              {ens?.correctionMethod ? ` (${ens.correctionMethod})` : ""}, refreshed daily; corrected = raw − bias.
+              The blend ({ens?.blendMethod ?? "—"}) keeps one model per redundant family and ranks models by past
+              error.
+              {ens?.generatedUtc && ` Recipe generated ${ens.generatedUtc.replace("T", " ").slice(0, 16)} UTC.`}
+            </p>
+          ) : (
+            <p className="mt-1 text-xs text-mute">
+              Raw Open-Meteo forecasts. This station has no calibrated ensemble, so no bias correction is applied.
+              Run is the last Open-Meteo initialisation (UTC) for the nest at this lat/lon.
+            </p>
+          )}
         </div>
         <div className="flex flex-wrap gap-2 text-[11px]">
-          <Legend swatch="bg-good" label="≤0.5°C vs primary" />
+          <Legend swatch="bg-good" label={`≤0.5°C vs ${headlineLabel}`} />
           <Legend swatch="bg-amber" label="≤1.0°C" />
           <Legend swatch="bg-bad" label="diverge" />
         </div>
@@ -75,154 +76,113 @@ export function ModelsTable({
           <div
             key={row.id}
             className={`chip min-w-[5.5rem] rounded-lg px-2.5 py-2 ${
-              row.role === "primary" ? "border-cyan/40" : ""
+              row.role === "blend" || row.role === "primary" ? "border-cyan/40" : ""
             }`}
           >
             <div className="font-mono text-[10px] text-mute">{row.id}</div>
             <div className="font-mono text-sm tabular text-ink">
-              {formatTemp(
-                applyCorrection ? row.correctedMaxC : row.rawMaxC,
-                unit,
-                1,
-              )}
+              {formatTemp(row.correctedMaxC ?? row.rawMaxC, unit, 1)}
             </div>
-            {row.run && (
-              <div className="font-mono text-[10px] text-cyan">{row.run.initZ}</div>
-            )}
+            {row.run && <div className="font-mono text-[10px] text-cyan">{row.run.initZ}</div>}
           </div>
         ))}
       </div>
 
       <p className="px-4 text-[11px] text-mute sm:hidden">Swipe the table sideways.</p>
       <div className="scroll-pad overflow-x-auto">
-        <table className="min-w-[920px] w-full text-left text-sm">
+        <table className={`${ensemble ? "min-w-[900px]" : "min-w-[680px]"} w-full text-left text-sm`}>
           <thead className="text-[11px] uppercase tracking-[0.12em] text-mute">
             <tr className="border-y border-line">
-              <th className="sticky left-0 z-10 bg-surface px-4 py-2 font-medium sm:px-5">
-                Model
-              </th>
-              <th className="px-3 py-2 font-medium">Role</th>
+              <th className="sticky left-0 z-10 bg-surface px-4 py-2 font-medium sm:px-5">Model</th>
+              <th className="px-3 py-2 font-medium">{ensemble ? "Blend" : "Role"}</th>
               <th className="px-3 py-2 font-medium">Run</th>
               <th className="px-3 py-2 font-medium">Raw max</th>
-              <th className="px-3 py-2 font-medium">Season</th>
-              <th className="px-3 py-2 font-medium">Bias applied</th>
-              <th className="px-3 py-2 font-medium">MAE</th>
-              <th className="px-3 py-2 font-medium">Corrected</th>
-              <th className="px-3 py-2 font-medium">Δ vs primary</th>
+              {ensemble && <th className="px-3 py-2 font-medium">Bias</th>}
+              {ensemble && <th className="px-3 py-2 font-medium">Corrected</th>}
+              {ensemble && <th className="px-3 py-2 font-medium">Weight</th>}
+              <th className="px-3 py-2 font-medium">Δ vs {headlineLabel}</th>
               <th className="px-5 py-2 font-medium">Notes</th>
             </tr>
           </thead>
           <tbody>
-            {data.forecast.models.map((row) => {
-              const delta = row.deltaVsPrimaryC;
-              const band = agreementBand(delta);
-              return (
-                <tr
-                  key={row.id}
-                  className={`border-b border-line/70 ${rowBg(row)}`}
-                >
-                  <td className="sticky left-0 z-10 bg-surface px-4 py-2.5 sm:px-5">
-                    <div className="font-medium">{row.label}</div>
-                    <div className="font-mono text-[11px] text-mute">{row.id}</div>
-                  </td>
-                  <td className="px-3 py-2.5">
-                    <span
-                      className={`rounded px-1.5 py-0.5 font-mono text-[10px] ${
-                        row.role === "primary"
-                          ? "bg-cyan/15 text-cyan"
-                          : "bg-surface-2 text-mute"
-                      }`}
-                    >
-                      {ROLE_LABEL[row.role]}
-                    </span>
-                  </td>
-                  <td className="px-3 py-2.5 font-mono tabular">
-                    {row.run ? (
-                      <div>
-                        <div className="text-ink">{row.run.initZ}</div>
-                        <div className="mt-0.5 text-[10px] text-mute">
-                          {row.run.nest ? `${row.run.nest} · ` : ""}
-                          {zonedHhMm(row.run.initAt, data.station.timezone)} loc
-                        </div>
-                      </div>
-                    ) : (
-                      <span className="text-mute">—</span>
-                    )}
-                  </td>
-                  <td className="px-3 py-2.5 font-mono tabular">
-                    {formatTemp(row.rawMaxC, unit, 1)}
-                    {row.hourlyDerived && (
-                      <span className="ml-1 text-[10px] text-mute">hrly</span>
-                    )}
-                  </td>
-                  <td className="px-3 py-2.5">
-                    <span className="rounded bg-surface-2 px-1.5 py-0.5 font-mono text-[11px] text-cyan">
-                      {row.bias.source === "live" ? row.bias.lead : (row.bias.month ?? row.bias.season)}
-                    </span>
-                  </td>
-                  <td className="px-3 py-2.5 font-mono tabular text-mute">
-                    <div>
-                      {row.bias.source === "none" || row.bias.biasNative == null
-                        ? "—"
-                        : `${row.bias.biasNative > 0 ? "+" : ""}${row.bias.biasNative.toFixed(2)}°${row.bias.unit}`}
-                    </div>
-                    <div className="mt-0.5 flex flex-wrap gap-1">
-                      <span
-                        className={`rounded px-1 py-0.5 text-[10px] uppercase ${
-                          row.bias.source === "none"
-                            ? "bg-warn/15 text-warn"
-                            : row.bias.source === "live"
-                              ? "bg-cyan/15 text-cyan"
-                              : "bg-surface-2 text-mute"
-                        }`}
-                        title={
-                          row.bias.source === "live"
-                            ? `${row.bias.nativeModel} · ${row.bias.method ?? ""} mean of past errors`
-                            : undefined
-                        }
-                      >
-                        {row.bias.source}
-                      </span>
-                      {row.bias.source !== "none" && (
-                        <span className="text-[10px] text-mute">n={row.bias.n}</span>
-                      )}
-                    </div>
-                  </td>
-                  <td className="px-3 py-2.5 font-mono tabular text-mute">
-                    {row.bias.mae != null && row.bias.source !== "none"
-                      ? `±${row.bias.mae.toFixed(2)}°${row.bias.unit}`
-                      : "—"}
-                  </td>
-                  <td className="px-3 py-2.5 font-mono tabular text-amber">
-                    {formatTemp(row.correctedMaxC, unit, 1)}
-                  </td>
-                  <td className={`px-3 py-2.5 font-mono tabular ${bandClass(band)}`}>
-                    {delta == null
-                      ? "—"
-                      : `${delta > 0 ? "+" : ""}${convertDelta(delta, unit).toFixed(1)}${unitDelta}`}
-                  </td>
-                  <td className="px-5 py-2.5 text-xs text-mute">
-                    {!row.available && "n/a at this location "}
-                    {row.bias.source === "none" && (
-                      <span className="text-warn">no bias sample </span>
-                    )}
-                    {row.note && <span>{row.note}</span>}
-                    {data.backtest
-                      .filter((b) => b.model === row.id && b.hitRate != null)
-                      .map((b) => (
-                        <span key={b.model}>
-                          {" "}
-                          hit-rate {(b.hitRate! * 100).toFixed(0)}% (n={b.n ?? "?"})
-                        </span>
-                      ))}
-                  </td>
-                </tr>
-              );
-            })}
+            {data.forecast.models.map((row) => (
+              <Row key={row.id} row={row} data={data} unit={unit} ensemble={!!ensemble} />
+            ))}
           </tbody>
         </table>
       </div>
     </section>
+  );
+}
+
+function Row({
+  row,
+  data,
+  unit,
+  ensemble,
+}: {
+  row: ModelRow;
+  data: StationPayload;
+  unit: TempUnit;
+  ensemble: boolean;
+}) {
+  const band = agreementBand(row.deltaC);
+  const inBlend = row.role === "blend";
+  return (
+    <tr className={`border-b border-line/70 ${inBlend || row.role === "primary" ? "bg-cyan/8" : ""}`}>
+      <td className="sticky left-0 z-10 bg-surface px-4 py-2.5 sm:px-5">
+        <div className="font-medium">{row.label}</div>
+        <div className="font-mono text-[11px] text-mute">{row.id}</div>
+      </td>
+      <td className="px-3 py-2.5">
+        <span
+          className={`rounded px-1.5 py-0.5 font-mono text-[10px] ${
+            inBlend || row.role === "primary" ? "bg-cyan/15 text-cyan" : "bg-surface-2 text-mute"
+          }`}
+        >
+          {ensemble ? (inBlend ? "IN" : "OUT") : ROLE_LABEL[row.role]}
+        </span>
+      </td>
+      <td className="px-3 py-2.5 font-mono tabular">
+        {row.run ? (
+          <div>
+            <div className="text-ink">{row.run.initZ}</div>
+            <div className="mt-0.5 text-[10px] text-mute">
+              {row.run.nest ? `${row.run.nest} · ` : ""}
+              {zonedHhMm(row.run.initAt, data.station.timezone)} loc
+            </div>
+          </div>
+        ) : (
+          <span className="text-mute">—</span>
+        )}
+      </td>
+      <td className="px-3 py-2.5 font-mono tabular">
+        {formatTemp(row.rawMaxC, unit, 1)}
+        {row.hourlyDerived && <span className="ml-1 text-[10px] text-mute">hrly</span>}
+      </td>
+      {ensemble && (
+        <td className="px-3 py-2.5 font-mono tabular text-mute">
+          {row.correctionC == null ? "—" : signed(row.correctionC, unit)}
+          {row.correctionN != null && <div className="mt-0.5 text-[10px]">n={row.correctionN}</div>}
+        </td>
+      )}
+      {ensemble && (
+        <td className="px-3 py-2.5 font-mono tabular text-amber">{formatTemp(row.correctedMaxC, unit, 1)}</td>
+      )}
+      {ensemble && (
+        <td className="px-3 py-2.5 font-mono tabular text-mute">
+          {row.weight != null ? `${Math.round(row.weight * 100)}%` : "—"}
+        </td>
+      )}
+      <td className={`px-3 py-2.5 font-mono tabular ${bandClass(band)}`}>
+        {row.deltaC == null ? "—" : signed(row.deltaC, unit, 1)}
+      </td>
+      <td className="px-5 py-2.5 text-xs text-mute">
+        {!row.available && !ensemble && "n/a at this location "}
+        {ensemble && row.status && STATUS_LABEL[row.status]}
+        {row.note && <span> {row.note}</span>}
+      </td>
+    </tr>
   );
 }
 

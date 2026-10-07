@@ -1,35 +1,19 @@
 import { describe, expect, it } from "vitest";
 import { compareAllFor, modelFamily, pickConsensusRows, roleForModel } from "./models";
-import type { BiasResolution, ModelRole, ModelRow } from "./types";
+import type { ModelRole, ModelRow } from "./types";
 
-function bias(source: BiasResolution["source"]): BiasResolution {
-  return {
-    season: "SON",
-    source,
-    unit: "C",
-    biasNative: source === "none" ? null : 0.1,
-    biasC: source === "none" ? 0 : 0.1,
-    n: source === "none" ? 0 : 100,
-  };
-}
-
-function row(
-  id: string,
-  role: ModelRole,
-  correctedMaxC: number | null,
-  source: BiasResolution["source"] = "season",
-): ModelRow {
+function row(id: string, role: ModelRole, rawMaxC: number | null): ModelRow {
   return {
     id,
     label: id,
     role,
-    rawMaxC: correctedMaxC,
+    rawMaxC,
     rawMinC: null,
-    biasC: 0,
-    bias: bias(source),
-    correctedMaxC,
-    deltaVsPrimaryC: null,
-    available: correctedMaxC != null,
+    correctionC: null,
+    correctionN: null,
+    correctedMaxC: null,
+    deltaC: null,
+    available: rawMaxC != null,
   };
 }
 
@@ -72,7 +56,7 @@ describe("pickConsensusRows", () => {
     expect(picked).toEqual(["gfs_seamless", "icon_seamless"]);
   });
 
-  it("ignores compare/extra rows and rows without a corrected value", () => {
+  it("ignores compare/extra rows and rows without a raw value", () => {
     const rows = [
       row("icon_seamless", "primary", 21.1),
       row("ecmwf_ifs025", "compare", 20.5),
@@ -82,10 +66,10 @@ describe("pickConsensusRows", () => {
     expect(pickConsensusRows(rows).map((r) => r.id)).toEqual(["icon_seamless"]);
   });
 
-  it("at equal role prefers the row that has a bias sample", () => {
+  it("at equal role keeps the first row of a family", () => {
     const rows = [
-      row("knmi_harmonie_arome_netherlands", "backup", 22.0, "none"),
-      row("knmi_seamless", "backup", 22.0, "season"),
+      row("knmi_seamless", "backup", 22.0),
+      row("knmi_harmonie_arome_netherlands", "backup", 22.4),
       row("icon_seamless", "primary", 21.1),
     ];
     expect(pickConsensusRows(rows).map((r) => r.id)).toEqual([

@@ -1,14 +1,8 @@
 "use client";
 
 import type { StationPayload, TempUnit } from "@/lib/types";
-import {
-  bucketIndexFor,
-  bucketProbabilities,
-  convertDelta,
-  convertTemp,
-  sigmaFromMae,
-} from "@/lib/units";
-import { bucketProbabilitiesFromLive } from "@/lib/liveBias";
+import { bucketProbabilities } from "@/lib/ensemble";
+import { bucketIndexFor, convertTemp } from "@/lib/units";
 import { OutLink } from "./OutLink";
 
 function cents(price: number | null): string {
@@ -22,31 +16,18 @@ function pct(p: number | undefined): string {
   return `${Math.round(p * 100)}%`;
 }
 
-export function PolymarketPanel({
-  data,
-  applyCorrection,
-}: {
-  data: StationPayload;
-  applyCorrection: boolean;
-}) {
+export function PolymarketPanel({ data }: { data: StationPayload }) {
   const pm = data.polymarket;
   const href = pm.url ?? data.station.polymarketUrl;
   const marketUnit: TempUnit = pm.unit ?? data.station.defaultUnit;
 
-  const primary = data.forecast.models.find((m) => m.id === data.forecast.primaryId);
-  const targetC = applyCorrection
-    ? (primary?.correctedMaxC ?? primary?.rawMaxC ?? null)
-    : (primary?.rawMaxC ?? null);
+  const ens = data.forecast.ensemble;
+  const targetC = data.forecast.headlineC;
   const targetMarket = targetC == null ? null : convertTemp(targetC, marketUnit);
   const targetIdx =
     targetMarket == null ? -1 : bucketIndexFor(pm.buckets, Math.round(targetMarket));
-  const consensusC = applyCorrection
-    ? data.forecast.consensusCorrectedC
-    : data.forecast.consensusRawC;
-  const consensusIdx =
-    consensusC == null
-      ? -1
-      : bucketIndexFor(pm.buckets, Math.round(convertTemp(consensusC, marketUnit)));
+  const likelyIdx =
+    ens?.ok && ens.kTop != null && marketUnit === "C" ? bucketIndexFor(pm.buckets, ens.kTop) : -1;
 
   // Resolution-style running high (integer in market unit), Synoptic first.
   const synopticMax = data.synoptic.ok ? data.synoptic.resolutionMax : null;
@@ -57,25 +38,9 @@ export function PolymarketPanel({
   const resolutionMax = data.day === "today" ? (synopticMax ?? metarResolutionMax) : null;
   const runningIdx = resolutionMax == null ? -1 : bucketIndexFor(pm.buckets, resolutionMax);
 
-  // Approximate bucket probabilities: Normal(target, σ) with σ = MAE·√(π/2).
-  // MAE is the raw-forecast MAE in the bias file unit; convert to market unit.
-  const mae = primary?.bias.mae;
-  const maeMarket =
-    mae == null || primary == null || primary.bias.source === "none"
-      ? null
-      : primary.bias.unit === marketUnit
-        ? mae
-        : primary.bias.unit === "C"
-          ? convertDelta(mae, "F")
-          : (mae * 5) / 9;
-  // Calibrated per-°C probabilities from the weather-analysis pipeline (°C markets
-  // only) take precedence over the normal approximation.
-  const live = data.liveForecast && marketUnit === "C" ? data.liveForecast : null;
-  const probs = live?.probs
-    ? bucketProbabilitiesFromLive(pm.buckets, live.probs)
-    : targetMarket != null && maeMarket != null
-      ? bucketProbabilities(pm.buckets, targetMarket, sigmaFromMae(maeMarket))
-      : null;
+  // Calibrated per-°C probabilities of the METAR daily max (°C markets, ensemble stations only).
+  const probs =
+    ens?.ok && ens.probs && marketUnit === "C" ? bucketProbabilities(pm.buckets, ens.probs) : null;
 
   return (
     <section className="panel p-4 sm:p-5">
@@ -102,7 +67,7 @@ export function PolymarketPanel({
             {pm.buckets.map((b, i) => {
               const isTarget = i === targetIdx;
               const isRunning = i === runningIdx;
-              const isConsensus = i === consensusIdx;
+              const isLikely = i === likelyIdx;
               const p = probs?.[i];
               const edge =
                 p != null && b.yesPrice != null ? p - b.yesPrice : null;
@@ -139,18 +104,14 @@ export function PolymarketPanel({
                             ? "text-bad"
                             : "text-mute"
                       }`}
-                      title={
-                        live
-                          ? `Calibrated probability (weather-analysis, lead ${live.lead})`
-                          : "Approximate model probability (normal, σ from raw MAE)"
-                      }
+                      title={`Calibrated probability (lead ${ens?.lead})`}
                     >
                       ≈{pct(p)}
                     </div>
                   )}
                   <div className="mt-1 flex justify-center gap-1 text-[9px] uppercase tracking-wide">
                     {isTarget && <span className="text-amber">target</span>}
-                    {isConsensus && <span className="text-mute">cons.</span>}
+                    {isLikely && <span className="text-mute">likely</span>}
                     {isRunning && <span className="text-cyan">res. high</span>}
                   </div>
                 </div>
@@ -158,15 +119,14 @@ export function PolymarketPanel({
             })}
           </div>
           <p className="mt-3 text-[11px] text-mute">
-            Yes price · bid / ask. Target = {applyCorrection ? "bias-corrected" : "raw"} primary
-            rounded to the market integer; cons. = family consensus; res. high = today&apos;s
-            resolution-style running high (
+            Yes price · bid / ask. Target = {ens?.ok ? "calibrated blend" : "raw model median"} rounded to the
+            market integer; likely = most probable outcome; res. high = today&apos;s resolution-style running high (
             {synopticMax != null ? "Synoptic feed" : "METAR body integers, lower bound"}).
-            {live
-              ? ` ≈% is the calibrated probability of the METAR daily max from the weather-analysis pipeline (bias-corrected multi-model blend ${live.blend?.toFixed(1)}°C, NGR σ ${live.sd?.toFixed(2)}°C, lead ${live.lead}${live.m_obs != null ? `, buckets below the ${live.m_obs}°C METAR high already excluded` : ""}). Backtested out of sample, but not on Polymarket outcomes. Green / red when it differs from the price by ≥10 pts.`
-              : probs
-                ? ` ≈% is an approximate model probability: Normal(target, σ = 1.25 × raw MAE ${maeMarket?.toFixed(2)}°${marketUnit}) — not calibrated on Polymarket outcomes, and the raw MAE overstates the corrected error. Green / red when it differs from the price by ≥10 pts.`
-                : " No MAE for the primary in this season — no model probability shown."}
+            {probs
+              ? ` ≈% is the calibrated probability of the METAR daily max (blend ${ens?.blendC?.toFixed(1)}°C, σ ${ens?.sd?.toFixed(2)}°C, lead ${ens?.lead}${ens?.truncatedAt != null ? `, outcomes below the ${ens.truncatedAt}°C METAR high excluded` : ""}), backtested out of sample — not on Polymarket outcomes. Green / red when it differs from the price by ≥10 pts.`
+              : data.station.ensemble
+                ? ` No calibrated probability: ${ens?.error ?? (marketUnit !== "C" ? "market not in °C" : "unavailable")}.`
+                : " No calibrated model for this station — no probability shown."}
           </p>
         </>
       )}

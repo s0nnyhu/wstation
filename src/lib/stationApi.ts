@@ -1,8 +1,6 @@
 import { assembleStation } from "./assemble";
-import { parseBiasGrain, parseSeasonMode } from "./bias";
 import { getStation, polymarketEventSlug, polymarketEventUrl } from "@/config/stations";
 import type {
-  BiasResolution,
   HuskyPayload,
   MarketDay,
   MetarPayload,
@@ -16,20 +14,6 @@ import type {
 
 export type ApiMarketDay = "now" | "tomorrow";
 
-export interface PublicModelBias {
-  season: string;
-  month?: string;
-  source: BiasResolution["source"];
-  unit: TempUnit;
-  bias_native: number | null;
-  bias_c: number | null;
-  n: number;
-  mae?: number;
-  /** source "live": consultation lead and native model of the live correction. */
-  lead?: string;
-  native_model?: string;
-}
-
 export interface PublicModelRow {
   id: string;
   label: string;
@@ -40,8 +24,13 @@ export interface PublicModelRow {
   raw_max_c: number | null;
   raw_min_c: number | null;
   corrected_max_c: number | null;
+  /** Walk-forward bias (forecast − METAR max), ensemble stations only; corrected = raw − bias. */
   bias_c: number | null;
-  bias: PublicModelBias;
+  bias_n: number | null;
+  /** Ensemble stations: selected | eligible | redundant | no-skill-yet | no-correction | missing. */
+  status?: string;
+  /** Ensemble stations: weight in the blend. */
+  weight?: number | null;
   note?: string;
   run?: {
     init_at: string;
@@ -115,11 +104,16 @@ export interface PublicStationResponse {
   market_date: string;
   /** UTC timestamp of this API request. */
   date_requested: string;
+  /** Reference model (hourly chart / drivers). */
   primary_model: string;
   primary_models: string[];
   models: PublicModelRow[];
+  /** Ensemble stations: mean raw max of the blend members. Elsewhere: raw median, one vote per family. */
   consensus_raw_c: number | null;
+  /** Ensemble stations: the calibrated blend. Null elsewhere (no correction). */
   consensus_corrected_c: number | null;
+  /** Calibrated distribution of the METAR daily max (ensemble stations), else null. */
+  ensemble: PublicEnsemble | null;
   /** Polymarket event slug for the market local date, e.g. highest-temperature-in-munich-on-september-16-2026. */
   polymarket_slug: string | null;
   polymarket_url: string | null;
@@ -128,6 +122,23 @@ export interface PublicStationResponse {
   metar: PublicMetar;
   synoptic: PublicSynoptic;
   pws: PublicPws[];
+}
+
+export interface PublicEnsemble {
+  ok: boolean;
+  error?: string;
+  lead: string;
+  recipe_date?: string;
+  generated_utc?: string;
+  blend_c?: number;
+  mu_c?: number | null;
+  sd_c?: number | null;
+  most_likely_c?: number | null;
+  most_likely_p?: number | null;
+  range80_c?: { lo: number; hi: number } | null;
+  /** P(METAR daily max = k °C). */
+  probs?: Array<{ k: number; p: number }>;
+  truncated_at_c?: number | null;
 }
 
 export function parseApiDay(
@@ -144,21 +155,6 @@ export function toMarketDay(day: ApiMarketDay): MarketDay {
   return day === "tomorrow" ? "tomorrow" : "today";
 }
 
-function publicBias(bias: BiasResolution): PublicModelBias {
-  return {
-    season: bias.season,
-    ...(bias.month ? { month: bias.month } : {}),
-    source: bias.source,
-    unit: bias.unit,
-    bias_native: bias.biasNative,
-    bias_c: bias.source === "none" ? null : bias.biasC,
-    n: bias.n,
-    ...(bias.mae != null ? { mae: bias.mae } : {}),
-    ...(bias.lead ? { lead: bias.lead } : {}),
-    ...(bias.nativeModel ? { native_model: bias.nativeModel } : {}),
-  };
-}
-
 function publicModel(row: ModelRow): PublicModelRow {
   return {
     id: row.id,
@@ -169,8 +165,9 @@ function publicModel(row: ModelRow): PublicModelRow {
     raw_max_c: row.rawMaxC,
     raw_min_c: row.rawMinC,
     corrected_max_c: row.correctedMaxC,
-    bias_c: row.bias.source === "none" ? null : row.biasC,
-    bias: publicBias(row.bias),
+    bias_c: row.correctionC,
+    bias_n: row.correctionN,
+    ...(row.status ? { status: row.status, weight: row.weight ?? null } : {}),
     ...(row.note ? { note: row.note } : {}),
     ...(row.run
       ? {
@@ -270,6 +267,23 @@ export function publicStationPayload(
     models: data.forecast.models.map(publicModel),
     consensus_raw_c: data.forecast.consensusRawC,
     consensus_corrected_c: data.forecast.consensusCorrectedC,
+    ensemble: data.forecast.ensemble
+      ? {
+          ok: data.forecast.ensemble.ok,
+          ...(data.forecast.ensemble.error ? { error: data.forecast.ensemble.error } : {}),
+          lead: data.forecast.ensemble.lead,
+          recipe_date: data.forecast.ensemble.recipeDate,
+          generated_utc: data.forecast.ensemble.generatedUtc,
+          blend_c: data.forecast.ensemble.blendC,
+          mu_c: data.forecast.ensemble.mu,
+          sd_c: data.forecast.ensemble.sd,
+          most_likely_c: data.forecast.ensemble.kTop,
+          most_likely_p: data.forecast.ensemble.pTop,
+          range80_c: data.forecast.ensemble.range80,
+          probs: data.forecast.ensemble.probs,
+          truncated_at_c: data.forecast.ensemble.truncatedAt,
+        }
+      : null,
     polymarket_slug:
       data.polymarket.slug ||
       polymarketEventSlug(data.station.icao, data.marketDate) ||
@@ -317,11 +331,7 @@ export async function handleStationApiRequest(
   const fresh = truthyParam(url.searchParams.get("fresh"));
 
   try {
-    const payload = await assembleStation(station.icao, toMarketDay(day), compareAll, {
-      fresh,
-      seasonMode: parseSeasonMode(url.searchParams.get("season")),
-      biasGrain: parseBiasGrain(url.searchParams.get("grain")),
-    });
+    const payload = await assembleStation(station.icao, toMarketDay(day), compareAll, { fresh });
     return Response.json(
       publicStationPayload(payload, { day, dateRequested }),
       {

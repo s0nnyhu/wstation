@@ -4,198 +4,7 @@ import {
   publicStationPayload,
   toMarketDay,
 } from "./stationApi";
-import type { BiasResolution, ModelRow, StationPayload } from "./types";
-
-function bias(source: BiasResolution["source"] = "season"): BiasResolution {
-  return {
-    season: "SON",
-    source,
-    unit: "C",
-    biasNative: source === "none" ? null : 0.42,
-    biasC: source === "none" ? 0 : 0.42,
-    n: source === "none" ? 0 : 80,
-    mae: source === "none" ? undefined : 1.1,
-  };
-}
-
-function model(partial: Partial<ModelRow> & Pick<ModelRow, "id" | "role">): ModelRow {
-  return {
-    label: partial.id,
-    rawMaxC: 22.1,
-    rawMinC: 11.0,
-    biasC: 0.42,
-    bias: bias(),
-    correctedMaxC: 21.68,
-    deltaVsPrimaryC: 0,
-    available: true,
-    ...partial,
-  };
-}
-
-function payload(): StationPayload {
-  return {
-    station: {
-      icao: "EDDM",
-      city: "Munich",
-      name: "Munich",
-      region: "europe",
-      lat: 48.35,
-      lon: 11.78,
-      timezone: "Europe/Berlin",
-      defaultUnit: "C",
-      primary: "icon_seamless",
-      primaryModels: ["icon_seamless", "icon_eu"],
-      shortRange: "icon_d2",
-      backups: ["icon_eu"],
-      notes: [],
-      warnings: [],
-    },
-    day: "today",
-    marketDate: "2026-09-16",
-    localNow: "2026-09-16T11:00:00",
-    forecast: {
-      models: [
-        model({
-          id: "icon_seamless",
-          role: "primary",
-          run: {
-            initAt: "2026-09-16T09:00:00.000Z",
-            initZ: "09Z",
-            availableAt: "2026-09-16T10:26:00.000Z",
-            dataset: "dwd_icon_d2",
-            nest: "ICON-D2",
-          },
-        }),
-        model({
-          id: "icon_d2",
-          role: "short-range",
-          rawMaxC: 21.5,
-          correctedMaxC: 21.1,
-          deltaVsPrimaryC: -0.58,
-        }),
-        model({
-          id: "meteofrance_seamless",
-          role: "backup",
-          bias: bias("none"),
-          biasC: null,
-          correctedMaxC: 22.1,
-        }),
-      ],
-      requestedModels: ["icon_seamless", "icon_d2", "meteofrance_seamless"],
-      hourly: [],
-      primaryId: "icon_seamless",
-      consensusCorrectedC: 21.4,
-      consensusRawC: 21.8,
-      consensusModelIds: ["icon_seamless"],
-      spreadRawC: { min: 21.5, max: 22.1 },
-      spreadCorrectedC: { min: 21.1, max: 21.68 },
-      spreadCorrectedCount: 2,
-      peak: null,
-      fetchedAt: "2026-09-16T09:00:00.000Z",
-      stale: false,
-      season: "SON",
-      seasonMode: "auto",
-      biasGrain: "season",
-    },
-    metar: {
-      ok: true,
-      fetchedAt: "2026-09-16T09:00:00.000Z",
-      stale: false,
-      runningMaxC: 21.7,
-      runningMaxAt: "2026-09-16T12:53:00.000Z",
-      resolutionMaxC: 22,
-      latest: {
-        tempC: 18.3,
-        tempBodyC: 18,
-        dewpointC: 10,
-        observedAt: "2026-09-16T12:53:00.000Z",
-        raw: "EDDM 161253Z 00000KT CAVOK 18/10 Q1015",
-        icon: "clear",
-      },
-    },
-    wu: {
-      ok: true,
-      stationId: "EDDM",
-      dailyMaxC: 21.0,
-      predictedHighC: 21.0,
-      lowC: 12.0,
-      currentTempC: 18.3,
-      fetchedAt: "2026-09-16T09:00:00.000Z",
-      stale: false,
-      forecastUrl: "https://www.wunderground.com/forecast/EDDM",
-    },
-    husky: {
-      ok: true,
-      dailyMaxC: 21.4,
-      localDate: "2026-09-16",
-      fetchedAt: "2026-09-16T09:00:00.000Z",
-      stale: false,
-      url: "https://huskyweather.com/station/EDDM",
-    },
-    polymarket: {
-      ok: true,
-      slug: "highest-temperature-in-munich-on-september-16-2026",
-      unit: "C",
-      step: 1,
-      buckets: [],
-      fetchedAt: "2026-09-16T09:00:00.000Z",
-      stale: false,
-    },
-    synoptic: {
-      ok: false,
-      configured: false,
-      resolutionMax: null,
-      resolutionMaxAt: null,
-      maxC: null,
-      latestC: null,
-      latestAt: null,
-      observationCount: 0,
-      unit: "C",
-      fetchedAt: "2026-09-16T09:00:00.000Z",
-      stale: false,
-    },
-    pws: {
-      stations: [],
-      fetchedAt: "2026-09-16T09:00:00.000Z",
-      stale: false,
-    },
-    drivers: {
-      modelId: "icon_seamless",
-      windowLabel: "",
-      aroundPeak: {
-        avgCloudCover: null,
-        maxPrecipProb: null,
-        sumPrecipMm: null,
-        avgWindSpeedMps: null,
-        maxGustMps: null,
-        avgShortwaveWm2: null,
-        dominantWeatherCode: null,
-      },
-      now: {
-        cloudCover: null,
-        precipProb: null,
-        precipMm: null,
-        windSpeedMps: null,
-        shortwaveWm2: null,
-        humidityPct: null,
-        metarWindKt: null,
-        metarWindDirDeg: null,
-        metarGustKt: null,
-      },
-      flags: [],
-    },
-    biasMeta: {
-      source: "test",
-      sample: "test",
-      asOf: "2026-09-01",
-      definition: "test",
-    },
-    backtest: [],
-    compareAll: false,
-    seasonMode: "auto",
-    biasGrain: "season",
-  };
-}
+import { ensemblePayload as payload } from "./testFixtures";
 
 describe("parseApiDay", () => {
   it("defaults to now and aliases today", () => {
@@ -219,7 +28,7 @@ describe("parseApiDay", () => {
 });
 
 describe("publicStationPayload", () => {
-  it("exposes raw and bias-corrected models plus WU and Husky", () => {
+  it("exposes raw and corrected ensemble models, the blend and the distribution", () => {
     const json = publicStationPayload(payload(), {
       day: "now",
       dateRequested: "2026-09-16T09:43:00.000Z",
@@ -229,41 +38,75 @@ describe("publicStationPayload", () => {
     expect(json.day).toBe("now");
     expect(json.market_date).toBe("2026-09-16");
     expect(json.date_requested).toBe("2026-09-16T09:43:00.000Z");
-    expect(json.primary_model).toBe("icon_seamless");
-    expect(json.primary_models).toEqual(["icon_seamless", "icon_eu"]);
+    expect(json.primary_model).toBe("icon_d2");
+    expect(json.primary_models).toEqual(["icon_d2"]);
 
-    const primary = json.models.find((m) => m.id === "icon_seamless");
-    expect(primary?.primary).toBe(true);
-    expect(primary?.raw_max_c).toBe(22.1);
-    expect(primary?.corrected_max_c).toBe(21.68);
-    expect(primary?.bias_c).toBe(0.42);
-    expect(primary?.run).toEqual({
-      init_at: "2026-09-16T09:00:00.000Z",
-      init_z: "09Z",
-      available_at: "2026-09-16T10:26:00.000Z",
-      nest: "ICON-D2",
+    const d2 = json.models.find((m) => m.id === "icon_d2");
+    expect(d2?.role).toBe("blend");
+    expect(d2?.raw_max_c).toBe(25.3);
+    expect(d2?.corrected_max_c).toBe(25.9);
+    expect(d2?.bias_c).toBe(-0.6);
+    expect(d2?.bias_n).toBe(180);
+    expect(d2?.status).toBe("selected");
+    expect(d2?.weight).toBe(0.5);
+    expect(d2?.run).toEqual({
+      init_at: "2026-09-16T06:00:00.000Z",
+      init_z: "06Z",
+      available_at: "2026-09-16T07:26:00.000Z",
+      nest: null,
     });
 
-    const short = json.models.find((m) => m.id === "icon_d2");
-    expect(short?.primary).toBe(false);
-    expect(short?.role).toBe("short-range");
+    const out = json.models.find((m) => m.id === "icon_global");
+    expect(out?.status).toBe("redundant");
+    expect(out?.weight).toBeNull();
 
-    const noBias = json.models.find((m) => m.id === "meteofrance_seamless");
-    expect(noBias?.bias_c).toBeNull();
-    expect(noBias?.bias.source).toBe("none");
+    expect(json.consensus_corrected_c).toBe(25.4);
+    expect(json.consensus_raw_c).toBe(25.2);
+    expect(json.ensemble).toMatchObject({
+      ok: true,
+      lead: "J0_10h30",
+      blend_c: 25.4,
+      most_likely_c: 26,
+      most_likely_p: 0.41,
+      range80_c: { lo: 25, hi: 27 },
+      truncated_at_c: 24,
+    });
+    expect(json.ensemble?.probs?.length).toBe(4);
 
-    expect(json.wunderground.daily_max_c).toBe(21.0);
-    expect(json.husky.daily_max_c).toBe(21.4);
-    expect(json.metar.running_max_c).toBe(21.7);
-    expect(json.metar.resolution_max_c).toBe(22);
+    expect(json.wunderground.daily_max_c).toBe(26);
+    expect(json.husky.daily_max_c).toBe(25);
+    expect(json.metar.running_max_c).toBe(25.0);
+    expect(json.metar.resolution_max_c).toBe(24);
     expect(json.synoptic.ok).toBe(false);
-    expect(json.consensus_corrected_c).toBe(21.4);
     expect(json.polymarket_slug).toBe(
       "highest-temperature-in-munich-on-september-16-2026",
     );
     expect(json.polymarket_url).toBe(
       "https://polymarket.com/event/highest-temperature-in-munich-on-september-16-2026",
     );
+  });
+
+  it("has no correction, blend or distribution for a raw-only station", () => {
+    const data = payload();
+    data.station.ensemble = false;
+    data.forecast.ensemble = null;
+    data.forecast.consensusCorrectedC = null;
+    data.forecast.models = data.forecast.models.map((m) => ({
+      ...m,
+      role: "primary" as const,
+      correctionC: null,
+      correctionN: null,
+      correctedMaxC: null,
+      status: undefined,
+      weight: undefined,
+    }));
+    const json = publicStationPayload(data, { day: "now", dateRequested: "2026-09-16T09:43:00.000Z" });
+    expect(json.ensemble).toBeNull();
+    expect(json.consensus_corrected_c).toBeNull();
+    expect(json.models[0].bias_c).toBeNull();
+    expect(json.models[0].corrected_max_c).toBeNull();
+    expect(json.models[0].primary).toBe(true);
+    expect(json.models[0]).not.toHaveProperty("status");
   });
 
   it("falls back to the constructed Polymarket slug when Gamma is empty", () => {

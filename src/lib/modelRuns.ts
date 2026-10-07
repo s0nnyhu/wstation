@@ -52,6 +52,12 @@ export function datasetForModel(modelId: string, loc: LatLon): ModelDataset {
       return { dataset: "dwd_icon_d2", nest: null };
     case "icon_eu":
       return { dataset: "dwd_icon_eu", nest: null };
+    case "icon_global":
+      return { dataset: "dwd_icon", nest: null };
+    case "gfs_global":
+      return { dataset: "ncep_gfs013", nest: null };
+    case "gem_global":
+      return { dataset: "cmc_gem_gdps", nest: null };
     case "icon_seamless":
       if (inBox(loc, ICON_D2))
         return { dataset: "dwd_icon_d2", nest: "ICON-D2" };

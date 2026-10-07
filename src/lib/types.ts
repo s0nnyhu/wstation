@@ -6,45 +6,12 @@ export type TempUnit = "C" | "F";
 export type MarketDay = "today" | "tomorrow";
 export type Region = "europe" | "america" | "asia";
 export type RegionFilter = "all" | Region;
-export type Season = "DJF" | "MAM" | "JJA" | "SON";
-export type SeasonMode = "auto" | Season;
-export type BiasGrain = "season" | "month";
-export type BiasSource = "live" | "season" | "annual" | "month" | "none";
-export type ModelRole = "primary" | "short-range" | "backup" | "compare" | "extra";
-
-export interface BiasResolution {
-  season: Season;
-  month?: string;
-  source: BiasSource;
-  unit: TempUnit;
-  biasNative: number | null;
-  biasC: number | null;
-  n: number;
-  mae?: number;
-  identicalToSeamless?: boolean;
-  /** source "live": consultation lead (J0_08h … J1) and the native model whose bias is used. */
-  lead?: string;
-  nativeModel?: string;
-  method?: string;
-}
-
-export interface LiveBiasInfo {
-  /** true when the live file was read for this station (it may still lack a given model). */
-  ok: boolean;
-  url: string;
-  generatedUtc?: string;
-  error?: string;
-  lead?: string;
-  /** Number of model rows corrected with the live bias. */
-  applied: number;
-}
-
-export interface BiasMeta {
-  source: string;
-  sample: string;
-  asOf: string;
-  definition: string;
-}
+/**
+ * primary / short-range / backup / compare / extra: raw models of stations
+ * without a calibrated ensemble. blend / ensemble: native models of the four
+ * stations analysed by weather-analysis (blend = in today's blend).
+ */
+export type ModelRole = "primary" | "short-range" | "backup" | "compare" | "extra" | "blend" | "ensemble";
 
 export interface Station {
   icao: string;
@@ -63,6 +30,12 @@ export interface Station {
   domainExtras: string[];
   notes: string[];
   warnings: string[];
+  /**
+   * Calibrated ensemble (EDDM, LFPB, EGLC, EHAM): native models corrected and
+   * blended with the weather-analysis recipe. `primary` is then only the
+   * reference model for the hourly chart and drivers.
+   */
+  ensemble?: { models: string[] };
 }
 
 /** Latest Open-Meteo model run feeding this row (from `/data/{dataset}/static/meta.json`). */
@@ -85,10 +58,17 @@ export interface ModelRow {
   role: ModelRole;
   rawMaxC: number | null;
   rawMinC: number | null;
-  biasC: number | null;
-  bias: BiasResolution;
+  /** Ensemble stations: walk-forward bias (forecast − METAR max); corrected = raw − bias. */
+  correctionC: number | null;
+  /** Number of past days behind the correction. */
+  correctionN: number | null;
   correctedMaxC: number | null;
-  deltaVsPrimaryC: number | null;
+  /** Ensemble stations: why the model is or is not in the blend. */
+  status?: import("./ensemble").MemberStatus;
+  /** Ensemble stations: weight in the blend (sums to 1 over the blend). */
+  weight?: number | null;
+  /** Corrected (ensemble) or raw max minus the headline value. */
+  deltaC: number | null;
   available: boolean;
   note?: string;
   hourlyDerived?: boolean;
@@ -161,32 +141,52 @@ export interface MetarPayload {
   stale: boolean;
 }
 
+export interface EnsemblePayload {
+  ok: boolean;
+  error?: string;
+  lead: import("./ensemble").Lead;
+  /** Date of the recipe used (earlier than the market date just after midnight). */
+  recipeDate?: string;
+  generatedUtc?: string;
+  fittedThrough?: string;
+  correctionMethod?: string;
+  blendMethod?: string;
+  blendC?: number;
+  blendRawC?: number;
+  spreadC?: number | null;
+  mu?: number | null;
+  sd?: number | null;
+  probs?: Array<{ k: number; p: number }>;
+  kTop?: number | null;
+  pTop?: number | null;
+  range80?: { lo: number; hi: number } | null;
+  /** METAR resolution high used to exclude lower outcomes (today). */
+  truncatedAt?: number | null;
+  selected?: string[];
+}
+
 export interface ForecastPayload {
   models: ModelRow[];
   requestedModels: string[];
   hourly: HourlyPoint[];
-  primaryId: string;
+  /** Model behind the hourly chart and drivers. */
+  referenceId: string;
+  /** Headline daily max: calibrated blend (ensemble stations) or raw family median. */
+  headlineC: number | null;
+  headlineKind: "blend" | "raw-median";
+  /** Ensemble stations: the blend (corrected). Null elsewhere — no calibrated correction. */
   consensusCorrectedC: number | null;
-  /** Median of the raw maxes of the same voting rows (for "Bias off"). */
+  /** Ensemble stations: mean raw max of the blend members; elsewhere raw median, one vote per family. */
   consensusRawC: number | null;
-  /** Model ids that voted in the consensus (one per model family). */
   consensusModelIds: string[];
-  spreadRawC: { min: number; max: number } | null;
-  /**
-   * Spread of corrected maxes over rows that actually have a bias sample
-   * (falls back to every row when fewer than two do).
-   */
-  spreadCorrectedC: { min: number; max: number } | null;
-  /** Number of rows with a bias sample that fed `spreadCorrectedC`. */
-  spreadCorrectedCount: number;
+  /** Min–max of the values behind the headline (corrected members, or raw voting models). */
+  spreadC: { min: number; max: number } | null;
   peak: { time: string; tempC: number; modelId: string } | null;
   fetchedAt: string;
   stale: boolean;
   staleReason?: string;
   requestUrl?: string;
-  season: Season;
-  seasonMode: SeasonMode;
-  biasGrain: BiasGrain;
+  ensemble: EnsemblePayload | null;
 }
 
 export interface StationPublic {
@@ -205,6 +205,8 @@ export interface StationPublic {
   backups: string[];
   notes: string[];
   warnings: string[];
+  /** True for the calibrated-ensemble stations. */
+  ensemble: boolean;
   /** NOAA WRH timeseries page — the Polymarket resolution source. */
   noaaUrl?: string;
   polymarketUrl?: string;
@@ -335,13 +337,6 @@ export interface DriversPayload {
   flags: string[];
 }
 
-export interface BacktestHit {
-  model: string;
-  n?: number;
-  hitRate?: number;
-  note?: string;
-}
-
 export interface PwsReading {
   id: string;
   source: "awekas" | "wunderground" | "hko";
@@ -374,13 +369,5 @@ export interface StationPayload {
   synoptic: SynopticPayload;
   pws: PwsPayload;
   drivers: DriversPayload;
-  biasMeta: BiasMeta;
-  /** Live lead-aware corrections from the weather-analysis VPS (EDDM / LFPB / EGLC / EHAM only). */
-  liveBias?: LiveBiasInfo | null;
-  /** Calibrated per-°C probabilities for the market day from the same pipeline, when available. */
-  liveForecast?: import("./liveBias").LiveForecast | null;
-  backtest: BacktestHit[];
   compareAll: boolean;
-  seasonMode: SeasonMode;
-  biasGrain: BiasGrain;
 }

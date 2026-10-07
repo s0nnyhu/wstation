@@ -39,6 +39,13 @@ export function compareAllFor(region: Region): readonly string[] {
 
 export const MODEL_LABELS: Record<string, string> = {
   icon_seamless: "ICON Seamless",
+  icon_global: "ICON global",
+  ecmwf_ifs: "ECMWF IFS 9 km",
+  gfs_global: "GFS",
+  gem_global: "GEM",
+  meteofrance_arpege_europe: "ARPEGE Europe",
+  ukmo_global_deterministic_10km: "UKMO global 10 km",
+  dmi_harmonie_arome_europe: "HARMONIE-AROME DMI",
   icon_eu: "ICON-EU",
   icon_d2: "ICON-D2",
   ukmo_seamless: "UKMO Seamless",
@@ -86,6 +93,8 @@ const ROLE_PRIORITY: Record<ModelRole, number> = {
   backup: 2,
   extra: 3,
   compare: 4,
+  blend: 0,
+  ensemble: 1,
 };
 
 export function rolePriority(role: ModelRole): number {
@@ -93,18 +102,17 @@ export function rolePriority(role: ModelRole): number {
 }
 
 /**
- * Rows that vote in the consensus: default-set roles only, one per model
- * family, ranked by role then by "has a bias sample". Pure so it can be tested.
+ * Raw models that vote in the median of stations without a calibrated
+ * ensemble: default-set roles only, one per model family, ranked by role.
+ * Pure so it can be tested.
  */
 export function pickConsensusRows(rows: ModelRow[]): ModelRow[] {
-  const rank = (r: ModelRow) =>
-    rolePriority(r.role) * 2 + (r.bias.source === "none" ? 1 : 0);
   const byFamily = new Map<string, ModelRow>();
-  for (const row of [...rows].sort((a, b) => rank(a) - rank(b))) {
+  for (const row of [...rows].sort((a, b) => rolePriority(a.role) - rolePriority(b.role))) {
     if (row.role !== "primary" && row.role !== "backup" && row.role !== "short-range") {
       continue;
     }
-    if (row.correctedMaxC == null) continue;
+    if (row.rawMaxC == null) continue;
     const family = modelFamily(row.id);
     if (!byFamily.has(family)) byFamily.set(family, row);
   }

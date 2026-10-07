@@ -16,13 +16,34 @@ export const STATIONS: Station[] = [
     lon: 4.7639,
     timezone: "Europe/Amsterdam",
     defaultUnit: "C",
-    primary: "icon_seamless",
-    primaryModels: ["icon_seamless"],
-    backups: ["ukmo_seamless", "knmi_seamless"],
-    domainExtras: ["knmi_harmonie_arome_netherlands"],
-    notes: [
-      "knmi_seamless already runs HARMONIE-AROME for the first 48 h; the pure HARMONIE NL run is only requested in Compare all.",
-    ],
+    // Calibrated ensemble (weather-analysis): native models, walk-forward bias
+    // corrections and blend recipe published by the VPS. No single model is
+    // significantly better than the runner-up; the corrected blend beats the
+    // best single model, so there is no "primary" any more. ICON-D2 is only the
+    // reference for the hourly chart and drivers.
+    primary: "icon_d2",
+    primaryModels: ["icon_d2"],
+    backups: [],
+    domainExtras: [],
+    ensemble: {
+      models: [
+        "dmi_harmonie_arome_europe",
+        "ecmwf_aifs025_single",
+        "ecmwf_ifs",
+        "ecmwf_ifs025",
+        "gem_global",
+        "gfs_global",
+        "icon_d2",
+        "icon_eu",
+        "icon_global",
+        "knmi_harmonie_arome_netherlands",
+        "meteofrance_arome_france_hd",
+        "meteofrance_arpege_europe",
+        "ukmo_global_deterministic_10km",
+        "ukmo_uk_deterministic_2km",
+      ],
+    },
+    notes: [],
     warnings: [],
   },
   {
@@ -34,15 +55,32 @@ export const STATIONS: Station[] = [
     lon: 2.4414,
     timezone: "Europe/Paris",
     defaultUnit: "C",
-    primary: "icon_seamless",
-    primaryModels: ["icon_seamless"],
-    backups: [
-      "meteofrance_seamless",
-      "meteofrance_arome_france",
-      "meteofrance_arome_france_hd",
-      "ukmo_seamless",
-    ],
-    domainExtras: ["meteofrance_arome_france", "meteofrance_arome_france_hd"],
+    // Calibrated ensemble (weather-analysis): native models, walk-forward bias
+    // corrections and blend recipe published by the VPS. No single model is
+    // significantly better than the runner-up; the corrected blend beats the
+    // best single model, so there is no "primary" any more. ICON-D2 is only the
+    // reference for the hourly chart and drivers.
+    primary: "icon_d2",
+    primaryModels: ["icon_d2"],
+    backups: [],
+    domainExtras: [],
+    ensemble: {
+      models: [
+        "dmi_harmonie_arome_europe",
+        "ecmwf_aifs025_single",
+        "ecmwf_ifs",
+        "ecmwf_ifs025",
+        "gem_global",
+        "gfs_global",
+        "icon_d2",
+        "icon_eu",
+        "icon_global",
+        "meteofrance_arome_france_hd",
+        "meteofrance_arpege_europe",
+        "ukmo_global_deterministic_10km",
+        "ukmo_uk_deterministic_2km",
+      ],
+    },
     notes: [],
     warnings: [],
   },
@@ -55,15 +93,32 @@ export const STATIONS: Station[] = [
     lon: 11.7861,
     timezone: "Europe/Berlin",
     defaultUnit: "C",
-    primary: "icon_seamless",
-    primaryModels: ["icon_seamless", "icon_eu"],
-    shortRange: "icon_d2",
-    h6Model: "icon_d2",
-    backups: ["icon_eu", "meteofrance_seamless"],
-    domainExtras: ["icon_d2", "icon_eu"],
-    notes: [
-      "Short-range primary is icon_d2; general primary is icon_seamless / icon_eu.",
-    ],
+    // Calibrated ensemble (weather-analysis): native models, walk-forward bias
+    // corrections and blend recipe published by the VPS. No single model is
+    // significantly better than the runner-up; the corrected blend beats the
+    // best single model, so there is no "primary" any more. ICON-D2 is only the
+    // reference for the hourly chart and drivers.
+    primary: "icon_d2",
+    primaryModels: ["icon_d2"],
+    backups: [],
+    domainExtras: [],
+    ensemble: {
+      models: [
+        "dmi_harmonie_arome_europe",
+        "ecmwf_aifs025_single",
+        "ecmwf_ifs",
+        "ecmwf_ifs025",
+        "gem_global",
+        "gfs_global",
+        "icon_d2",
+        "icon_eu",
+        "icon_global",
+        "meteofrance_arome_france_hd",
+        "meteofrance_arpege_europe",
+        "ukmo_global_deterministic_10km",
+      ],
+    },
+    notes: [],
     warnings: [],
   },
   {
@@ -75,15 +130,34 @@ export const STATIONS: Station[] = [
     lon: 0.0553,
     timezone: "Europe/London",
     defaultUnit: "C",
-    primary: "ukmo_seamless",
-    primaryModels: ["ukmo_seamless"],
-    shortRange: "ukmo_uk_deterministic_2km",
-    h6Model: "ukmo_uk_deterministic_2km",
-    backups: ["icon_seamless"],
-    domainExtras: ["ukmo_uk_deterministic_2km"],
-    notes: [
-      "UKMO open-data on Open-Meteo can lag ~4 hours — treat freshness accordingly.",
-    ],
+    // Calibrated ensemble (weather-analysis): native models, walk-forward bias
+    // corrections and blend recipe published by the VPS. No single model is
+    // significantly better than the runner-up; the corrected blend beats the
+    // best single model, so there is no "primary" any more. ICON-D2 is only the
+    // reference for the hourly chart and drivers.
+    primary: "icon_d2",
+    primaryModels: ["icon_d2"],
+    backups: [],
+    domainExtras: [],
+    ensemble: {
+      models: [
+        "dmi_harmonie_arome_europe",
+        "ecmwf_aifs025_single",
+        "ecmwf_ifs",
+        "ecmwf_ifs025",
+        "gem_global",
+        "gfs_global",
+        "icon_d2",
+        "icon_eu",
+        "icon_global",
+        "knmi_harmonie_arome_netherlands",
+        "meteofrance_arome_france_hd",
+        "meteofrance_arpege_europe",
+        "ukmo_global_deterministic_10km",
+        "ukmo_uk_deterministic_2km",
+      ],
+    },
+    notes: [],
     warnings: [],
   },
   {

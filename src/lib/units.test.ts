@@ -1,14 +1,12 @@
 import { describe, expect, it } from "vitest";
 import {
   bucketIndexFor,
-  bucketProbabilities,
   cToF,
   fallbackBucketStep,
   fallbackBuckets,
   formatBucketRange,
   median,
   normalCdf,
-  sigmaFromMae,
 } from "./units";
 
 describe("fallback buckets", () => {
@@ -69,31 +67,6 @@ describe("probabilities", () => {
     expect(normalCdf(-1.96)).toBeCloseTo(0.025, 3);
   });
 
-  it("sigmaFromMae uses sqrt(pi/2)", () => {
-    expect(sigmaFromMae(1)).toBeCloseTo(1.2533, 3);
-  });
-
-  it("bucket probabilities sum to 1 over a full partition", () => {
-    const buckets = [
-      { lo: null, hi: 69 },
-      { lo: 70, hi: 71 },
-      { lo: 72, hi: 73 },
-      { lo: 74, hi: 75 },
-      { lo: 76, hi: null },
-    ];
-    const p = bucketProbabilities(buckets, 72.4, 1.5);
-    expect(p).not.toBeNull();
-    const sum = (p as number[]).reduce((a, b) => a + b, 0);
-    expect(sum).toBeCloseTo(1, 6);
-    // The bucket containing the mean is the most likely one.
-    const argmax = (p as number[]).indexOf(Math.max(...(p as number[])));
-    expect(argmax).toBe(2);
-  });
-
-  it("returns null for an unusable sigma", () => {
-    expect(bucketProbabilities([{ lo: 1, hi: 2 }], 1.5, 0)).toBeNull();
-    expect(bucketProbabilities([{ lo: 1, hi: 2 }], Number.NaN, 1)).toBeNull();
-  });
 });
 
 describe("misc", () => {

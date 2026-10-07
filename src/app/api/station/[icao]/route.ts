@@ -1,5 +1,4 @@
 import { assembleStation } from "@/lib/assemble";
-import { parseBiasGrain, parseSeasonMode } from "@/lib/bias";
 import { getStation } from "@/config/stations";
 import type { MarketDay } from "@/lib/types";
 
@@ -32,11 +31,7 @@ export async function GET(
     url.searchParams.get("fresh") === "true";
 
   try {
-    const payload = await assembleStation(station.icao, day, compareAll, {
-      fresh,
-      seasonMode: parseSeasonMode(url.searchParams.get("season")),
-      biasGrain: parseBiasGrain(url.searchParams.get("grain")),
-    });
+    const payload = await assembleStation(station.icao, day, compareAll, { fresh });
     return Response.json(payload, {
       headers: {
         "Cache-Control": "private, max-age=30",

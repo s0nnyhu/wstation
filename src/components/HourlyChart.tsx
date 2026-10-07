@@ -41,7 +41,7 @@ export function HourlyChart({
   unit: TempUnit;
 }) {
   const models = data.forecast.models.filter((m) => m.available);
-  const [overlays, setOverlays] = useState<string[]>([data.forecast.primaryId]);
+  const [overlays, setOverlays] = useState<string[]>([data.forecast.referenceId]);
   const [showDrivers, setShowDrivers] = useState(true);
   const visible = overlays.filter((id) => models.some((m) => m.id === id));
 
@@ -58,18 +58,18 @@ export function HourlyChart({
     return row;
   });
 
-  // Peak marker computed on the primary's own hourly series so the dot always
+  // Peak marker computed on the reference model's own hourly series so the dot always
   // sits on the line it is drawn over (forecast.peak may come from the
   // short-range model).
-  const primaryPeak = data.forecast.hourly.reduce<{ time: string; tempC: number } | null>(
+  const referencePeak = data.forecast.hourly.reduce<{ time: string; tempC: number } | null>(
     (best, point) => {
-      const c = point.tempsC[data.forecast.primaryId];
+      const c = point.tempsC[data.forecast.referenceId];
       if (c == null) return best;
       return !best || c > best.tempC ? { time: point.time, tempC: c } : best;
     },
     null,
   );
-  const peakHour = primaryPeak ? hourLabel(primaryPeak.time) : null;
+  const peakHour = referencePeak ? hourLabel(referencePeak.time) : null;
   const nowHour = data.day === "today" ? localNowHhMm(data.localNow) : null;
   const metarNow =
     data.metar.latest?.tempC != null
@@ -244,17 +244,17 @@ export function HourlyChart({
                   dataKey={id}
                   name={id}
                   stroke={PALETTE[(idx >= 0 ? idx : 0) % PALETTE.length]}
-                  strokeWidth={id === data.forecast.primaryId ? 2.4 : 1.4}
+                  strokeWidth={id === data.forecast.referenceId ? 2.4 : 1.4}
                   dot={false}
                   connectNulls
                 />
               );
             })}
-            {primaryPeak && peakHour && visible.includes(data.forecast.primaryId) && (
+            {referencePeak && peakHour && visible.includes(data.forecast.referenceId) && (
               <ReferenceDot
                 yAxisId="temp"
                 x={peakHour}
-                y={convertTemp(primaryPeak.tempC, unit)}
+                y={convertTemp(referencePeak.tempC, unit)}
                 r={5}
                 fill="#f0b429"
                 stroke="#080b10"
