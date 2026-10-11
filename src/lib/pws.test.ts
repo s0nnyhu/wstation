@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { parseBuienradar, parseFmiSimple, parseMeteoFrance } from "./pws";
+import { keepNewest, parseBuienradar, parseFmiSimple, parseMeteoFrance } from "./pws";
+import type { PwsReading } from "./types";
 
 function element(time: string, value: string, param = "t2m"): string {
   return `
@@ -79,5 +80,31 @@ describe("Météo-France DPObs parsing", () => {
   it("returns blanks for an empty or null reading", () => {
     expect(parseMeteoFrance([])).toEqual({ tempC: null, obsTimeIso: null });
     expect(parseMeteoFrance([{ validity_time: "2026-10-11T18:12:00Z", t: null }]).tempC).toBeNull();
+  });
+});
+
+describe("keepNewest", () => {
+  const reading = (obsTimeIso: string | null, tempC: number | null, ok = true): PwsReading => ({
+    id: "100968",
+    source: "fmi",
+    url: "https://opendata.fmi.fi/wfs?fmisid=100968",
+    name: null,
+    tempC,
+    obsTimeIso,
+    ok,
+  });
+
+  it("keeps the previous reading when a backend serves an older slot", () => {
+    const prev = [reading("2026-10-11T19:40:00.000Z", 6.4)];
+    expect(keepNewest(prev, [reading("2026-10-11T19:30:00.000Z", 6.3)])).toEqual(prev);
+  });
+
+  it("takes newer readings and failures as they come", () => {
+    const prev = [reading("2026-10-11T19:40:00.000Z", 6.4)];
+    const newer = [reading("2026-10-11T19:50:00.000Z", 6.5)];
+    expect(keepNewest(prev, newer)).toEqual(newer);
+    const failed = [reading(null, null, false)];
+    expect(keepNewest(prev, failed)).toEqual(failed);
+    expect(keepNewest([], newer)).toEqual(newer);
   });
 });

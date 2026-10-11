@@ -268,6 +268,21 @@ export function pwsFailedPayload(error: unknown): PwsPayload {
   };
 }
 
+/**
+ * Per source, keep the previous reading when the new one is older. FMI's
+ * load-balanced backends disagree for ~10 min after each slot, alternating
+ * between the newest and the previous observation.
+ */
+export function keepNewest(prev: PwsReading[], next: PwsReading[]): PwsReading[] {
+  const byUrl = new Map(prev.map((p) => [p.url, p]));
+  return next.map((row) => {
+    const old = byUrl.get(row.url);
+    const regressed =
+      old?.ok && row.ok && old.obsTimeIso && row.obsTimeIso && old.obsTimeIso > row.obsTimeIso;
+    return regressed ? old : row;
+  });
+}
+
 export async function fetchPws(
   icao: string,
   opts: { fresh?: boolean } = {},
@@ -280,7 +295,7 @@ export async function fetchPws(
   const hit = cacheGet<PwsPayload>(key, PWS_TTL_MS);
   if (hit?.fresh && !opts.fresh) return hit.value;
 
-  const stations = await Promise.all(urls.map(fetchOne));
+  const stations = keepNewest(hit?.value.stations ?? [], await Promise.all(urls.map(fetchOne)));
   // Every source failed: serve the last good snapshot rather than blanks.
   if (!stations.some((s) => s.ok) && hit) {
     return { ...hit.value, stale: true, error: stations[0]?.error };
