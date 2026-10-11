@@ -67,3 +67,32 @@ export function zonedHhMm(iso: string | undefined | null, timeZone: string): str
     hourCycle: "h23",
   }).format(new Date(ms));
 }
+
+function tzOffsetMs(ms: number, timeZone: string): number {
+  const parts = Object.fromEntries(
+    new Intl.DateTimeFormat("en-US", {
+      timeZone,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hourCycle: "h23",
+    })
+      .formatToParts(new Date(ms))
+      .map((p) => [p.type, Number(p.value)]),
+  );
+  const wall = Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute, parts.second);
+  return wall - Math.floor(ms / 1000) * 1000;
+}
+
+/** Offset-less station-local `YYYY-MM-DDTHH:MM[:SS]` → ISO UTC, DST-aware. */
+export function zonedLocalToIso(local: string, timeZone: string): string | null {
+  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?$/.test(local)) return null;
+  const asUtc = Date.parse(`${local}Z`);
+  if (!Number.isFinite(asUtc)) return null;
+  // Second pass settles instants whose offset differs from the first guess (DST edges).
+  const guess = asUtc - tzOffsetMs(asUtc, timeZone);
+  return new Date(asUtc - tzOffsetMs(guess, timeZone)).toISOString();
+}

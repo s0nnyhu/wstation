@@ -14,6 +14,8 @@ export const PWS_STATIONS: Record<string, string[]> = {
   EFHK: [
     "https://opendata.fmi.fi/wfs?service=WFS&version=2.0.0&request=getFeature&storedquery_id=fmi::observations::weather::simple&fmisid=100968&parameters=t2m",
   ],
+  // KNMI Schiphol (06240) 10-minute obs, republished by Buienradar without a key.
+  EHAM: ["https://data.buienradar.nl/2.0/feed/json?stationid=6240"],
 };
 
 export function pwsUrlsFor(icao: string): string[] {

@@ -2,6 +2,7 @@ import { pwsUrlsFor } from "@/config/pws";
 import { cacheGet, cacheSet, PWS_TTL_MS } from "./cache";
 import { fetchRow } from "./hko";
 import { fetchWithBackoff } from "./http";
+import { zonedLocalToIso } from "./time";
 import type { PwsPayload, PwsReading } from "./types";
 import { wuApiKey } from "./wu";
 
@@ -149,11 +150,46 @@ async function fetchFmi(url: string): Promise<Hit> {
   return { name: null, ...parseFmiSimple(xml) };
 }
 
+// ---- Buienradar (KNMI stations) -----------------------------------------
+
+interface BuienradarFeed {
+  actual?: {
+    stationmeasurements?: Array<{
+      stationid?: number;
+      stationname?: string | null;
+      /** Europe/Amsterdam wall time, no offset. */
+      timestamp?: string | null;
+      temperature?: number | null;
+    }>;
+  };
+}
+
+/** One KNMI station's 10-minute reading from the Buienradar feed. */
+export function parseBuienradar(feed: BuienradarFeed, stationId: number): Hit {
+  const row = feed.actual?.stationmeasurements?.find((s) => s.stationid === stationId);
+  if (!row) throw new Error(`Buienradar station ${stationId} not in feed`);
+  return {
+    name: row.stationname?.replace(/^Meetstation\s+/i, "").trim() || null,
+    tempC: toNum(row.temperature),
+    obsTimeIso: row.timestamp ? zonedLocalToIso(row.timestamp, "Europe/Amsterdam") : null,
+  };
+}
+
+async function fetchBuienradar(url: string): Promise<Hit> {
+  const stationId = Number(new URL(url).searchParams.get("stationid"));
+  if (!Number.isInteger(stationId)) throw new Error("Buienradar stationid not found");
+  const text = await getText(url, { Accept: "application/json" }, 8_000);
+  return parseBuienradar(JSON.parse(text) as BuienradarFeed, stationId);
+}
+
 // ---- Public API ---------------------------------------------------------
 
 function describe(url: string): { id: string; source: PwsReading["source"] } {
   const u = new URL(url);
   if (u.hostname.endsWith("hko.gov.hk")) return { id: "HKO", source: "hko" };
+  if (u.hostname === "data.buienradar.nl") {
+    return { id: u.searchParams.get("stationid") ?? "", source: "buienradar" };
+  }
   if (u.hostname === "opendata.fmi.fi") {
     return { id: u.searchParams.get("fmisid") ?? "", source: "fmi" };
   }
@@ -168,6 +204,7 @@ const FETCHERS: Record<PwsReading["source"], (url: string) => Promise<Hit>> = {
   wunderground: fetchWu,
   hko: fetchHkoPortal,
   fmi: fetchFmi,
+  buienradar: fetchBuienradar,
 };
 
 async function fetchOne(url: string): Promise<PwsReading> {

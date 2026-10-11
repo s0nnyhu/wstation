@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseFmiSimple } from "./pws";
+import { parseBuienradar, parseFmiSimple } from "./pws";
 
 function element(time: string, value: string, param = "t2m"): string {
   return `
@@ -41,5 +41,28 @@ describe("FMI simple feature parsing", () => {
       obsTimeIso: null,
     });
     expect(parseFmiSimple(collection())).toEqual({ tempC: null, obsTimeIso: null });
+  });
+});
+
+describe("Buienradar feed parsing", () => {
+  const feed = {
+    actual: {
+      stationmeasurements: [
+        { stationid: 6260, stationname: "Meetstation De Bilt", timestamp: "2026-10-11T20:00:00", temperature: 11.2 },
+        { stationid: 6240, stationname: "Meetstation Schiphol", timestamp: "2026-10-11T20:00:00", temperature: 11.9 },
+      ],
+    },
+  };
+
+  it("picks the station and converts Amsterdam wall time to UTC", () => {
+    expect(parseBuienradar(feed, 6240)).toEqual({
+      name: "Schiphol",
+      tempC: 11.9,
+      obsTimeIso: "2026-10-11T18:00:00.000Z",
+    });
+  });
+
+  it("throws when the station is missing", () => {
+    expect(() => parseBuienradar(feed, 6370)).toThrow(/6370/);
   });
 });

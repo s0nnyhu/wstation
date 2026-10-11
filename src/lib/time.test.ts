@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { hoursUntilPeak, localNowHhMm, localNowHour, utcZLabel, zonedHhMm } from "./time";
+import {
+  hoursUntilPeak,
+  localNowHhMm,
+  localNowHour,
+  utcZLabel,
+  zonedHhMm,
+  zonedLocalToIso,
+} from "./time";
 
 describe("hoursUntilPeak", () => {
   it("uses the payload clock, not wall time", () => {
@@ -28,5 +35,22 @@ describe("utcZLabel / zonedHhMm", () => {
   it("converts init time into station-local HH:MM", () => {
     expect(zonedHhMm("2026-09-16T09:00:00.000Z", "Europe/Paris")).toBe("11:00");
     expect(zonedHhMm("2026-09-16T09:00:00.000Z", "Europe/London")).toBe("10:00");
+  });
+});
+
+describe("zonedLocalToIso", () => {
+  it("applies summer and winter offsets", () => {
+    expect(zonedLocalToIso("2026-10-11T20:00:00", "Europe/Amsterdam")).toBe("2026-10-11T18:00:00.000Z");
+    expect(zonedLocalToIso("2026-12-01T20:00", "Europe/Amsterdam")).toBe("2026-12-01T19:00:00.000Z");
+  });
+
+  it("handles the hours around a DST change", () => {
+    expect(zonedLocalToIso("2026-10-25T01:30:00", "Europe/Amsterdam")).toBe("2026-10-24T23:30:00.000Z");
+    expect(zonedLocalToIso("2026-10-25T04:00:00", "Europe/Amsterdam")).toBe("2026-10-25T03:00:00.000Z");
+  });
+
+  it("rejects malformed input", () => {
+    expect(zonedLocalToIso("2026-10-11 20:00", "Europe/Amsterdam")).toBeNull();
+    expect(zonedLocalToIso("", "Europe/Amsterdam")).toBeNull();
   });
 });
