@@ -252,11 +252,51 @@ async function fetchJma(url: string): Promise<Hit> {
   return { name: null, ...hit };
 }
 
+// ---- data.gov.sg (MSS 1-minute obs) -------------------------------------
+
+interface DataGovSgResponse {
+  code?: number;
+  errorMsg?: string | null;
+  data?: {
+    readings?: Array<{
+      timestamp?: string;
+      data?: Array<{ stationId?: string; value?: number | null }>;
+    }>;
+  };
+}
+
+/** One station's latest reading from the data.gov.sg v2 air-temperature feed. */
+export function parseDataGovSg(body: DataGovSgResponse, stationId: string): Pick<Hit, "tempC" | "obsTimeIso"> {
+  if (body.code !== 0) throw new Error(body.errorMsg || `data.gov.sg code ${body.code ?? "?"}`);
+  const reading = body.data?.readings?.[0];
+  const date = reading?.timestamp ? new Date(reading.timestamp) : null;
+  return {
+    tempC: toNum(reading?.data?.find((d) => d.stationId === stationId)?.value),
+    obsTimeIso: date && Number.isFinite(date.getTime()) ? date.toISOString() : null,
+  };
+}
+
+async function fetchDataGovSg(url: string): Promise<Hit> {
+  const stationId = new URL(url).searchParams.get("stationId");
+  if (!stationId) throw new Error("data.gov.sg stationId not found");
+  // Works without a key, but anonymous calls hit HTTP 429 after a few requests.
+  const key = process.env.SINGAPORE_API_KEY?.trim();
+  const text = await getText(
+    url,
+    { Accept: "application/json", ...(key ? { "x-api-key": key } : {}) },
+    8_000,
+  );
+  return { name: null, ...parseDataGovSg(JSON.parse(text) as DataGovSgResponse, stationId) };
+}
+
 // ---- Public API ---------------------------------------------------------
 
 function describe(url: string): { id: string; source: PwsReading["source"] } {
   const u = new URL(url);
   if (u.hostname.endsWith("hko.gov.hk")) return { id: "HKO", source: "hko" };
+  if (u.hostname === "api-open.data.gov.sg") {
+    return { id: u.searchParams.get("stationId") ?? "", source: "datagovsg" };
+  }
   if (u.hostname === "www.jma.go.jp") {
     return { id: new URLSearchParams(u.hash.slice(1)).get("amdno") ?? "", source: "jma" };
   }
@@ -283,6 +323,7 @@ const FETCHERS: Record<PwsReading["source"], (url: string) => Promise<Hit>> = {
   buienradar: fetchBuienradar,
   meteofrance: fetchMeteoFrance,
   jma: fetchJma,
+  datagovsg: fetchDataGovSg,
 };
 
 async function fetchOne(url: string): Promise<PwsReading> {

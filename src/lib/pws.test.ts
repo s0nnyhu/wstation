@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   keepNewest,
   parseBuienradar,
+  parseDataGovSg,
   parseFmiSimple,
   parseJmaPoint,
   parseMeteoFrance,
@@ -132,5 +133,31 @@ describe("JMA AMeDAS parsing", () => {
     };
     expect(parseJmaPoint(data)).toEqual({ tempC: 19.6, obsTimeIso: "2026-10-11T20:00:00.000Z" });
     expect(parseJmaPoint({})).toEqual({ tempC: null, obsTimeIso: null });
+  });
+});
+
+describe("data.gov.sg parsing", () => {
+  const body = {
+    code: 0,
+    data: {
+      readings: [
+        {
+          timestamp: "2026-10-12T04:43:00+08:00",
+          data: [
+            { stationId: "S107", value: 28.8 },
+            { stationId: "S24", value: 27.9 },
+          ],
+        },
+      ],
+    },
+  };
+
+  it("picks the station and converts SGT to UTC", () => {
+    expect(parseDataGovSg(body, "S24")).toEqual({ tempC: 27.9, obsTimeIso: "2026-10-11T20:43:00.000Z" });
+  });
+
+  it("returns no temperature when the station is absent, and throws on API errors", () => {
+    expect(parseDataGovSg(body, "S99").tempC).toBeNull();
+    expect(() => parseDataGovSg({ code: 17, errorMsg: "Invalid API key" }, "S24")).toThrow(/Invalid API key/);
   });
 });

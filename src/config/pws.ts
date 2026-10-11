@@ -22,6 +22,8 @@ export const PWS_STATIONS: Record<string, string[]> = {
   EHAM: ["https://data.buienradar.nl/2.0/feed/json?stationid=6240"],
   // JMA AMeDAS Haneda (44166), the RJTT airport sensor, 10-minute obs.
   RJTT: ["https://www.jma.go.jp/bosai/amedas/#amdno=44166&elem=temp"],
+  // MSS Changi Meteorological Station (S24), 1-minute obs via data.gov.sg (SINGAPORE_API_KEY).
+  WSSS: ["https://api-open.data.gov.sg/v2/real-time/api/air-temperature?stationId=S24"],
 };
 
 export function pwsUrlsFor(icao: string): string[] {

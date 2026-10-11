@@ -339,7 +339,7 @@ export interface DriversPayload {
 
 export interface PwsReading {
   id: string;
-  source: "awekas" | "wunderground" | "hko" | "fmi" | "buienradar" | "meteofrance" | "jma";
+  source: "awekas" | "wunderground" | "hko" | "fmi" | "buienradar" | "meteofrance" | "jma" | "datagovsg";
   url: string;
   name: string | null;
   /** Current air temperature, °C. */

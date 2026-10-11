@@ -28,6 +28,7 @@ Not financial advice. Always verify the market’s station, units, and rules.
 | ZHHH | Wuhan Tianhe | Asia/Shanghai | `icon_seamless` |
 | ZUUU | Chengdu Shuangliu | Asia/Shanghai | `ecmwf_aifs025_single` |
 | RJTT | Tokyo Haneda | Asia/Tokyo | `gfs_seamless` |
+| WSSS | Singapore Changi | Asia/Singapore | `ecmwf_ifs025` |
 
 Asia stays in °C. JMA Seamless is MSM at Shanghai and Tokyo, GSM at Shenzhen / Wuhan / Chengdu.
 
@@ -73,6 +74,7 @@ npm test        # vitest: ensemble parity with the pipeline, bucket parsing, con
 | `TMAX_LIVE_BIAS_URL` | `http://34.245.85.250:5006/biais.json` | Recipe published by the weather-analysis pipeline (VPS) |
 | `WU_API_KEY` | public web key | Optional. weather.com key for the WU observation panel (daily + hourly + current). App still runs without it (METAR-only fallback). |
 | `METEO_FRANCE_API_KEY` | unset | Optional. Météo-France API key subscribed to DPObs v2 — adds the 6-minute Le Bourget (95088001) obs to the LFPB PWS panel, about 3 min after each slot. |
+| `SINGAPORE_API_KEY` | unset | Optional. data.gov.sg API key — the WSSS PWS card reads 1-minute Changi (S24) obs. Works without it, but anonymous calls are rate-limited (HTTP 429). |
 
 No keys are required for the public Open-Meteo, aviationweather.gov and Polymarket Gamma APIs.
 
