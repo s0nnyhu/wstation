@@ -20,6 +20,8 @@ export const PWS_STATIONS: Record<string, string[]> = {
   ],
   // KNMI Schiphol (06240) 10-minute obs, republished by Buienradar without a key.
   EHAM: ["https://data.buienradar.nl/2.0/feed/json?stationid=6240"],
+  // JMA AMeDAS Haneda (44166), the RJTT airport sensor, 10-minute obs.
+  RJTT: ["https://www.jma.go.jp/bosai/amedas/#amdno=44166&elem=temp"],
 };
 
 export function pwsUrlsFor(icao: string): string[] {

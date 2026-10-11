@@ -213,11 +213,53 @@ async function fetchMeteoFrance(url: string): Promise<Hit> {
   return { name: null, ...parseMeteoFrance(JSON.parse(text) as MeteoFranceObs[]) };
 }
 
+// ---- JMA AMeDAS (10-minute obs) -----------------------------------------
+
+const JMA_AMEDAS = "https://www.jma.go.jp/bosai/amedas/data";
+
+/** `{ "20261012052000": { temp: [19.6, 0] } }`, keys in JST, flag 0 = normal. */
+type JmaPoint = Record<string, { temp?: [number | null, number] | null }>;
+
+/** Latest quality-flagged-normal temperature from a JMA AMeDAS point file. */
+export function parseJmaPoint(data: JmaPoint): Pick<Hit, "tempC" | "obsTimeIso"> {
+  for (const key of Object.keys(data).sort().reverse()) {
+    const [tempC, flag] = data[key].temp ?? [];
+    const m = key.match(/^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})$/);
+    if (tempC == null || flag !== 0 || !Number.isFinite(tempC) || !m) continue;
+    const date = new Date(`${m[1]}-${m[2]}-${m[3]}T${m[4]}:${m[5]}:${m[6]}+09:00`);
+    if (Number.isFinite(date.getTime())) return { tempC, obsTimeIso: date.toISOString() };
+  }
+  return { tempC: null, obsTimeIso: null };
+}
+
+/** Point files hold 3-hour JST blocks: `44166/20261012_03.json`. */
+function jmaBlockUrl(code: string, at: Date): string {
+  const [ymd, hour] = new Date(at.getTime() + 9 * 3_600_000).toISOString().slice(0, 13).split("T");
+  const block = Number(hour) - (Number(hour) % 3);
+  return `${JMA_AMEDAS}/point/${code}/${ymd.replaceAll("-", "")}_${String(block).padStart(2, "0")}.json`;
+}
+
+async function fetchJma(url: string): Promise<Hit> {
+  const code = new URLSearchParams(new URL(url).hash.slice(1)).get("amdno");
+  if (!code) throw new Error("JMA amdno not found");
+  const latest = new Date((await getText(`${JMA_AMEDAS}/latest_time.txt`, {}, 8_000)).trim());
+  if (!Number.isFinite(latest.getTime())) throw new Error("JMA latest_time unreadable");
+  const get = async (at: Date) =>
+    parseJmaPoint(JSON.parse(await getText(jmaBlockUrl(code, at), { Accept: "application/json" }, 8_000)));
+  let hit = await get(latest);
+  // Right after a block boundary the new file may not carry a temperature yet.
+  if (hit.tempC == null) hit = await get(new Date(latest.getTime() - 3 * 3_600_000));
+  return { name: null, ...hit };
+}
+
 // ---- Public API ---------------------------------------------------------
 
 function describe(url: string): { id: string; source: PwsReading["source"] } {
   const u = new URL(url);
   if (u.hostname.endsWith("hko.gov.hk")) return { id: "HKO", source: "hko" };
+  if (u.hostname === "www.jma.go.jp") {
+    return { id: new URLSearchParams(u.hash.slice(1)).get("amdno") ?? "", source: "jma" };
+  }
   if (u.hostname === "public-api.meteofrance.fr") {
     return { id: u.searchParams.get("id_station") ?? "", source: "meteofrance" };
   }
@@ -240,6 +282,7 @@ const FETCHERS: Record<PwsReading["source"], (url: string) => Promise<Hit>> = {
   fmi: fetchFmi,
   buienradar: fetchBuienradar,
   meteofrance: fetchMeteoFrance,
+  jma: fetchJma,
 };
 
 async function fetchOne(url: string): Promise<PwsReading> {

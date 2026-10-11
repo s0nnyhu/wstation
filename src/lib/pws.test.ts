@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { keepNewest, parseBuienradar, parseFmiSimple, parseMeteoFrance } from "./pws";
+import {
+  keepNewest,
+  parseBuienradar,
+  parseFmiSimple,
+  parseJmaPoint,
+  parseMeteoFrance,
+} from "./pws";
 import type { PwsReading } from "./types";
 
 function element(time: string, value: string, param = "t2m"): string {
@@ -106,5 +112,25 @@ describe("keepNewest", () => {
     const failed = [reading(null, null, false)];
     expect(keepNewest(prev, failed)).toEqual(failed);
     expect(keepNewest([], newer)).toEqual(newer);
+  });
+});
+
+describe("JMA AMeDAS parsing", () => {
+  it("takes the latest normal reading and converts JST to UTC", () => {
+    const data = {
+      "20261012051000": { temp: [19.7, 0] as [number, number] },
+      "20261012052000": { temp: [19.6, 0] as [number, number] },
+    };
+    expect(parseJmaPoint(data)).toEqual({ tempC: 19.6, obsTimeIso: "2026-10-11T20:20:00.000Z" });
+  });
+
+  it("skips missing or flagged slots", () => {
+    const data = {
+      "20261012050000": { temp: [19.6, 0] as [number, number] },
+      "20261012051000": { temp: [25.0, 5] as [number, number] },
+      "20261012052000": { temp: null },
+    };
+    expect(parseJmaPoint(data)).toEqual({ tempC: 19.6, obsTimeIso: "2026-10-11T20:00:00.000Z" });
+    expect(parseJmaPoint({})).toEqual({ tempC: null, obsTimeIso: null });
   });
 });
