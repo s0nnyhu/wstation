@@ -4,7 +4,11 @@
  * observation. Grouped by market ICAO.
  */
 export const PWS_STATIONS: Record<string, string[]> = {
-  LFPB: ["https://www.awekas.at/fr/instrument.php?id=46887"],
+  LFPB: [
+    "https://www.awekas.at/fr/instrument.php?id=46887",
+    // Météo-France 6-minute obs from the Le Bourget airport sensor (needs METEO_FRANCE_API_KEY).
+    "https://public-api.meteofrance.fr/public/DPObs/v2/station/infrahoraire-6m?id_station=95088001&format=json",
+  ],
   EDDM: [
     "https://www.awekas.at/fr/instrument.php?id=44077",
     "https://www.wunderground.com/dashboard/pws/IOBERD38",

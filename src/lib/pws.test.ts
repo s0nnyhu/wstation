@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseBuienradar, parseFmiSimple } from "./pws";
+import { parseBuienradar, parseFmiSimple, parseMeteoFrance } from "./pws";
 
 function element(time: string, value: string, param = "t2m"): string {
   return `
@@ -64,5 +64,20 @@ describe("Buienradar feed parsing", () => {
 
   it("throws when the station is missing", () => {
     expect(() => parseBuienradar(feed, 6370)).toThrow(/6370/);
+  });
+});
+
+describe("Météo-France DPObs parsing", () => {
+  it("converts kelvin to °C and reads the validity time", () => {
+    const rows = [
+      { validity_time: "2026-10-11T18:12:00Z", t: 288.15, t_10: 288.75 },
+    ];
+    expect(parseMeteoFrance(rows)).toEqual({ tempC: 15, obsTimeIso: "2026-10-11T18:12:00.000Z" });
+    expect(parseMeteoFrance([{ validity_time: "2026-10-11T18:18:00Z", t: 271.05 }]).tempC).toBe(-2.1);
+  });
+
+  it("returns blanks for an empty or null reading", () => {
+    expect(parseMeteoFrance([])).toEqual({ tempC: null, obsTimeIso: null });
+    expect(parseMeteoFrance([{ validity_time: "2026-10-11T18:12:00Z", t: null }]).tempC).toBeNull();
   });
 });

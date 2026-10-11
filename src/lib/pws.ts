@@ -182,11 +182,45 @@ async function fetchBuienradar(url: string): Promise<Hit> {
   return parseBuienradar(JSON.parse(text) as BuienradarFeed, stationId);
 }
 
+// ---- Météo-France DPObs v2 (6-minute obs) -------------------------------
+
+interface MeteoFranceObs {
+  validity_time?: string | null;
+  /** Air temperature, kelvin. `t_10`…`t_100` are soil temperatures. */
+  t?: number | null;
+}
+
+/** Latest 6-minute air temperature from a DPObs `station/infrahoraire-6m` response. */
+export function parseMeteoFrance(rows: MeteoFranceObs[]): Pick<Hit, "tempC" | "obsTimeIso"> {
+  const row = rows[0];
+  const kelvin = toNum(row?.t);
+  const date = row?.validity_time ? new Date(row.validity_time) : null;
+  return {
+    tempC: kelvin == null ? null : Math.round((kelvin - 273.15) * 10) / 10,
+    obsTimeIso: date && Number.isFinite(date.getTime()) ? date.toISOString() : null,
+  };
+}
+
+async function fetchMeteoFrance(url: string): Promise<Hit> {
+  const key = process.env.METEO_FRANCE_API_KEY?.trim();
+  if (!key) throw new Error("METEO_FRANCE_API_KEY not set");
+  // A browser User-Agent from Node gets the gateway's HTML bot page instead of JSON.
+  const text = await getText(
+    url,
+    { Accept: "application/json", apikey: key, "User-Agent": "WStation/0.1 (local Polymarket weather dashboard)" },
+    8_000,
+  );
+  return { name: null, ...parseMeteoFrance(JSON.parse(text) as MeteoFranceObs[]) };
+}
+
 // ---- Public API ---------------------------------------------------------
 
 function describe(url: string): { id: string; source: PwsReading["source"] } {
   const u = new URL(url);
   if (u.hostname.endsWith("hko.gov.hk")) return { id: "HKO", source: "hko" };
+  if (u.hostname === "public-api.meteofrance.fr") {
+    return { id: u.searchParams.get("id_station") ?? "", source: "meteofrance" };
+  }
   if (u.hostname === "data.buienradar.nl") {
     return { id: u.searchParams.get("stationid") ?? "", source: "buienradar" };
   }
@@ -205,6 +239,7 @@ const FETCHERS: Record<PwsReading["source"], (url: string) => Promise<Hit>> = {
   hko: fetchHkoPortal,
   fmi: fetchFmi,
   buienradar: fetchBuienradar,
+  meteofrance: fetchMeteoFrance,
 };
 
 async function fetchOne(url: string): Promise<PwsReading> {

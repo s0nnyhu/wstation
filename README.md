@@ -72,6 +72,7 @@ npm test        # vitest: ensemble parity with the pipeline, bucket parsing, con
 | `SYNOPTIC_TOKEN` | unset | Optional. Synoptic Data token (free tier) — reproduces the NOAA timeseries resolution feed exactly (5-minute ASOS obs). Without it the "Resolution high" is a lower bound from METAR body integers. |
 | `TMAX_LIVE_BIAS_URL` | `http://34.245.85.250:5006/biais.json` | Recipe published by the weather-analysis pipeline (VPS) |
 | `WU_API_KEY` | public web key | Optional. weather.com key for the WU observation panel (daily + hourly + current). App still runs without it (METAR-only fallback). |
+| `METEO_FRANCE_API_KEY` | unset | Optional. Météo-France API key subscribed to DPObs v2 — adds the 6-minute Le Bourget (95088001) obs to the LFPB PWS panel, about 3 min after each slot. |
 
 No keys are required for the public Open-Meteo, aviationweather.gov and Polymarket Gamma APIs.
 
