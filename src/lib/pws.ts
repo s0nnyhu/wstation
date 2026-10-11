@@ -117,27 +117,64 @@ async function fetchHkoPortal(): Promise<Hit> {
   };
 }
 
+// ---- FMI open data (WFS simple feature) ---------------------------------
+
+/** Latest non-NaN t2m from an fmi::observations::weather::simple response. */
+export function parseFmiSimple(xml: string): Pick<Hit, "tempC" | "obsTimeIso"> {
+  let latest: Pick<Hit, "tempC" | "obsTimeIso"> = { tempC: null, obsTimeIso: null };
+  for (const [el] of xml.matchAll(/<BsWfs:BsWfsElement[\s\S]*?<\/BsWfs:BsWfsElement>/g)) {
+    const param = el.match(/<BsWfs:ParameterName>([^<]*)</)?.[1]?.trim();
+    const time = el.match(/<BsWfs:Time>([^<]*)</)?.[1]?.trim();
+    const tempC = toNum(el.match(/<BsWfs:ParameterValue>([^<]*)</)?.[1]?.trim());
+    const date = time ? new Date(time) : null;
+    if (param !== "t2m" || tempC == null || !date || !Number.isFinite(date.getTime())) continue;
+    if (latest.obsTimeIso == null || date.toISOString() > latest.obsTimeIso) {
+      latest = { tempC, obsTimeIso: date.toISOString() };
+    }
+  }
+  return latest;
+}
+
+async function fetchFmi(url: string): Promise<Hit> {
+  const u = new URL(url);
+  // The default window is 12 h (~45 kB); the last hour is all we need.
+  if (!u.searchParams.has("starttime")) {
+    u.searchParams.set(
+      "starttime",
+      new Date(Date.now() - 60 * 60_000).toISOString().replace(/\.\d{3}Z$/, "Z"),
+    );
+  }
+  const xml = await getText(u.toString(), { Accept: "application/xml" }, 8_000);
+  // The simple feature carries no station name; the card shows the fmisid.
+  return { name: null, ...parseFmiSimple(xml) };
+}
+
 // ---- Public API ---------------------------------------------------------
 
 function describe(url: string): { id: string; source: PwsReading["source"] } {
   const u = new URL(url);
   if (u.hostname.endsWith("hko.gov.hk")) return { id: "HKO", source: "hko" };
+  if (u.hostname === "opendata.fmi.fi") {
+    return { id: u.searchParams.get("fmisid") ?? "", source: "fmi" };
+  }
   if (u.hostname.replace(/^www\./, "") === "wunderground.com") {
     return { id: wuPwsIdFromUrl(url), source: "wunderground" };
   }
   return { id: u.searchParams.get("id") ?? "", source: "awekas" };
 }
 
+const FETCHERS: Record<PwsReading["source"], (url: string) => Promise<Hit>> = {
+  awekas: fetchAwekas,
+  wunderground: fetchWu,
+  hko: fetchHkoPortal,
+  fmi: fetchFmi,
+};
+
 async function fetchOne(url: string): Promise<PwsReading> {
   const { id, source } = describe(url);
   const base = { id, source, url, name: null, tempC: null, obsTimeIso: null };
   try {
-    const hit =
-      source === "hko"
-        ? await fetchHkoPortal()
-        : source === "wunderground"
-          ? await fetchWu(url)
-          : await fetchAwekas(url);
+    const hit = await FETCHERS[source](url);
     return hit.tempC == null
       ? { ...base, ...hit, ok: false, error: "temperature missing" }
       : { ...base, ...hit, ok: true };

@@ -10,6 +10,10 @@ export const PWS_STATIONS: Record<string, string[]> = {
     "https://www.wunderground.com/dashboard/pws/IOBERD38",
   ],
   HKO: ["https://www.hko.gov.hk/en/wxinfo/awsgis/regional_portal.html"],
+  // FMI open data, 10-minute obs from the Helsinki-Vantaa airport sensor itself.
+  EFHK: [
+    "https://opendata.fmi.fi/wfs?service=WFS&version=2.0.0&request=getFeature&storedquery_id=fmi::observations::weather::simple&fmisid=100968&parameters=t2m",
+  ],
 };
 
 export function pwsUrlsFor(icao: string): string[] {
