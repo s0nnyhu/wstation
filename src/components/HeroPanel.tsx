@@ -6,8 +6,7 @@ import { describeMetar } from "@/lib/metarDecode";
 import { zonedHhMm } from "@/lib/time";
 import type { TrendPayload, TrendReason } from "@/lib/trend";
 import type { MarketDay, StationPayload, TempUnit } from "@/lib/types";
-import { convertDelta, convertTemp, formatTemp } from "@/lib/units";
-import { CopySnapshotButton } from "./CopySnapshotButton";
+import { convertDelta, formatTemp } from "@/lib/units";
 import { LocalClock } from "./LocalClock";
 import { OutLink } from "./OutLink";
 import { WeatherIcon } from "./WeatherIcon";
@@ -80,16 +79,6 @@ export function HeroPanel({
   const availableCount = data.forecast.models.filter((m) => m.available).length;
   const memberCount = ens?.selected?.length ?? 0;
 
-  // Resolution-style running high in the market unit (NOAA rounds integers).
-  const marketUnit: TempUnit = data.polymarket.unit ?? data.station.defaultUnit;
-  const synopticMax = data.synoptic.ok ? data.synoptic.resolutionMax : null;
-  const metarResolutionMax =
-    data.metar.resolutionMaxC != null
-      ? Math.round(convertTemp(data.metar.resolutionMaxC, marketUnit))
-      : null;
-  const resolutionMax = synopticMax ?? metarResolutionMax;
-  const resolutionSource = synopticMax != null ? "Synoptic (NOAA feed)" : "METAR body";
-
   const isHko = data.station.icao === "HKO";
   // Today's METAR max (HKO: Observatory max) and when it was reached, station-local.
   const dayMax = day === "today" ? data.metar.runningMaxC : null;
@@ -119,7 +108,6 @@ export function HeroPanel({
             <LocalClock timezone={data.station.timezone} compact />
           </p>
           <div className="mt-2 flex flex-wrap items-center gap-2">
-            <CopySnapshotButton data={data} unit={unit} />
             {data.station.polymarketUrl && (
               <OutLink href={data.station.polymarketUrl}>Polymarket</OutLink>
             )}
@@ -136,9 +124,6 @@ export function HeroPanel({
                 <OutLink href={data.wu.forecastUrl}>
                   {`WU forecast ${formatTemp(data.wu.ok ? data.wu.dailyMaxC : null, unit, 1)}`}
                 </OutLink>
-              )}
-              {data.station.wuHistoryUrl && (
-                <OutLink href={data.station.wuHistoryUrl}>WU history</OutLink>
               )}
               <OutLink href={data.husky.url ?? data.station.huskyUrl ?? `https://huskyweather.com/station/${data.station.icao}`}>
                 {`Husky ${formatTemp(data.husky.ok ? data.husky.dailyMaxC : null, unit, 1)}`}
@@ -261,11 +246,6 @@ export function HeroPanel({
 
         <div className="grid grid-cols-2 gap-2 text-sm sm:gap-3">
           <Stat
-            label="Market day"
-            value={data.marketDate}
-            hint={data.station.timezone}
-          />
-          <Stat
             label="Model spread"
             value={
               spread
@@ -276,47 +256,6 @@ export function HeroPanel({
               calibrated
                 ? `corrected, ${data.forecast.models.filter((m) => m.status === "selected" || m.status === "eligible").length} models${ens?.spreadC != null ? ` · σ ${ens.spreadC.toFixed(2)}°C` : ""}`
                 : `raw, ${availableCount} models`
-            }
-          />
-          <Stat
-            label="METAR now"
-            value={formatTemp(data.metar.latest?.tempC, unit, 1)}
-            hint={
-              data.metar.ok
-                ? "latest observation"
-                : (data.metar.error ?? "unavailable")
-            }
-          />
-          <Stat
-            label="Running high"
-            value={
-              day === "today"
-                ? formatTemp(data.metar.runningMaxC, unit, 1)
-                : "—"
-            }
-            hint={
-              day === "tomorrow"
-                ? "tomorrow not started"
-                : data.metar.runningMaxC == null
-                  ? "no METAR yet today"
-                  : "today’s METAR max (tenths)"
-            }
-          />
-          <Stat
-            label="Resolution high"
-            value={
-              day === "today" && resolutionMax != null
-                ? `${resolutionMax}°${marketUnit}`
-                : "—"
-            }
-            hint={
-              day === "tomorrow"
-                ? "tomorrow not started"
-                : resolutionMax == null
-                  ? "no observation yet"
-                  : synopticMax != null
-                    ? `${resolutionSource} · ${data.synoptic.observationCount} obs`
-                    : `${resolutionSource} · lower bound, 5-min obs unseen`
             }
           />
           <Stat
