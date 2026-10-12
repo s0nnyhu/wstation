@@ -2,16 +2,64 @@
 
 import { REGION_LABEL } from "@/config/stations";
 import { LEAD_LABEL } from "@/lib/ensemble";
+import { describeMetar } from "@/lib/metarDecode";
 import { zonedHhMm } from "@/lib/time";
+import type { TrendPayload, TrendReason } from "@/lib/trend";
 import type { MarketDay, StationPayload, TempUnit } from "@/lib/types";
-import { convertTemp, formatTemp } from "@/lib/units";
+import { convertDelta, convertTemp, formatTemp } from "@/lib/units";
 import { CopySnapshotButton } from "./CopySnapshotButton";
 import { LocalClock } from "./LocalClock";
 import { OutLink } from "./OutLink";
+import { WeatherIcon } from "./WeatherIcon";
 
 function formatPeak(time: string | undefined): string {
   if (!time) return "—";
   return time.includes("T") ? time.slice(11, 16) : time;
+}
+
+const TREND_LABEL: Record<TrendPayload["state"], { icon: string; text: string; tone: string }> = {
+  warming: { icon: "↗", text: "Still warming", tone: "text-hot" },
+  holding: { icon: "→", text: "Holding", tone: "text-ink" },
+  cooling: { icon: "↘", text: "Cooling", tone: "text-cyan" },
+  unstable: { icon: "⚠", text: "Unstable", tone: "text-warn" },
+};
+
+function formatDelta(deltaC: number, unit: TempUnit): string {
+  const v = convertDelta(deltaC, unit);
+  return `${v > 0 ? "+" : ""}${v.toFixed(1)}°${unit}`;
+}
+
+function reasonText(r: TrendReason, unit: TempUnit): string {
+  switch (r.kind) {
+    case "split":
+      return `models split ${formatTemp(r.loC, unit, 1)}–${formatTemp(r.hiC, unit, 1)} at ${r.at}`;
+    case "convective-now":
+      return "showers or thunder at the airport";
+    case "convective-soon":
+      return `showers likely ~${r.at}${r.prob != null ? ` (${r.prob}%)` : ""}`;
+    case "jump":
+      return `jumped ${formatDelta(r.deltaC, unit)} in ${r.minutes} min`;
+    case "contradiction":
+      return "observations going against the models";
+  }
+}
+
+/** One line: label, then the evidence behind it. */
+function trendParts(t: TrendPayload, unit: TempUnit): string[] {
+  const parts: string[] = [];
+  if (t.state === "unstable") parts.push(...t.reasons.map((r) => reasonText(r, unit)));
+  if (t.changeC != null && t.horizon) {
+    parts.push(`models ${formatDelta(t.changeC, unit)} by ${t.horizon} (${t.agree}/${t.families} agree)`);
+  }
+  if (t.obsSlopeCPerH != null) parts.push(`observed ${formatDelta(t.obsSlopeCPerH, unit)}/h`);
+  if (t.peakAt) parts.push(`peak ~${t.peakAt}`);
+  else if (t.peakPassed) parts.push("peak passed");
+  if (t.state !== "unstable" && t.upsideVsMaxC != null) {
+    if (t.upsideVsMaxC >= 0.3) parts.push(`could beat today's max by ${formatDelta(t.upsideVsMaxC, unit)}`);
+    else if (t.peakPassed) parts.push("today's max likely set");
+  }
+  if (t.state !== "unstable" && t.confidence === "low") parts.push("low confidence");
+  return parts;
 }
 
 export function HeroPanel({
@@ -44,6 +92,10 @@ export function HeroPanel({
   const isHko = data.station.icao === "HKO";
   // Today's METAR max (HKO: Observatory max) and when it was reached, station-local.
   const dayMax = day === "today" ? data.metar.runningMaxC : null;
+  const latestMetar = data.metar.ok && !isHko ? data.metar.latest : undefined;
+  const conditions = latestMetar?.raw
+    ? describeMetar(latestMetar, { lat: data.station.lat, lon: data.station.lon, unit })
+    : null;
 
   return (
     <section className="panel p-4 sm:p-6">
@@ -76,6 +128,34 @@ export function HeroPanel({
             {data.station.lon.toFixed(4)} · {isHko ? "observatory" : "airport"} ·{" "}
             <LocalClock timezone={data.station.timezone} compact />
           </p>
+          {conditions && conditions.parts.length > 0 && latestMetar && (
+            <p className="mt-1 break-words text-sm text-ink" title={latestMetar.raw}>
+              <WeatherIcon
+                kind={conditions.icon}
+                className="mr-1.5 inline-block h-4 w-4 align-[-3px] text-cyan"
+              />
+              <span className="text-mute">
+                METAR {zonedHhMm(latestMetar.observedAt, data.station.timezone)} ·
+              </span>{" "}
+              {conditions.parts.join(" · ")}
+            </p>
+          )}
+          {data.trend && (
+            <p
+              className="mt-1 break-words text-sm text-ink"
+              title="Next ~2 h: model hourly curves (one vote per family) re-anchored on the last METAR, the observed METAR slope, and instability signals (model split, showers/thunder, sudden jumps)."
+            >
+              <span className={`font-semibold ${TREND_LABEL[data.trend.state].tone}`}>
+                {TREND_LABEL[data.trend.state].icon} {TREND_LABEL[data.trend.state].text}
+              </span>
+              {trendParts(data.trend, unit).map((part) => (
+                <span key={part} className="text-mute">
+                  {" · "}
+                  {part}
+                </span>
+              ))}
+            </p>
+          )}
           <div className="mt-2 flex flex-wrap items-center gap-2">
             <CopySnapshotButton data={data} unit={unit} />
             {data.station.polymarketUrl && (
