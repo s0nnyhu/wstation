@@ -29,3 +29,18 @@ export const PWS_STATIONS: Record<string, string[]> = {
 export function pwsUrlsFor(icao: string): string[] {
   return PWS_STATIONS[icao.toUpperCase()] ?? [];
 }
+
+/**
+ * Weather sites without a public API, shown as "Other sources" with the max
+ * they forecast. IMGW points are given in the hash: name, lat, lon.
+ */
+export const OTHER_SOURCES: Record<string, string[]> = {
+  // Gridded forecast at the Le Bourget town centre (3.7 km south of the airport sensor).
+  LFPB: ["https://meteofrance.com/previsions-meteo-france/le-bourget/93350"],
+  // IMGW hybrid forecast (INCA nowcast, then AROME/ALARO) at the Okęcie station.
+  EPWA: ["https://meteo.imgw.pl/#name=Warszawa-Okecie&lat=52.1628&lon=20.9611"],
+};
+
+export function otherSourceUrlsFor(icao: string): string[] {
+  return OTHER_SOURCES[icao.toUpperCase()] ?? [];
+}

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ageLabel } from "@/lib/time";
-import type { PwsReading, StationPayload, TempUnit } from "@/lib/types";
+import { ageLabel, zonedHhMm } from "@/lib/time";
+import type { OtherSourceForecast, PwsReading, StationPayload, TempUnit } from "@/lib/types";
 import { convertDelta, formatTemp } from "@/lib/units";
 
 /** A PWS reading older than this no longer leads the METAR. */
@@ -93,8 +93,66 @@ function PwsCard({
   );
 }
 
+function OtherSourceCard({
+  row,
+  metarMaxC,
+  unit,
+  timeZone,
+}: {
+  row: OtherSourceForecast;
+  metarMaxC: number | null;
+  unit: TempUnit;
+  timeZone: string;
+}) {
+  const deltaC = row.ok && row.maxC != null && metarMaxC != null ? row.maxC - metarMaxC : null;
+  const peak = row.hourly.reduce<OtherSourceForecast["hourly"][number] | null>(
+    (best, p) => (!best || p.tempC > best.tempC ? p : best),
+    null,
+  );
+  return (
+    <div className="rounded-xl border border-line bg-surface-2 px-3 py-2.5">
+      <div className="flex items-baseline justify-between gap-2">
+        <div className="min-w-0 truncate text-[11px] uppercase tracking-[0.14em] text-mute">
+          <a href={row.url} target="_blank" rel="noreferrer" className="hover:text-ink hover:underline">
+            {row.source} · {row.name ?? row.id}
+          </a>
+        </div>
+        <div className="shrink-0 text-[11px] text-mute">forecast</div>
+      </div>
+      <div className="mt-1 flex items-baseline gap-3">
+        <div className="font-mono text-3xl font-semibold tabular sm:text-4xl">
+          {row.ok ? formatTemp(row.maxC, unit, 1) : "—"}
+        </div>
+        {deltaC != null && (
+          <div className="font-mono text-sm tabular text-mute" title="Forecast max minus today's METAR max">
+            {deltaC > 0 ? "+" : ""}
+            {convertDelta(deltaC, unit).toFixed(1)}° vs METAR max
+          </div>
+        )}
+      </div>
+      <div className="mt-0.5 text-[11px] text-mute">
+        {row.ok
+          ? row.maxScope === "remaining"
+            ? "max of the hours still ahead today (site has no full-day max)"
+            : "forecast max for the day"
+          : (row.error ?? "unavailable")}
+      </div>
+      {row.hourly.length > 0 && (
+        <div className="mt-2 flex flex-wrap gap-x-2.5 gap-y-0.5 font-mono text-[11px] tabular">
+          {row.hourly.map((p) => (
+            <span key={p.at} className={p === peak ? "text-amber" : "text-mute"}>
+              {zonedHhMm(p.at, timeZone).slice(0, 2)}h {formatTemp(p.tempC, unit, 1).replace(/°[CF]$/, "°")}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function PwsPanel({ data, unit }: { data: StationPayload; unit: TempUnit }) {
   const { pws, metar, station } = data;
+  const others = data.otherSources?.sources ?? [];
   const [now, setNow] = useState(() => Date.parse(pws.fetchedAt) || 0);
 
   useEffect(() => {
@@ -102,7 +160,7 @@ export function PwsPanel({ data, unit }: { data: StationPayload; unit: TempUnit 
     return () => window.clearInterval(id);
   }, []);
 
-  if (pws.stations.length === 0 && !pws.error) return null;
+  if (pws.stations.length === 0 && !pws.error && others.length === 0) return null;
 
   const metarC = metar.ok ? (metar.latest?.tempC ?? null) : null;
   const metarAt = metar.ok ? (metar.latest?.observedAt ?? null) : null;
@@ -111,7 +169,7 @@ export function PwsPanel({ data, unit }: { data: StationPayload; unit: TempUnit 
     <section className="panel p-3 sm:p-4">
       <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
         <h2 className="text-[11px] font-medium uppercase tracking-[0.16em] text-cyan">
-          Personal weather stations · live
+          Personal weather stations and other sources
         </h2>
         <span className="text-[11px] text-mute">
           METAR {formatTemp(metarC, unit, 1)}
@@ -120,7 +178,7 @@ export function PwsPanel({ data, unit }: { data: StationPayload; unit: TempUnit 
         </span>
       </div>
       {pws.stations.length === 0 ? (
-        <div className="text-sm text-warn">{pws.error ?? "PWS unavailable"}</div>
+        pws.error ? <div className="text-sm text-warn">{pws.error}</div> : null
       ) : (
         <div className="grid gap-2 sm:grid-cols-2">
           {pws.stations.map((row) => (
@@ -134,6 +192,22 @@ export function PwsPanel({ data, unit }: { data: StationPayload; unit: TempUnit 
               now={now}
             />
           ))}
+        </div>
+      )}
+      {others.length > 0 && (
+        <div className={pws.stations.length > 0 ? "mt-3" : ""}>
+          <h3 className="mb-2 text-[11px] uppercase tracking-[0.14em] text-mute">Other sources</h3>
+          <div className="grid gap-2 sm:grid-cols-2">
+            {others.map((row) => (
+              <OtherSourceCard
+                key={row.url}
+                row={row}
+                metarMaxC={data.day === "today" && metar.ok ? (metar.runningMaxC ?? null) : null}
+                unit={unit}
+                timeZone={station.timezone}
+              />
+            ))}
+          </div>
         </div>
       )}
     </section>

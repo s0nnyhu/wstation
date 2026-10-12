@@ -349,6 +349,28 @@ export interface PwsReading {
   error?: string;
 }
 
+/** A weather site's forecast for the market day ("Other sources" panel). */
+export interface OtherSourceForecast {
+  id: string;
+  source: "meteofrance.com" | "imgw";
+  url: string;
+  name: string | null;
+  /** Predicted max for the market day, °C. */
+  maxC: number | null;
+  /** "remaining": the site only covers the hours still ahead today. */
+  maxScope: "day" | "remaining";
+  /** Hourly temperatures on the market day (UTC ISO), when the site has them. */
+  hourly: Array<{ at: string; tempC: number }>;
+  ok: boolean;
+  error?: string;
+}
+
+export interface OtherSourcesPayload {
+  sources: OtherSourceForecast[];
+  fetchedAt: string;
+  error?: string;
+}
+
 export interface PwsPayload {
   stations: PwsReading[];
   fetchedAt: string;
@@ -368,6 +390,7 @@ export interface StationPayload {
   polymarket: PolymarketPayload;
   synoptic: SynopticPayload;
   pws: PwsPayload;
+  otherSources: OtherSourcesPayload;
   drivers: DriversPayload;
   /** Short-term outlook for today; null for tomorrow or without METAR/models. */
   trend: import("./trend").TrendPayload | null;

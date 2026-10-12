@@ -170,6 +170,7 @@ export function ensemblePayload(overrides: Partial<StationPayload> = {}): Statio
       stale: false,
     },
     pws: { stations: [], fetchedAt: "2026-09-16T09:00:00.000Z", stale: false },
+    otherSources: { sources: [], fetchedAt: "2026-09-16T09:00:00.000Z" },
     drivers: {
       modelId: "icon_d2",
       windowLabel: "",

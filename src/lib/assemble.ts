@@ -9,6 +9,7 @@ import { fetchMetar } from "./metar";
 import { modelLabel, pickConsensusRows, roleForModel } from "./models";
 import { buildDrivers } from "./drivers";
 import { buildTrend } from "./trend";
+import { fetchOtherSources, otherSourcesFailedPayload } from "./otherSources";
 import { withBudget } from "./http";
 import { fetchHuskyConsensus, huskyFailedPayload, huskyStationUrl } from "./husky";
 import { fetchWuDailyMax, wuFailedPayload } from "./wu";
@@ -204,7 +205,7 @@ export async function assembleStation(
   const SECONDARY_BUDGET_MS = 8_000;
   const requestedModels = modelsForRequest(station, compareAll);
   const runModels = [...new Set([...(station.ensemble?.models ?? []), ...requestedModels])];
-  const [forecast, metar, wu, husky, polymarket, synoptic, pws, runs, ensTemps, recipeFile] =
+  const [forecast, metar, wu, husky, polymarket, synoptic, pws, otherSources, runs, ensTemps, recipeFile] =
     await Promise.all([
       fetchOpenMeteoForecast(station, compareAll, opts),
       fetchMetar(station.icao, station.timezone, marketDate, opts),
@@ -244,6 +245,11 @@ export async function assembleStation(
         fetchPws(station.icao, opts).catch(pwsFailedPayload),
         SECONDARY_BUDGET_MS,
         pwsFailedPayload,
+      ),
+      withBudget(
+        fetchOtherSources(station.icao, marketDate, station.timezone, opts).catch(otherSourcesFailedPayload),
+        SECONDARY_BUDGET_MS,
+        otherSourcesFailedPayload,
       ),
       withBudget(
         fetchModelRuns(runModels, station).catch(() => new Map<string, ModelRun>()),
@@ -493,6 +499,7 @@ export async function assembleStation(
     polymarket,
     synoptic,
     pws,
+    otherSources,
     drivers: buildDrivers(hourly, peak?.time, local.iso, metar, station.primary),
     trend:
       day === "today"
