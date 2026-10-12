@@ -6,7 +6,7 @@ import { describeMetar } from "@/lib/metarDecode";
 import { zonedHhMm } from "@/lib/time";
 import type { TrendPayload, TrendReason } from "@/lib/trend";
 import type { MarketDay, StationPayload, TempUnit } from "@/lib/types";
-import { convertDelta, formatTemp } from "@/lib/units";
+import { convertDelta, convertTemp, formatTemp } from "@/lib/units";
 import { LocalClock } from "./LocalClock";
 import { OutLink } from "./OutLink";
 import { WeatherIcon } from "./WeatherIcon";
@@ -83,6 +83,24 @@ export function HeroPanel({
   // Today's METAR max (HKO: Observatory max) and when it was reached, station-local.
   const dayMax = day === "today" ? data.metar.runningMaxC : null;
   const latestMetar = data.metar.ok && !isHko ? data.metar.latest : undefined;
+  // Wunderground's forecast high, shown at headline size next to the model max.
+  const wuHigh = data.wu.ok ? (data.wu.predictedHighC ?? data.wu.dailyMaxC ?? null) : null;
+  const showWu = wuHigh != null && !isHko;
+  // Both headline numbers share one size; a step smaller when paired so they sit side by side.
+  const headlineSize = showWu
+    ? "text-4xl sm:text-6xl 2xl:text-7xl"
+    : "text-5xl sm:text-6xl lg:text-7xl";
+  const headlineRow = showWu ? "grid grid-cols-2 items-end gap-x-6 gap-y-4" : "";
+  const wuHeadline = showWu && (
+    <div className="min-w-0">
+      <div className="text-[11px] uppercase tracking-[0.16em] text-mute">
+        Wunderground forecast high
+      </div>
+      <div className={`mt-1 font-mono leading-none tabular text-cyan ${headlineSize}`}>
+        {formatTemp(wuHigh, unit, Number.isInteger(convertTemp(wuHigh, unit)) ? 0 : 1)}
+      </div>
+    </div>
+  );
   const conditions = latestMetar?.raw
     ? describeMetar(latestMetar, { lat: data.station.lat, lon: data.station.lon, unit })
     : null;
@@ -199,16 +217,21 @@ export function HeroPanel({
         <div>
           {calibrated && ens ? (
             <>
-              <div className="text-[11px] uppercase tracking-[0.16em] text-mute">
-                Most likely METAR high · calibrated ensemble
-              </div>
-              <div className="mt-1 flex flex-wrap items-end gap-3">
-                <div className="font-mono text-5xl leading-none tabular text-amber sm:text-6xl lg:text-7xl">
-                  {unit === "C" ? `${ens.kTop}°C` : formatTemp(ens.kTop ?? null, unit, 0)}
+              <div className={headlineRow}>
+                <div className="min-w-0">
+                  <div className="text-[11px] uppercase tracking-[0.16em] text-mute">
+                    Most likely METAR high · calibrated ensemble
+                  </div>
+                  <div className="mt-1 flex items-end gap-x-2">
+                    <div className={`font-mono leading-none tabular text-amber ${headlineSize}`}>
+                      {unit === "C" ? `${ens.kTop}°C` : formatTemp(ens.kTop ?? null, unit, 0)}
+                    </div>
+                    <div className={`pb-1 font-mono tabular text-ink ${showWu ? "text-base" : "text-xl"}`}>
+                      {ens.pTop != null ? `${Math.round(ens.pTop * 100)}%` : ""}
+                    </div>
+                  </div>
                 </div>
-                <div className="pb-1 font-mono text-xl tabular text-ink">
-                  {ens.pTop != null ? `${Math.round(ens.pTop * 100)}%` : ""}
-                </div>
+                {wuHeadline}
               </div>
               <div className="mt-2 text-sm break-words text-mute">
                 Blend {formatTemp(ens.blendC ?? null, unit, 1)} corrected ({memberCount} models) · raw{" "}
@@ -224,11 +247,16 @@ export function HeroPanel({
             </>
           ) : (
             <>
-              <div className="text-[11px] uppercase tracking-[0.16em] text-mute">
-                Raw model median · no calibrated correction
-              </div>
-              <div className="mt-1 font-mono text-5xl leading-none tabular text-ink sm:text-6xl lg:text-7xl">
-                {formatTemp(data.forecast.headlineC, unit, 1)}
+              <div className={headlineRow}>
+                <div className="min-w-0">
+                  <div className="text-[11px] uppercase tracking-[0.16em] text-mute">
+                    Raw model median · no calibrated correction
+                  </div>
+                  <div className={`mt-1 font-mono leading-none tabular text-ink ${headlineSize}`}>
+                    {formatTemp(data.forecast.headlineC, unit, 1)}
+                  </div>
+                </div>
+                {wuHeadline}
               </div>
               <div className="mt-2 text-sm break-words text-mute">
                 {data.station.ensemble
