@@ -19,7 +19,7 @@ export function Disclaimer() {
         >
           Open-Meteo
         </a>
-        . Observations are public METARs. Do not treat suggested buckets as a trade.
+        . Observations are public METARs. The Polymarket favorite is the market price, not a forecast.
       </p>
     </footer>
   );

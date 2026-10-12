@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { getStation } from "@/config/stations";
 import type { MarketDay, RegionFilter, StationPayload, TempUnit } from "@/lib/types";
 import { Disclaimer } from "./Disclaimer";
+import { Collapsible } from "./Collapsible";
 import { DriversPanel } from "./DriversPanel";
 import { HeroPanel } from "./HeroPanel";
 import { HourlyChart } from "./HourlyChart";
@@ -11,9 +12,7 @@ import { LocalClock } from "./LocalClock";
 import { ObservationTwin } from "./ObservationTwin";
 import { ModelsTable } from "./ModelsTable";
 import { PwsPanel } from "./PwsPanel";
-import { PolymarketPanel } from "./PolymarketPanel";
 import { StationSwitcher } from "./StationSwitcher";
-import { TradeHelper } from "./TradeHelper";
 
 type NavTarget = {
   icao: string;
@@ -387,6 +386,12 @@ export function Dashboard({
               busy ? "pointer-events-none opacity-50" : "opacity-100"
             }`}
           >
+            <HeroPanel
+              data={view}
+              unit={unit}
+              day={nav.day}
+              onDay={(day) => go({ day })}
+            />
             {warnings.map((warning) => (
               <div
                 key={warning}
@@ -395,33 +400,25 @@ export function Dashboard({
                 {warning}
               </div>
             ))}
-
-            {view.station.notes.map((note) => (
-              <div
-                key={note}
-                className="rounded-xl border border-line bg-surface px-4 py-3 text-sm text-mute"
-              >
-                {note}
-              </div>
-            ))}
-
             <PwsPanel data={view} unit={unit} />
-            <HeroPanel
-              data={view}
-              unit={unit}
-              day={nav.day}
-              onDay={(day) => go({ day })}
-            />
-            <ObservationTwin data={view} unit={unit} />
-            <DriversPanel data={view} />
-            <ModelsTable data={view} unit={unit} />
             <HourlyChart
               key={`${view.station.icao}-${view.day}`}
               data={view}
               unit={unit}
             />
-            <TradeHelper data={view} unit={unit} />
-            <PolymarketPanel data={view} />
+            <ObservationTwin data={view} unit={unit} />
+            <Collapsible title="Details" hint="model table, peak-window drivers, station notes">
+              {view.station.notes.map((note) => (
+                <div
+                  key={note}
+                  className="rounded-xl border border-line bg-surface px-4 py-3 text-sm text-mute"
+                >
+                  {note}
+                </div>
+              ))}
+              <ModelsTable data={view} unit={unit} />
+              <DriversPanel data={view} />
+            </Collapsible>
           </div>
         </main>
       </div>

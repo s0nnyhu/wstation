@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 import sample from "./__fixtures__/biais.sample.json";
 import {
   applyRecipe,
-  bucketProbabilities,
   effectiveInitUnix,
   findRecipe,
   leadFor,
@@ -169,26 +168,5 @@ describe("lead and recipe lookup", () => {
   it("rejects a stale or malformed file", () => {
     expect(parseRecipeFile(file, NOW + RECIPE_MAX_AGE_MS).ok).toBe(false);
     expect(parseRecipeFile({ foo: 1 }, NOW).ok).toBe(false);
-  });
-});
-
-describe("bucketProbabilities", () => {
-  it("sums integer probabilities into buckets, tails included", () => {
-    const probs = [
-      { k: 19, p: 0.1 },
-      { k: 20, p: 0.3 },
-      { k: 21, p: 0.4 },
-      { k: 22, p: 0.2 },
-    ];
-    const p = bucketProbabilities(
-      [
-        { lo: null, hi: 19 },
-        { lo: 20, hi: 20 },
-        { lo: 21, hi: 21 },
-        { lo: 22, hi: null },
-      ],
-      probs,
-    );
-    expect(p.map((x) => Number(x.toFixed(3)))).toEqual([0.1, 0.3, 0.4, 0.2]);
   });
 });

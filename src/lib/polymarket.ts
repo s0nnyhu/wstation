@@ -122,6 +122,16 @@ function toPayload(
   };
 }
 
+/** The market's favorite: the outcome with the highest Yes price (ties keep the first). */
+export function polymarketFavorite(buckets: PolymarketBucket[]): PolymarketBucket | null {
+  let best: PolymarketBucket | null = null;
+  for (const bucket of buckets) {
+    if (bucket.yesPrice == null) continue;
+    if (best?.yesPrice == null || bucket.yesPrice > best.yesPrice) best = bucket;
+  }
+  return best;
+}
+
 export function polymarketFailedPayload(
   icao: string,
   marketDate: string,

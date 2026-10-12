@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { parseBucketLabel } from "./polymarket";
+import { parseBucketLabel, polymarketFavorite } from "./polymarket";
+import type { PolymarketBucket } from "./types";
 
 describe("parseBucketLabel", () => {
   it("parses US 2 °F ranges and tails", () => {
@@ -24,5 +25,28 @@ describe("parseBucketLabel", () => {
   it("rejects labels that are not temperature buckets", () => {
     expect(parseBucketLabel("Yes")).toBeNull();
     expect(parseBucketLabel("Will it rain?")).toBeNull();
+  });
+});
+
+describe("polymarketFavorite", () => {
+  const bucket = (label: string, yesPrice: number | null): PolymarketBucket => ({
+    label,
+    lo: null,
+    hi: null,
+    unit: "C",
+    yesPrice,
+    bestBid: null,
+    bestAsk: null,
+  });
+
+  it("picks the highest Yes price and skips unpriced outcomes", () => {
+    const fav = polymarketFavorite([bucket("19°C", 0.12), bucket("20°C", 0.61), bucket("21°C", null), bucket("22°C", 0.2)]);
+    expect(fav?.label).toBe("20°C");
+  });
+
+  it("keeps the first of a tie, and returns null without prices", () => {
+    expect(polymarketFavorite([bucket("19°C", 0.5), bucket("20°C", 0.5)])?.label).toBe("19°C");
+    expect(polymarketFavorite([bucket("19°C", null)])).toBeNull();
+    expect(polymarketFavorite([])).toBeNull();
   });
 });

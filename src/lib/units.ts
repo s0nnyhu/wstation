@@ -1,4 +1,4 @@
-import type { Region, TempUnit } from "./types";
+import type { TempUnit } from "./types";
 
 export function cToF(c: number): number {
   return (c * 9) / 5 + 32;
@@ -21,53 +21,19 @@ export function formatTemp(
   return `${convertTemp(celsius, unit).toFixed(digits)}°${unit}`;
 }
 
+/** METAR wind (knots in) as km/h for °C views, mph for °F views. */
 export function formatMetarWind(
   dir: number | null | undefined,
   speedKt: number | null | undefined,
-  gustKt?: number | null,
+  gustKt: number | null | undefined,
+  unit: TempUnit,
 ): string {
   if (speedKt == null) return "—";
+  const speed = (kt: number) =>
+    unit === "F" ? `${Math.round(kt * 1.15078)}` : `${Math.round(kt * 1.852)}`;
   const heading = dir == null ? "VRB" : `${Math.round(dir)}°`;
-  const gust = gustKt != null ? ` G${Math.round(gustKt)}` : "";
-  return `${heading} ${Math.round(speedKt)} kt${gust}`;
-}
-
-export interface BucketRange {
-  lo: number;
-  hi: number;
-}
-
-/**
- * Bucket width Polymarket uses when the live event is unavailable:
- * US markets are 2 °F ranges aligned on even numbers ("70-71°F"),
- * European and Asian markets are single 1 °C values.
- */
-export function fallbackBucketStep(region: Region, unit: TempUnit): number {
-  return region === "america" && unit === "F" ? 2 : 1;
-}
-
-/** Bucket containing `resolvedInt` plus its two neighbours, aligned on `step`. */
-export function fallbackBuckets(
-  resolvedInt: number,
-  step: number,
-): BucketRange[] {
-  const lo = Math.floor(resolvedInt / step) * step;
-  return [-1, 0, 1].map((k) => ({
-    lo: lo + k * step,
-    hi: lo + k * step + step - 1,
-  }));
-}
-
-/** Index of the bucket containing an integer resolved value, or -1. */
-export function bucketIndexFor(
-  buckets: Array<{ lo: number | null; hi: number | null }>,
-  resolvedInt: number,
-): number {
-  return buckets.findIndex(
-    (b) =>
-      (b.lo == null || resolvedInt >= b.lo) &&
-      (b.hi == null || resolvedInt <= b.hi),
-  );
+  const gust = gustKt != null ? ` G${speed(gustKt)}` : "";
+  return `${heading} ${speed(speedKt)}${gust} ${unit === "F" ? "mph" : "km/h"}`;
 }
 
 /** Standard normal CDF (Abramowitz–Stegun 7.1.26, |err| < 1.5e-7). */
@@ -83,11 +49,6 @@ export function normalCdf(x: number): number {
   return 0.5 * (1 + sign * erf);
 }
 
-export function formatBucketRange(range: BucketRange, unit: TempUnit): string {
-  return range.lo === range.hi
-    ? `${range.lo}°${unit}`
-    : `${range.lo}-${range.hi}°${unit}`;
-}
 
 export function median(values: number[]): number | null {
   if (values.length === 0) return null;

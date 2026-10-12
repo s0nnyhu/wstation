@@ -2,7 +2,6 @@
 
 import { weatherCodeHint } from "@/lib/drivers";
 import type { StationPayload } from "@/lib/types";
-import { formatMetarWind } from "@/lib/units";
 
 function fmt(value: number | null | undefined, digits = 0, suffix = ""): string {
   if (value == null || Number.isNaN(value)) return "—";
@@ -82,25 +81,12 @@ export function DriversPanel({ data }: { data: StationPayload }) {
         />
       </div>
 
-      <p className="mt-3 text-xs text-mute">
-        METAR wind now{" "}
-        <span className="font-mono text-ink">
-          {formatMetarWind(
-            drivers.now.metarWindDirDeg,
-            drivers.now.metarWindKt,
-            drivers.now.metarGustKt,
-          )}
-        </span>
-        {drivers.now.cloudCover != null && (
-          <>
-            {" "}
-            · hourly now cloud {fmt(drivers.now.cloudCover, 0, "%")}
-            {drivers.now.precipProb != null
-              ? ` · precip ${fmt(drivers.now.precipProb, 0, "%")}`
-              : ""}
-          </>
-        )}
-      </p>
+      {drivers.now.cloudCover != null && (
+        <p className="mt-3 text-xs text-mute">
+          Hourly now: cloud {fmt(drivers.now.cloudCover, 0, "%")}
+          {drivers.now.precipProb != null ? ` · precip ${fmt(drivers.now.precipProb, 0, "%")}` : ""}
+        </p>
+      )}
     </section>
   );
 }

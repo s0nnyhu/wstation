@@ -1,7 +1,7 @@
 import { cacheGet, cacheSet } from "./cache";
 import { fetchWithBackoff } from "./http";
 import { normalCdf } from "./units";
-import type { MarketDay, PolymarketBucket } from "./types";
+import type { MarketDay } from "./types";
 
 /**
  * Calibrated multi-model forecast of the METAR daily max, computed live from
@@ -448,16 +448,4 @@ export function applyRecipe(
     range80: lo != null && hi != null ? { lo, hi } : null,
     truncatedAt: truncate ? mObs : null,
   };
-}
-
-/** Sum of P(k) over the integers of each Polymarket bucket (°C markets), tails included. */
-export function bucketProbabilities(
-  buckets: Array<Pick<PolymarketBucket, "lo" | "hi">>,
-  probs: Array<{ k: number; p: number }>,
-): number[] {
-  return buckets.map((b) =>
-    probs
-      .filter(({ k }) => (b.lo == null || k >= b.lo) && (b.hi == null || k <= b.hi))
-      .reduce((s, { p }) => s + p, 0),
-  );
 }

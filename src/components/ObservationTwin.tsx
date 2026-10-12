@@ -19,7 +19,7 @@ function formatWuWind(
   if (unit === "F") {
     return `${heading}${Math.round(kmh * 0.621371)} mph`;
   }
-  return `${heading}${Math.round(kmh * 0.539957)} kt`;
+  return `${heading}${Math.round(kmh)} km/h`;
 }
 
 function formatPressure(hPa: number | null | undefined): string {
@@ -146,7 +146,7 @@ export function ObservationTwin({
               <div className="mt-4 flex flex-col gap-3 min-[400px]:flex-row min-[400px]:items-end min-[400px]:justify-between min-[400px]:gap-3">
                 <div className="min-w-0">
                   <div className="text-[11px] uppercase tracking-[0.14em] text-mute">
-                    {day === "tomorrow" ? "Forecast high" : "Predicted high"}
+                    Forecast high
                   </div>
                   <div className="mt-1 font-mono text-3xl tabular text-amber sm:text-4xl">
                     {formatTemp(wuHigh, unit, 1)}
@@ -233,7 +233,7 @@ export function ObservationTwin({
               <div className="mt-4 flex flex-col gap-3 min-[400px]:flex-row min-[400px]:items-end min-[400px]:justify-between min-[400px]:gap-3">
                 <div className="min-w-0">
                   <div className="text-[11px] uppercase tracking-[0.14em] text-mute">
-                    Today&apos;s high
+                    Max today
                   </div>
                   <div className="mt-1 font-mono text-3xl tabular text-amber sm:text-4xl">
                     {day === "today" ? formatTemp(metarHigh, unit, 1) : "—"}
@@ -280,6 +280,7 @@ export function ObservationTwin({
                     metar.latest.windDirDeg,
                     metar.latest.windSpeedKt,
                     metar.latest.windGustKt,
+                    unit,
                   ),
                   formatHumidity(metar.latest.humidityPct),
                   formatPressure(metar.latest.altimeterHPa),

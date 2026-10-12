@@ -42,7 +42,7 @@ export function HourlyChart({
 }) {
   const models = data.forecast.models.filter((m) => m.available);
   const [overlays, setOverlays] = useState<string[]>([data.forecast.referenceId]);
-  const [showDrivers, setShowDrivers] = useState(true);
+  const [showDrivers, setShowDrivers] = useState(false);
   const visible = overlays.filter((id) => models.some((m) => m.id === id));
 
   const chartData = data.forecast.hourly.map((point) => {

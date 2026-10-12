@@ -168,7 +168,7 @@ export function PwsPanel({ data, unit }: { data: StationPayload; unit: TempUnit 
   return (
     <section className="panel p-3 sm:p-4">
       <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
-        <h2 className="text-[11px] font-medium uppercase tracking-[0.16em] text-cyan">
+        <h2 className="text-sm font-medium uppercase tracking-[0.16em] text-mute">
           Personal weather stations and other sources
         </h2>
         <span className="text-[11px] text-mute">

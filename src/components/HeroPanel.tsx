@@ -3,6 +3,7 @@
 import { REGION_LABEL } from "@/config/stations";
 import { LEAD_LABEL } from "@/lib/ensemble";
 import { describeMetar } from "@/lib/metarDecode";
+import { polymarketFavorite } from "@/lib/polymarket";
 import { zonedHhMm } from "@/lib/time";
 import type { MarketDay, StationPayload, TempUnit } from "@/lib/types";
 import { convertTemp, formatTemp } from "@/lib/units";
@@ -36,6 +37,9 @@ export function HeroPanel({
   // Today's METAR max (HKO: Observatory max) and when it was reached, station-local.
   const dayMax = day === "today" ? data.metar.runningMaxC : null;
   const latestMetar = data.metar.ok && !isHko ? data.metar.latest : undefined;
+  const pm = data.polymarket;
+  const favorite = pm.ok ? polymarketFavorite(pm.buckets) : null;
+  const marketUrl = pm.url ?? data.station.polymarketUrl;
   // Wunderground's forecast high, shown at headline size next to the model max.
   const wuHigh = data.wu.ok ? (data.wu.predictedHighC ?? data.wu.dailyMaxC ?? null) : null;
   const showWu = wuHigh != null && !isHko;
@@ -121,8 +125,27 @@ export function HeroPanel({
         </div>
       </div>
 
-      {(dayMax != null || conditions) && (
-        <div className="mt-4 grid gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+      {(favorite || dayMax != null || conditions) && (
+        <div className="mt-4 grid grid-cols-2 gap-2 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)]">
+          {favorite && (
+            <InfoCard label="Polymarket" title={pm.title ?? undefined}>
+              <a
+                href={marketUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="block font-mono text-2xl font-semibold tabular text-ink hover:text-cyan sm:text-3xl"
+              >
+                {favorite.label}
+              </a>
+              <div className="mt-0.5 text-xs text-mute">
+                favorite · {favorite.yesPrice != null ? `${Math.round(favorite.yesPrice * 100)}¢ Yes` : "no price"}
+                {favorite.bestBid != null && favorite.bestAsk != null
+                  ? ` · bid ${Math.round(favorite.bestBid * 100)} / ask ${Math.round(favorite.bestAsk * 100)}`
+                  : ""}
+                {pm.closed ? " · closed" : ""}
+              </div>
+            </InfoCard>
+          )}
           {dayMax != null && (
             <InfoCard label="Max today">
               <div className="font-mono text-2xl font-semibold tabular text-amber sm:text-3xl">
@@ -140,6 +163,7 @@ export function HeroPanel({
             <InfoCard
               label={`METAR ${zonedHhMm(latestMetar.observedAt, data.station.timezone)} · now`}
               title={latestMetar.raw}
+              className="col-span-2 lg:col-span-1"
             >
               <div className="flex items-center gap-2">
                 <WeatherIcon kind={conditions.icon} className="h-5 w-5 shrink-0 text-cyan" />
