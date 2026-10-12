@@ -401,11 +401,6 @@ export function Dashboard({
               </div>
             ))}
             <PwsPanel data={view} unit={unit} />
-            <HourlyChart
-              key={`${view.station.icao}-${view.day}`}
-              data={view}
-              unit={unit}
-            />
             <ObservationTwin data={view} unit={unit} />
             <Collapsible title="Details" hint="model table, peak-window drivers, station notes">
               {view.station.notes.map((note) => (
@@ -419,6 +414,11 @@ export function Dashboard({
               <ModelsTable data={view} unit={unit} />
               <DriversPanel data={view} />
             </Collapsible>
+            <HourlyChart
+              key={`${view.station.icao}-${view.day}`}
+              data={view}
+              unit={unit}
+            />
           </div>
         </main>
       </div>
