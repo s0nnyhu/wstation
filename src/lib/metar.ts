@@ -265,7 +265,8 @@ export async function fetchMetar(
 
 /**
  * Running maxes for the market local day:
- * - `runningMaxC`: physical max (tenths when the T-group is present)
+ * - `runningMaxC`: physical max (tenths when the T-group is present), and
+ *   `runningMaxAt` the first time it was reached
  * - `resolutionMaxC`: max of the integer body values, which is what the
  *   NOAA timeseries page rounds from (ASOS 5-minute obs are integer °C).
  */
@@ -283,7 +284,9 @@ export function runningMax(
   let body: number | null = null;
   for (const obs of observations) {
     if (zonedDate(obs.observedAt, timezone) !== marketDate) continue;
-    if (max == null || obs.tempC > max) {
+    // On ties keep the first time the max was reached (input is newest-first).
+    const earlier = at == null || Date.parse(obs.observedAt) < Date.parse(at);
+    if (max == null || obs.tempC > max || (obs.tempC === max && earlier)) {
       max = obs.tempC;
       at = obs.observedAt;
     }

@@ -2,6 +2,7 @@
 
 import { REGION_LABEL } from "@/config/stations";
 import { LEAD_LABEL } from "@/lib/ensemble";
+import { zonedHhMm } from "@/lib/time";
 import type { MarketDay, StationPayload, TempUnit } from "@/lib/types";
 import { convertTemp, formatTemp } from "@/lib/units";
 import { CopySnapshotButton } from "./CopySnapshotButton";
@@ -41,6 +42,8 @@ export function HeroPanel({
   const resolutionSource = synopticMax != null ? "Synoptic (NOAA feed)" : "METAR body";
 
   const isHko = data.station.icao === "HKO";
+  // Today's METAR max (HKO: Observatory max) and when it was reached, station-local.
+  const dayMax = day === "today" ? data.metar.runningMaxC : null;
 
   return (
     <section className="panel p-4 sm:p-6">
@@ -56,6 +59,17 @@ export function HeroPanel({
             <span className="rounded-md border border-line bg-surface-2 px-1.5 py-0.5 text-[10px] uppercase tracking-[0.12em] text-mute">
               {REGION_LABEL[data.station.region]}
             </span>
+            {dayMax != null && (
+              <span className="text-sm text-mute">
+                Maximum {isHko ? "HKO" : "METAR"} of the day{" "}
+                <span className="font-mono font-semibold tabular text-amber">
+                  {formatTemp(dayMax, unit, 1)}
+                </span>
+                {data.metar.runningMaxAt
+                  ? ` at ${zonedHhMm(data.metar.runningMaxAt, data.station.timezone)}`
+                  : ""}
+              </span>
+            )}
           </div>
           <p className="mt-1 break-words text-sm text-mute">
             {data.station.city} · {data.station.lat.toFixed(4)},{" "}

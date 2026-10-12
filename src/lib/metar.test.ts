@@ -47,6 +47,19 @@ describe("runningMax", () => {
     expect(r.resolutionMaxC).toBe(19);
   });
 
+  it("dates a plateau max at the first time it was reached", () => {
+    // Newest first, as fetchMetar sorts them: 20 °C held from 12:30Z to 17:30Z.
+    const observations = [
+      obs("2026-10-12T17:30:00Z", 20, 20),
+      obs("2026-10-12T15:00:00Z", 20, 20),
+      obs("2026-10-12T12:30:00Z", 20, 20),
+      obs("2026-10-12T12:00:00Z", 19, 19),
+    ];
+    const r = runningMax(observations, "Europe/Paris", "2026-10-12");
+    expect(r.runningMaxC).toBe(20);
+    expect(r.runningMaxAt).toBe("2026-10-12T12:30:00Z");
+  });
+
   it("returns nulls when no observation falls on the market day", () => {
     const r = runningMax(
       [obs("2026-09-11T06:53:00Z", 14.0, 14)],
