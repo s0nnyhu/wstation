@@ -4,9 +4,8 @@ import { REGION_LABEL } from "@/config/stations";
 import { LEAD_LABEL } from "@/lib/ensemble";
 import { describeMetar } from "@/lib/metarDecode";
 import { zonedHhMm } from "@/lib/time";
-import type { TrendPayload, TrendReason } from "@/lib/trend";
 import type { MarketDay, StationPayload, TempUnit } from "@/lib/types";
-import { convertDelta, convertTemp, formatTemp } from "@/lib/units";
+import { convertTemp, formatTemp } from "@/lib/units";
 import { LocalClock } from "./LocalClock";
 import { OutLink } from "./OutLink";
 import { WeatherIcon } from "./WeatherIcon";
@@ -14,52 +13,6 @@ import { WeatherIcon } from "./WeatherIcon";
 function formatPeak(time: string | undefined): string {
   if (!time) return "—";
   return time.includes("T") ? time.slice(11, 16) : time;
-}
-
-const TREND_LABEL: Record<TrendPayload["state"], { icon: string; text: string; tone: string }> = {
-  warming: { icon: "↗", text: "Still warming", tone: "text-hot" },
-  holding: { icon: "→", text: "Holding", tone: "text-ink" },
-  cooling: { icon: "↘", text: "Cooling", tone: "text-cyan" },
-  unstable: { icon: "⚠", text: "Unstable", tone: "text-warn" },
-};
-
-function formatDelta(deltaC: number, unit: TempUnit): string {
-  const v = convertDelta(deltaC, unit);
-  if (Math.abs(v) < 0.05) return `±0.0°${unit}`;
-  return `${v > 0 ? "+" : ""}${v.toFixed(1)}°${unit}`;
-}
-
-function reasonText(r: TrendReason, unit: TempUnit): string {
-  switch (r.kind) {
-    case "split":
-      return `models split ${formatTemp(r.loC, unit, 1)}–${formatTemp(r.hiC, unit, 1)} at ${r.at}`;
-    case "convective-now":
-      return "showers or thunder at the airport";
-    case "convective-soon":
-      return `showers likely ~${r.at}${r.prob != null ? ` (${r.prob}%)` : ""}`;
-    case "jump":
-      return `jumped ${formatDelta(r.deltaC, unit)} in ${r.minutes} min`;
-    case "contradiction":
-      return "observations going against the models";
-  }
-}
-
-/** One line: label, then the evidence behind it. */
-function trendParts(t: TrendPayload, unit: TempUnit): string[] {
-  const parts: string[] = [];
-  if (t.state === "unstable") parts.push(...t.reasons.map((r) => reasonText(r, unit)));
-  if (t.changeC != null && t.horizon) {
-    parts.push(`models ${formatDelta(t.changeC, unit)} by ${t.horizon} (${t.agree}/${t.families} agree)`);
-  }
-  if (t.obsSlopeCPerH != null) parts.push(`observed ${formatDelta(t.obsSlopeCPerH, unit)}/h`);
-  if (t.peakAt) parts.push(`peak ~${t.peakAt}`);
-  else if (t.peakPassed) parts.push("peak passed");
-  if (t.state !== "unstable" && t.upsideVsMaxC != null) {
-    if (t.upsideVsMaxC >= 0.3) parts.push(`could beat today's max by ${formatDelta(t.upsideVsMaxC, unit)}`);
-    else if (t.peakPassed) parts.push("today's max likely set");
-  }
-  if (t.state !== "unstable" && t.confidence === "low") parts.push("low confidence");
-  return parts;
 }
 
 export function HeroPanel({
@@ -168,8 +121,8 @@ export function HeroPanel({
         </div>
       </div>
 
-      {(dayMax != null || conditions || data.trend) && (
-        <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)_minmax(0,1.3fr)]">
+      {(dayMax != null || conditions) && (
+        <div className="mt-4 grid gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           {dayMax != null && (
             <InfoCard label="Max today">
               <div className="font-mono text-2xl font-semibold tabular text-amber sm:text-3xl">
@@ -196,18 +149,6 @@ export function HeroPanel({
                 <span className="min-w-0 text-sm text-ink">{conditions.parts[0]}</span>
               </div>
               <DetailList items={conditions.parts.slice(1)} />
-            </InfoCard>
-          )}
-          {data.trend && (
-            <InfoCard
-              label="Next 2 hours"
-              title="Model hourly curves (one vote per family) re-anchored on the last METAR, the observed METAR slope, and instability signals (model split, showers/thunder, sudden jumps)."
-              className="sm:col-span-2 lg:col-span-1"
-            >
-              <div className={`text-lg font-semibold ${TREND_LABEL[data.trend.state].tone}`}>
-                {TREND_LABEL[data.trend.state].icon} {TREND_LABEL[data.trend.state].text}
-              </div>
-              <DetailList items={trendParts(data.trend, unit)} />
             </InfoCard>
           )}
         </div>

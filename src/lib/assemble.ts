@@ -8,7 +8,6 @@ import {
 import { fetchMetar } from "./metar";
 import { modelLabel, pickConsensusRows, roleForModel } from "./models";
 import { buildDrivers } from "./drivers";
-import { buildTrend } from "./trend";
 import { fetchOtherSources, otherSourcesFailedPayload } from "./otherSources";
 import { withBudget } from "./http";
 import { fetchHuskyConsensus, huskyFailedPayload, huskyStationUrl } from "./husky";
@@ -501,10 +500,6 @@ export async function assembleStation(
     pws,
     otherSources,
     drivers: buildDrivers(hourly, peak?.time, local.iso, metar, station.primary),
-    trend:
-      day === "today"
-        ? buildTrend({ hourly, metar, timezone: station.timezone, nowMs: Date.now() })
-        : null,
     compareAll,
   };
 }

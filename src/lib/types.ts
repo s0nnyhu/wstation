@@ -392,7 +392,5 @@ export interface StationPayload {
   pws: PwsPayload;
   otherSources: OtherSourcesPayload;
   drivers: DriversPayload;
-  /** Short-term outlook for today; null for tomorrow or without METAR/models. */
-  trend: import("./trend").TrendPayload | null;
   compareAll: boolean;
 }

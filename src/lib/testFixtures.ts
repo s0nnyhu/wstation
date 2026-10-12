@@ -196,7 +196,6 @@ export function ensemblePayload(overrides: Partial<StationPayload> = {}): Statio
       },
       flags: [],
     },
-    trend: null,
     compareAll: false,
     ...overrides,
   };
