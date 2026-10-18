@@ -171,7 +171,10 @@ export function parseBuienradar(feed: BuienradarFeed, stationId: number): Hit {
   return {
     name: row.stationname?.replace(/^Meetstation\s+/i, "").trim() || null,
     tempC: toNum(row.temperature),
-    obsTimeIso: row.timestamp ? zonedLocalToIso(row.timestamp, "Europe/Amsterdam") : null,
+    // The feed now appends a "Z", but the value is still Amsterdam wall time.
+    obsTimeIso: row.timestamp
+      ? zonedLocalToIso(row.timestamp.replace(/Z$/, ""), "Europe/Amsterdam")
+      : null,
   };
 }
 

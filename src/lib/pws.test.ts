@@ -70,6 +70,17 @@ describe("Buienradar feed parsing", () => {
     });
   });
 
+  it("treats a trailing Z as Amsterdam wall time, not UTC", () => {
+    const zFeed = {
+      actual: {
+        stationmeasurements: [
+          { stationid: 6240, stationname: "Meetstation Schiphol", timestamp: "2026-10-18T09:20:00Z", temperature: 10 },
+        ],
+      },
+    };
+    expect(parseBuienradar(zFeed, 6240).obsTimeIso).toBe("2026-10-18T07:20:00.000Z");
+  });
+
   it("throws when the station is missing", () => {
     expect(() => parseBuienradar(feed, 6370)).toThrow(/6370/);
   });
